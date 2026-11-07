@@ -1,14 +1,31 @@
 # SRMIST concept redesign: project context (compact handoff)
 
-Written 2026-11-07 so a new session or teammate can pick up without the chat history. The feature-by-feature table is in `README.md`; this file is the map, the decisions and the caveats.
+Written 2026-11-07, updated 2026-11-08, so a new session or teammate can pick up without the chat history. The feature-by-feature table is in `README.md`; this file is the map, the decisions and the caveats.
 
 ## What this is
 An independent **concept redesign** of srmist.edu.in (not official, and the footer says so). React 18 + Vite 5 + react-router 6, plain CSS with theme tokens, no UI framework. The landing page is the visual reference: cinematic hero, big serif headings, blue / sand / paper / ink bands, gold accents, square gold CTAs.
 
-- **Live:** https://srmist-home-pink.vercel.app (Vercel team `daas7`, project `srmist-home`, linked in `.vercel/project.json`)
+- **Repo:** https://github.com/Advika-Singh/srmist-website (branch `main`). Push by committing in this folder and `git push origin main`; `.env*`, `.vercel`, `node_modules`, `dist` are git-ignored.
+- **Live:** https://srmist-home-pink.vercel.app (Vercel team `daas7`, project `srmist-home`, linked in `.vercel/project.json`). **Last deployed 2026-11-07 (Placements). Everything listed under "Since the last deploy" below is in the repo and runs locally but is NOT deployed yet.**
 - **Local:** `npm run dev` (port 5174; the preview tool uses launch config `srmist-dev`)
-- **Tests:** `npm test` (node:test, 64 tests, pure logic only). **Build:** `npm run build`.
+- **Tests:** `npm test` (node:test, 85 tests, pure logic only). **Build:** `npm run build`.
 - **Deploy:** `npx vercel@latest deploy --prod --yes` (needs `vercel login` once; the account must belong to team `daas7`). Only deploy when asked.
+
+## Since the last deploy (2026-11-08, in the repo, not live)
+- **Search answer cards** (`lib/answers.js`, shown in `ui/SmartSearch.jsx`): "B.Tech CSE fees", "mbbs fees", "how long is b.tech", "last date to apply". Fee numbers come from `data/fees.js`, which is **illustrative** and labelled so; a campus named in the query adds "not campus-specific".
+- **Home deadline strip** (`ui/DeadlineStrip.jsx`, `deadlineLine()` in `lib/srmjeee.js`); "Was this helpful?" (`ui/Helpful.jsx`) under answer cards and DAAS replies.
+- **Search/assistant metrics**: `lib/searchStats.js` (`redact`, `summarise`, `logSearch`) and `POST /api/search-log` (`server/searchlog.js`, `api/search-log.js`). Writes one redacted `[search]` log line per event, stores nothing. Numbers to watch are in `docs/usability-test.md`.
+- **Student innovation** (`/innovation`, `ui/InnovationRail.jsx` on home, `ui/StoryCard.jsx`, chip on the department directory): four stories, each with a source I read (SRMSat via ISRO, Swift Student Challenge, Forge Inspira drone idea, SRM–Aman Aviation award). Add stories only with a primary source.
+- **Ask a current student** (`/ask-a-student`): seeded only from the sourced Career Centre stories; other topics show an empty state. "Ask a question" uses the existing `/support` form under a new category "Question for a current student" (added in `server/complaints.js` and `pages/Support.jsx`).
+- **Navigation**: ~40 official menu links merged into `data/nav.js`, wrong URLs corrected (Management, Law, Agri, Public Health, Sports). The scraped menu tree is `public/data/official-nav.json` (read through the browser pane, because srmist.edu.in returns 403 to scripts). `lib/clickDepth.js` + `tests/click-depth.test.js` fail the build if key pages get buried.
+- **Type system**: Playfair Display headings, DM Sans text, **Roboto Mono for small labels** (`.eyebrow`, `th`, `legend`), lining numerals everywhere (`body{font-variant-numeric:lining-nums}`; any rule that sets `tabular-nums` must also say `lining-nums`), and DM Sans's `&` replaced by Playfair Italic's swash `&` through an `Amp` font face (U+0026 only) at the front of `--sans` and `--mono`. Montserrat/Raleway were tried and dropped.
+- **Fixes from the design review**: dark-mode Admissions bar, `/day` now has an `h1`, ≥36px tap targets for contact links and form labels, `.cb-grid li>span` (stat numbers had been styled as 12px captions), footer caption contrast.
+
+## Decisions to remember
+- Telugu was dropped. The **DAAS email check after 3 messages** is deferred (plan Task 4 in `docs/superpowers/plans/2026-11-07-ux-brief-plan.md`): server-side per-IP limit + email one-time code via a mail provider (Brevo suggested; needs `MAIL_API_KEY`, `MAIL_FROM`, `VERIFY_SECRET`).
+- Mic/voice input and a hero pause button were built and then removed on request. The footer "Pause animations" toggle remains (WCAG 2.2.2).
+- No separate mobile Apply bar: the existing `AdmissionsFab` already covers it.
+- Plans and spec live in `docs/superpowers/`.
 
 ## Secrets and env
 - `GEMINI_API_KEY` is set on the Vercel project (production, hidden) and in local `.env` (not uploaded; see `.vercelignore`). It is only read server-side. **The key was pasted into chat once: rotate it** (Google AI Studio), then `vercel env rm/add GEMINI_API_KEY production` and redeploy.
@@ -44,7 +61,10 @@ An independent **concept redesign** of srmist.edu.in (not official, and the foot
 - Browser pane screenshots often lag one frame; take a second one.
 
 ## Known limits / next steps
-- Rotate the Gemini key; translations need native-speaker review; no screen-reader audit; dark mode and phone only spot-checked on newer pages.
+- Rotate the Gemini key; translations need native-speaker review; no screen-reader audit or keyboard-only test of the dropdown menus; dark mode and phone spot-checked on the main pages only.
+- Story cards could show the key fact (year, rank) in the panel instead of a generic icon; real photos need permission-cleared images.
+- Fee figures are illustrative until the official fee schedule is loaded into `data/fees.js`.
+- Design-review tooling note: contrast scripts misjudge text over photos and outline text; reload each page in each theme (`localStorage['srm-theme']`) before trusting numbers.
 - Real staff availability needs a data source (timetable export or staff-entered hours).
 - `/404` returns HTTP 200 (single-page app rewrite); campus filter hidden in staff finder (official data only ties people to Kattankulathur).
 - Staff data is a 2026-11-06 snapshot; refresh with the two scripts. SRMJEEE dates are tentative per SRMIST; update `data/srmjeee.js`.
