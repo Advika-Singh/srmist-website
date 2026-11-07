@@ -2,14 +2,17 @@ import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from 
 import ScrollTunnel from './ScrollTunnel.jsx'
 import { PROGRAMMES } from './data/programmes.js'
 import AudienceSwitch, { useAudience } from './ui/AudienceSwitch.jsx'
+import DeadlineStrip from './ui/DeadlineStrip.jsx'
 import { neighbours, orderFor } from './data/audiences.js'
 import { NIRF_RANKS as nirfRanks, RANK_STATS as rankStats } from './data/rankings.js'
 import { useLang } from './i18n.jsx'
 import CountUp from './ui/CountUp.jsx'
 import FieldIcon from './ui/FieldIcons.jsx'
+import InnovationRail from './ui/InnovationRail.jsx'
 import NewsRun from './ui/NewsRun.jsx'
 import { useScrollScenes } from './lib/useScrollScenes.js'
 import { useMotionOk } from './lib/useScrollProgress.js'
+import { shouldAutoplay } from './lib/motion.js'
 import { Arrow, ArrowUR, B, Footer, IMG, LINK, MainNav, Photo, Reveal, ex, preloadPhoto, prefersReducedMotion } from './shared.jsx'
 
 // The splash + photo shuffle only plays the first time the home page opens.
@@ -360,7 +363,7 @@ export default function Home() {
     HERO_CYCLE.forEach(([src]) => preloadPhoto(src, '100vw', undefined, 72))
     let i = 0
     const id = setInterval(() => {
-      if (document.body.classList.contains('motion-paused')) return
+      if (!shouldAutoplay({ reducedMotion: prefersReducedMotion(), paused: document.body.classList.contains('motion-paused'), tabHidden: document.hidden })) return
       i = (i + 1) % HERO_CYCLE.length
       setPhoto(HERO_CYCLE[i][0])
       setFrame(HERO_CYCLE[i][1])
@@ -410,6 +413,9 @@ export default function Home() {
       <Hero cinematic={cinematic} frame={frame} photo={photo} settled={settled} />
 
       <main className="home-curtain" id="main" tabIndex={-1}>
+        <div style={{ order: -2 }}>
+          <DeadlineStrip />
+        </div>
         <div style={{ order: -1 }}>
           <AudienceSwitch audience={audience} onChange={setAudience} />
         </div>
@@ -561,6 +567,9 @@ export default function Home() {
           </Reveal>
         </section>
 
+        <div style={at('news')}>
+          <InnovationRail />
+        </div>
         <section className="happenings" style={at('news')}>
           <Reveal className="section-heading">
             <span className="eyebrow">From the community</span>

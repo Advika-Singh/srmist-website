@@ -11,6 +11,7 @@ import { handleChat } from './chat.js'
 import { handleTranslate } from './translate.js'
 import { handleComplaints } from './complaints.js'
 import { handleEnquiry } from './enquiry.js'
+import { handleSearchLog } from './searchlog.js'
 import { handleStatus, startStatusSampler } from './status.js'
 import { applySecurityHeaders } from './security.js'
 
@@ -101,6 +102,12 @@ const server = http.createServer((req, res) => {
   }
   if (pathname === '/api/enquiry') {
     return handleEnquiry(req, res, process.env).catch(() => {
+      res.statusCode = 500
+      res.end('{"error":"Something went wrong."}')
+    })
+  }
+  if (pathname === '/api/search-log') {
+    return handleSearchLog(req, res, process.env).catch(() => {
       res.statusCode = 500
       res.end('{"error":"Something went wrong."}')
     })

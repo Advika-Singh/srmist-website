@@ -1,6 +1,7 @@
 import { handleChat } from './chat.js'
 import { handleComplaints } from './complaints.js'
 import { handleEnquiry } from './enquiry.js'
+import { handleSearchLog } from './searchlog.js'
 import { applySecurityHeaders } from './security.js'
 import { handleStatus } from './status.js'
 import { handleTranslate } from './translate.js'
@@ -30,6 +31,12 @@ export function geminiProxy(env) {
     })
     server.middlewares.use('/api/enquiry', (req, res) => {
       handleEnquiry(req, res, env).catch(() => {
+        res.statusCode = 500
+        res.end(JSON.stringify({ error: 'Something went wrong.' }))
+      })
+    })
+    server.middlewares.use('/api/search-log', (req, res) => {
+      handleSearchLog(req, res, env).catch(() => {
         res.statusCode = 500
         res.end(JSON.stringify({ error: 'Something went wrong.' }))
       })

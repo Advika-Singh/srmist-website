@@ -620,3 +620,42 @@ html[data-theme='dark'] body.home-white-nav .snav-strip .prefs-lang button{color
 html[data-theme='dark'] body.home-white-nav .snav-strip .prefs-lang button[aria-pressed='true']{background:#ffffff26;color:#fff;border-color:#ffffff80}
 html[data-theme='dark'] body.home-white-nav .snav-strip-links>a,html[data-theme='dark'] body.home-white-nav .snav-campuses>button{color:#d4d6d0}
 html[data-theme='dark'] body.home-white-nav .snav-strip .is-faculty{color:var(--gold)}
+
+/* Search: short answer card above the results (answers.js) */
+.palette-answer{margin:10px 14px 4px;padding:14px 16px;border:1px solid var(--line-strong,var(--line));border-left:4px solid var(--gold);border-radius:12px;background:var(--surface,#fff);display:grid;gap:6px;justify-items:start}
+.palette-answer b{font-family:var(--display);font-weight:500;font-size:1.15rem;letter-spacing:-.01em}
+.palette-answer p{margin:0;font-size:14px;line-height:1.5;color:var(--text-muted)}
+.palette-answer button{min-height:36px;padding:0 14px;border:1px solid var(--blue);border-radius:0;background:var(--blue);color:#fff;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.palette-answer button:hover{background:var(--ink)}
+
+/* Home: next SRMJEEE deadline strip (DeadlineStrip) */
+.deadline-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;padding:10px 6vw;background:var(--ink);color:#fff;font-size:13.5px;text-decoration:none;text-align:center}
+.deadline-strip b{color:var(--gold);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.deadline-strip:hover b{color:#fff}
+.deadline-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 #f2c14e88;animation:deadline-ping 2s infinite}
+@keyframes deadline-ping{70%{box-shadow:0 0 0 9px #f2c14e00}100%{box-shadow:0 0 0 0 #f2c14e00}}
+@media (prefers-reduced-motion:reduce){.deadline-dot{animation:none}}
+.deadline-strip:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
+
+
+/* Voice input and "Was this helpful?" (MicButton, Helpful) */
+.palette-input,.ai-form{position:relative}
+.helpful{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12.5px;color:var(--text-muted)}
+.helpful button{min-height:36px;min-width:44px;padding:0 12px;border:1px solid var(--line-strong,var(--line));border-radius:4px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.helpful button:hover{border-color:var(--blue);color:var(--blue)}
+.helpful[role='status']{margin-top:8px}
+
+/* Fixes from the design critique: dark Admissions bar, footer caption contrast, tap targets */
+html[data-theme='dark'] .portal-bar{background:#0e1217f7}
+html[data-theme='dark'] .portal-title{color:#ebeae3}
+.sketch-cap{color:#ffffffb3}
+.portal-back{display:inline-flex;align-items:center;min-height:36px}
+.svc a[href^='tel:'],.svc a[href^='mailto:'],.interior a[href^='tel:'],.interior a[href^='mailto:'],.portal a[href^='tel:'],.portal a[href^='mailto:']{display:inline-flex;align-items:center;min-height:36px}
+.svc-btn{min-height:40px}
+input[type='checkbox'],input[type='radio']{width:20px;height:20px}
+label:has(>input[type='checkbox']),label:has(>input[type='radio']){min-height:36px;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+
+/* Type: Playfair Display headings, DM Sans text, Roboto Mono for small labels. Figures are lining so dates and fees scan evenly. */
+body{font-variant-numeric:lining-nums}
+.eyebrow,th,legend,.sj-marks span,.sv-dept span{font-family:var(--mono)}
+.eyebrow{letter-spacing:.12em;font-weight:500}

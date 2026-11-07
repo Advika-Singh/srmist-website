@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { AUX, CAMPUSES, MENUS, STRIP } from './data/nav.js'
+import { ADMIT, AUX, CAMPUSES, MENUS, SRMJEEE_LINK, STRIP } from './data/nav.js'
 import { useLang } from './i18n.jsx'
 import Preferences from './ui/Preferences.jsx'
 import { ChatCards, cardsFor } from './ui/chatCards.jsx'
 import { openSearch } from './ui/SmartSearch.jsx'
 import SrmSketch from './ui/SrmSketch.jsx'
 import StaffIcon from './ui/StaffIcon.jsx'
+import Helpful from './ui/Helpful.jsx'
+import { logSearch } from './lib/searchStats.js'
 
 /* ---------- images ---------- */
 const img = (id, w = 1600) =>
@@ -296,6 +298,7 @@ export function Assistant() {
   const [loading, setLoading] = useState(false)
   const [pending, setPending] = useState(null)
   const endRef = useRef(null)
+  const { lang } = useLang()
 
   useEffect(() => {
     saveChat(messages)
@@ -435,6 +438,12 @@ export function Assistant() {
                     <button className="ai-follow-up" onClick={() => retry(m.retry)}>
                       Try again
                     </button>
+                  )}
+                  {m.text && !m.error && !m.waiting && (
+                    <Helpful
+                      key={`h${i}`}
+                      onVote={(v) => logSearch({ q: messages[i - 1]?.text ?? '', lang, results: m.links?.length ?? 0, clicked: false, helpful: v })}
+                    />
                   )}
                 </div>
               ),
@@ -590,10 +599,10 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
           </nav>
           <div className="snav-strip-right">
             <Preferences part="theme" />
-            <a className="snav-srmjee" href="/srmjeee">
+            <a className="snav-srmjee" href={SRMJEEE_LINK[1]}>
               SRMJEEE
             </a>
-            <a className="snav-admit snav-admit-top" href="/admissions">
+            <a className="snav-admit snav-admit-top" href={ADMIT[1]}>
               {t('Admissions 2027')}
             </a>
           </div>
@@ -663,7 +672,7 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
           </div>
 
           <div className="snav-mobile-actions">
-            <a className="snav-admit-m" href="/admissions">
+            <a className="snav-admit-m" href={ADMIT[1]}>
               {t('Admissions')} <b>2027</b>
             </a>
             <button className="snav-search" aria-label="Open search" onClick={openSearch}>
@@ -683,7 +692,7 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
 
         {/* mobile menu */}
         <div className={`snav-mobile ${mobile ? 'open' : ''}`}>
-          <a className="snav-srmjee-m" href="/srmjeee">
+          <a className="snav-srmjee-m" href={SRMJEEE_LINK[1]}>
             SRMJEEE 2027 registration
           </a>
           <Preferences />
@@ -738,7 +747,7 @@ const MOTION_KEY = 'srm-motion-paused'
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
-export function MotionToggle() {
+export function MotionToggle({ className = '' }) {
   const [paused, setPaused] = useState(() => {
     try {
       const saved = sessionStorage.getItem(MOTION_KEY)
@@ -755,8 +764,19 @@ export function MotionToggle() {
       /* storage unavailable: the choice just isn't remembered */
     }
   }, [paused])
+  // Several toggles can be on one page (hero and footer): keep them in step.
+  useEffect(() => {
+    const sync = (e) => setPaused(!!e.detail)
+    window.addEventListener('srm:motion', sync)
+    return () => window.removeEventListener('srm:motion', sync)
+  }, [])
+  const flip = () => {
+    const next = !paused
+    setPaused(next)
+    window.dispatchEvent(new CustomEvent('srm:motion', { detail: next }))
+  }
   return (
-    <button className="motion-toggle" aria-pressed={paused} onClick={() => setPaused((p) => !p)}>
+    <button className={`motion-toggle ${className}`.trim()} aria-pressed={paused} onClick={flip}>
       {paused ? 'Play animations' : 'Pause animations'}
     </button>
   )

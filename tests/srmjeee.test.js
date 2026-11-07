@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { checkEligibility, nextDeadline } from '../src/lib/srmjeee.js'
+import { checkEligibility, deadlineLine, nextDeadline } from '../src/lib/srmjeee.js'
 
 test('the next deadline is the first phase not yet closed, counted in whole days', () => {
   const a = nextDeadline(new Date('2026-11-06T10:00:00+05:30'))
@@ -33,4 +33,12 @@ test('59.9% or a missing compulsory subject falls short', () => {
 test('unanswered questions give "unknown", never a verdict', () => {
   assert.equal(checkEligibility({ status: '', aggregate: NaN, subjects: [] }).result, 'unknown')
   assert.equal(checkEligibility({ status: 'passed', aggregate: NaN, subjects: ['Physics', 'Mathematics', 'Chemistry'] }).result, 'unknown')
+})
+
+test('deadlineLine counts days, uses the singular for one day, says "last day" on the day, and is null once all have passed', () => {
+  assert.match(deadlineLine(new Date('2027-03-31T10:00:00+05:30')), /Phase 1.*2 days left/)
+  assert.match(deadlineLine(new Date('2027-04-01T10:00:00+05:30')), /1 day left/)
+  assert.doesNotMatch(deadlineLine(new Date('2027-04-01T10:00:00+05:30')), /1 days/)
+  assert.match(deadlineLine(new Date('2027-04-02T10:00:00+05:30')), /Last day/)
+  assert.equal(deadlineLine(new Date('2027-06-05T00:30:00+05:30')), null)
 })

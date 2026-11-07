@@ -28,6 +28,9 @@ export const CAMPUSES = [
 // Gold button, top right of the strip.
 export const ADMIT = ['Admissions 2027', '/admissions']
 
+// Outlined button next to it: the SRMJEEE page.
+export const SRMJEEE_LINK = ['SRMJEEE', '/srmjeee']
+
 // Small links next to the logo.
 export const AUX = [
   ['Library', '/library'],
@@ -50,10 +53,10 @@ export const MENUS = [
         title: 'Colleges',
         links: [
           ['Engineering & Technology', o('/college/college-of-engineering-technology/')],
-          ['Management', o('/college/college-of-management/')],
+          ['Management', o('/faculty-of-management/')],
           ['Science & Humanities', o('/college/college-of-science-and-humanities/')],
-          ['Law', o('/college/college-of-law/')],
-          ['Agricultural Sciences', o('/college/agriculture-sciences/')],
+          ['Law', 'https://law.srmist.edu.in/'],
+          ['Agricultural Sciences', o('/department/college-of-agriculture-sciences/')],
           ['Medicine & Health Sciences', o('/college/medicine-and-health-sciences/')],
         ],
       },
@@ -66,7 +69,7 @@ export const MENUS = [
           ['Physiotherapy', o('/department/college-of-physiotherapy/')],
           ['Occupational Therapy', o('/department/college-of-occupational-therapy/')],
           ['Nursing', o('/department/college-of-nursing/')],
-          ['Public Health', o('/department/school-of-public-health/')],
+          ['Public Health', o('/srm-school-of-public-health')],
         ],
       },
       {
@@ -78,6 +81,9 @@ export const MENUS = [
           ['Faculty & staff', '/teach.html'],
           ['Staff finder', '/staff-finder'],
           ['Library', '/library'],
+          ['Publications', o('/publications/')],
+          ['Faculty achievements', o('/faculty-gateway/faculty-achivements/')],
+          ['Visiting foreign faculty', o('/ir/visiting-foreign-faculty-members/')],
           ['Distance Education', 'https://srmistdistanceeducation.in/'],
           ['Online Education', 'https://www.srmonline.in/'],
         ],
@@ -99,6 +105,12 @@ export const MENUS = [
           ['Recent Projects', o('/research/projects/')],
           ['Sponsored Projects', o('/research/sponsored-projects/')],
           ['Ph.D Awarded', o('/research/ph-d-awarded/')],
+          ['Research Council', o('/research/university-research-council/')],
+          ['RDC', o('/research/research-and-development-cell/')],
+          ['Research Day', o('/research/research-day/')],
+          ['DPRC', o('/events/dprc/')],
+          ['SERI', o('/research/seri/')],
+          ['Thrust areas (PDF)', 'https://webstor.srmist.edu.in/web_assets/downloads/2023/thrust-area-of-research.pdf'],
         ],
       },
       {
@@ -111,6 +123,9 @@ export const MENUS = [
           ['Centre for Statistics', o('/research/research-wings/centre-for-statistics/')],
           ['HPCC', o('/research/hpcc/')],
           ['SCIF', o('/research/scif/')],
+          ['REACH', o('/?page_id=27133')],
+          ['SRM DBT Platform', o('/department/srm-dbt-platform/')],
+          ['Earthquake Research Cell', o('/research/research-wings/eqrc/')],
         ],
       },
       {
@@ -118,10 +133,14 @@ export const MENUS = [
         links: [
           ['MoUs & collaborations', o('/research/collaborations/')],
           ['Industry Connect', o('/research/industry-connect/')],
+          ['Student innovation', '/innovation'],
           ['Innovation & Incubation', o('/research/innovation-incubation/')],
           ['Entrepreneurship & Innovation', 'https://www.srmdei.com/'],
           ['Regulations & Forms', o('/research/research-regulations-and-forms/')],
           ['Awards & Recognition', o('/research/awards-and-recognition/')],
+          ['Multi-disciplinary Research', o('/research/multidisciplinary-research/')],
+          ['FAB LAB', 'https://fablab.srmiiec.com/'],
+          ['Call for Proposals', o('/research/call-for-proposals/')],
         ],
       },
     ],
@@ -136,10 +155,11 @@ export const MENUS = [
         links: [
           ['Overview', '/campus-life'],
           ['Art and Culture', o('/life-at-srm/culture/')],
-          ['Sports', o('/life-at-srm/sports/')],
+          ['Sports', o('/sports/')],
           ['Clubs', '/clubs'],
           ['NCC', o('/national-cadet-corps-ncc/')],
           ['NSS', o('/nss/')],
+          ['Tamil Perayam', o('/tamil-perayam/')],
           ['Student Affairs', '/clubs#dsa'],
         ],
       },
@@ -152,17 +172,24 @@ export const MENUS = [
           ['International Hostels', '/hostels#international'],
           ['Mess & Dining', '/hostels#mess'],
           ['Transport', o('/transport-facility/')],
+          ['Facilities & Operations', o('/life-at-srm/facilities-and-operations/')],
+          ['Safety & Security', o('/life-at-srm/getting-around-campus-safety/#housing-safety')],
         ],
       },
       {
         title: 'Community',
         links: [
+          ['Ask a current student', '/ask-a-student'],
           ['Student Counselling', o('/life-at-srm/student-counselling-services/')],
           ['Diversity', o('/life-at-srm/student-life/diversity/')],
           ['Public Service', o('/life-at-srm/public-service/')],
           ['SRM Muthucharam', o('/life-at-srm/muthucharam/')],
           ['Religious Life', o('/life-at-srm/student-life/religious-life/')],
           ['Anti-Ragging', o('/life-at-srm/anti-ragging/')],
+          ['Anti-Discrimination', o('/life-at-srm/anti-discrimination/')],
+          ['Community Centers', o('/life-at-srm/student-life/community-centers/')],
+          ['Milan (annual fest)', o('/events/milan-26/')],
+          ['Grievance Redressal', o('/life-at-srm/complaints-redressal/womens-grievance-redressal-committee/')],
         ],
       },
     ],
@@ -180,6 +207,7 @@ export const MENUS = [
           ['IAB Members', o('/ir/iab-members/')],
           ['Global Partnership', o('/ir/global-partnerships/')],
           ['International Research Network', o('/research/collaborations/')],
+          ['International Alumni Network', 'https://alumni.srmist.edu.in/'],
         ],
       },
       {
@@ -252,15 +280,22 @@ export const MENUS = [
           ['Accreditations & Rankings', '/rankings'],
           ['QS Ratings', o('/about-us/qs-ratings/')],
           ['Sustainability Impact (SDG)', o('/about-us/the-sustainability-impact-ratings/')],
+          ['Virtual tour 360°', 'https://webstor.srmist.edu.in/web_assets/srmist-virtual-tour-vo/index.htm'],
         ],
       },
       {
-        title: 'Leadership',
+        title: 'Leadership & offices',
         links: [
           ['Apex Leadership', o('/about-us/leadership-team/')],
           ['Governance', o('/about-us/governance/')],
           ['Administrative Heads', o('/about-us/administrative-heads/')],
           ['Academic Heads', o('/about-us/academic-heads/')],
+          ['IQAC', o('/iqac/')],
+          ['ITKM', o('/itkm/')],
+          ['Learning & Development', 'https://dld.srmist.edu.in/'],
+          ['Online & Distance Education (DODE)', o('/directorate-of-online-and-distance-education-dode/')],
+          ['Communications', o('/directorate-of-communications/')],
+          ['Alumni Affairs', o('/alumni-affairs/')],
         ],
       },
       {
@@ -270,6 +305,8 @@ export const MENUS = [
           ['Placements', '/placements'],
           ['Scholarships', '/scholarships'],
           ['News & events', '/events'],
+          ['Student achievements', o('/parents/student-achievements/')],
+          ['Announcements', o('/announcements/')],
         ],
       },
     ],

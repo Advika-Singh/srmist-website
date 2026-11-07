@@ -78,8 +78,8 @@
 .cb-grid li{position:relative;padding:34px 20px 30px 0;border-bottom:1px solid #ffffff40}
 .cb-grid li::after{content:"";position:absolute;left:0;bottom:-1px;height:3px;width:0;background:var(--gold);transition:width .6s var(--ease)}
 .cb-grid li:hover::after{width:calc(100% - 20px)}
-.cb-grid b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(2.8rem,6.2vw,6.5rem);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.cb-grid span{display:block;margin-top:10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#ffffffc7}
+.cb-grid b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(2.8rem,6.2vw,6.5rem);line-height:1;letter-spacing:-.04em;font-variant-numeric:lining-nums tabular-nums}
+.cb-grid li>span{display:block;margin-top:10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#ffffffc7}
 
 /* ---------- marquee ---------- */
 .mq{padding:clamp(36px,6vw,80px) 0;overflow:hidden;background:var(--paper);color:var(--ink)}
@@ -154,7 +154,7 @@
 .fcl-now article.is-on{opacity:1;transform:none;filter:none}
 .fcl-now b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,1.8vw,1.6rem);letter-spacing:-.02em;color:var(--gold)}
 .fcl-now p{margin-top:6px;max-width:34ch;font-size:14.5px;line-height:1.55;color:#ffffffc4}
-.fcl-count{font-size:12px;letter-spacing:.14em;color:#ffffff99;font-variant-numeric:tabular-nums}
+.fcl-count{font-size:12px;letter-spacing:.14em;color:#ffffff99;font-variant-numeric:lining-nums tabular-nums}
 .fcl-field{position:relative;container-type:size;overflow:hidden}
 .fcl-card{position:absolute;left:0;top:0;width:clamp(200px,34cqw,420px);margin:0;border-radius:12px;overflow:hidden;background:#111;box-shadow:0 24px 60px #0009;will-change:transform,opacity,filter}
 .fcl-card img{display:block;width:100%;height:100%;object-fit:cover}
@@ -179,7 +179,7 @@
 .iris-text h3{font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2.2vw,2rem);letter-spacing:-.02em;color:var(--gold)}
 .iris-text p{margin-top:6px;font-size:clamp(14px,1.3vw,17px);line-height:1.55;color:#ffffffd9}
 .iris-dots{position:absolute;right:3vw;top:50%;z-index:5;transform:translateY(-50%);display:grid;gap:14px;list-style:none;margin:0;padding:0}
-.iris-dots li{font-size:12px;letter-spacing:.12em;font-variant-numeric:tabular-nums;color:#ffffff80;display:flex;align-items:center;gap:10px;justify-content:flex-end}
+.iris-dots li{font-size:12px;letter-spacing:.12em;font-variant-numeric:lining-nums tabular-nums;color:#ffffff80;display:flex;align-items:center;gap:10px;justify-content:flex-end}
 .iris-dots li::after{content:"";width:18px;height:2px;background:currentColor;transition:width .4s var(--ease)}
 .iris-dots li.is-on{color:var(--gold)}.iris-dots li.is-on::after{width:42px}
 .iris-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;z-index:6;background:var(--gold);transform:scaleX(var(--iris-p,0));transform-origin:0 50%}

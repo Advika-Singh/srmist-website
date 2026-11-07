@@ -1,7 +1,11 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { INDEX } from '../data/search-index.js'
+import { useLang } from '../i18n.jsx'
+import { answerFor } from '../lib/answers.js'
 import { readHits, recordHit, search } from '../lib/search.js'
+import { logSearch } from '../lib/searchStats.js'
+import Helpful from './Helpful.jsx'
 
 const TYPE_LABEL = { action: 'Do', page: 'Page', programme: 'Programme' }
 
@@ -21,10 +25,13 @@ export default function SmartSearch() {
   const input = useRef(null)
   const opener = useRef(null)
   const listId = useId()
+  const { lang } = useLang()
+  const seen = useRef({ q: '', n: 0, clicked: false }) // what the visitor searched, for the (redacted) usage numbers
 
   useEffect(() => {
     const show = () => {
       opener.current = document.activeElement
+      seen.current = { q: '', n: 0, clicked: false }
       setQ('')
       setActive(0)
       setOpen(true)
@@ -51,11 +58,21 @@ export default function SmartSearch() {
   useEffect(() => {
     document.body.classList.toggle('palette-open', open)
     if (open) requestAnimationFrame(() => input.current?.focus())
-    else opener.current?.focus?.()
-  }, [open])
+    else {
+      opener.current?.focus?.()
+      // closed without opening anything: that search ended without a click
+      const s = seen.current
+      if (s.q.trim() && !s.clicked) logSearch({ q: s.q, lang, results: s.n, clicked: false })
+      seen.current = { q: '', n: 0, clicked: false }
+    }
+  }, [open]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const hits = useMemo(() => (open ? readHits() : {}), [open])
   const { results, corrected, suggestions } = useMemo(() => search(INDEX, q, hits), [q, hits])
+
+  const answer = useMemo(() => answerFor(q), [q])
+  seen.current.q = q
+  seen.current.n = results.length
 
   // The last row always hands the question to the assistant.
   const rows = useMemo(() => {
@@ -69,6 +86,8 @@ export default function SmartSearch() {
   const run = (row) => {
     if (!row) return
     recordHit(row.href)
+    if (q.trim()) logSearch({ q, lang, results: results.length, clicked: true })
+    seen.current.clicked = true
     setOpen(false)
     if (row.type === 'ai') return askAssistant(q.trim())
     if (row.href === '#ask') return askAssistant()
@@ -131,6 +150,25 @@ export default function SmartSearch() {
           <p className="palette-fix">
             Showing results for <button onClick={() => setQ(corrected)}>{corrected}</button>
           </p>
+        )}
+        {answer && (
+          <section className="palette-answer" aria-label="Quick answer">
+            <span className="palette-type">Answer</span>
+            <b>{answer.title}</b>
+            <p>{answer.body}</p>
+            <button
+              type="button"
+              onClick={() => {
+                logSearch({ q, lang, results: results.length, clicked: true })
+                seen.current.clicked = true
+                setOpen(false)
+                navigate(answer.href)
+              }}
+            >
+              {answer.kind === 'deadline' ? 'See the dates' : 'See details'}
+            </button>
+            <Helpful key={answer.title} onVote={(v) => logSearch({ q, lang, results: results.length, clicked: false, helpful: v })} />
+          </section>
         )}
         <p className="palette-label" id={`${listId}-label`}>
           {suggestions ? (Object.keys(hits).length ? 'Suggested for you' : 'Quick actions') : 'Results'}

@@ -37,7 +37,8 @@
 
   /* type */
   --display: 'Playfair Display', Georgia, serif;
-  --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'Amp', 'Roboto Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  --sans: 'Amp', 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem); /* 16–18px, never below 16 for reading text */
   --fs-small: 0.875rem; /* 14px minimum for meta text */
   --lh-body: 1.6;

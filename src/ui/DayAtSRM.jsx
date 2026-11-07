@@ -66,6 +66,7 @@ function Layers({ prefix }) {
 }
 
 export default function DayAtSRM({ style, startBg = 'var(--blue)', endBg = 'var(--blue)', standalone = false }) {
+  const Title = standalone ? 'h1' : 'h2' // the standalone /day page needs a page title
   const motionOk = useMotionOk()
   const { t } = useLang()
   const uid = useId()
@@ -162,7 +163,7 @@ export default function DayAtSRM({ style, startBg = 'var(--blue)', endBg = 'var(
     window.scrollTo({ top: r.getBoundingClientRect().top + window.scrollY + progressAtStop(i, n) * total, behavior: 'smooth' })
   }
 
-  if (!motionOk) return <FlatDay style={style} />
+  if (!motionOk) return <FlatDay style={style} standalone={standalone} />
 
   return (
     <section ref={root} className="day" style={{ ...style, height: '620vh' }} aria-labelledby={`${uid}-h`}>
@@ -217,9 +218,9 @@ export default function DayAtSRM({ style, startBg = 'var(--blue)', endBg = 'var(
           <div className="day-top">
             <div>
               <span className="eyebrow">{t('A day at SRM')}</span>
-              <h2 id={`${uid}-h`} className="day-title">
+              <Title id={`${uid}-h`} className="day-title">
                 One student. One day. <em>The real campus.</em>
-              </h2>
+              </Title>
             </div>
             <div className="day-clockbox" aria-hidden="true">
               <b ref={(el) => (hud.current.clock = el)}>06:45</b>
@@ -270,16 +271,17 @@ export default function DayAtSRM({ style, startBg = 'var(--blue)', endBg = 'var(
 }
 
 /** Phones, short screens and reduced motion: the same map, flat, with the route drawn and the stops listed. */
-function FlatDay({ style }) {
+function FlatDay({ style, standalone }) {
   const { t } = useLang()
+  const H = standalone ? 'h1' : 'h2' // the standalone /day page needs a page title
   const legD = day.legs.map((l) => 'M' + l.pts.map((p) => `${(p[0] - R.x).toFixed(1)} ${(p[1] - R.y).toFixed(1)}`).join('L'))
   const sky = skyFor(12)
   return (
     <section className="day-flat" style={{ ...style, '--d-ground': sky.ground, '--d-road': sky.road, '--d-casing': shade(sky.road, 0.62), '--d-b3': sky.building, '--d-glow': '#f2c84b' }} aria-labelledby="day-flat-h">
       <span className="eyebrow">{t('A day at SRM')}</span>
-      <h2 id="day-flat-h">
+      <H id="day-flat-h">
         One student. One day. <em>The real campus.</em>
-      </h2>
+      </H>
       <div className="day-flat-map">
         <svg viewBox={VIEWBOX} role="img" aria-label="Map of the campus with the route from the hostel to the Tech Park, Java Green, the library, the sports ground and back">
           <rect width={R.w} height={R.h} className="d-land" />

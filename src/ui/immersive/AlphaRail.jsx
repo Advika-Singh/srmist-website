@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
+import { storiesForDepartment } from '../../data/innovation.js'
 import { groupByLetter } from '../../lib/alpha.js'
+import '../../styles/innovation.css'
 import { ArrowUR } from '../../shared.jsx'
 
 /** A to Z directory: a sticky letter rail that jumps to a group, follows the scroll, and a faculty filter. items: [{ name, href, faculty }] */
@@ -67,6 +69,7 @@ export default function AlphaRail({ items, faculties, heading = 'Departments Aâ€
                       <ArrowUR />
                       <span className="sr-only"> (opens in a new tab)</span>
                     </a>
+                    <StoryChip href={d.href} />
                   </li>
                 ))}
               </ul>
@@ -76,5 +79,17 @@ export default function AlphaRail({ items, faculties, heading = 'Departments Aâ€
         </div>
       </div>
     </section>
+  )
+}
+
+/** "1 story" link under a department that student-innovation stories name; nothing for the rest. */
+function StoryChip({ href }) {
+  const slug = href.replace(/\/$/, '').split('/').pop()
+  const n = storiesForDepartment(slug).length
+  if (!n) return null
+  return (
+    <a className="al-stories" href={`/innovation?dept=${slug}`}>
+      {n} student {n === 1 ? 'story' : 'stories'}
+    </a>
   )
 }

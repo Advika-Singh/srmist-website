@@ -28,6 +28,7 @@ export const CATEGORIES = [
   'Academics & faculty',
   'Accessibility barrier',
   'Harassment or safety',
+  'Question for a current student',
   'Other',
 ]
 export const STATUSES = ['Received', 'In review', 'Assigned', 'Resolved', 'Closed']

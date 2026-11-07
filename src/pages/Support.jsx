@@ -13,6 +13,7 @@ const CATEGORIES = [
   'Academics & faculty',
   'Accessibility barrier',
   'Harassment or safety',
+  'Question for a current student',
   'Other',
 ]
 const STEPS = ['Received', 'In review', 'Assigned', 'Resolved']

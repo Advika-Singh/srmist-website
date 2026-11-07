@@ -32,3 +32,11 @@ export function checkEligibility({ status, aggregate, subjects }) {
   const result = lines.some((l) => l.ok === false) ? 'short' : lines.every((l) => l.ok === true) ? 'meets' : 'unknown'
   return { lines, result }
 }
+
+/** One line for the home-page strip, e.g. "SRMJEEE Phase 1: 12 days left to apply (deadline 2 April 2027)". null once every deadline has passed. */
+export function deadlineLine(now = new Date()) {
+  const d = nextDeadline(now)
+  if (!d) return null
+  if (d.daysLeft === 0) return `SRMJEEE Phase ${d.n}: Last day to apply is today (${d.deadlineLabel})`
+  return `SRMJEEE Phase ${d.n}: ${d.daysLeft} ${d.daysLeft === 1 ? 'day' : 'days'} left to apply (deadline ${d.deadlineLabel})`
+}

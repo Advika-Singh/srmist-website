@@ -13,3 +13,6 @@ export const windowProgress = (p, start, end) => clamp01((p - start) / (end - st
 
 /** Which of `count` equal stages a 0..1 progress falls in (never overflows). */
 export const stageIndex = (p, count) => (count <= 0 ? 0 : Math.min(count - 1, Math.floor(clamp01(p) * count * 0.999999)))
+
+/** Whether anything that moves by itself (the hero photo cycle) may advance right now. */
+export const shouldAutoplay = ({ reducedMotion, paused, tabHidden }) => !reducedMotion && !paused && !tabHidden
