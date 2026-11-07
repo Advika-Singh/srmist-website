@@ -1,0 +1,244 @@
+/*
+ * SRMIST accessibility theme — design tokens that meet WCAG 2.2 AA.
+ * Every text pair below is checked by `node reports/check-theme-contrast.mjs` (npm run audit:contrast).
+ * Required: 4.5:1 for body text, 3:1 for large text (24px, or 19px bold), UI borders and focus rings.
+ *
+ *   --ink on --paper        ≥ 15:1   body copy
+ *   --text-muted on --paper ≥ 7:1    captions and meta
+ *   --blue on --white       ≥ 8:1    links, primary buttons (white text on --blue is the same pair)
+ *   --ink on --gold         ≥ 10:1   call-to-action pills
+ *   --on-blue-muted on blue ≥ 6.5:1  secondary text over the blue sections
+ */
+:root {
+  /* colour */
+  --ink: #171814;
+  --paper: #f3f1e9;
+  --sand: #e7e2d2; /* a warmer, deeper cream for bands that must stand apart from paper */
+  --white: #ffffff;
+  --blue: #084b9b;
+  --blue-ink: var(--blue); /* the blue to use for TEXT: the same in light, lighter in dark */
+  --blue-dark: #06366f;
+  --gold: #f2c84b;
+  --lime: #d8f14c;
+  --lavender: #dcd5ff;
+
+  --text: var(--ink);
+  --text-muted: #4d4e49;
+  --text-placeholder: #6a6b65;
+  --on-blue: #ffffff;
+  --on-blue-muted: #d6e4f7;
+  --line: #17181429;
+  --line-strong: #6a6b65; /* 3:1+ borders for inputs and controls */
+
+  --success: #0f6b3a;
+  --danger: #a31f1f;
+  --focus: #084b9b;
+  --focus-on-dark: #f2c84b;
+
+  /* type */
+  --display: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem); /* 16–18px, never below 16 for reading text */
+  --fs-small: 0.875rem; /* 14px minimum for meta text */
+  --lh-body: 1.6;
+  --measure: 68ch; /* comfortable line length */
+
+  /* spacing and shape (4px scale) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 40px;
+  --s-7: 64px;
+  --radius: 12px;
+  --radius-pill: 999px;
+  --tap: 44px; /* minimum touch target */
+}
+
+/* Readable defaults */
+body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+::placeholder {
+  color: var(--text-placeholder);
+  opacity: 1;
+}
+small,
+.source-note {
+  font-size: var(--fs-small);
+}
+
+/* Focus is always visible, on light and dark surfaces */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.home-curtain :focus-visible,
+.snav-strip :focus-visible,
+.portal-hero :focus-visible,
+footer :focus-visible {
+  outline-color: var(--focus-on-dark);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Touch targets */
+@media (pointer: coarse) {
+  button,
+  .button,
+  .tab-list button,
+  select,
+  input:not([type='checkbox']):not([type='range']) {
+    min-height: var(--tap);
+  }
+}
+
+/* Respect the person's settings */
+@media (prefers-contrast: more) {
+  :root {
+    --line: #171814;
+    --text-muted: #171814;
+  }
+}
+@media (forced-colors: active) {
+  .adm-fab,
+  .button,
+  .tab-list button[aria-selected='true'] {
+    border: 2px solid ButtonText;
+  }
+}
+
+/* ---------- text size (A− A A+) ---------- */
+html[data-text='-1'] { font-size: 90%; }
+html[data-text='1'] { font-size: 112.5%; }
+html[data-text='2'] { font-size: 125%; }
+/* a lot of small interface text is set in px, so give those pieces a nudge as well */
+html[data-text='1'] .eyebrow, html[data-text='1'] small, html[data-text='1'] .snav-strip, html[data-text='1'] .snav-aux { zoom: 1.1; }
+html[data-text='2'] .eyebrow, html[data-text='2'] small, html[data-text='2'] .snav-strip, html[data-text='2'] .snav-aux { zoom: 1.2; }
+
+/* ---------- display settings control ---------- */
+.prefs { display: inline-flex; align-items: center; gap: 8px; }
+.prefs button { min-height: 28px; min-width: 28px; padding: 2px 8px; border-radius: 6px; border: 1px solid currentColor; background: transparent; color: inherit; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 5px; opacity: .92; }
+.prefs button:hover:not(:disabled) { opacity: 1; background: #ffffff26; }
+.prefs button:disabled { opacity: .35; cursor: default; }
+.prefs button[aria-pressed='true'] { background: #ffffff33; }
+.prefs-text { display: inline-flex; gap: 4px; }
+.prefs small { font-size: 11px; line-height: 1; }
+.snav-mobile .prefs { padding: 14px 0; color: #fff; flex-wrap: wrap; }
+.snav-mobile .prefs button { min-height: var(--tap); min-width: var(--tap); border-color: #ffffff99; opacity: 1; }
+
+/* ---------- dark theme ----------
+   Colour tokens flip, and the few places that hard-code a light surface or use --ink as a dark
+   background are listed below. Sections that are already dark (hero, blue bands, footer) are left as designed. */
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #0e1217;
+  --sand: #151b23;
+  --white: #171d25;
+  --surface: #171d25;
+  --ink: #ebeae3;
+  --text: #ebeae3;
+  --text-muted: #b4b7b0;
+  --text-placeholder: #8f938c;
+  --line: #ffffff26;
+  --line-strong: #7d827b;
+  --blue: #2f6fd0; /* fills with white text: 4.9:1 */
+  --blue-ink: #8dbaff; /* blue text on dark surfaces */
+  --blue-dark: #2459aa;
+  --success: #4ad08b;
+  --danger: #ff8a8a;
+  --focus: #7ab2ff;
+  --map-bg: #161b22;
+  --map-building: #2a313b;
+  --map-building-edge: #4a5360;
+  --map-named: #2f5aa0;
+  --map-road: #3b434e;
+  --map-casing: #0e1217;
+  --map-service: #2b323b;
+  --map-path: #8d939c;
+}
+html[data-theme='dark'] .svc { --svc-slow: #f0b84a; --svc-limited: #7ab2ff; }
+html[data-theme='dark'] .snav-strip,
+html[data-theme='dark'] footer { background: #080a0d; color: #ffffffd9; }
+html[data-theme='dark'] .snav-bar { background: #0e1217f2; }
+html[data-theme='dark'] .snav--overlay .snav-bar { background: transparent; }
+html[data-theme='dark'] .snav-drop,
+html[data-theme='dark'] .snav-mega,
+html[data-theme='dark'] .ai-panel { background: #12171d; }
+html[data-theme='dark'] .snav-drop a:hover { background: #1c242d; }
+html[data-theme='dark'] .button { background: #ebeae3; border-color: #ebeae3; color: #111; }
+html[data-theme='dark'] .button:hover { background: var(--lime); color: #111; }
+html[data-theme='dark'] .button-light, html[data-theme='dark'] .button-ghost { background: transparent; color: #fff; border-color: #ffffff80; }
+html[data-theme='dark'] .pill-apply, html[data-theme='dark'] .snav-admit-m, html[data-theme='dark'] .adm-fab, html[data-theme='dark'] .footer-brand .brand-seal { color: #171814; }
+/* hard-coded white surfaces */
+html[data-theme='dark'] .destination-grid > a, html[data-theme='dark'] .destination-grid > a > div,
+html[data-theme='dark'] .choice-cards label:hover, html[data-theme='dark'] .choice-cards label:has(input:checked),
+html[data-theme='dark'] .ai-prompts button, html[data-theme='dark'] .ai-recommendations a, html[data-theme='dark'] .ai-form input, html[data-theme='dark'] .ai-msg.bot,
+html[data-theme='dark'] .palette-box, html[data-theme='dark'] .cc, html[data-theme='dark'] .cc select,
+html[data-theme='dark'] .enq input:not([type='checkbox']), html[data-theme='dark'] .enq select,
+html[data-theme='dark'] .fc, html[data-theme='dark'] .fc-inputs select, html[data-theme='dark'] .ce-campuses li, html[data-theme='dark'] .slide,
+html[data-theme='dark'] .chip-grid a, html[data-theme='dark'] .stat-grid div, html[data-theme='dark'] .rt, html[data-theme='dark'] .rt tr,
+html[data-theme='dark'] .content-blocks article, html[data-theme='dark'] .pathway-card, html[data-theme='dark'] .page-hero figcaption,
+html[data-theme='dark'] .palette-input kbd, html[data-theme='dark'] .palette-foot kbd, html[data-theme='dark'] .apply-orbit span { background: var(--white); color: var(--ink); }
+html[data-theme='dark'] .chip-grid a:hover, html[data-theme='dark'] .rt tbody tr:hover { background: #1c242d; }
+html[data-theme='dark'] input, html[data-theme='dark'] select, html[data-theme='dark'] textarea { color-scheme: dark; }
+@media print { html[data-theme='dark'] { --paper: #fff; --white: #fff; --ink: #171814; --text: #171814; } }
+html[data-theme='dark'] .snav-aux a, html[data-theme='dark'] .snav-bar { color: #d4d6d0; }
+html[data-theme='dark'] .button-gold { background: var(--gold); border-color: var(--gold); color: #171814; }
+html[data-theme='dark'] .button-gold:hover { background: #fff; border-color: #fff; }
+
+/* language switcher (replaces the text-size buttons) */
+.prefs-lang{display:inline-flex;gap:4px}
+.prefs .prefs-lang button{font-size:12.5px;padding:2px 9px}
+/* Tamil and Hindi need looser type than the tight English headlines: no negative tracking, taller lines */
+html:not([lang='en']) :is(h2,h3,h4,.field-card b,.cinematic-copy h2,.tn-stage-text h3,.rank-copy h2,.section-heading h2){letter-spacing:0!important;line-height:1.22!important}
+html:not([lang='en']) .cinematic-copy h2{font-size:clamp(2.6rem,5vw,5.2rem)}
+html:not([lang='en']) .disc-row{letter-spacing:.04em;text-transform:none}
+
+/* Tamil and Hindi are wider than the English labels they replace: give them room and never break a word */
+.snav-menu .snav-item>button,.snav-strip-links a,.snav-aux a,.snav-kbd,.snav-admit-top{white-space:nowrap}
+html:not([lang='en']) .snav-menu .snav-item>button{font-size:13.5px}
+html:not([lang='en']) .snav-strip-links a,html:not([lang='en']) .snav-kbd{font-size:12px}
+html:not([lang='en']) .cinematic-copy{width:min(760px,62vw)}
+html:not([lang='en']) .cinematic-copy h2{font-size:clamp(2rem,3.6vw,3.6rem);word-break:keep-all;overflow-wrap:normal;margin:16px 0}
+html:not([lang='en']) .cinematic-copy>span{letter-spacing:.04em;text-transform:none}
+html:not([lang='en']) .disc-row{font-size:13px;gap:2px 0}
+html:not([lang='en']) .disc-row li+li::before{margin:0 12px 2px}
+html:not([lang='en']) .aud-pill span,html:not([lang='en']) .aud-links a{white-space:nowrap}
+@media (max-width:900px){html:not([lang='en']) .cinematic-copy{width:calc(100% - 40px)}html:not([lang='en']) .cinematic-copy h2{font-size:clamp(1.9rem,8vw,2.8rem)}}
+/* the top strip must stay on one line: in Tamil/Hindi, drop the least-used links on narrower desktops (they remain in the menus) */
+.snav-strip-links{flex-wrap:nowrap}
+@media (max-width:1280px){html:not([lang='en']) .snav-strip-links>a:nth-child(n+5){display:none}}
+@media (max-width:1100px){html:not([lang='en']) .snav-strip-links>a:nth-child(n+4){display:none}}
+
+/* dark theme: light brand backgrounds keep dark text; sections that were lavender or lime become the deep sand tone */
+html[data-theme='dark'] .split-feature,
+html[data-theme='dark'] .enquiry,
+html[data-theme='dark'] .service-gateway { background: var(--sand); color: var(--ink); }
+html[data-theme='dark'] .home-pill .pill-apply,
+html[data-theme='dark'] .snav-admit,
+html[data-theme='dark'] .snav-admit-m,
+html[data-theme='dark'] .adm-fab,
+html[data-theme='dark'] .palette-type.t-action,
+html[data-theme='dark'] .about-d-badge,
+html[data-theme='dark'] .home-cta .button,
+html[data-theme='dark'] .portal-cta .button,
+html[data-theme='dark'] .portal-steps span,
+html[data-theme='dark'] .field-card:hover .field-badge,
+html[data-theme='dark'] .triplet-row.is-open .triplet-plus,
+html[data-theme='dark'] .destination-index,
+html[data-theme='dark'] .success-mark { color: #171814; }
+html[data-theme='dark'] .snav-admit-m { border-color: #171814; }

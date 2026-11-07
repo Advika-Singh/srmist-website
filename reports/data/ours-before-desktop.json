@@ -1,0 +1,220 @@
+[
+ {
+  "url": "http://localhost:4174/",
+  "form_factor": "desktop",
+  "scores": {
+   "performance": 97,
+   "accessibility": 96,
+   "best-practices": 96,
+   "seo": 92
+  },
+  "metrics": {
+   "FCP": {
+    "ms": 454.4074,
+    "text": "0.5 s",
+    "score": 1
+   },
+   "LCP": {
+    "ms": 1162.9256,
+    "text": "1.2 s",
+    "score": 0.91
+   },
+   "TBT": {
+    "ms": 97,
+    "text": "100 ms",
+    "score": 0.97
+   },
+   "CLS": {
+    "ms": 0.00152204440055656,
+    "text": "0.002",
+    "score": 1
+   },
+   "SI": {
+    "ms": 934.5967065857036,
+    "text": "0.9 s",
+    "score": 0.98
+   },
+   "TTI": {
+    "ms": 1162.9256,
+    "text": "1.2 s",
+    "score": 1
+   },
+   "TTFB": {
+    "ms": 4,
+    "text": "Root document took 0 ms",
+    "score": 1
+   }
+  },
+  "transfer_bytes": 1625110,
+  "requests": 18,
+  "dom_nodes": 933,
+  "resources": {
+   "total": {
+    "requests": 17,
+    "bytes": 1624953
+   },
+   "image": {
+    "requests": 9,
+    "bytes": 1401174
+   },
+   "font": {
+    "requests": 4,
+    "bytes": 136258
+   },
+   "script": {
+    "requests": 1,
+    "bytes": 73825
+   },
+   "stylesheet": {
+    "requests": 2,
+    "bytes": 12536
+   },
+   "document": {
+    "requests": 1,
+    "bytes": 1160
+   },
+   "media": {
+    "requests": 0,
+    "bytes": 0
+   },
+   "other": {
+    "requests": 0,
+    "bytes": 0
+   },
+   "third-party": {
+    "requests": 12,
+    "bytes": 1427439
+   }
+  },
+  "failing": {
+   "performance": [
+    {
+     "id": "image-delivery-insight",
+     "title": "Improve image delivery",
+     "display": "Est savings of 590 KiB",
+     "score": 0,
+     "items": 4,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<img src=\"https://images.unsplash.com/photo-1687709348710-05314eea5476?auto=format&amp;f…\" alt=\"Life, learning",
+      "<img src=\"https://images.unsplash.com/photo-1629306262232-1f854b4b0b13?auto=format&amp;f…\" alt=\"Students learn",
+      "<img src=\"https://images.unsplash.com/photo-1680084521816-cc1ad0433ceb?auto=format&amp;f…\" alt=\"University bui"
+     ]
+    },
+    {
+     "id": "lcp-discovery-insight",
+     "title": "LCP request discovery",
+     "display": null,
+     "score": 0,
+     "items": 2,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'type': 'checklist', 'items': {'priorityHinted': {'label': 'fetchpriority=high should be ",
+      "{'type': 'node', 'lhId': 'page-0-IMG', 'path': '', 'selector': 'img', 'boundingRect': {'to"
+     ]
+    },
+    {
+     "id": "network-dependency-tree-insight",
+     "title": "Network dependency tree",
+     "display": null,
+     "score": 0,
+     "items": 3,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'type': 'list-section', 'value': {'type': 'network-tree', 'chains': {'A33496C137C1FC3060E",
+      "{'type': 'list-section', 'title': 'Preconnected origins', 'description': '[preconnect](htt",
+      "{'type': 'list-section', 'title': 'Preconnect candidates', 'description': 'Add [preconnect"
+     ]
+    },
+    {
+     "id": "render-blocking-insight",
+     "title": "Render-blocking requests",
+     "display": "Est savings of 280 ms",
+     "score": 0,
+     "items": 2,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;",
+      "http://localhost:4174/assets/main-BGWQurVM.css"
+     ]
+    },
+    {
+     "id": "unused-javascript",
+     "title": "Reduce unused JavaScript",
+     "display": "Est savings of 21 KiB",
+     "score": 0,
+     "items": 1,
+     "savings_ms": 40,
+     "savings_bytes": 21841,
+     "samples": [
+      "http://localhost:4174/assets/main-C6m2G5Px.js"
+     ]
+    },
+    {
+     "id": "unsized-images",
+     "title": "Image elements do not have explicit `width` and `height`",
+     "display": null,
+     "score": 0.5,
+     "items": 3,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<img class=\"logo-light\" src=\"/brand/srm-logo-white.svg\" alt=\"\" aria-hidden=\"true\">",
+      "<img src=\"/brand/srm-logo-white.svg\" alt=\"SRM Institute of Science and Technology\">",
+      "<img src=\"/brand/srm-logo-white.svg\" alt=\"SRM Institute of Science and Technology\">"
+     ]
+    }
+   ],
+   "accessibility": [
+    {
+     "id": "color-contrast",
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "display": null,
+     "score": 0,
+     "items": 27,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<span>",
+      "<span>",
+      "<span>"
+     ]
+    }
+   ],
+   "best-practices": [
+    {
+     "id": "errors-in-console",
+     "title": "Browser errors were logged to the console",
+     "display": null,
+     "score": 0,
+     "items": 1,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'source': 'network', 'description': 'Failed to load resource: the server responded with a"
+     ]
+    }
+   ],
+   "seo": [
+    {
+     "id": "robots-txt",
+     "title": "robots.txt is not valid",
+     "display": "23 errors found",
+     "score": 0,
+     "items": 23,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'index': '1', 'line': '<!doctype html>', 'message': 'Syntax not understood'}",
+      "{'index': '2', 'line': '<html lang=\"en\">', 'message': 'Syntax not understood'}",
+      "{'index': '3', 'line': '  <head>', 'message': 'Syntax not understood'}"
+     ]
+    }
+   ]
+  }
+ }
+]

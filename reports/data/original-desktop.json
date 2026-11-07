@@ -1,0 +1,532 @@
+[
+ {
+  "url": "https://www.srmist.edu.in/",
+  "form_factor": "desktop",
+  "scores": {
+   "performance": 37,
+   "accessibility": 74,
+   "best-practices": 77,
+   "seo": 85
+  },
+  "metrics": {
+   "FCP": {
+    "ms": 1579.867,
+    "text": "1.6 s",
+    "score": 0.51
+   },
+   "LCP": {
+    "ms": 7868.630049999997,
+    "text": "7.9 s",
+    "score": 0.01
+   },
+   "TBT": {
+    "ms": 603.0532000000001,
+    "text": "600 ms",
+    "score": 0.2
+   },
+   "CLS": {
+    "ms": 0.002408875074875029,
+    "text": "0.002",
+    "score": 1
+   },
+   "SI": {
+    "ms": 5115.544499822148,
+    "text": "5.1 s",
+    "score": 0.03
+   },
+   "TTI": {
+    "ms": 8252.800014999997,
+    "text": "8.3 s",
+    "score": 0.09
+   },
+   "TTFB": {
+    "ms": 209,
+    "text": "Root document took 210 ms",
+    "score": 1
+   }
+  },
+  "transfer_bytes": 10130404,
+  "requests": 370,
+  "dom_nodes": 4870,
+  "resources": {
+   "total": {
+    "requests": 340,
+    "bytes": 10130404
+   },
+   "script": {
+    "requests": 115,
+    "bytes": 5427742
+   },
+   "image": {
+    "requests": 85,
+    "bytes": 2201904
+   },
+   "font": {
+    "requests": 21,
+    "bytes": 909614
+   },
+   "stylesheet": {
+    "requests": 69,
+    "bytes": 616858
+   },
+   "document": {
+    "requests": 8,
+    "bytes": 518427
+   },
+   "other": {
+    "requests": 42,
+    "bytes": 455859
+   },
+   "media": {
+    "requests": 0,
+    "bytes": 0
+   },
+   "third-party": {
+    "requests": 164,
+    "bytes": 6766945
+   }
+  },
+  "failing": {
+   "performance": [
+    {
+     "id": "first-contentful-paint",
+     "title": "First Contentful Paint",
+     "display": "1.6 s",
+     "score": 0.51,
+     "items": 0,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": []
+    },
+    {
+     "id": "largest-contentful-paint",
+     "title": "Largest Contentful Paint",
+     "display": "7.9 s",
+     "score": 0.01,
+     "items": 0,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": []
+    },
+    {
+     "id": "total-blocking-time",
+     "title": "Total Blocking Time",
+     "display": "600 ms",
+     "score": 0.2,
+     "items": 0,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": []
+    },
+    {
+     "id": "speed-index",
+     "title": "Speed Index",
+     "display": "5.1 s",
+     "score": 0.03,
+     "items": 0,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": []
+    },
+    {
+     "id": "cache-insight",
+     "title": "Use efficient cache lifetimes",
+     "display": "Est savings of 502 KiB",
+     "score": 0.5,
+     "items": 13,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "https://connect.facebook.net/signals/config/376153839229252?v=2.9.435&r=stable&domain=www.srmist.edu.in&hme=44",
+      "https://connect.facebook.net/en_US/fbevents.js",
+      "https://i.ytimg.com/vi/S_xAJo_siHA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgX"
+     ]
+    },
+    {
+     "id": "font-display-insight",
+     "title": "Font display",
+     "display": "Est savings of 160 ms",
+     "score": 0,
+     "items": 15,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "https://fonts.gstatic.com/s/sourcesanspro/v24/6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7nsDJB9cme.woff2",
+      "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmRdu3cOWxy40.woff2",
+      "https://www.srmist.edu.in/wp-content/uploads/2022/01/Butler_Bold.woff"
+     ]
+    },
+    {
+     "id": "forced-reflow-insight",
+     "title": "Forced reflow",
+     "display": null,
+     "score": 0,
+     "items": 2,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'type': 'table', 'headings': [{'key': 'source', 'valueType': 'source-location', 'label': ",
+      "{'type': 'table', 'headings': [{'key': 'source', 'valueType': 'source-location', 'label': "
+     ]
+    },
+    {
+     "id": "image-delivery-insight",
+     "title": "Improve image delivery",
+     "display": "Est savings of 331 KiB",
+     "score": 0,
+     "items": 16,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<img width=\"1000\" height=\"1000\" src=\"https://www.srmist.edu.in/wp-content/uploads/2026/11/srmist-landing-popup",
+      "<img decoding=\"async\" width=\"1200\" height=\"370\" src=\"https://www.srmist.edu.in/wp-content/uploads/2025/12/SRMI",
+      "<img decoding=\"async\" class=\"swiper-slide-image\" src=\"https://www.srmist.edu.in/wp-content/uploads/2025/09/Art"
+     ]
+    },
+    {
+     "id": "lcp-breakdown-insight",
+     "title": "LCP breakdown",
+     "display": null,
+     "score": 0,
+     "items": 2,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'type': 'table', 'headings': [{'key': 'label', 'valueType': 'text', 'label': 'Subpart'}, ",
+      "{'type': 'node', 'lhId': 'page-0-IMG', 'path': '1,HTML,1,BODY,90,DIV,0,DIV,1,DIV,0,DIV,0,D"
+     ]
+    },
+    {
+     "id": "lcp-discovery-insight",
+     "title": "LCP request discovery",
+     "display": null,
+     "score": 0,
+     "items": 2,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'type': 'checklist', 'items': {'priorityHinted': {'label': 'fetchpriority=high should be ",
+      "{'type': 'node', 'lhId': 'page-0-IMG', 'path': '1,HTML,1,BODY,90,DIV,0,DIV,1,DIV,0,DIV,0,D"
+     ]
+    },
+    {
+     "id": "network-dependency-tree-insight",
+     "title": "Network dependency tree",
+     "display": null,
+     "score": 0,
+     "items": 3,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'type': 'list-section', 'value': {'type': 'network-tree', 'chains': {'8ADA383040475BD91A0",
+      "{'type': 'list-section', 'title': 'Preconnected origins', 'description': '[preconnect](htt",
+      "{'type': 'list-section', 'title': 'Preconnect candidates', 'description': 'Add [preconnect"
+     ]
+    },
+    {
+     "id": "render-blocking-insight",
+     "title": "Render-blocking requests",
+     "display": "Est savings of 540 ms",
+     "score": 0,
+     "items": 60,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "https://www.srmist.edu.in/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=5.1.1",
+      "https://www.srmist.edu.in/wp-content/plugins/ele-custom-skin/assets/js/ecs_ajax_pagination.js?ver=3.1.7",
+      "https://www.srmist.edu.in/wp-content/plugins/ele-custom-skin/assets/js/ecs.js?ver=3.1.7"
+     ]
+    },
+    {
+     "id": "interactive",
+     "title": "Time to Interactive",
+     "display": "8.3 s",
+     "score": 0.09,
+     "items": 0,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": []
+    },
+    {
+     "id": "max-potential-fid",
+     "title": "Max Potential First Input Delay",
+     "display": "400 ms",
+     "score": 0.17,
+     "items": 0,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": []
+    },
+    {
+     "id": "unminified-css",
+     "title": "Minify CSS",
+     "display": "Est savings of 2 KiB",
+     "score": 0.5,
+     "items": 1,
+     "savings_ms": 0,
+     "savings_bytes": 2520,
+     "samples": [
+      "https://www.srmist.edu.in/wp-content/themes/oceanwp-child-theme/style.css?ver=3.1.1"
+     ]
+    },
+    {
+     "id": "unused-css-rules",
+     "title": "Reduce unused CSS",
+     "display": "Est savings of 73 KiB",
+     "score": 0,
+     "items": 2,
+     "savings_ms": 140,
+     "savings_bytes": 74602,
+     "samples": [
+      "https://www.srmist.edu.in/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css?ver=2.",
+      "https://www.srmist.edu.in/wp-content/plugins/elementskit/widgets/init/assets/css/widget-styles-pro.css?ver=2.7"
+     ]
+    },
+    {
+     "id": "unused-javascript",
+     "title": "Reduce unused JavaScript",
+     "display": "Est savings of 247 KiB",
+     "score": 0,
+     "items": 2,
+     "savings_ms": 150,
+     "savings_bytes": 252565,
+     "samples": [
+      "https://www.gstatic.com/recaptcha/releases/bSuJ2xBC8cFy7pM4Z3Hu9boH/recaptcha__en.js",
+      "https://www.googletagmanager.com/gtag/js?id=G-QNCRQG0GFE"
+     ]
+    },
+    {
+     "id": "total-byte-weight",
+     "title": "Avoid enormous network payloads",
+     "display": "Total size was 9,893 KiB",
+     "score": 0.5,
+     "items": 10,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "https://www.youtube-nocookie.com/s/player/f5321ed3/player_embed_es6.vflset/en_US/base.js",
+      "https://www.youtube-nocookie.com/s/player/a5c2aafe/player_embed_es6.vflset/en_US/base.js",
+      "https://www.youtube-nocookie.com/s/player/ef321720/player_embed_es6.vflset/en_US/base.js"
+     ]
+    },
+    {
+     "id": "bootup-time",
+     "title": "Reduce JavaScript execution time",
+     "display": "1.6 s",
+     "score": 0,
+     "items": 8,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "https://www.srmist.edu.in/",
+      "https://www.srmist.edu.in/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "Unattributable"
+     ]
+    },
+    {
+     "id": "mainthread-work-breakdown",
+     "title": "Minimize main-thread work",
+     "display": "5.8 s",
+     "score": 0,
+     "items": 7,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'group': 'scriptEvaluation', 'groupLabel': 'Script Evaluation', 'duration': 1864.56099999",
+      "{'group': 'styleLayout', 'groupLabel': 'Style & Layout', 'duration': 1774.6269999999997}",
+      "{'group': 'other', 'groupLabel': 'Other', 'duration': 1477.4759999999926}"
+     ]
+    },
+    {
+     "id": "unsized-images",
+     "title": "Image elements do not have explicit `width` and `height`",
+     "display": null,
+     "score": 0.5,
+     "items": 24,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<img decoding=\"async\" class=\"swiper-slide-image\" src=\"https://www.srmist.edu.in/wp-content/uploads/2025/09/Art",
+      "<img decoding=\"async\" class=\"swiper-slide-image\" src=\"https://www.srmist.edu.in/wp-content/uploads/2025/09/Art",
+      "<img decoding=\"async\" class=\"swiper-slide-image\" src=\"https://www.srmist.edu.in/wp-content/uploads/2025/09/Art"
+     ]
+    },
+    {
+     "id": "bf-cache",
+     "title": "Page prevented back/forward cache restoration",
+     "display": "1 failure reason",
+     "score": 0,
+     "items": 1,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'reason': 'The page has an unload handler in a sub frame', 'failureType': 'Actionable', '"
+     ]
+    }
+   ],
+   "accessibility": [
+    {
+     "id": "aria-allowed-attr",
+     "title": "`[aria-*]` attributes do not match their roles",
+     "display": null,
+     "score": 0,
+     "items": 1,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<a class=\"elementor-item has-submenu\" id=\"sm-17938778751648716-1\" aria-haspopup=\"true\" aria-controls=\"sm-17938"
+     ]
+    },
+    {
+     "id": "aria-required-children",
+     "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children.",
+     "display": null,
+     "score": 0,
+     "items": 1,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<nav class=\"elementor-tabs\" role=\"tablist\">"
+     ]
+    },
+    {
+     "id": "button-name",
+     "title": "Buttons do not have an accessible name",
+     "display": null,
+     "score": 0,
+     "items": 2,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<button type=\"submit\">",
+      "<button type=\"submit\" class=\"search-button\">"
+     ]
+    },
+    {
+     "id": "color-contrast",
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "display": null,
+     "score": 0,
+     "items": 15,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<a href=\"https://medicalresearch.srmist.edu.in/phd-admission/\" target=\"_blank\" class=\"marquee-button\">",
+      "<label for=\"test-2\" id=\"label-test-2\" class=\"label\">",
+      "<label for=\"test-3\" id=\"label-test-3\" class=\"label\">"
+     ]
+    },
+    {
+     "id": "link-name",
+     "title": "Links do not have a discernible name",
+     "display": null,
+     "score": 0,
+     "items": 37,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<a href=\"https://webstor.srmist.edu.in/web_assets/srmist-virtual-tour-vo/index.htm\" target=\"_blank\" class=\"ele",
+      "<a href=\"/\">",
+      "<a href=\"https://www.srmist.edu.in/college/college-of-engineering-technology/\">"
+     ]
+    },
+    {
+     "id": "skip-link",
+     "title": "Skip links are not focusable.",
+     "display": null,
+     "score": 0,
+     "items": 1,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<a id=\"pojo-a11y-skip-content\" class=\"pojo-skip-link pojo-skip-content\" tabindex=\"1\" accesskey=\"s\" href=\"#cont"
+     ]
+    },
+    {
+     "id": "tabindex",
+     "title": "Some elements have a `[tabindex]` value greater than 0",
+     "display": null,
+     "score": 0,
+     "items": 1,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<a id=\"pojo-a11y-skip-content\" class=\"pojo-skip-link pojo-skip-content\" tabindex=\"1\" accesskey=\"s\" href=\"#cont"
+     ]
+    },
+    {
+     "id": "target-size",
+     "title": "Touch targets do not have sufficient size or spacing.",
+     "display": null,
+     "score": 0,
+     "items": 36,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<span class=\"swiper-pagination-bullet\" tabindex=\"0\" role=\"button\" aria-label=\"Go to slide 1\">",
+      "<span class=\"swiper-pagination-bullet\" tabindex=\"0\" role=\"button\" aria-label=\"Go to slide 2\">",
+      "<span class=\"swiper-pagination-bullet\" tabindex=\"0\" role=\"button\" aria-label=\"Go to slide 3\">"
+     ]
+    }
+   ],
+   "best-practices": [
+    {
+     "id": "third-party-cookies",
+     "title": "Uses third-party cookies",
+     "display": "5 cookies found",
+     "score": 0,
+     "items": 5,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "https://track.nopaperforms.com/js/track.js",
+      "https://widgets.nopaperforms.com/emwgts.js",
+      "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6Lclus0hAAAAAL179zulskm1K7a6AcTk7VF98Hn3&co=aHR0cHM6Ly93d3"
+     ]
+    },
+    {
+     "id": "inspector-issues",
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "display": null,
+     "score": 0,
+     "items": 1,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'issueType': 'Cookie', 'subItems': {'type': 'subitems', 'items': [{'url': 'https://track."
+     ]
+    }
+   ],
+   "seo": [
+    {
+     "id": "link-text",
+     "title": "Links do not have descriptive text",
+     "display": "3 links found",
+     "score": 0,
+     "items": 3,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "{'href': 'https://www.srmist.edu.in/about-us/accreditations-and-rankings/#nirfranks', 'tex",
+      "{'href': 'https://www.srmist.edu.in/about-us/accreditations-and-rankings/#nirfranks', 'tex",
+      "{'href': 'https://www.srmist.edu.in/about-us/accreditations-and-rankings/#nirfranks', 'tex"
+     ]
+    },
+    {
+     "id": "crawlable-anchors",
+     "title": "Links are not crawlable",
+     "display": null,
+     "score": 0,
+     "items": 3,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "samples": [
+      "<a href=\"javascript:void(0)\" class=\"search-overlay-close\" aria-label=\"Close this search form\">",
+      "<a href=\"javascript:void(0)\" class=\"toggle-sidr-close\" aria-label=\"Close mobile menu\">",
+      "<a href=\"javascript:void(0)\" class=\"sidr-class-toggle-sidr-close\" aria-label=\"Close mobile menu\">"
+     ]
+    }
+   ]
+  }
+ }
+]

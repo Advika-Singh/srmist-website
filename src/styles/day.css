@@ -1,0 +1,87 @@
+/* "A day at SRM": the pinned 3D campus scene and its flat fallback. */
+
+.day{position:relative;background:var(--blue)}
+.day-stage{--d-sky:#2b2d4f;--d-ground:#2a3040;--d-road:#555a78;--d-casing:#363a50;--d-glow:#ffb27a;--d-b0:#1e2036;--d-b1:#272a45;--d-b2:#32355a;--d-b3:#3c4062;--d-hero:#ffcfa0;--d-light:.25;--d-open:1;--d-fade:0;
+  position:sticky;top:0;height:100svh;overflow:hidden;color:#fff;
+  background:linear-gradient(to bottom,var(--d-sky) 0%,color-mix(in srgb,var(--d-sky) 55%,var(--d-ground)) 58%,var(--d-ground) 100%)}
+.day-stage::after{content:"";position:absolute;inset:0;z-index:9;pointer-events:none;background:var(--day-edge,var(--blue));opacity:calc(1 - var(--d-fade))}
+
+/* 3D world */
+.day-world{position:absolute;inset:0;perspective:1300px;perspective-origin:50% 36%;pointer-events:none}
+.day-plane{position:absolute;left:50%;top:64%;width:0;height:0;transform-style:preserve-3d;transform:rotateX(calc(56deg - var(--d-open) * 30deg)) rotateZ(calc(-18deg + var(--d-open) * 18deg))}
+.day-cam{position:absolute;left:0;top:0;transform-style:preserve-3d;transform-origin:0 0;will-change:transform}
+.day-layer{position:absolute;left:0;top:0;display:block;overflow:visible}
+.day-route{transform:translateZ(2px)}
+.d-land{fill:var(--d-ground)}
+.d-field{fill:color-mix(in srgb,#3f9b4b 60%,var(--d-ground));stroke:color-mix(in srgb,#ffffff 40%,transparent);stroke-width:.8}
+.d-field--swimming_pool{fill:#4aa8d8}
+.d-field--playground{fill:color-mix(in srgb,#d9a84a 55%,var(--d-ground))}
+.d-service{stroke:color-mix(in srgb,var(--d-road) 70%,var(--d-ground))}
+.d-casing{stroke:var(--d-casing)}
+.d-road{stroke:var(--d-road)}
+.d-path{stroke:color-mix(in srgb,var(--d-casing) 85%,transparent)}
+.d-b{stroke:var(--d-b0);stroke-width:.35}
+.d-b0{fill:var(--d-b0)}.d-b1{fill:var(--d-b1)}.d-b2{fill:var(--d-b2)}.d-b3{fill:var(--d-b3)}
+.d-hero{fill:var(--d-hero);opacity:.9;stroke:color-mix(in srgb,var(--d-glow) 70%,transparent);stroke-width:.6}
+.d-hero-top{opacity:1;filter:drop-shadow(0 0 6px var(--d-glow))}
+.d-route-ghost{stroke:#ffffff45;stroke-dasharray:3 5}
+.d-route{stroke:var(--d-glow);filter:drop-shadow(0 0 5px var(--d-glow))}
+.d-pin-ring{fill:none;stroke:var(--d-glow);stroke-width:1.6;opacity:.8}
+.d-pin{fill:var(--d-glow)}
+.d-dot{fill:#fff}
+.d-dot-halo{fill:var(--d-glow);opacity:.4;transform-box:fill-box;transform-origin:center;animation:d-pulse 1.6s ease-in-out infinite}
+@keyframes d-pulse{0%,100%{transform:scale(.8);opacity:.5}50%{transform:scale(1.5);opacity:.15}}
+.day-haze{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,var(--d-sky) 0%,color-mix(in srgb,var(--d-sky) 0%,transparent) 46%)}
+
+/* HUD */
+.day-hud{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--nav-h,78px) + 16px) 6vw 16px;pointer-events:none}
+.day-hud::before{content:"";position:absolute;inset:0 0 auto 0;height:42%;z-index:-1;background:linear-gradient(#0b0c0acc,#0b0c0a00)}
+.day-hud::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;z-index:-1;background:linear-gradient(#0b0c0a00,#0b0c0a99)}
+.day-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.day-top .eyebrow{color:var(--gold)}
+.day-title{font-family:var(--display);font-weight:500;font-size:clamp(1.8rem,3.6vw,3.6rem);line-height:1;letter-spacing:-.04em;margin:8px 0 0;max-width:19ch;text-shadow:0 2px 24px #0008}
+.day-title em{color:var(--gold)}
+.day-clockbox{text-align:right;text-shadow:0 2px 24px #0008}
+.day-clockbox b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(3rem,7vw,7rem);line-height:.9;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.day-clockbox span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ffffffcc}
+.day-cards{display:grid;align-self:flex-start;margin-top:auto;margin-bottom:18px}
+.day-card{grid-area:1/1;max-width:430px;padding:20px 24px;border-radius:18px;background:#0b0c0acf;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid #ffffff26;opacity:0;filter:blur(8px);transform:translateY(20px);transition:opacity .55s var(--ease),filter .55s var(--ease),transform .7s var(--ease)}
+.day-card.is-on{opacity:1;filter:none;transform:none}
+.day-step{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.day-card h3{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.05;letter-spacing:-.03em;margin:6px 0 8px}
+.day-card p{color:#ffffffd6;font-size:14.5px;line-height:1.55}
+.day-foot{display:grid;gap:10px}
+.day-walk{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#ffffffd9}
+.day-walk b{font-variant-numeric:tabular-nums;color:#fff}
+.day-walk i{flex:1;height:3px;border-radius:2px;background:#ffffff33;overflow:hidden}
+.day-walk u{display:block;height:100%;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;text-decoration:none}
+.day-steps{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0;pointer-events:auto}
+.day-steps button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-height:var(--tap);padding:6px 14px;border:1px solid #ffffff40;border-radius:12px;background:#0b0c0a99;color:#fff;font:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:background .25s,border-color .25s,transform .3s var(--ease)}
+.day-steps button span{font-size:11px;color:var(--gold);font-variant-numeric:tabular-nums}
+.day-steps button:hover{border-color:var(--gold);transform:translateY(-2px)}
+.day-steps button.is-on{background:var(--gold);border-color:var(--gold);color:#171814}
+.day-steps button.is-on span{color:#171814}
+.day-steps :focus-visible,.day :focus-visible{outline-color:var(--gold)}
+.day-note{font-size:11.5px;color:#ffffffa6;max-width:70ch}
+
+/* flat version (phones, short screens, reduced motion) */
+.day-flat{padding:clamp(48px,8vw,100px) 6vw;background:var(--paper);color:var(--ink)}
+.day-flat .eyebrow{color:var(--blue-ink,var(--blue))}
+.day-flat h2{font-family:var(--display);font-weight:500;font-size:clamp(2rem,6vw,4rem);letter-spacing:-.04em;line-height:1;margin:8px 0 24px;max-width:16ch}
+.day-flat h2 em{color:var(--blue-ink,var(--blue))}
+.day-flat-map svg{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
+.day-flat .d-route{filter:none;stroke:#e0572f}
+.d-pin-ring--flat{fill:#fff;stroke:#171814;stroke-width:1.4;opacity:1}
+.d-pin-num{fill:#171814;font-weight:700}
+.day-flat-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;list-style:none;margin:24px 0 0;padding:0}
+.day-flat-list li{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--surface,#fff)}
+.day-flat-list .day-step{color:var(--blue-ink,var(--blue))}
+.day-flat-list h3{font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.1;margin:4px 0 6px}
+.day-flat-list p{color:var(--text-muted);font-size:14px}
+.day-flat .day-note{color:var(--text-muted);margin-top:18px}
+@media (max-width:760px){.day-title{max-width:none}.day-card{max-width:none}.day-steps button{font-size:11px;padding:4px 10px}}
+@media (prefers-reduced-motion:reduce){.d-dot-halo{animation:none}}
+
+.day-page{background:var(--ink)}
+.day-page .day{background:var(--ink)}
+.day-page .day-stage::after{background:var(--ink)}

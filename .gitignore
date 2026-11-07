@@ -1,0 +1,13 @@
+# keep secrets and build output out of git
+.env
+.env.*
+!.env.example
+node_modules
+dist
+dist-baseline
+reports/lighthouse
+
+.vercel
+.env*
+
+server/data

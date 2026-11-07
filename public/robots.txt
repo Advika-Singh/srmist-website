@@ -1,0 +1,3 @@
+# Concept redesign of the SRMIST website
+User-agent: *
+Allow: /

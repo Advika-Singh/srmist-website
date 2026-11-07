@@ -1,0 +1,334 @@
+{
+ "url": "http://localhost:4174/",
+ "top_requests": [
+  {
+   "url": "https://images.unsplash.com/photo-1687709348710-05314eea5476?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 430844,
+   "ms": 135,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1680084521816-cc1ad0433ceb?auto=format&fit=crop&w=1800&q=88",
+   "type": "Image",
+   "bytes": 218739,
+   "ms": 129,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1680084521631-e4e6d77704d8?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 200728,
+   "ms": 34,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1629306262232-1f854b4b0b13?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 128852,
+   "ms": 104,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1722573783625-eceb04251036?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 126404,
+   "ms": 134,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1682203533806-8b5457c84c91?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 104983,
+   "ms": 24,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1668243304131-87cb6634f85b?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 79386,
+   "ms": 100,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "http://localhost:4174/assets/main-C6m2G5Px.js",
+   "type": "Script",
+   "bytes": 73825,
+   "ms": 47,
+   "status": 200,
+   "host": "localhost:4174"
+  },
+  {
+   "url": "http://localhost:4174/brand/srm-logo.svg",
+   "type": "Image",
+   "bytes": 55643,
+   "ms": 43,
+   "status": 200,
+   "host": "localhost:4174"
+  },
+  {
+   "url": "http://localhost:4174/brand/srm-logo-white.svg",
+   "type": "Image",
+   "bytes": 55612,
+   "ms": 49,
+   "status": 200,
+   "host": "localhost:4174"
+  },
+  {
+   "url": "https://fonts.gstatic.com/l/font?kit=nuFcD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvSLbRiIwYe6tDkqUBOz5frvhTU8Qqw&skey=f3b68f0152604ed9&v=v40",
+   "type": "Font",
+   "bytes": 48772,
+   "ms": 49,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/l/font?kit=nuFcD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvSLbRiIwYe6tDkqUBOz5cLvhTU8Qqw&skey=f3b68f0152604ed9&v=v40",
+   "type": "Font",
+   "bytes": 38391,
+   "ms": 92,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  }
+ ],
+ "by_type": {
+  "Document": {
+   "n": 1,
+   "bytes": 1160
+  },
+  "Font": {
+   "n": 4,
+   "bytes": 148737
+  },
+  "Image": {
+   "n": 9,
+   "bytes": 1401191
+  },
+  "Other": {
+   "n": 1,
+   "bytes": 157
+  },
+  "Script": {
+   "n": 1,
+   "bytes": 73825
+  },
+  "Stylesheet": {
+   "n": 2,
+   "bytes": 12665
+  }
+ },
+ "third_party_hosts": [
+  [
+   "images.unsplash.com",
+   7,
+   1289936
+  ],
+  [
+   "fonts.gstatic.com",
+   4,
+   148737
+  ],
+  [
+   "fonts.googleapis.com",
+   1,
+   1391
+  ]
+ ],
+ "third_party_total": {
+  "requests": 12,
+  "bytes": 1440064
+ },
+ "video_requests": [],
+ "fonts": [
+  {
+   "url": "https://fonts.gstatic.com/l/font?kit=nuFcD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvSLbRiIwYe6tDkqUBOz5frvhTU8Qqw&skey=f3b68f0152604ed9&v=v40",
+   "type": "Font",
+   "bytes": 48772,
+   "ms": 49,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/l/font?kit=nuFcD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvSLbRiIwYe6tDkqUBOz5cLvhTU8Qqw&skey=f3b68f0152604ed9&v=v40",
+   "type": "Font",
+   "bytes": 38391,
+   "ms": 92,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/l/font?kit=nuFeD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_qiTDN3oCIU3oE2BEqgTNIvjR0gyqbSm&skey=f57a6d1e6bccdd9c&v=v40",
+   "type": "Font",
+   "bytes": 36070,
+   "ms": 93,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/l/font?kit=rP2-p2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopwDRUUHvP-6oMc49xLtf0DPCjGtNio&skey=cd068b3e1b767e51&v=v17",
+   "type": "Font",
+   "bytes": 25504,
+   "ms": 72,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  }
+ ],
+ "largest_images": [
+  {
+   "url": "https://images.unsplash.com/photo-1687709348710-05314eea5476?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 430844,
+   "ms": 135,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1680084521816-cc1ad0433ceb?auto=format&fit=crop&w=1800&q=88",
+   "type": "Image",
+   "bytes": 218739,
+   "ms": 129,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1680084521631-e4e6d77704d8?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 200728,
+   "ms": 34,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1629306262232-1f854b4b0b13?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 128852,
+   "ms": 104,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1722573783625-eceb04251036?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 126404,
+   "ms": 134,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1682203533806-8b5457c84c91?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 104983,
+   "ms": 24,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1668243304131-87cb6634f85b?auto=format&fit=crop&w=1600&q=88",
+   "type": "Image",
+   "bytes": 79386,
+   "ms": 100,
+   "status": 200,
+   "host": "images.unsplash.com"
+  },
+  {
+   "url": "http://localhost:4174/brand/srm-logo.svg",
+   "type": "Image",
+   "bytes": 55643,
+   "ms": 43,
+   "status": 200,
+   "host": "localhost:4174"
+  }
+ ],
+ "js_files": {
+  "count": 1,
+  "bytes": 73825
+ },
+ "css_files": {
+  "count": 2,
+  "bytes": 12665
+ },
+ "first_party_protocols": {
+  "http/1.1": 6
+ },
+ "contrast_failures": {
+  "count": 27,
+  "examples": [
+   {
+    "snippet": "<span>",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.63 (foreground color: #96968f, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<span>",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.63 (foreground color: #96968f, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<span>",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.63 (foreground color: #96968f, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<span>",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.63 (foreground color: #96968f, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<span>",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.63 (foreground color: #96968f, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<span>",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.63 (foreground color: #96968f, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+   }
+  ]
+ },
+ "a11y_counts": {
+  "link-name": 0,
+  "button-name": 0,
+  "target-size": 0,
+  "color-contrast": 27,
+  "image-alt": 0,
+  "label": 0,
+  "heading-order": 0,
+  "aria-hidden-focus": 0,
+  "tabindex": 0,
+  "html-has-lang": 0,
+  "document-title": 0,
+  "meta-viewport": 0,
+  "select-name": 0,
+  "frame-title": 0,
+  "list": 0,
+  "listitem": 0
+ },
+ "cookies_third_party": [],
+ "main_thread": [
+  {
+   "group": "Style & Layout",
+   "ms": 2159
+  },
+  {
+   "group": "Other",
+   "ms": 1590
+  },
+  {
+   "group": "Script Evaluation",
+   "ms": 460
+  },
+  {
+   "group": "Rendering",
+   "ms": 447
+  },
+  {
+   "group": "Parse HTML & CSS",
+   "ms": 15
+  },
+  {
+   "group": "Script Parsing & Compilation",
+   "ms": 4
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "html_bytes": 708765,
+ "dom_elements": 4574,
+ "title": "SRM Institute of Science & Technology - Learn. Leap. Lead.",
+ "lang": "en-US",
+ "viewport": "width=device-width, initial-scale=1",
+ "viewport_blocks_zoom": false,
+ "generator": [
+  "All in One SEO Pro (AIOSEO) 4.8.6",
+  "WordPress 7.1.3"
+ ],
+ "scripts_total": 68,
+ "scripts_external": 44,
+ "scripts_inline": 24,
+ "scripts_inline_bytes": 20721,
+ "scripts_blocking_head": 7,
+ "scripts_third_party": [
+  "cdn.jsdelivr.net",
+  "cdnjs.cloudflare.com",
+  "www.google.com",
+  "www.googletagmanager.com"
+ ],
+ "script_versions": [
+  "jquery-migrate.min.js ver 3.4.1",
+  "jquery-numerator.min.js ver 0.2.1",
+  "jquery.min.js ver 3.7.1",
+  "jquery.smartmenus.min.js ver 1.0.1"
+ ],
+ "scripts_with_ver_param": 39,
+ "stylesheets": 56,
+ "stylesheets_third_party": [
+  "fonts.googleapis.com"
+ ],
+ "inline_style_blocks": 35,
+ "inline_style_attrs": 100,
+ "preloads": 0,
+ "img_total": 109,
+ "img_missing_alt_attr": 0,
+ "img_empty_alt": 70,
+ "img_no_dimensions": 36,
+ "img_lazy": 58,
+ "img_no_srcset": 87,
+ "img_formats": {
+  "svg": 4,
+  "png": 27,
+  "jpg": 78
+ },
+ "css_bg_images_inline": 0,
+ "h1_count": 0,
+ "headings_total": 124,
+ "heading_level_skips": 0,
+ "landmarks": {
+  "header": 1,
+  "nav": 13,
+  "main": 1,
+  "footer": 1,
+  "aside": 0
+ },
+ "role_landmarks": 18,
+ "skip_link": true,
+ "links_total": 633,
+ "links_unique_hrefs": 264,
+ "links_hash_only": 43,
+ "links_without_accessible_name": 62,
+ "links_vague_text": 1,
+ "buttons_total": 2,
+ "buttons_without_name": 1,
+ "inputs_without_label": 3,
+ "iframes": 1,
+ "iframes_without_title": 1,
+ "videos": 0,
+ "tabindex_positive": 1,
+ "aria_hidden_focusables": 6,
+ "text_in_image_candidates": [
+  "s://www.srmist.edu.in/wp-content/uploads/2022/01/unirank.png",
+  "ttps://www.srmist.edu.in/wp-content/uploads/2022/01/aari.png",
+  "ttps://www.srmist.edu.in/wp-content/uploads/2022/01/naac.png",
+  "ttps://www.srmist.edu.in/wp-content/uploads/2024/03/icar.png",
+  "du.in/wp-content/uploads/2025/09/nirf-ranking-srm-2025-3.jpg",
+  "du.in/wp-content/uploads/2025/09/nirf-ranking-srm-2025-4.jpg",
+  "du.in/wp-content/uploads/2025/09/nirf-ranking-srm-2025-7.jpg",
+  "du.in/wp-content/uploads/2025/09/nirf-ranking-srm-2025-6.jpg"
+ ],
+ "mixed_content_http": [],
+ "target_blank_total": 105,
+ "target_blank_no_noopener": 105,
+ "inline_event_handlers": 0,
+ "forms": 5,
+ "external_hosts": [
+  [
+   "srmistdistanceeducation.in",
+   7
+  ],
+  [
+   "www.srmonline.in",
+   7
+  ],
+  [
+   "srmrmp.edu.in",
+   5
+  ],
+  [
+   "www.srmistvdp.edu.in",
+   4
+  ],
+  [
+   "srmtrichy.edu.in",
+   4
+  ],
+  [
+   "www.srmimt.net",
+   4
+  ],
+  [
+   "www.youtube.com",
+   4
+  ],
+  [
+   "www.googletagmanager.com",
+   2
+  ],
+  [
+   "srmap.edu.in",
+   2
+  ],
+  [
+   "srmuniversity.ac.in",
+   2
+  ],
+  [
+   "www.facebook.com",
+   2
+  ],
+  [
+   "twitter.com",
+   2
+  ]
+ ],
+ "wordpress_signals": {
+  "wp-content": 266,
+  "wp-includes": 8,
+  "wp_json_link": true,
+  "elementor_classes": 7999,
+  "plugin_dirs": [
+   "ele-custom-skin",
+   "elementor",
+   "elementor-pro",
+   "elementskit",
+   "elementskit-lite",
+   "jet-elements",
+   "jet-engine",
+   "jet-tabs",
+   "pojo-accessibility",
+   "premium-addons-for-elementor",
+   "w3-total-cache"
+  ]
+ }
+}

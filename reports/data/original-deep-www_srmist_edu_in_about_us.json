@@ -1,0 +1,464 @@
+{
+ "url": "https://www.srmist.edu.in/about-us/",
+ "top_requests": [
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/04/clock-tower-3.png",
+   "type": "Image",
+   "bytes": 684981,
+   "ms": 774,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/02/Techpark_Building4-scaled.jpeg",
+   "type": "Image",
+   "bytes": 519880,
+   "ms": 1006,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/fonts/elementskit.woff?y24e1e",
+   "type": "Font",
+   "bytes": 459964,
+   "ms": 417,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.gstatic.com/recaptcha/releases/bSuJ2xBC8cFy7pM4Z3Hu9boH/recaptcha__en.js",
+   "type": "Script",
+   "bytes": 357007,
+   "ms": 217,
+   "status": 200,
+   "host": "www.gstatic.com"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2026/02/Milan-26-Brochure-724x1024-1.png",
+   "type": "Image",
+   "bytes": 309926,
+   "ms": 580,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/about-us/",
+   "type": "Document",
+   "bytes": 296201,
+   "ms": 411,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.googletagmanager.com/gtm.js?id=GTM-N2MJSG4",
+   "type": "Script",
+   "bytes": 219885,
+   "ms": 365,
+   "status": 200,
+   "host": "www.googletagmanager.com"
+  },
+  {
+   "url": "https://www.googletagmanager.com/gtm.js?id=GTM-T95BV2D",
+   "type": "Script",
+   "bytes": 200059,
+   "ms": 363,
+   "status": 200,
+   "host": "www.googletagmanager.com"
+  },
+  {
+   "url": "https://www.googletagmanager.com/gtag/js?id=G-QNCRQG0GFE",
+   "type": "Script",
+   "bytes": 196362,
+   "ms": 417,
+   "status": 200,
+   "host": "www.googletagmanager.com"
+  },
+  {
+   "url": "https://www.googletagmanager.com/gtag/js?id=G-WPQX1N80H8&cx=c&gtm=4e6b31",
+   "type": "Script",
+   "bytes": 171422,
+   "ms": 154,
+   "status": 200,
+   "host": "www.googletagmanager.com"
+  },
+  {
+   "url": "https://www.googletagmanager.com/gtag/js?id=AW-11088184384&cx=c&gtm=4e6b31",
+   "type": "Script",
+   "bytes": 171297,
+   "ms": 200,
+   "status": 200,
+   "host": "www.googletagmanager.com"
+  },
+  {
+   "url": "https://www.googletagmanager.com/gtm.js?id=GTM-TR97CKJ",
+   "type": "Script",
+   "bytes": 171014,
+   "ms": 361,
+   "status": 200,
+   "host": "www.googletagmanager.com"
+  }
+ ],
+ "by_type": {
+  "Document": {
+   "n": 3,
+   "bytes": 341580
+  },
+  "Fetch": {
+   "n": 16,
+   "bytes": 1647
+  },
+  "Font": {
+   "n": 13,
+   "bytes": 817681
+  },
+  "Image": {
+   "n": 48,
+   "bytes": 2062554
+  },
+  "Other": {
+   "n": 2,
+   "bytes": 574
+  },
+  "Ping": {
+   "n": 1,
+   "bytes": 560
+  },
+  "Script": {
+   "n": 87,
+   "bytes": 3103214
+  },
+  "Stylesheet": {
+   "n": 49,
+   "bytes": 386532
+  },
+  "XHR": {
+   "n": 2,
+   "bytes": 1747
+  }
+ },
+ "third_party_hosts": [
+  [
+   "www.googletagmanager.com",
+   11,
+   1975532
+  ],
+  [
+   "www.gstatic.com",
+   4,
+   393102
+  ],
+  [
+   "connect.facebook.net",
+   3,
+   272931
+  ],
+  [
+   "fonts.gstatic.com",
+   7,
+   161699
+  ],
+  [
+   "cdn.npfs.co",
+   12,
+   141649
+  ],
+  [
+   "www.google.com",
+   24,
+   32976
+  ],
+  [
+   "widgets.nopaperforms.com",
+   5,
+   24063
+  ],
+  [
+   "www.google-analytics.com",
+   2,
+   22336
+  ],
+  [
+   "googleads.g.doubleclick.net",
+   6,
+   20009
+  ],
+  [
+   "cdnjs.cloudflare.com",
+   2,
+   12662
+  ],
+  [
+   "track.nopaperforms.com",
+   1,
+   5110
+  ],
+  [
+   "fonts.googleapis.com",
+   1,
+   4445
+  ]
+ ],
+ "third_party_total": {
+  "requests": 100,
+  "bytes": 3070680
+ },
+ "video_requests": [],
+ "fonts": [
+  {
+   "url": "https://www.srmist.edu.in/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/fonts/elementskit.woff?y24e1e",
+   "type": "Font",
+   "bytes": 459964,
+   "ms": 417,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2",
+   "type": "Font",
+   "bytes": 78493,
+   "ms": 296,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2",
+   "type": "Font",
+   "bytes": 43099,
+   "ms": 20,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2",
+   "type": "Font",
+   "bytes": 35643,
+   "ms": 45,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/themes/oceanwp/assets/fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0",
+   "type": "Font",
+   "bytes": 30306,
+   "ms": 200,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/01/Butler_Medium.woff",
+   "type": "Font",
+   "bytes": 29909,
+   "ms": 189,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/01/Butler_ExtraBold.woff",
+   "type": "Font",
+   "bytes": 29629,
+   "ms": 185,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/01/Butler_Bold.woff",
+   "type": "Font",
+   "bytes": 27681,
+   "ms": 128,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmRdu3cOWxy40.woff2",
+   "type": "Font",
+   "bytes": 23167,
+   "ms": 39,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2",
+   "type": "Font",
+   "bytes": 15345,
+   "ms": 157,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu3cOWxw.woff2",
+   "type": "Font",
+   "bytes": 14889,
+   "ms": 28,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu3cOWxw.woff2",
+   "type": "Font",
+   "bytes": 14810,
+   "ms": 22,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu3cOWxw.woff2",
+   "type": "Font",
+   "bytes": 14746,
+   "ms": 74,
+   "status": 200,
+   "host": "fonts.gstatic.com"
+  }
+ ],
+ "largest_images": [
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/04/clock-tower-3.png",
+   "type": "Image",
+   "bytes": 684981,
+   "ms": 774,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/02/Techpark_Building4-scaled.jpeg",
+   "type": "Image",
+   "bytes": 519880,
+   "ms": 1006,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2026/02/Milan-26-Brochure-724x1024-1.png",
+   "type": "Image",
+   "bytes": 309926,
+   "ms": 580,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/02/0C6A6645_opt.jpg",
+   "type": "Image",
+   "bytes": 101368,
+   "ms": 307,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2024/12/Admission-India-SRMIST-1-Copy-768x511.jpg",
+   "type": "Image",
+   "bytes": 77703,
+   "ms": 557,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2024/12/srm-sports-1.jpg",
+   "type": "Image",
+   "bytes": 63906,
+   "ms": 517,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/01/srm-logo-white.svg",
+   "type": "Image",
+   "bytes": 56041,
+   "ms": 71,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  },
+  {
+   "url": "https://www.srmist.edu.in/wp-content/uploads/2022/08/program-finder-2.png",
+   "type": "Image",
+   "bytes": 39730,
+   "ms": 70,
+   "status": 200,
+   "host": "www.srmist.edu.in"
+  }
+ ],
+ "js_files": {
+  "count": 87,
+  "bytes": 3103214
+ },
+ "css_files": {
+  "count": 49,
+  "bytes": 386532
+ },
+ "first_party_protocols": {
+  "h2": 121
+ },
+ "contrast_failures": {
+  "count": 5,
+  "examples": [
+   {
+    "snippet": "<div class=\"elementor-tab-title elementor-tab-mobile-title\" aria-selected=\"false\" data-tab",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 2.56 (foreground color: #9da2a9, background color: #ffffff, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<div class=\"elementor-widget-container\">",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 3.97 (foreground color: #9eb8da, background color: #0c4da2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<a href=\"https://www.srmist.edu.in/terms-and-conditions/\">",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 3.88 (foreground color: #9bb6d9, background color: #0c4da2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<a href=\"https://www.srmist.edu.in/privacy-policy/\">",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 3.88 (foreground color: #9bb6d9, background color: #0c4da2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+   },
+   {
+    "snippet": "<p class=\"elementor-heading-title elementor-size-default\">",
+    "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 3.88 (foreground color: #9bb6d9, background color: #0c4da2, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+   }
+  ]
+ },
+ "a11y_counts": {
+  "link-name": 11,
+  "button-name": 1,
+  "target-size": 0,
+  "color-contrast": 5,
+  "image-alt": 0,
+  "label": 0,
+  "heading-order": 0,
+  "aria-hidden-focus": 0,
+  "tabindex": 1,
+  "html-has-lang": 0,
+  "document-title": 0,
+  "meta-viewport": 0,
+  "select-name": 0,
+  "frame-title": 0,
+  "list": 0,
+  "listitem": 0
+ },
+ "cookies_third_party": [
+  "AWSALBCORS",
+  "AWSALBCORS",
+  "test_cookie",
+  "IDE"
+ ],
+ "main_thread": [
+  {
+   "group": "Script Evaluation",
+   "ms": 5788
+  },
+  {
+   "group": "Style & Layout",
+   "ms": 3013
+  },
+  {
+   "group": "Other",
+   "ms": 1959
+  },
+  {
+   "group": "Parse HTML & CSS",
+   "ms": 751
+  },
+  {
+   "group": "Script Parsing & Compilation",
+   "ms": 444
+  },
+  {
+   "group": "Rendering",
+   "ms": 369
+  }
+ ]
+}

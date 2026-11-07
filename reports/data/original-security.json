@@ -1,0 +1,56 @@
+{
+  "checked_on": "2026-11-05",
+  "method": "Passive only: ordinary GET/HEAD requests, TLS handshake inspection and reading the public HTML. No exploitation, fuzzing, credential or authentication testing.",
+  "headers_present": {
+    "Server": "nginx/1.24.0 (Ubuntu)",
+    "Cache-Control": "max-age=0, public",
+    "Content-Encoding": "gzip (HTML 709 KB -> 104 KB)",
+    "X-UA-Compatible": "IE=edge (obsolete)",
+    "Link": "advertises /wp-json/ (WordPress REST API) on every page"
+  },
+  "headers_missing": [
+    "Content-Security-Policy",
+    "Strict-Transport-Security",
+    "X-Frame-Options (or CSP frame-ancestors)",
+    "X-Content-Type-Options",
+    "Referrer-Policy",
+    "Permissions-Policy",
+    "Cross-Origin-Opener-Policy"
+  ],
+  "tls": {
+    "www.srmist.edu.in": {
+      "valid": true,
+      "protocol_negotiated": "TLSv1.2",
+      "issuer": "Sectigo Public Server Authentication CA OV R36 (chains to USERTrust RSA)",
+      "valid_to": "2027-05-12"
+    },
+    "srmist.edu.in": {
+      "valid": false,
+      "error": "DEPTH_ZERO_SELF_SIGNED_CERT",
+      "subject_and_issuer": "SRMIST-SRMISTKTR-DC02-CA",
+      "valid_to": "2118-06-17"
+    }
+  },
+  "redirect_http_to_https": "301 -> https://www.srmist.edu.in:443/",
+  "security_txt": "404 (no /.well-known/security.txt)",
+  "http_protocol_first_party": "h2 (HTTP/2) - good",
+  "page_markup_signals": {
+    "generator_meta": ["WordPress 7.1.3", "All in One SEO Pro (AIOSEO) 4.8.6"],
+    "plugins_visible": ["ele-custom-skin", "elementor", "elementor-pro", "elementskit", "elementskit-lite", "jet-elements", "jet-engine", "jet-tabs", "pojo-accessibility", "premium-addons-for-elementor", "w3-total-cache"],
+    "target_blank_links": 105,
+    "target_blank_without_rel": 105,
+    "inline_event_handlers": 0,
+    "mixed_content": 0,
+    "forms": 5,
+    "third_party_script_hosts": ["www.googletagmanager.com", "www.google.com (reCAPTCHA)", "cdn.jsdelivr.net", "cdnjs.cloudflare.com"],
+    "third_party_cookies_lighthouse": 5
+  },
+  "positives": [
+    "HTTPS everywhere with a valid certificate on www",
+    "HTTP/2 and gzip compression enabled",
+    "No mixed content, no inline event handlers",
+    "reCAPTCHA protects forms",
+    "jQuery 3.7.1 (current)",
+    "robots.txt blocks /wp-admin/ while keeping admin-ajax available"
+  ]
+}

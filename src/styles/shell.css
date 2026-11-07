@@ -1,0 +1,67 @@
+/* Shared page shell: gives every information page the landing page's look and motion.
+   Hero (.sh), the curtain overlap, alternating bands, card hover, scroll reveal, and a quieter route loader. */
+
+html{scroll-padding-top:calc(var(--nav-h,78px) + 24px)}
+
+/* ---- hero ---- */
+.svc{overflow-x:clip}
+.svc>.sh{margin-top:calc(var(--nav-h,78px) * -1)}
+.sh{--sh-p:0;position:relative;min-height:min(66svh,640px);display:flex;align-items:flex-end;overflow:hidden;background:var(--blue-dark,#0b3a7a);color:#fff;padding:calc(var(--nav-h,78px) + 44px) 6vw 96px}
+.sh-photo{position:absolute;inset:-5% 0;transform:translate3d(0,calc(var(--sh-p) * 70px),0) scale(calc(1.06 + var(--sh-p) * .08));will-change:transform}
+.sh-photo img{display:block;width:100%;height:100%;object-fit:cover;animation:sh-in 1.8s var(--ease) both}
+.sh-tint{position:absolute;inset:0;background:
+  linear-gradient(100deg,color-mix(in srgb,var(--blue-dark,#0b3a7a) 94%,transparent) 0%,color-mix(in srgb,var(--blue) 74%,transparent) 52%,color-mix(in srgb,var(--blue) 34%,transparent) 100%),
+  linear-gradient(to top,#04122cd0 0%,transparent 58%)}
+.sh-copy{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;opacity:calc(1 - var(--sh-p) * .95);transform:translate3d(0,calc(var(--sh-p) * -36px),0)}
+.sh .eyebrow{color:var(--gold);animation:sh-fade .9s .1s var(--ease) both}
+.sh h1{font-family:var(--display);font-weight:500;font-size:clamp(2.7rem,7.2vw,6.4rem);line-height:.95;letter-spacing:-.045em;margin:14px 0 20px;max-width:15ch;text-shadow:0 4px 40px #0006}
+.sh-word{display:inline-block;margin-right:.26em;opacity:0;transform:translateY(55%);animation:sh-rise 1.1s var(--ease) forwards}
+.sh-lede{max-width:60ch;color:#ffffffdb;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.55;opacity:0;animation:sh-fade 1s .55s var(--ease) forwards}
+.sh .vis-quick{margin-top:26px;animation:sh-fade 1s .7s var(--ease) both}
+.sh .vis-quick a{background:#ffffff1f;border-color:#ffffff66;color:#fff;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .3s,color .3s,transform .35s var(--ease)}
+.sh .vis-quick a:hover{background:#fff;color:#0b3a7a;border-color:#fff;transform:translateY(-2px)}
+@keyframes sh-rise{to{opacity:1;transform:none}}
+@keyframes sh-fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes sh-in{from{filter:blur(8px);transform:scale(1.08)}to{filter:none;transform:none}}
+
+/* ---- the content slides up over the hero like the landing page curtain ---- */
+.svc .svc-wrap{max-width:none;padding-inline:max(6vw,calc((100vw - 1200px) / 2))}
+.svc .sh + .svc-wrap{position:relative;z-index:2;margin-top:-44px;padding-top:60px;background:var(--paper);border-radius:34px 34px 0 0}
+.svc .svc-wrap.vis-grid{gap:0;padding-bottom:0}
+.svc .vis-grid>.vis-block{padding-block:clamp(44px,6vw,84px)}
+.svc .vis-grid>.vis-block:first-child{padding-top:8px}
+/* alternate full-width bands, as on the landing page */
+.svc .vis-grid>.vis-block:nth-child(even){background:var(--sand);box-shadow:0 0 0 100vmax var(--sand);clip-path:inset(0 -100vmax)}
+.svc .svc-wrap:not(.vis-grid){padding-bottom:clamp(56px,8vw,96px)}
+
+/* ---- headings and cards ---- */
+.svc .vis-block h2,.svc .svc-banner h2,.svc .svc-help h3{letter-spacing:-.035em}
+.svc .vis-block h2{font-size:clamp(1.9rem,4vw,3.2rem);line-height:1.02}
+.svc-card,.hs-card,.lib-card,.vis-places li,.st-card,.vis-hotel{transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s}
+.svc-card:hover,.hs-card:hover,.lib-card:hover,.vis-places li:hover,.st-card:hover{transform:translateY(-5px);border-color:var(--blue);box-shadow:0 20px 46px #084b9b22}
+.svc-card,.hs-card,.lib-card,.vis-places li,.st-card,.vis-hotel{border-radius:18px}
+.svc-btn,.svc .button{transition:background .3s,color .3s,border-color .3s,transform .35s var(--ease)}
+.svc-btn:hover:not(:disabled){transform:translateY(-2px)}
+
+/* closing call-to-action card in the landing page's blue */
+.svc .svc-help{background:var(--blue);color:#fff;border:0;border-radius:26px;padding:clamp(26px,4vw,44px)}
+.svc .svc-help h3,.svc .svc-help p{color:#fff}
+.svc .svc-help a:not(.button){color:#fff;text-decoration:underline}
+.svc .svc-help .button{background:var(--gold);color:#171814;border-color:var(--gold)}
+
+/* ---- scroll reveal (see lib/pageFx.js; only active when JavaScript runs and motion is allowed) ---- */
+html.fx [data-rv]{opacity:0;transform:translate3d(0,28px,0);filter:blur(6px);transition:opacity .85s var(--ease) var(--rv-d,0ms),transform .95s var(--ease) var(--rv-d,0ms),filter .75s var(--ease) var(--rv-d,0ms)}
+html.fx [data-rv='in']{opacity:1;transform:none;filter:none}
+body.motion-paused [data-rv]{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+
+/* ---- quieter route loader (shown only while a page's code arrives) ---- */
+.route-loading{position:relative;min-height:60vh;color:transparent;font-size:0;overflow:hidden}
+.route-loading::before{content:"";position:fixed;left:0;top:0;height:3px;width:100%;z-index:500;background:linear-gradient(90deg,transparent,var(--gold),var(--blue),transparent);transform:translateX(-100%);animation:route-bar 1.1s var(--ease) infinite}
+@keyframes route-bar{to{transform:translateX(100%)}}
+
+@media (prefers-reduced-motion:reduce){.sh-word,.sh-lede,.sh .eyebrow,.sh .vis-quick{opacity:1;transform:none;animation:none}.sh-photo,.sh-copy{transform:none}.sh-photo img{animation:none}.route-loading::before{animation:none;transform:none}}
+@media (max-width:700px){.sh{min-height:58svh;padding-bottom:84px}.svc .sh + .svc-wrap{margin-top:-34px;border-radius:26px 26px 0 0}}
+.svc .svc-link{font-size:14px}
+
+/* arrow icons inside buttons never grow past text size (they have no size of their own) */
+.svc-btn svg,.svc .button svg{width:14px;height:14px;flex:none}

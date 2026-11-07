@@ -1,0 +1,73 @@
+// Departments and schools at SRMIST, read from the official site's college pages (srmist.edu.in/department/…, 2026-11-06).
+// [display name, official page path, faculty]. Centres of excellence and sub-pages (newsletters, board of studies) are left out.
+
+const B = 'https://www.srmist.edu.in/department/'
+
+const RAW = [
+  // Engineering & Technology
+  ['Aerospace Engineering', 'department-of-aerospace-engineering', 'Engineering & Technology'],
+  ['Architecture and Interior Design', 'department-of-architecture', 'Engineering & Technology'],
+  ['Automobile Engineering', 'department-of-automobile-engineering', 'Engineering & Technology'],
+  ['Biomedical Engineering', 'department-of-biomedical-engineering', 'Engineering & Technology'],
+  ['Biotechnology', 'department-of-biotechnology', 'Engineering & Technology'],
+  ['Chemical Engineering', 'department-of-chemical-engineering', 'Engineering & Technology'],
+  ['Chemistry', 'department-of-chemistry', 'Engineering & Technology'],
+  ['Civil Engineering', 'department-of-civil-engineering', 'Engineering & Technology'],
+  ['Computational Intelligence', 'department-of-computational-intelligence', 'Engineering & Technology'],
+  ['Computing Technologies', 'department-of-computing-technologies', 'Engineering & Technology'],
+  ['Data Science and Business Systems', 'department-of-data-science-and-business-systems', 'Engineering & Technology'],
+  ['Electrical and Electronics Engineering', 'department-of-electrical-and-electronics-engineering', 'Engineering & Technology'],
+  ['Electronics and Communication Engineering', 'department-of-electronics-communication', 'Engineering & Technology'],
+  ['Electronics and Instrumentation Engineering', 'department-of-electronics-instrumentation', 'Engineering & Technology'],
+  ['Food Technology', 'department-of-food-technology', 'Engineering & Technology'],
+  ['Genetic Engineering', 'department-of-genetic-engineering', 'Engineering & Technology'],
+  ['Language, Culture and Society', 'department-of-language-culture-and-society', 'Engineering & Technology'],
+  ['Mathematics', 'department-of-mathematics', 'Engineering & Technology'],
+  ['Mechanical Engineering', 'department-of-mechanical-engineering', 'Engineering & Technology'],
+  ['Mechatronics Engineering', 'department-of-mechatronics', 'Engineering & Technology'],
+  ['Networking and Communications', 'department-of-networking-and-communications', 'Engineering & Technology'],
+  ['Physics and Nanotechnology', 'department-of-physics-and-nanotechnology', 'Engineering & Technology'],
+  // Science & Humanities
+  ['Biochemistry', 'department-of-biochemistry', 'Science & Humanities'],
+  ['Biotechnology (Science and Humanities)', 'department-of-biotechnology-science-and-humanities', 'Science & Humanities'],
+  ['Commerce', 'department-of-commerce', 'Science & Humanities'],
+  ['Computer Applications', 'department-of-computer-applications', 'Science & Humanities'],
+  ['Computer Science', 'department-of-computer-science', 'Science & Humanities'],
+  ['Corporate Secretaryship and Accounting & Finance', 'department-of-corporate-secretaryship-and-accounting-finance', 'Science & Humanities'],
+  ['Defence and Strategic Studies', 'department-of-defence-and-strategic-studies', 'Science & Humanities'],
+  ['Economics', 'department-of-economics', 'Science & Humanities'],
+  ['Education', 'school-of-education', 'Science & Humanities'],
+  ['English', 'department-of-english', 'Science & Humanities'],
+  ['Fashion Designing', 'department-of-fashion-designing', 'Science & Humanities'],
+  ['French', 'department-of-french', 'Science & Humanities'],
+  ['Hindi', 'department-of-hindi', 'Science & Humanities'],
+  ['Journalism and Mass Communication', 'department-of-journalism-and-mass-communication', 'Science & Humanities'],
+  ['Mathematics and Statistics', 'department-of-mathematics-and-statistics', 'Science & Humanities'],
+  ['Physical Education & Sports Sciences', 'department-of-physical-education-sports-sciences', 'Science & Humanities'],
+  ['Psychology', 'department-of-psychology', 'Science & Humanities'],
+  ['Social Work', 'department-of-social-work', 'Science & Humanities'],
+  ['Tamil', 'department-of-tamil', 'Science & Humanities'],
+  ['Visual Communication', 'department-of-visual-communication', 'Science & Humanities'],
+  ['Yoga', 'department-of-yoga', 'Science & Humanities'],
+  // Health sciences, hospitality and agriculture
+  ['Agricultural Sciences', 'college-of-agriculture-sciences', 'Agricultural Sciences'],
+  ['Agronomy', 'department-of-agronomy', 'Agricultural Sciences'],
+  ['Agricultural Economics', 'department-of-agricultural-economics', 'Agricultural Sciences'],
+  ['Agricultural Extension Education', 'department-of-agricultural-extension-education', 'Agricultural Sciences'],
+  ['Entomology', 'department-of-entomology', 'Agricultural Sciences'],
+  ['Floriculture and Landscaping Architecture', 'department-of-floriculture-and-landscaping', 'Agricultural Sciences'],
+  ['Fruit Science', 'department-of-fruit-science', 'Agricultural Sciences'],
+  ['Genetics and Plant Breeding', 'department-of-genetics-and-plant-breeding', 'Agricultural Sciences'],
+  ['Plant Pathology', 'department-of-plant-pathology', 'Agricultural Sciences'],
+  ['Soil Science', 'dept-of-soil-science', 'Agricultural Sciences'],
+  ['Vegetable Science', 'department-of-vegetable-science', 'Agricultural Sciences'],
+  ['Hotel and Catering Management', 'institute-of-hotel-and-catering-management', 'Health sciences & hospitality'],
+  ['Nursing', 'college-of-nursing', 'Health sciences & hospitality'],
+  ['Occupational Therapy', 'college-of-occupational-therapy', 'Health sciences & hospitality'],
+  ['Pharmacy', 'college-of-pharmacy', 'Health sciences & hospitality'],
+  ['Physiotherapy', 'college-of-physiotherapy', 'Health sciences & hospitality'],
+  ['Public Health', 'school-of-public-health', 'Health sciences & hospitality'],
+]
+
+export const DEPARTMENTS = RAW.map(([name, slug, faculty]) => ({ name, href: `${B}${slug}/`, faculty }))
+export const FACULTIES = [...new Set(DEPARTMENTS.map((d) => d.faculty))]

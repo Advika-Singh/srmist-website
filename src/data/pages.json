@@ -1,0 +1,1172 @@
+{
+  "about": {
+    "hero": {
+      "eyebrow": "About SRMIST",
+      "h1": "Four decades of learning without limits.",
+      "p": "What began in 1985 has grown into a multidisciplinary university connected to communities, industries and ideas around the world.",
+      "img": "/srmist/campus-main-building.jpg",
+      "alt": "The SRMIST main academic building",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "1985",
+        "Established"
+      ],
+      [
+        "A++",
+        "NAAC grade"
+      ],
+      [
+        "200+",
+        "Global partners"
+      ],
+      [
+        "80+",
+        "Countries represented"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Our story",
+        "p": "A history of widening access, building capability and anticipating the needs of a changing world.",
+        "items": [
+          "History",
+          "Vision",
+          "Leadership",
+          "Governance"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Recognition",
+        "p": "Independent rankings and accreditations reflect consistent investment in learning and research.",
+        "items": [
+          "NAAC A++",
+          "NIRF",
+          "QS Rankings",
+          "Awards"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "One SRM, many places",
+        "p": "Six distinctive campuses share one standard of education and a connected culture.",
+        "items": [
+          "Kattankulathur",
+          "Ramapuram",
+          "Vadapalani",
+          "Tiruchirappalli"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "academics": {
+    "hero": {
+      "eyebrow": "Academics at SRMIST",
+      "h1": "Study what matters. Build what comes next.",
+      "p": "Flexible, future-facing programmes connect deep disciplinary learning with the freedom to explore across fields.",
+      "img": "/srmist/students.jpg",
+      "alt": "Students working at computers in an SRMIST lab",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "8",
+        "Academic faculties"
+      ],
+      [
+        "300+",
+        "Programmes"
+      ],
+      [
+        "6",
+        "Campuses"
+      ],
+      [
+        "1",
+        "Connected community"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Engineering & Technology",
+        "p": "From foundational science to AI, robotics, mobility and sustainable infrastructure.",
+        "items": [
+          "B.Tech",
+          "M.Tech",
+          "B.Arch",
+          "PhD"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Medicine & Health",
+        "p": "Integrated education across medicine, dentistry, pharmacy, nursing and allied health.",
+        "items": [
+          "MBBS",
+          "BDS",
+          "Pharmacy",
+          "Public Health"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Business, Law & Humanities",
+        "p": "Learn to lead organisations, shape policy and understand the systems around us.",
+        "items": [
+          "MBA",
+          "BA LLB",
+          "Commerce",
+          "Liberal Arts"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "admissions": {
+    "hero": {
+      "eyebrow": "Admissions 2026",
+      "h1": "There is more than one way to begin.",
+      "p": "Find the route that fits your goals. We will guide you from programme discovery through application and arrival.",
+      "img": "/srmist/admission-india.jpg",
+      "alt": "SRMIST students outside the main building",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "10 min",
+        "Typical application"
+      ],
+      [
+        "100+",
+        "Scholarship categories"
+      ],
+      [
+        "80+",
+        "Countries represented"
+      ],
+      [
+        "6",
+        "Campus choices"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Undergraduate",
+        "p": "For students completing higher secondary education and ready to begin their first degree.",
+        "items": [
+          "Explore programmes",
+          "Check eligibility",
+          "SRMJEEE",
+          "Apply online"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Postgraduate & Doctoral",
+        "p": "Advanced learning and research pathways for graduates and working professionals.",
+        "items": [
+          "Master’s programmes",
+          "PhD admissions",
+          "Research areas",
+          "Funding"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "International students",
+        "p": "One application journey with dedicated counselling, visa and on-campus support.",
+        "items": [
+          "Entry requirements",
+          "Fees",
+          "Visa support",
+          "Accommodation"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Need help deciding?",
+      "h2": "Talk to our admissions team.",
+      "p": "Tell us what you are interested in and our counsellors will help you understand the right next step.",
+      "link": {
+        "text": "Call +91 70 2645 2645",
+        "href": "tel:+917026452645"
+      }
+    }
+  },
+  "research": {
+    "hero": {
+      "eyebrow": "Research & innovation",
+      "h1": "Big questions belong to everyone.",
+      "p": "Researchers from technology, health, science and society work across boundaries to turn new knowledge into public value.",
+      "img": "/srmist/labs.jpg",
+      "alt": "Researchers with laboratory equipment at SRMIST",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "920+",
+        "Patents"
+      ],
+      [
+        "47K+",
+        "Publications"
+      ],
+      [
+        "₹250 Cr+",
+        "External funding"
+      ],
+      [
+        "60+",
+        "Centres & labs"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "From curiosity to consequence."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Centres & laboratories",
+        "p": "Shared research infrastructure supports work from nanotechnology to high-performance computing.",
+        "items": [
+          "Nanotechnology",
+          "SCIF",
+          "Medical Research",
+          "HPCC"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Innovation ecosystem",
+        "p": "Mentors, makerspaces and incubation help university ideas move into the world.",
+        "items": [
+          "Incubation",
+          "Student startups",
+          "Industry partnerships",
+          "Patents"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Research with impact",
+        "p": "Priority themes respond to India’s needs and global challenges.",
+        "items": [
+          "Health",
+          "Climate",
+          "Future mobility",
+          "Responsible AI"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/tech-park.jpg",
+      "alt": "The SRM Tech Park building",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "campus-life": {
+    "hero": {
+      "eyebrow": "Life at SRMIST",
+      "h1": "A campus with room for every version of you.",
+      "p": "Live, play, create and find your people in a community where the day rarely ends with the timetable.",
+      "img": "/srmist/sports.jpg",
+      "alt": "An SRMIST sports team on the ground",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "50K+",
+        "Students"
+      ],
+      [
+        "40+",
+        "Clubs & teams"
+      ],
+      [
+        "15+",
+        "Sports facilities"
+      ],
+      [
+        "24/7",
+        "Campus support"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Make the campus yours."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Live well",
+        "p": "Thoughtfully designed hostels, diverse dining, healthcare and practical everyday support.",
+        "items": [
+          "Accommodation",
+          "Dining",
+          "Health centre",
+          "Transport"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Find your people",
+        "p": "Clubs, cultural groups and student chapters make it easy to turn interests into community.",
+        "items": [
+          "Arts & culture",
+          "Student clubs",
+          "NCC & NSS",
+          "Milan Fest"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Move & compete",
+        "p": "Facilities and teams for athletes, beginners and everyone in between.",
+        "items": [
+          "Athletics",
+          "Fitness",
+          "Team sports",
+          "Tournaments"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "programmes": {
+    "hero": {
+      "eyebrow": "Programme finder",
+      "h1": "Find the course that fits your curiosity.",
+      "p": "Explore undergraduate, postgraduate and doctoral study across technology, health, business, law, science and the humanities.",
+      "img": "/srmist/students.jpg",
+      "alt": "Students working at computers in an SRMIST lab",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "300+",
+        "Programmes"
+      ],
+      [
+        "8",
+        "Academic faculties"
+      ],
+      [
+        "3",
+        "Study levels"
+      ],
+      [
+        "6",
+        "Campus choices"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Undergraduate study",
+        "p": "Build strong foundations, learn through practice and discover where your interests can take you.",
+        "items": [
+          "B.Tech",
+          "MBBS & BDS",
+          "BBA & B.Com",
+          "Law & Humanities"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Postgraduate study",
+        "p": "Deepen your expertise through advanced coursework, industry projects and specialist pathways.",
+        "items": [
+          "M.Tech",
+          "MBA",
+          "M.Sc",
+          "Health Sciences"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Doctoral research",
+        "p": "Join active research communities with access to specialist laboratories and experienced supervisors.",
+        "items": [
+          "Research areas",
+          "Supervisors",
+          "Funding",
+          "PhD admissions"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "international": {
+    "hero": {
+      "eyebrow": "International at SRMIST",
+      "h1": "Bring your world. Discover another.",
+      "p": "Study in Chennai as part of a community shaped by students and university partners from around the globe.",
+      "img": "/srmist/admission-india.jpg",
+      "alt": "International and Indian students together on the SRMIST campus",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "80+",
+        "Countries represented"
+      ],
+      [
+        "200+",
+        "Global partners"
+      ],
+      [
+        "35+",
+        "Study abroad destinations"
+      ],
+      [
+        "1",
+        "Global community"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Come to SRM",
+        "p": "Dedicated advisers support international students from first enquiry through arrival and orientation.",
+        "items": [
+          "International admission",
+          "Visa support",
+          "Fees",
+          "Arrival guide"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Go beyond SRM",
+        "p": "Study abroad, transfer and short immersion options turn one degree into a global experience.",
+        "items": [
+          "Semester abroad",
+          "Twinning",
+          "Transfer",
+          "Global immersion"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Partnerships",
+        "p": "Academic collaboration connects our classrooms and laboratories to institutions around the world.",
+        "items": [
+          "Partner universities",
+          "Joint research",
+          "Visiting faculty",
+          "Advisory board"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "placements": {
+    "hero": {
+      "eyebrow": "Careers & placements",
+      "h1": "Turn what you know into where you go.",
+      "p": "Career preparation starts early, combining skills, experience, mentoring and access to an extensive recruiter network.",
+      "img": "/srmist/admission-india.jpg",
+      "alt": "SRMIST students on campus",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "980+",
+        "Recruiters"
+      ],
+      [
+        "5,546+",
+        "Offers"
+      ],
+      [
+        "52 LPA",
+        "Highest CTC"
+      ],
+      [
+        "7.19 LPA",
+        "Average CTC"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Prepare",
+        "p": "Build communication, problem-solving and interview confidence through structured career preparation.",
+        "items": [
+          "Career coaching",
+          "Aptitude",
+          "Mock interviews",
+          "Portfolio support"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Experience",
+        "p": "Apply classroom learning through internships, industry projects and entrepreneurial opportunities.",
+        "items": [
+          "Internships",
+          "Live briefs",
+          "Industry projects",
+          "Startups"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Connect",
+        "p": "Meet organisations across technology, health, consulting, manufacturing and emerging industries.",
+        "items": [
+          "Campus recruitment",
+          "Career fairs",
+          "Alumni network",
+          "Recruiter partners"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "rankings": {
+    "hero": {
+      "eyebrow": "Rankings & accreditation",
+      "h1": "Measured by standards. Defined by impact.",
+      "p": "Independent rankings and accreditation recognise the scale, quality and consistency of SRMIST education and research.",
+      "img": "/srmist/campus-main-building.jpg",
+      "alt": "The SRMIST main academic building",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "A++",
+        "NAAC grade"
+      ],
+      [
+        "12",
+        "NIRF University"
+      ],
+      [
+        "13",
+        "NIRF Engineering"
+      ],
+      [
+        "7",
+        "NIRF Dental"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "National recognition",
+        "p": "SRMIST is assessed across teaching, research, graduation outcomes and public perception.",
+        "items": [
+          "NIRF University",
+          "NIRF Engineering",
+          "NIRF Research",
+          "NIRF Dental"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Accreditation",
+        "p": "Rigorous institutional and programme reviews support a culture of continuous improvement.",
+        "items": [
+          "NAAC A++",
+          "UGC",
+          "AICTE",
+          "Programme accreditation"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Global outlook",
+        "p": "International benchmarks reflect the university’s research reach and global academic connections.",
+        "items": [
+          "QS",
+          "THE",
+          "Nature Index",
+          "Global partnerships"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "scholarships": {
+    "hero": {
+      "eyebrow": "Scholarships & aid",
+      "h1": "Talent should decide how far you go.",
+      "p": "Merit, achievement and need-based support help ambitious students access the opportunities available at SRMIST.",
+      "img": "/srmist/admission-india.jpg",
+      "alt": "SRMIST students on campus",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "100+",
+        "Award categories"
+      ],
+      [
+        "₹48 Cr+",
+        "Annual support"
+      ],
+      [
+        "4",
+        "Support pathways"
+      ],
+      [
+        "Every year",
+        "New awards"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Merit scholarships",
+        "p": "Academic performance and entrance results can unlock significant tuition support.",
+        "items": [
+          "Founder’s scholarship",
+          "SRMJEEE merit",
+          "Board merit",
+          "Academic renewal"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Achievement awards",
+        "p": "Exceptional contribution in sport, culture and innovation is recognised and supported.",
+        "items": [
+          "Sports",
+          "Arts & culture",
+          "Innovation",
+          "National achievement"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Access & inclusion",
+        "p": "Targeted assistance helps students navigate financial barriers and unexpected circumstances.",
+        "items": [
+          "Need-based aid",
+          "Community support",
+          "Education loans",
+          "Adviser guidance"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "events": {
+    "hero": {
+      "eyebrow": "News & events",
+      "h1": "The university is always in motion.",
+      "p": "Lectures, festivals, competitions, discoveries and community milestones bring the SRMIST calendar to life.",
+      "img": "/srmist/sports.jpg",
+      "alt": "SRMIST students at a sports event",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "365",
+        "Days of activity"
+      ],
+      [
+        "40+",
+        "Student communities"
+      ],
+      [
+        "6",
+        "Campus calendars"
+      ],
+      [
+        "1",
+        "Shared culture"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "On campus",
+        "p": "Public lectures, workshops and celebrations create new reasons to gather every week.",
+        "items": [
+          "Upcoming events",
+          "Academic calendar",
+          "Guest lectures",
+          "Convocation"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Student-led",
+        "p": "Teams and societies turn ideas into festivals, competitions and cultural experiences.",
+        "items": [
+          "Milan",
+          "Aaruush",
+          "Sports",
+          "Clubs & chapters"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Latest stories",
+        "p": "Meet the students, researchers and alumni behind recent achievements.",
+        "items": [
+          "Research news",
+          "Student success",
+          "Alumni stories",
+          "University announcements"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "library": {
+    "hero": {
+      "eyebrow": "University library",
+      "h1": "A place to read deeply and think widely.",
+      "p": "Discover print collections, digital resources, research support and calm spaces designed for focused study.",
+      "img": "/srmist/library.jpg",
+      "alt": "Entrance gates of the SRMIST library",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "24/7",
+        "Digital access"
+      ],
+      [
+        "Print",
+        "Core collections"
+      ],
+      [
+        "Digital",
+        "Journals & databases"
+      ],
+      [
+        "6",
+        "Campus networks"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Find information",
+        "p": "Search books, journals, databases and specialist collections through one connected discovery experience.",
+        "items": [
+          "Library catalogue",
+          "E-journals",
+          "Databases",
+          "Institutional repository"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Study your way",
+        "p": "Choose individual focus areas, collaborative tables and digital workspaces across the library network.",
+        "items": [
+          "Study spaces",
+          "Group rooms",
+          "Computer access",
+          "Opening hours"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Research support",
+        "p": "Get practical help with discovery, citations, publishing and responsible use of information.",
+        "items": [
+          "Research consultations",
+          "Referencing",
+          "Open access",
+          "Information literacy"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "departments": {
+    "hero": {
+      "eyebrow": "Departments A–Z",
+      "h1": "Every discipline. One connected university.",
+      "p": "Move across SRMIST’s academic landscape and find departments, people and programmes by area of interest.",
+      "img": "/srmist/tech-park.jpg",
+      "alt": "The SRM Tech Park building",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "8",
+        "Academic faculties"
+      ],
+      [
+        "300+",
+        "Programmes"
+      ],
+      [
+        "A–Z",
+        "Department directory"
+      ],
+      [
+        "6",
+        "Campus choices"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Technology & science",
+        "p": "Explore departments advancing computing, engineering, architecture and the fundamental sciences.",
+        "items": [
+          "Computing",
+          "Engineering",
+          "Architecture",
+          "Science"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Health & medicine",
+        "p": "Find connected learning across medicine, dentistry, pharmacy, nursing and allied health.",
+        "items": [
+          "Medicine",
+          "Dentistry",
+          "Pharmacy",
+          "Allied Health"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Business & society",
+        "p": "Discover departments focused on management, law, agriculture, hospitality and the humanities.",
+        "items": [
+          "Management",
+          "Law",
+          "Agriculture",
+          "Humanities"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "examinations": {
+    "hero": {
+      "eyebrow": "Examinations",
+      "h1": "Everything you need, when it matters.",
+      "p": "A clearer route to examination schedules, hall information, academic rules, results and student support.",
+      "img": "/srmist/students.jpg",
+      "alt": "Students working at computers in an SRMIST lab",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "Schedules",
+        "In one place"
+      ],
+      [
+        "Online",
+        "Results access"
+      ],
+      [
+        "Clear",
+        "Academic guidance"
+      ],
+      [
+        "Supported",
+        "Student queries"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Before your examination",
+        "p": "Check dates, eligibility, registration guidance and the practical information needed to prepare.",
+        "items": [
+          "Exam timetable",
+          "Registration",
+          "Hall ticket",
+          "Academic calendar"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Results & records",
+        "p": "Access result information and understand the next steps for reviews and academic documentation.",
+        "items": [
+          "Results",
+          "Grade cards",
+          "Revaluation",
+          "Transcripts"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Rules & support",
+        "p": "Find transparent examination policies and the right team for questions that need personal help.",
+        "items": [
+          "Regulations",
+          "Student queries",
+          "Forms",
+          "Contact examinations"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  },
+  "alumni": {
+    "hero": {
+      "eyebrow": "SRMIST alumni",
+      "h1": "The campus stays with you.",
+      "p": "A global community of graduates continues to share experience, open doors and shape the university’s next chapter.",
+      "img": "/srmist/admission-india.jpg",
+      "alt": "SRMIST students on campus",
+      "caption": "SRMIST · Chennai"
+    },
+    "stats": [
+      [
+        "Global",
+        "Alumni community"
+      ],
+      [
+        "Every field",
+        "Shared experience"
+      ],
+      [
+        "Since 1985",
+        "Growing network"
+      ],
+      [
+        "One SRM",
+        "Lifelong connection"
+      ]
+    ],
+    "intro": {
+      "eyebrow": "Explore the possibilities",
+      "h2": "Find the path made for you."
+    },
+    "blocks": [
+      {
+        "n": "01",
+        "h3": "Stay connected",
+        "p": "Reconnect with classmates, update your profile and join alumni communities wherever you are.",
+        "items": [
+          "Alumni portal",
+          "Chapters",
+          "Reunions",
+          "Update your details"
+        ]
+      },
+      {
+        "n": "02",
+        "h3": "Give experience",
+        "p": "Mentoring, talks and industry connections help current students learn from those who came before.",
+        "items": [
+          "Become a mentor",
+          "Host an intern",
+          "Guest talks",
+          "Career network"
+        ]
+      },
+      {
+        "n": "03",
+        "h3": "Keep learning",
+        "p": "University events and professional connections make graduation a beginning rather than an ending.",
+        "items": [
+          "Events",
+          "Professional learning",
+          "Campus visits",
+          "Alumni stories"
+        ]
+      }
+    ],
+    "split": {
+      "img": "/srmist/hero.webp",
+      "alt": "Aerial view of the SRMIST campus",
+      "eyebrow": "Connected by purpose",
+      "h2": "Learning extends beyond every classroom.",
+      "p": "Industry, communities and global universities join our students and faculty in work that matters.",
+      "link": {
+        "text": "Meet our community",
+        "href": "/about"
+      }
+    }
+  }
+}

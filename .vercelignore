@@ -1,0 +1,11 @@
+# Not needed for the build or the running site, and never uploaded:
+node_modules
+dist
+dist-baseline
+reports
+assets-src
+.env
+.env.*
+*.log
+
+server/data
