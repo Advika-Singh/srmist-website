@@ -882,6 +882,9 @@ export function Footer() {
         <span>Concept redesign · 2026</span>
         <span className="legal-mid">
           <MotionToggle />
+          <a className="legal-404" href="/privacy">
+            Privacy &amp; cookies
+          </a>
           <a className="legal-404" href="/404">
             Lost? See our 404 page
           </a>

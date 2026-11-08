@@ -37,7 +37,11 @@ export function applySecurityHeaders(req, res, { csp = true } = {}) {
     if (k === 'Content-Security-Policy' && !csp) continue
     res.setHeader(k, v)
   }
-  if (req.headers['x-forwarded-proto'] === 'https' || req.socket?.encrypted) res.setHeader('Strict-Transport-Security', HSTS)
+  if (req.headers['x-forwarded-proto'] === 'https' || req.socket?.encrypted) {
+    res.setHeader('Strict-Transport-Security', HSTS)
+    // Like HSTS, only meaningful (and safe for local http development) over TLS.
+    if (csp) res.setHeader('Content-Security-Policy', `${CSP}; upgrade-insecure-requests`)
+  }
   res.removeHeader?.('X-Powered-By')
 }
 

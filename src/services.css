@@ -226,3 +226,9 @@
 .st-tabs button:hover{border-color:var(--blue)}
 .st-tabs button.is-on{background:var(--blue);border-color:var(--blue);color:#fff}
 .vis-grid>*,.vis-block{min-width:0}
+
+/* privacy page: definition list as plain rows */
+.priv-list{display:grid;gap:0;margin-top:20px;max-width:var(--measure,68ch)}
+.priv-list>div{padding:16px 0;border-top:1px solid var(--line)}
+.priv-list dt{font-weight:700;margin-bottom:4px}
+.priv-list dd{color:var(--text-muted)}
