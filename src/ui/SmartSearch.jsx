@@ -9,7 +9,8 @@ import Helpful from './Helpful.jsx'
 
 const TYPE_LABEL = { action: 'Do', page: 'Page', programme: 'Programme' }
 
-export const openSearch = () => window.dispatchEvent(new Event('srm:search'))
+/** Opens the palette; pass text to start with a question already typed. */
+export const openSearch = (text = '') => window.dispatchEvent(new CustomEvent('srm:search', { detail: typeof text === 'string' ? text : '' }))
 export const askAssistant = (text = '') => window.dispatchEvent(new CustomEvent('srm:ask', { detail: text }))
 
 /**
@@ -29,10 +30,10 @@ export default function SmartSearch() {
   const seen = useRef({ q: '', n: 0, clicked: false }) // what the visitor searched, for the (redacted) usage numbers
 
   useEffect(() => {
-    const show = () => {
+    const show = (e) => {
       opener.current = document.activeElement
       seen.current = { q: '', n: 0, clicked: false }
-      setQ('')
+      setQ(typeof e?.detail === 'string' ? e.detail : '')
       setActive(0)
       setOpen(true)
     }

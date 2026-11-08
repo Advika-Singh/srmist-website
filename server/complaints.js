@@ -29,6 +29,7 @@ export const CATEGORIES = [
   'Accessibility barrier',
   'Harassment or safety',
   'Question for a current student',
+  'Privacy request',
   'Other',
 ]
 export const STATUSES = ['Received', 'In review', 'Assigned', 'Resolved', 'Closed']

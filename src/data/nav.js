@@ -9,7 +9,7 @@ const o = (p) => `${B}${p}`
 export const STRIP = [
   ['Students', '/students'],
   ['Faculty & Staff', '/teach.html'],
-  ['Parents', o('/parents/')],
+  ['Parents', '/parents'],
   ['Visitors', '/visitors'],
   ['Alumni', '/alumni'],
   ['Examinations', '/examinations'],
@@ -260,6 +260,7 @@ export const MENUS = [
         links: [
           ['Visitors & parents', '/visitors'],
           ['A day at SRM', '/day'],
+          ['Walk the campus', '/campus-walk'],
           ['Library', '/library'],
           ['Transport', o('/transport-facility/')],
           ['Contact us', o('/contact-us/')],
@@ -295,6 +296,7 @@ export const MENUS = [
           ['Learning & Development', 'https://dld.srmist.edu.in/'],
           ['Online & Distance Education (DODE)', o('/directorate-of-online-and-distance-education-dode/')],
           ['Communications', o('/directorate-of-communications/')],
+          ['Alumni chapters', '/alumni/chapters'],
           ['Alumni Affairs', o('/alumni-affairs/')],
         ],
       },
@@ -303,6 +305,7 @@ export const MENUS = [
         links: [
           ['Awards & Recognition', o('/about-us/awards-recognition/')],
           ['Placements', '/placements'],
+          ['Hire from SRMIST', '/recruiters'],
           ['Scholarships', '/scholarships'],
           ['News & events', '/events'],
           ['Student achievements', o('/parents/student-achievements/')],

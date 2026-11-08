@@ -14,6 +14,7 @@ const CATEGORIES = [
   'Accessibility barrier',
   'Harassment or safety',
   'Question for a current student',
+  'Privacy request',
   'Other',
 ]
 const STEPS = ['Received', 'In review', 'Assigned', 'Resolved']

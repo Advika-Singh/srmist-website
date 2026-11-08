@@ -885,6 +885,12 @@ export function Footer() {
           <a className="legal-404" href="/privacy">
             Privacy &amp; cookies
           </a>
+          <a className="legal-404" href="/terms">
+            Terms of use
+          </a>
+          <a className="legal-404" href="/accessibility">
+            Accessibility
+          </a>
           <a className="legal-404" href="/404">
             Lost? See our 404 page
           </a>

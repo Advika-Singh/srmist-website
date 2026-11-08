@@ -1,3 +1,5 @@
-# Concept redesign of the SRMIST website
 User-agent: *
 Allow: /
+Disallow: /api/
+
+Sitemap: https://srmist-home-pink.vercel.app/sitemap.xml

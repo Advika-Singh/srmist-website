@@ -6,6 +6,7 @@ import { EYEBROWS, SLUGS } from './data/routes.js'
 import { AdmissionsFab, Assistant, CursorLight, NAV, prefersReducedMotion } from './shared.jsx'
 import SmartSearch from './ui/SmartSearch.jsx'
 import { startPageFx } from './lib/pageFx.js'
+import { applyMeta } from './lib/seo.js'
 
 // The landing page loads up front; everything else is fetched when it is first visited.
 const loadInterior = () => import('./pages/Interior.jsx')
@@ -31,6 +32,12 @@ const Srmjeee = lazy(() => import('./pages/Srmjeee.jsx'))
 const Innovation = lazy(() => import('./pages/Innovation.jsx'))
 const StudentVoices = lazy(() => import('./pages/StudentVoices.jsx'))
 const Privacy = lazy(() => import('./pages/Privacy.jsx'))
+const Terms = lazy(() => import('./pages/Terms.jsx'))
+const Accessibility = lazy(() => import('./pages/Accessibility.jsx'))
+const CampusWalk = lazy(() => import('./pages/CampusWalk.jsx'))
+const Parents = lazy(() => import('./pages/Parents.jsx'))
+const AlumniChapters = lazy(() => import('./pages/AlumniChapters.jsx'))
+const Recruiters = lazy(() => import('./pages/Recruiters.jsx'))
 
 /** Our own pages are navigated in-app; .html pages and external links are left to the browser. */
 const isAppLink = (href) => !!href && href.startsWith('/') && !href.startsWith('//') && !/\.html([?#]|$)/.test(href)
@@ -40,12 +47,12 @@ function prefetch(href) {
   const path = href.split(/[?#]/)[0]
   if (path.startsWith('/apply')) loadApply()
   else if (path === '/admissions') loadAdmissions()
-  else if (['/status', '/support', '/access-map', '/visitors', '/library', '/hostels', '/students', '/day', '/clubs', '/course-finder', '/staff-finder', '/srmjeee', '/placements', '/innovation', '/ask-a-student', '/privacy'].includes(path)) import(`./pages/${PAGE_FILE[path]}.jsx`)
+  else if (['/status', '/support', '/access-map', '/visitors', '/library', '/hostels', '/students', '/day', '/clubs', '/course-finder', '/staff-finder', '/srmjeee', '/placements', '/innovation', '/ask-a-student', '/privacy', '/terms', '/accessibility', '/campus-walk', '/parents', '/alumni/chapters', '/recruiters'].includes(path)) import(`./pages/${PAGE_FILE[path]}.jsx`)
   else if (path !== '/') loadInterior()
 }
 
-const PAGE_FILE = { '/status': 'Status', '/support': 'Support', '/access-map': 'AccessMap', '/visitors': 'Visitors', '/library': 'Library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'Day', '/clubs': 'Clubs', '/course-finder': 'CourseFinder', '/staff-finder': 'StaffFinder', '/srmjeee': 'Srmjeee', '/placements': 'Placements', '/innovation': 'Innovation', '/ask-a-student': 'StudentVoices', '/privacy': 'Privacy' }
-const PAGE_TITLE = { '/status': 'Service status', '/support': 'Report or track an issue', '/access-map': 'Accessible campus map', '/visitors': 'Visit the campus', '/library': 'University library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'A day at SRM', '/clubs': 'Clubs', '/course-finder': 'Course finder', '/staff-finder': 'Staff finder', '/srmjeee': 'SRMJEEE 2027', '/innovation': 'Student innovation', '/ask-a-student': 'Ask a current student', '/privacy': 'Privacy and cookies' }
+const PAGE_FILE = { '/status': 'Status', '/support': 'Support', '/access-map': 'AccessMap', '/visitors': 'Visitors', '/library': 'Library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'Day', '/clubs': 'Clubs', '/course-finder': 'CourseFinder', '/staff-finder': 'StaffFinder', '/srmjeee': 'Srmjeee', '/placements': 'Placements', '/innovation': 'Innovation', '/ask-a-student': 'StudentVoices', '/privacy': 'Privacy', '/terms': 'Terms', '/accessibility': 'Accessibility', '/campus-walk': 'CampusWalk', '/parents': 'Parents', '/alumni/chapters': 'AlumniChapters', '/recruiters': 'Recruiters' }
+const PAGE_TITLE = { '/status': 'Service status', '/support': 'Report or track an issue', '/access-map': 'Accessible campus map', '/visitors': 'Visit the campus', '/library': 'University library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'A day at SRM', '/clubs': 'Clubs', '/course-finder': 'Course finder', '/staff-finder': 'Staff finder', '/srmjeee': 'SRMJEEE 2027', '/innovation': 'Student innovation', '/ask-a-student': 'Ask a current student', '/privacy': 'Privacy and cookies', '/terms': 'Terms of use', '/accessibility': 'Accessibility', '/campus-walk': 'Walk the campus', '/parents': 'Parents', '/alumni/chapters': 'Alumni chapters', '/recruiters': 'Recruiters' }
 
 const APPLY_STEPS = ['/apply', '/apply/programme', '/apply/details', '/apply/review']
 
@@ -121,6 +128,7 @@ export default function App() {
 
   useEffect(() => {
     if (!document.body.dataset.nf) document.title = titleFor(pathname) // the 404 page sets its own title
+    applyMeta(pathname, document.title)
     window.scrollTo({ top: 0, behavior: 'auto' })
   }, [pathname])
 
@@ -149,6 +157,12 @@ export default function App() {
           <Route path="/innovation" element={<Innovation />} />
           <Route path="/ask-a-student" element={<StudentVoices />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/campus-walk" element={<CampusWalk />} />
+          <Route path="/parents" element={<Parents />} />
+          <Route path="/alumni/chapters" element={<AlumniChapters />} />
+          <Route path="/recruiters" element={<Recruiters />} />
           <Route path="/placements" element={<Placements />} />
           {SLUGS.filter((slug) => !['admissions', 'library', 'placements'].includes(slug)).map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<Interior slug={slug} />} />

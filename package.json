@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/build-sitemap.mjs && vite build",
     "preview": "vite preview",
     "start": "node server/index.js",
     "audit:deps": "npm audit --omit=dev",

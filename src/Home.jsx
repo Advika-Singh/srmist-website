@@ -26,6 +26,7 @@ const HERO_CYCLE = [
   [IMG.campusAlt, 'frame-center'],
   ['/srmist/tech-park.jpg', 'frame-low-right'],
   ['/srmist/campus-panorama.jpg', 'frame-center'],
+  ['/srmist/campus-lakeview.jpg', 'frame-low-right'],
 ]
 
 // Everything SRMIST teaches, shown around the wordmark so a visitor sees the breadth at a glance.

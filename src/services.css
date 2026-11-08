@@ -232,3 +232,23 @@
 .priv-list>div{padding:16px 0;border-top:1px solid var(--line)}
 .priv-list dt{font-weight:700;margin-bottom:4px}
 .priv-list dd{color:var(--text-muted)}
+
+/* parents, alumni and recruiters pages */
+.cm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:20px}
+.cm-card{position:relative;display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 44px 18px 18px;background:var(--white);border:1px solid var(--line)}
+.cm-card b{font-family:var(--display);font-weight:500;font-size:1.2rem;line-height:1.15}
+.cm-card span{color:var(--text-muted);font-size:.95rem}
+.cm-card svg{position:absolute;right:16px;top:18px;width:18px;height:18px;color:var(--blue-ink,var(--blue))}
+.cm-list{display:grid;gap:0;margin-top:18px;max-width:var(--measure,68ch)}
+.cm-list li{padding:12px 0;border-top:1px solid var(--line)}
+.cm-list a{text-decoration:underline;text-underline-offset:3px;color:var(--blue-ink,var(--blue))}
+.cm-steps{display:grid;gap:14px;margin-top:18px;max-width:var(--measure,68ch)}
+.cm-steps li{display:flex;gap:14px;align-items:flex-start}
+.cm-steps li>span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:50%;background:var(--gold);color:#171814;font-weight:700}
+.cm-steps p{color:var(--text-muted)}
+.cm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0 24px}
+.cm-stats>div{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.cm-stats dt{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.3rem);line-height:1}
+.cm-stats dd{color:var(--text-muted);margin-top:6px;font-size:.95rem}
+.cm-chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.cm-chips li{padding:8px 16px;border:1px solid var(--line-strong);border-radius:var(--radius-pill);font-weight:500}
