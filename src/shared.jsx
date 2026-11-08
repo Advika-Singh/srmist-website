@@ -530,7 +530,9 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
   const [section, setSection] = useState(null)
   const closeTimer = useRef(null)
 
+  const returningFocus = useRef(false) // true while Esc hands focus back to a dropdown button (its onFocus must not reopen it)
   const enter = (key) => {
+    if (returningFocus.current) return
     clearTimeout(closeTimer.current)
     setOpen(key)
   }
@@ -547,8 +549,17 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') {
+        // If focus is inside a dropdown that is about to close, hand it back to that dropdown's button
+        // so keyboard users are not left on a hidden link.
+        const host = document.activeElement?.closest?.('.snav-item, .snav-campuses')
+        const trigger = host?.querySelector(':scope > button')
         setOpen(null)
         setMobile(false)
+        if (trigger && document.activeElement !== trigger) {
+          returningFocus.current = true
+          trigger.focus()
+          returningFocus.current = false
+        }
       }
     }
     const onDown = (e) => {

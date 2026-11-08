@@ -57,12 +57,12 @@
 .day-walk u{display:block;height:100%;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;text-decoration:none}
 .day-steps{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0;pointer-events:auto}
 .day-steps button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-height:var(--tap);padding:6px 14px;border:1px solid #ffffff40;border-radius:12px;background:#0b0c0a99;color:#fff;font:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:background .25s,border-color .25s,transform .3s var(--ease)}
-.day-steps button span{font-size:11px;color:var(--gold);font-variant-numeric:lining-nums tabular-nums}
+.day-steps button span{font-size:12px;color:var(--gold);font-variant-numeric:lining-nums tabular-nums}
 .day-steps button:hover{border-color:var(--gold);transform:translateY(-2px)}
 .day-steps button.is-on{background:var(--gold);border-color:var(--gold);color:#171814}
 .day-steps button.is-on span{color:#171814}
 .day-steps :focus-visible,.day :focus-visible{outline-color:var(--gold)}
-.day-note{font-size:11.5px;color:#ffffffa6;max-width:70ch}
+.day-note{font-size:12px;color:#ffffffa6;max-width:70ch}
 
 /* flat version (phones, short screens, reduced motion) */
 .day-flat{padding:clamp(48px,8vw,100px) 6vw;background:var(--paper);color:var(--ink)}
@@ -79,7 +79,7 @@
 .day-flat-list h3{font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.1;margin:4px 0 6px}
 .day-flat-list p{color:var(--text-muted);font-size:14px}
 .day-flat .day-note{color:var(--text-muted);margin-top:18px}
-@media (max-width:760px){.day-title{max-width:none}.day-card{max-width:none}.day-steps button{font-size:11px;padding:4px 10px}}
+@media (max-width:760px){.day-title{max-width:none}.day-card{max-width:none}.day-steps button{font-size:12px;padding:4px 10px}}
 @media (prefers-reduced-motion:reduce){.d-dot-halo{animation:none}}
 
 .day-page{background:var(--ink)}

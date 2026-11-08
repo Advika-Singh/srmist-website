@@ -385,7 +385,7 @@ footer{background:var(--ink);color:#fff;z-index:3;padding:8vw 6vw 2vw;position:r
 .campus-coordinate{bottom:18%;left:20px;right:20px}
 .hero-ranks{bottom:14%;left:20px;right:20px;gap:14px 22px}
 .hero-ranks b{font-size:2rem}
-.hero-ranks span{font-size:10px}
+.hero-ranks span{font-size:12px}
 .scroll-cue{display:none}
 .intro-panel,.study-finder,.pathways,.rankings,.happenings{padding:80px 20px}
 .intro-panel h2{font-size:3.2rem}
@@ -863,7 +863,7 @@ html[data-theme=dark] body.home-white-nav .snav-bar{background:#fff;color:#17181
 .ai-panel-head>.ai-head-id{flex:1;min-width:0;gap:10px}
 .ai-head-id img{height:26px;flex:none}
 .ai-head-id>span{min-width:0;padding-left:10px}
-.ai-head-id small{line-height:1.3;font-size:11.5px}
+.ai-head-id small{line-height:1.3;font-size:12px}
 
 /* ---------- hero wordmark with the disciplines above and below it ---------- */
 .opening-brand{position:absolute;left:6vw;right:6vw;bottom:5vh;z-index:3;display:flex;flex-direction:column;align-items:center;gap:1.4vh;pointer-events:none}
@@ -872,7 +872,7 @@ html[data-theme=dark] body.home-white-nav .snav-bar{background:#fff;color:#17181
 .disc-row li+li::before{content:"";display:inline-block;width:4px;height:4px;margin:0 16px 2px;border-radius:50%;background:var(--gold);vertical-align:middle}
 .opening.cinematic .disc-row{animation:cinema-copy-in .8s var(--ease) 1.8s forwards}
 .opening:not(.cinematic) .disc-row{display:none}
-@media (max-width:900px){.opening-brand{left:20px;right:20px;bottom:4vh}.opening-brand h1{font-size:21vw}.disc-row{font-size:10px;letter-spacing:.1em}.disc-row li+li::before{margin:0 9px 2px}}
+@media (max-width:900px){.opening-brand{left:20px;right:20px;bottom:4vh}.opening-brand h1{font-size:21vw}.disc-row{font-size:12px;letter-spacing:.1em}.disc-row li+li::before{margin:0 9px 2px}}
 
 @media (min-width:901px){.opening-brand h1{font-size:clamp(6rem,15.5vw,17rem)}.opening-brand{bottom:4vh}.opening.cinematic .cinematic-copy{top:19%}.opening.cinematic .cinematic-copy p{max-width:460px}.disc-row{max-width:none;white-space:nowrap}}
 @media (max-width:600px){.opening-brand{bottom:9vh;gap:1.2vh}.opening-brand h1{font-size:19vw}.opening.cinematic .cinematic-copy{top:15%}.opening.cinematic .cinematic-copy h2{font-size:2.9rem;margin:16px 0}.cinematic-copy a{margin-top:18px}}
@@ -882,7 +882,7 @@ html[data-theme=dark] body.home-white-nav .snav-bar{background:#fff;color:#17181
 .disc-row li+li::before{width:5px;height:5px;margin:0 18px 2px}
 @media (min-width:901px){.opening-brand{bottom:11vh}}
 @media (max-width:900px){.disc-row{font-size:12px;letter-spacing:.08em}.opening-brand{bottom:12vh}}
-@media (max-width:600px){.disc-row{font-size:11.5px}.opening-brand{bottom:13vh}}
+@media (max-width:600px){.disc-row{font-size:12px}.opening-brand{bottom:13vh}}
 
 /* ---------- intro splash: SRM in the site's serif, then it zooms through the screen and opens the page ---------- */
 .srm-ident{animation:ident-open 1.3s cubic-bezier(.45,0,.6,1) 2.3s forwards}

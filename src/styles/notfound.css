@@ -38,7 +38,7 @@
 .nf-hero code{padding:2px 8px;border-radius:6px;background:#ffffff1a;color:var(--gold);font-size:.9em;word-break:break-all}
 .nf-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:10px;animation:nf-rise 1s 1.1s var(--ease) both}
 .nf-hero .button-ghost{color:#fff;border-color:#ffffffa0}
-.nf-actions kbd{margin-left:6px;padding:1px 7px;border-radius:5px;background:#ffffff26;font:inherit;font-size:11px}
+.nf-actions kbd{margin-left:6px;padding:1px 7px;border-radius:5px;background:#ffffff26;font:inherit;font-size:12px}
 .nf-mean{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin-top:6px;font-size:14px;color:#ffffffb3;animation:nf-rise 1s 1.2s var(--ease) both}
 .nf-mean a{padding:4px 12px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);font-weight:600;transition:background .25s,color .25s}
 .nf-mean a:hover{background:var(--gold);color:#171814}

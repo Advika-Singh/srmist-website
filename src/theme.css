@@ -137,7 +137,7 @@ html[data-text='2'] .eyebrow, html[data-text='2'] small, html[data-text='2'] .sn
 .prefs button:disabled { opacity: .35; cursor: default; }
 .prefs button[aria-pressed='true'] { background: #ffffff33; }
 .prefs-text { display: inline-flex; gap: 4px; }
-.prefs small { font-size: 11px; line-height: 1; }
+.prefs small { font-size: 12px; line-height: 1; }
 .snav-mobile .prefs { padding: 14px 0; color: #fff; flex-wrap: wrap; }
 .snav-mobile .prefs button { min-height: var(--tap); min-width: var(--tap); border-color: #ffffff99; opacity: 1; }
 

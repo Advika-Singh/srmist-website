@@ -12,7 +12,7 @@
 .sj-phase span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-ink,var(--blue))}
 .sj-phase h3{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.03em;margin:6px 0}
 .sj-phase p{color:var(--text-muted)}
-.sj-phase em{position:absolute;right:16px;top:16px;padding:3px 10px;border-radius:999px;background:var(--gold);color:#171814;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.sj-phase em{position:absolute;right:16px;top:16px;padding:3px 10px;border-radius:999px;background:var(--gold);color:#171814;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 
 .sj-check{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;margin-top:6px}
 .sj-check-in,.sj-result{padding:22px;border:1px solid var(--line);border-radius:20px;background:var(--surface,#fff)}

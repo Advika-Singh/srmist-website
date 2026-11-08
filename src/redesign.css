@@ -17,7 +17,7 @@
 .snav-bar{background:#f3f1e9f7;-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2)}
 .snav-kbd{display:inline-flex;align-items:center;gap:8px;padding:4px 10px;border:1px solid #ffffff59;border-radius:var(--radius-pill);font-size:12px;color:#ffffffe6}
 .snav-kbd:hover{background:#ffffff1f}
-.snav-kbd kbd{font:inherit;font-size:11px;padding:1px 6px;border-radius:5px;background:#ffffff26}
+.snav-kbd kbd{font:inherit;font-size:12px;padding:1px 6px;border-radius:5px;background:#ffffff26}
 /* phone and tablet: the logo stays clearly legible and Admissions is the first thing in the bar */
 .snav-admit-m{display:none}
 @media (max-width:900px){
@@ -48,7 +48,7 @@
 .palette-input input:focus-visible{outline:none}
 .palette-input:focus-within{box-shadow:inset 0 -3px 0 var(--blue)}
 .palette kbd,.snav-kbd kbd{font-family:inherit}
-.palette-input kbd,.palette-foot kbd{padding:2px 7px;border:1px solid var(--line-strong);border-radius:6px;font-size:11px;color:var(--text-muted);background:#f6f5f0}
+.palette-input kbd,.palette-foot kbd{padding:2px 7px;border:1px solid var(--line-strong);border-radius:6px;font-size:12px;color:var(--text-muted);background:#f6f5f0}
 .palette-fix{padding:10px 20px 0;font-size:14px;color:var(--text-muted)}
 .palette-fix button{font-weight:700;color:var(--blue-ink,var(--blue));text-decoration:underline}
 .palette-label{padding:14px 20px 6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
@@ -56,7 +56,7 @@
 .palette-list li{display:flex;align-items:center;gap:14px;padding:11px 12px;border-radius:10px;cursor:pointer}
 .palette-list li.on{background:#e8f0fb;box-shadow:inset 3px 0 0 var(--blue)}
 .palette-list li.ai{border:1px dashed var(--line-strong);margin-top:6px}
-.palette-type{flex:none;min-width:72px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:center;background:#eceae1;color:var(--text-muted)}
+.palette-type{flex:none;min-width:72px;padding:3px 8px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:center;background:#eceae1;color:var(--text-muted)}
 .palette-type.t-action{background:var(--gold);color:var(--ink)}
 .palette-type.t-programme{background:#dfeafb;color:var(--blue-dark)}
 .palette-type.t-ai{background:var(--blue);color:#fff}
@@ -73,7 +73,7 @@ body.palette-open{overflow:hidden}
 /* ---------- 4 · chat: action cards ---------- */
 .cc-stack{display:grid;gap:10px;margin:12px 0 4px}
 .cc{padding:14px;border-radius:14px;background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 6px 20px #084b9b14}
-.cc-kicker{display:inline-block;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-ink,var(--blue))}
+.cc-kicker{display:inline-block;margin-bottom:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-ink,var(--blue))}
 .cc h4{font-family:var(--display);font-size:20px;line-height:1.15;margin-bottom:8px}
 .cc p{font-size:14px;color:var(--text-muted)}
 .cc dl{display:grid;gap:6px;margin:6px 0 10px}
@@ -154,7 +154,7 @@ body.palette-open{overflow:hidden}
 .ce-zone:hover rect,.ce-zone.on rect{fill:var(--blue);transform:scale(1.05);filter:drop-shadow(0 10px 14px #084b9b55)}
 .ce-zone:focus-visible rect{stroke:var(--gold);stroke-width:4}
 .ce-name{font-size:14px;font-weight:700;fill:var(--ink);pointer-events:none;transition:fill .25s}
-.ce-tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;fill:#4d4e49;pointer-events:none;transition:fill .25s}
+.ce-tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;fill:#4d4e49;pointer-events:none;transition:fill .25s}
 .ce-zone:hover .ce-name,.ce-zone.on .ce-name{fill:#fff}
 .ce-zone:hover .ce-tag,.ce-zone.on .ce-tag{fill:#d6e4f7}
 .ce-scale{margin-top:6px;font-size:12px;color:var(--text-muted)}
@@ -455,7 +455,7 @@ html[data-theme='dark'] body.home-white-nav .snav-strip{background:#fff;color:#1
 body.motion-paused .sk-bob{animation-play-state:paused}
 .sketch.is-drawn .sk{animation:sk-draw 2.2s var(--d,0s) cubic-bezier(.5,.1,.2,1) forwards}
 @keyframes sk-draw{to{stroke-dashoffset:0}}
-.sketch-cap{display:block;padding:10px 6vw 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#ffffff66}
+.sketch-cap{display:block;padding:10px 6vw 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ffffff66}
 @media (prefers-reduced-motion:reduce){.sk{stroke-dashoffset:0;animation:none!important}.sk--dash{opacity:.55}.sk-fill{opacity:.94}.sk-bob{animation:none}}
 @media (max-width:700px){.sketch{margin:0 -20px}.sketch-cap{padding-left:20px}}
 
@@ -557,7 +557,7 @@ html[data-theme='dark'] .snav-srmjee:hover{background:#fff;color:#0e1217}
 .footer-icon-link .staff-icon{color:var(--gold);width:17px;height:17px}
 
 /* the two top-right buttons are compact, so they sit comfortably inside the 36px top bar */
-.snav-strip .snav-admit-top,.snav-strip .snav-srmjee{min-height:0;height:26px;padding:0 12px;font-size:11.5px;line-height:1;letter-spacing:.04em}
+.snav-strip .snav-admit-top,.snav-strip .snav-srmjee{min-height:0;height:26px;padding:0 12px;font-size:12px;line-height:1;letter-spacing:.04em}
 .snav-strip .snav-srmjee{border-width:1.5px;font-weight:800}
 .snav-strip-right{gap:10px}
 
@@ -603,7 +603,7 @@ html[data-theme='dark'] .snav-srmjee:hover{background:#fff;color:#0e1217}
 .snav-strip-left .prefs{gap:0;align-items:center}
 .snav-strip-left .prefs-lang{align-items:center;gap:4px}
 .snav-strip .snav-strip-left .prefs button{min-height:0;height:24px;padding:0 10px;font-size:12px;line-height:1;margin:0;transform:translateY(-1px)}
-@media (min-width:901px) and (max-width:1250px){.snav-strip-links{gap:14px}.snav-strip-links>a,.snav-campuses>button{font-size:11.5px}}
+@media (min-width:901px) and (max-width:1250px){.snav-strip-links{gap:14px}.snav-strip-links>a,.snav-campuses>button{font-size:12px}}
 @media (min-width:901px){
   .snav-strip{grid-template-rows:36px;align-items:center}
   .snav-strip-links{flex-wrap:nowrap;white-space:nowrap}
@@ -659,3 +659,6 @@ label:has(>input[type='checkbox']),label:has(>input[type='radio']){min-height:36
 body{font-variant-numeric:lining-nums}
 .eyebrow,th,legend,.sj-marks span,.sv-dept span{font-family:var(--mono)}
 .eyebrow{letter-spacing:.12em;font-weight:500}
+
+/* ---- accessibility review 2026-11-08: small text links get a 24px+ target (WCAG 2.5.8), inline-flex so the arrow stays aligned ---- */
+.nr-card>a,.in-rail-more a,.legal-404{display:inline-flex;align-items:center;min-height:44px}
