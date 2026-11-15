@@ -11,6 +11,8 @@ const PHOTOS_LAB = ['/srmist/labs.jpg', '/srmist/research.jpg', '/srmist/tech-pa
 const PHOTOS_CAMPUS = ['/srmist/sports.jpg', '/srmist/students.jpg', '/srmist/campus-main-building.jpg', '/srmist/tech-park.jpg', '/srmist/hero.webp', '/srmist/admission-india.jpg', '/srmist/library.jpg']
 
 export const KITS = {
+  academics: { accent: '#0ea5e9', crop: '50% 35%', moments: [{ type: 'countband', source: 'stats' }] },
+  programmes: { accent: '#6366f1', crop: '50% 35%', moments: [{ type: 'countband', source: 'stats' }] },
   about: { accent: '#3b82f6', crop: '50% 38%', moments: [{ type: 'story', source: 'blocks' }] },
   research: { accent: '#14b8a6', crop: '50% 30%', moments: [{ type: 'facilities' }, { type: 'countband', source: 'stats' }] },
   international: { accent: '#f97316', crop: '50% 25%', moments: [{ type: 'rail', source: 'abroad' }, { type: 'countband', source: 'stats' }] },

@@ -119,7 +119,7 @@ export default function Interior({ slug }) {
 
         {(slug === 'campus-life' || slug === 'about') && <TiltGrid />}
 
-        <section className="split-feature">
+        <section className="split-feature" data-sx>
           <Photo src={split.img} alt={split.alt} sizes="(max-width: 900px) 100vw, 50vw" widths={[600, 900, 1200]} size={[1200, 1000]} />
           <Reveal>
             <span className="eyebrow">{split.eyebrow}</span>

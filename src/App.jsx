@@ -6,6 +6,8 @@ import { SLUGS } from './data/routes.js'
 import { AdmissionsFab, Assistant, CursorLight, prefersReducedMotion } from './shared.jsx'
 import SmartSearch from './ui/SmartSearch.jsx'
 import { startPageFx } from './lib/pageFx.js'
+import { useScrollScenes } from './lib/useScrollScenes.js'
+import { useMotionOk } from './lib/useScrollProgress.js'
 import { applyMeta, titleFor } from './lib/seo.js'
 
 // The landing page loads up front; everything else is fetched when it is first visited.
@@ -117,6 +119,9 @@ export default function App() {
   }, [navigate])
 
   useEffect(() => startPageFx(), [])
+
+  // the reading-progress line and scroll-linked photo motion run on every page, not only the landing page
+  useScrollScenes(useMotionOk())
 
   useEffect(() => {
     if (!document.body.dataset.nf) document.title = titleFor(pathname) // the 404 page sets its own title

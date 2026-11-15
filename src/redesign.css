@@ -683,3 +683,8 @@ body{font-variant-numeric:lining-nums}
 .cw-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
 .cw-buttons .button:disabled{opacity:.45;cursor:default}
 @media (max-width:820px){.cw{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- Inner pages: the closing photo opens up and drifts as it scrolls, like the landing page's research photo ---- */
+html.sx .split-feature[data-sx]{--t:clamp(0, calc(var(--sp, .5) * 2.6 - .1), 1)}
+html.sx .split-feature[data-sx]>img{clip-path:inset(calc((1 - var(--t)) * 12%) calc((1 - var(--t)) * 9%) round calc((1 - var(--t)) * 28px));object-position:50% calc(50% + var(--sc, 0) * -14%)}
+html.sx .split-feature[data-sx]>div{translate:calc((1 - var(--t)) * 60px) 0}

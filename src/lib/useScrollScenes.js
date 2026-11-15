@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 /**
- * Scroll-linked motion for un-pinned sections of the landing page.
+ * Scroll-linked motion for un-pinned sections, on every page (started once in App.jsx).
  * Every element with [data-sx] gets two CSS variables that glide toward where you scrolled:
  *   --sp  0 when its top reaches the bottom of the screen, 1 when its bottom leaves the top
  *   --sc  -1 well above the middle of the screen, 0 centred, 1 well below
@@ -63,9 +63,17 @@ export function useScrollScenes(enabled) {
     kick()
     window.addEventListener('scroll', kick, { passive: true })
     window.addEventListener('resize', kick)
+    // a new page (or lazily loaded section) brings new [data-sx] elements: measure them without waiting for a scroll
+    let wait = 0
+    const mo = new MutationObserver(() => {
+      if (!wait) wait = setTimeout(() => ((wait = 0), kick()), 200)
+    })
+    mo.observe(document.body, { childList: true, subtree: true })
     return () => {
       window.removeEventListener('scroll', kick)
       window.removeEventListener('resize', kick)
+      mo.disconnect()
+      clearTimeout(wait)
       cancelAnimationFrame(raf)
       root.classList.remove('sx')
       root.style.removeProperty('--page-p')

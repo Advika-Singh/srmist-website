@@ -3,6 +3,7 @@ import { RECRUITERS } from '../data/community.js'
 import { Arrow, Footer, SiteHeader } from '../shared.jsx'
 import LinkCards from '../ui/LinkCards.jsx'
 import SvcHero from '../ui/SvcHero.jsx'
+import CountUp from '../ui/CountUp.jsx'
 import '../services.css'
 
 export default function Recruiters() {
@@ -41,7 +42,9 @@ export default function Recruiters() {
             <dl className="cm-stats">
               {NUMBERS.map(([k, v]) => (
                 <div key={v}>
-                  <dt>{v}</dt>
+                  <dt>
+                    <CountUp value={v} />
+                  </dt>
                   <dd>{k}</dd>
                 </div>
               ))}

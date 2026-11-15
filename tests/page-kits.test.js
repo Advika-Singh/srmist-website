@@ -2,11 +2,11 @@ import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { KITS, MOMENTS, PINNED, SLUGS, kitFor } from '../src/data/page-kits.js'
 
-const TWELVE = ['about', 'research', 'international', 'placements', 'rankings', 'scholarships', 'events', 'library', 'departments', 'examinations', 'alumni', 'campus-life']
+const PAGES = ['academics', 'programmes', 'about', 'research', 'international', 'placements', 'rankings', 'scholarships', 'events', 'library', 'departments', 'examinations', 'alumni', 'campus-life']
 
-test('every one of the 12 pages has a kit', () => {
-  for (const s of TWELVE) assert.ok(KITS[s], s)
-  assert.deepEqual([...SLUGS].sort(), [...TWELVE].sort())
+test('every inner page has a kit', () => {
+  for (const s of PAGES) assert.ok(KITS[s], s)
+  assert.deepEqual([...SLUGS].sort(), [...PAGES].sort())
 })
 
 test('every moment type is a known moment', () => {

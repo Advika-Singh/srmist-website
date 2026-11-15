@@ -10,8 +10,6 @@ import CountUp from './ui/CountUp.jsx'
 import FieldIcon from './ui/FieldIcons.jsx'
 import InnovationRail from './ui/InnovationRail.jsx'
 import NewsRun from './ui/NewsRun.jsx'
-import { useScrollScenes } from './lib/useScrollScenes.js'
-import { useMotionOk } from './lib/useScrollProgress.js'
 import { shouldAutoplay } from './lib/motion.js'
 import { Arrow, ArrowUR, B, Footer, IMG, LINK, MainNav, Photo, Reveal, ex, preloadPhoto, prefersReducedMotion } from './shared.jsx'
 
@@ -402,8 +400,6 @@ export default function Home() {
   }, [query, t])
 
   const marquee = [...marqueeWords, ...marqueeWords]
-  const sceneMotion = useMotionOk()
-  useScrollScenes(sceneMotion)
 
   return (
     <div id="top">
