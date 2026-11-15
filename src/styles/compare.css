@@ -1,0 +1,42 @@
+/* Compare programmes, shortlist and key dates. Uses the shared tokens only (no new colours or fonts). */
+.cp-chips{display:flex;flex-wrap:wrap;gap:8px}
+.cp-chips button{min-height:var(--tap,44px);padding:0 16px;border:1px solid var(--line-strong);border-radius:var(--radius-pill,999px);background:var(--surface,#fff);color:var(--text);font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .3s var(--ease)}
+.cp-chips button:hover:not(:disabled){transform:translateY(-2px);border-color:var(--blue)}
+.cp-chips button.is-on{background:var(--blue);border-color:var(--blue);color:#fff}
+.cp-chips button:disabled{opacity:.5;cursor:not-allowed}
+.cp-empty{padding:22px;border:2px dashed var(--line-strong);border-radius:var(--radius,18px);color:var(--text-muted);max-width:66ch}
+.cp-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--surface,#fff)}
+.cp-scroll:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.cp-table{width:100%;min-width:calc(150px + var(--cp-n,1) * 210px);border-collapse:collapse;table-layout:fixed}
+.cp-table th,.cp-table td{padding:16px 18px;text-align:left;vertical-align:top;border-top:1px solid var(--line);line-height:1.5}
+.cp-table thead th,.cp-table thead td{border-top:0;background:color-mix(in srgb,var(--blue) 7%,var(--surface,#fff))}
+.cp-table thead td,.cp-table th[scope=row]{width:150px}
+.cp-table th[scope=row]{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+.cp-field{display:block;font-family:var(--display);font-weight:500;font-size:clamp(1.2rem,2vw,1.6rem);letter-spacing:-.02em;line-height:1.1;text-transform:none}
+.cp-x{flex-basis:100%;text-align:left;min-height:36px;padding:0;border:0;background:none;color:var(--text-muted);font:inherit;font-size:13px;letter-spacing:0;text-transform:none;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cp-x:hover{color:var(--text)}
+.cp-plain{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+/* links inside text must not rely on colour alone */
+.svc.cp-page .vis-block p a:not(.svc-btn),.svc.cp-page .cp-table td a:not(.svc-btn){color:var(--blue-ink,var(--blue));text-decoration:underline;text-underline-offset:3px}
+.cp-actions{display:flex;flex-wrap:wrap;gap:8px}
+.cp-actions .svc-btn svg,.svc-row .svc-btn svg{width:12px;height:12px}
+.cp-actions button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#171814}
+.cp-status{font-size:14px;color:var(--text-muted)}
+.cp-saved{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cp-saved li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface,#fff)}
+.cp-saved b{display:block;font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.15}
+.cp-saved span{color:var(--text-muted);font-size:14px}
+
+/* key dates */
+.dt-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.dt-item{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) auto;gap:8px 22px;align-items:center;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--surface,#fff)}
+.dt-item.is-next{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.dt-item.is-past{opacity:.62}
+.dt-when{font-family:var(--display);font-weight:500;font-size:clamp(1.25rem,2.2vw,1.7rem);letter-spacing:-.02em;line-height:1.1}
+.dt-what b{display:block;font-size:1.05rem}
+.dt-what span{color:var(--text-muted);font-size:14px}
+.dt-tag{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:var(--gold);color:#171814;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle}
+.dt-what .dt-tag{color:#171814;font-size:12px}
+.dt-what .dt-tag--kind{color:var(--text-muted)}
+.dt-tag--kind{background:transparent;border:1px solid var(--line-strong);color:var(--text-muted);margin-left:0;margin-bottom:6px;font-weight:500}
+@media (max-width:720px){.dt-item{grid-template-columns:1fr}.cp-table th,.cp-table td{padding:14px}}

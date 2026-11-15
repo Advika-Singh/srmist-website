@@ -20,24 +20,24 @@ Gaps found in the repo on 2026-11-08: no sitemap, no Open Graph / JSON-LD, no pr
 ## Phase 2: Discoverability and tech
 | Item | Notes |
 |---|---|
-| `sitemap.xml` and complete `robots.txt` | Generate from `SLUGS` and the route list at build time |
+| `sitemap.xml` and complete `robots.txt` | **Done** |
 | Per-page `<title>`, description, canonical, Open Graph and Twitter cards | The SPA only sets `document.title` today; add a small head manager or build-time prerender |
-| JSON-LD | `CollegeOrUniversity` on home, `Course` on programme pages, `Event` on events, `BreadcrumbList` |
-| Prerender or SSR for key pages | Crawlers and link previews do not run the app reliably; `/404` currently returns 200 |
+| JSON-LD | **Partly done** (2026-11-15): `WebSite` about SRMIST on home and `BreadcrumbList` on every page. `Course` and `Event` wait for sourced data |
+| Prerender or SSR for key pages | **Head tags done** (2026-11-15): `scripts/prerender-head.mjs` gives every route its own title, description and share tags at build time. Check on the next deploy. Page content is still rendered in the browser; `/404` still returns 200 |
 | Privacy-friendly analytics | Pluggable sink behind `window.__srmAnalytics`; consent-gated if anything sets cookies |
-| PWA | `manifest.webmanifest`, icons, offline page for status and contacts |
+| PWA | **Manifest done** (2026-11-15). Still needed: PNG icons, offline page |
 | Images | AVIF/WebP `<picture>` for `public/srmist/*` as planned in `docs/REDESIGN.md` |
 | Web Vitals budget | Lighthouse scripts exist in `reports/`; set pass thresholds in CI |
 
 ## Phase 3: New student-facing features (not on the official site)
 | Feature | Why | Data rule |
 |---|---|---|
-| Programme compare (up to 3) | Families compare, the official site makes them open tabs | Only fields already in `data/programmes.js` |
+| Programme compare (up to 3) | **Done** (`/compare`, 2026-11-15) | Only fields already in `data/programmes.js` |
 | Scholarship eligibility checker | Turns the scholarships page into an answer | Rules from the official scholarship pages with links; show "check with the office" for anything unclear |
 | Application tracker | Applicants return to see status | Prototype only until the university provides an API; label it |
-| Events calendar with "add to calendar" (.ics) | Events are a list today | Real events only (`Event` JSON-LD shares the data) |
+| Events calendar with "add to calendar" (.ics) | **Done for SRMJEEE dates** (`/dates`, 2026-11-15). Campus events still need a sourced list | Real events only (`Event` JSON-LD shares the data) |
 | Virtual campus tour page | Builds on `/day` and the explorer map | Use the official 360 tour link; permission-cleared photos only |
-| Saved shortlist | Keep programmes, fees, dates in the browser | localStorage only, mentioned in the privacy notice |
+| Saved shortlist | **Done** for programmes (on `/compare`, 2026-11-15) | localStorage only, mentioned in the privacy notice |
 | Notification centre for deadlines | SRMJEEE dates are already structured in `data/srmjeee.js` | Tentative dates stay labelled tentative |
 
 ## Phase 4: Content and quality

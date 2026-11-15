@@ -27,7 +27,7 @@ const HOST = process.env.HOST || '0.0.0.0'
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
-  '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.png': 'image/png',
+  '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json; charset=utf-8', '.woff2': 'font/woff2', '.png': 'image/png',
   '.jpg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml',
 }
 const COMPRESSIBLE = new Set(['.html', '.css', '.js', '.json', '.svg', '.txt', '.xml'])
@@ -139,6 +139,9 @@ const server = http.createServer((req, res) => {
   if (existsSync(file) && statSync(file).isFile()) return serveFile(req, res, file, pathname)
 
   // pages like /about are handled by the React router: hand back the app shell
+  // (the build also writes a copy per page with that page's own head tags; use it when it exists)
+  const own = resolve(DIST, '.' + pathname, 'index.html')
+  if (!extname(pathname) && own.startsWith(DIST + sep) && existsSync(own)) return serveFile(req, res, own, '/index.html')
   if (!extname(pathname)) return serveFile(req, res, join(DIST, 'index.html'), '/index.html')
 
   res.statusCode = 404

@@ -18,6 +18,8 @@ const BASE = [
   { type: 'page', title: 'Clubs and DSA', hint: 'Fifteen student clubs under the Directorate of Student Affairs', href: '/clubs', words: 'clubs dsa student affairs music dance fashion quiz gaming astrophilia rotaract literature sports festival houses' },
   { type: 'page', title: 'A day at SRM', hint: 'Follow a student across the real campus from dawn to night', href: '/day', words: 'day life student campus map walk hostel library sports tour experience scroll story' },
   { type: 'page', title: 'Course finder', hint: 'Answer five questions and get fields of study to look at first', href: '/course-finder', words: 'recommend recommendation suggest quiz which course what to study confused unsure choose career match' },
+  { type: 'page', title: 'Compare programmes', hint: 'Up to three fields side by side, and a saved shortlist', href: '/compare', words: 'compare comparison versus vs difference side by side shortlist save saved favourite choose between' },
+  { type: 'page', title: 'Key dates', hint: 'SRMJEEE deadlines and exam days, with a calendar file', href: '/dates', words: 'dates date deadline deadlines calendar ics reminder when last date exam schedule important' },
   { type: 'page', title: 'Programme Finder', hint: 'Every course, by field', href: '/programmes', words: 'course courses degree programme program branch btech mba' },
   { type: 'page', title: 'Scholarships & financial aid', hint: 'Eligibility and deadlines', href: '/scholarships', words: 'scholarship scholarships aid funding loan waiver merit' },
   { type: 'page', title: 'Placements', hint: '980+ companies · 7.19 LPA average CTC', href: '/placements', words: 'placement placements job jobs recruit salary package ctc career' },

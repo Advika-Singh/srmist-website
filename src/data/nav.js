@@ -77,6 +77,8 @@ export const MENUS = [
         links: [
           ['Programme Finder', '/programmes'],
           ['Course finder', '/course-finder'],
+          ['Compare programmes', '/compare'],
+          ['Key dates', '/dates'],
           ['Departments A–Z', '/departments'],
           ['Faculty & staff', '/teach.html'],
           ['Staff finder', '/staff-finder'],

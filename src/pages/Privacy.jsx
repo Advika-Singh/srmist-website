@@ -21,6 +21,8 @@ const SECTIONS = [
     items: [
       ['Preferences', 'Theme, language, text size and the “pause animations” setting are saved in your browser so the site remembers them.'],
       ['Search memory', 'What you opened from search, used only to rank results for you. It never leaves your browser.'],
+      ['Programme shortlist', 'Fields of study you save on the Compare page are kept in your browser only. “Clear the shortlist” on that page removes them.'],
+      ['Calendar files', 'The “Add to calendar” files on the Key dates page are made in your browser. Nothing is uploaded when you download one.'],
       ['Experiment group', 'A random label that decides which wording of the Admissions page you see (A or B).'],
       ['No tracking cookies', 'This site sets no advertising or analytics cookies, so there is nothing to accept or decline. If that changes, a consent choice will appear before anything is switched on.'],
     ],

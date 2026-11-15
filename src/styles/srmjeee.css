@@ -3,7 +3,7 @@
 .sh .sj-hero-cta .button-ghost{color:#fff;border-color:#ffffffa0}
 
 .sj-count{display:flex;align-items:center;gap:18px;margin:18px 0 22px;padding:18px 24px;border-radius:18px;background:var(--blue);color:#fff;width:fit-content;max-width:100%}
-.sj-count b{font-family:var(--display);font-weight:500;font-size:clamp(3rem,7vw,5rem);line-height:.9;letter-spacing:-.05em;color:var(--gold)}
+.sj-count b{flex:none;white-space:nowrap;font-family:var(--display);font-weight:500;font-size:clamp(3rem,7vw,5rem);line-height:.9;letter-spacing:-.05em;color:var(--gold)}
 .sj-count span{font-size:15px;line-height:1.4;max-width:30ch}
 .sj-phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
 .sj-phase{position:relative;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--surface,#fff);transition:transform .45s var(--ease),border-color .3s,box-shadow .45s}
