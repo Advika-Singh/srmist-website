@@ -21,7 +21,7 @@ export default function Announcements() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc pt-page" id="main" tabIndex={-1}>
+      <main className="interior svc pt-page idv-zigzag" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Announcements" title="Notices from across the university." lede="Posted by faculty and staff, checked by an approver before they appear here." img="/srmist/campus-lakeview.webp" pos="50% 50%" />
         <div className="pt-wrap">
           {!items && !failed && <p className="pt-notice pt-notice--info" role="status">Loading announcements…</p>}

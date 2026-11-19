@@ -35,7 +35,7 @@ export default function Students() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-arch" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Students" title="Everything you need, in one place." lede="Portals, fees, exams, academic calendars and student life: every link goes to the official SRMIST page, organised so you can find it in a few seconds." img="/srmist/students.webp" pos="50% 35%">
   <nav className="vis-quick" aria-label="On this page">
               <a href="#portals">Portals &amp; tools</a>

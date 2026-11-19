@@ -1,0 +1,242 @@
+/* Page identities: every interior page gets its own shape language, pattern, photo treatment, heading mark and scroll effect.
+   A page opts in with a class on <main> (.idv-name). Tokens only: blue / blue-dark / gold / sand / paper / ink, Playfair + Roboto Mono.
+   Hero = the shared .sh (SvcHero) or .ch (CinematicHero). Written mobile-first; nothing here hides text or moves it off-screen. */
+
+/* ---------- shared plumbing ---------- */
+.svc[class*='idv-'] .sh,.interior[class*='idv-'] .ch{isolation:isolate}
+/* the pattern layer every variant can paint into */
+.sh-tint::after,.ch-tint::after{content:'';position:absolute;inset:0;pointer-events:none;background:var(--idv-pat,none);background-size:var(--idv-pat-size,auto);opacity:var(--idv-pat-o,1)}
+/* edge-shaped heroes: the content sheet no longer needs to overlap with a rounded curtain, the clip is the edge */
+:is(.idv-slash,.idv-wave,.idv-ticket,.idv-notch,.idv-zigzag,.idv-chevron,.idv-chamfer,.idv-arcade,.idv-stairs,.idv-dome,.idv-reverse,.idv-arrow,.idv-hairline) .sh + .svc-wrap{margin-top:0;border-radius:0}
+
+/* ---------- framed-photo family: flat colour, a patterned wash and the photo cut to a shape on the right ---------- */
+:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh{background:linear-gradient(135deg,var(--blue-dark),var(--idv-b,var(--blue)))}
+:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-tint{background:none}
+:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-photo{z-index:1;inset:auto;top:calc(var(--nav-h,78px) + 34px);bottom:64px;right:max(6vw,calc((100vw - 1200px) / 2));width:min(36vw,430px);transform:translate3d(0,calc(var(--sh-p) * 46px),0)}
+:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-photo img{border-radius:inherit;clip-path:inherit;mask:inherit;-webkit-mask:inherit}
+:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh h1{font-size:clamp(2.5rem,5.8vw,5.4rem);max-width:11ch}
+:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-copy>:not(h1){max-width:min(100%,48vw)}
+@media (max-width:860px){
+  :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh{padding-top:calc(var(--nav-h,78px) + min(46vw,200px) + 28px)}
+  :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-photo{top:calc(var(--nav-h,78px) + 14px);bottom:auto;left:6vw;right:auto;width:min(52vw,230px);height:min(46vw,200px)}
+  :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-copy>:not(h1){max-width:100%}
+}
+/* every shape = one rule on the photo frame */
+.idv-arch .sh-photo{border-radius:999px 999px 14px 14px;box-shadow:0 0 0 10px #ffffff14,0 0 0 11px #ffffff55}
+.idv-arch{--idv-pat:radial-gradient(#ffffff2e 1.5px,transparent 1.7px);--idv-pat-size:24px 24px}
+.idv-circle .sh-photo{aspect-ratio:1;height:auto;bottom:auto;border-radius:50%;box-shadow:0 0 0 14px #ffffff12,0 0 0 15px #ffffff40,0 0 0 46px #ffffff0a,0 0 0 47px #ffffff2e}
+.idv-circle{--idv-pat:repeating-radial-gradient(circle at 80% 45%,#ffffff0f 0 1px,transparent 1px 38px)}
+@media (max-width:860px){.idv-circle .sh-photo{width:min(54vw,240px);height:min(54vw,240px);aspect-ratio:auto;left:calc(6vw + 16px)}}
+.idv-hex .sh-photo{clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);border-radius:0}
+.idv-hex{--idv-pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97'%3E%3Cpath d='M28 2 54 17v30L28 62 2 47V17zM28 64l26 15M2 79l26-15M28 95V64' fill='none' stroke='%23fff' stroke-opacity='.14' stroke-width='1.4'/%3E%3C/svg%3E");--idv-pat-size:56px 97px}
+.idv-pill .sh-photo{width:min(30vw,350px);border-radius:999px;rotate:5deg}
+.idv-pill .sh-photo::before{content:'';position:absolute;inset:-16px;border:2px solid var(--gold);border-radius:999px;translate:20px 14px;z-index:-1}
+@media (max-width:860px){.idv-pill .sh-photo{width:min(48vw,200px);height:min(60vw,250px)}}
+.idv-blob .sh-photo{border-radius:62% 38% 54% 46% / 48% 58% 42% 52%}
+.idv-diamond .sh-photo{clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);aspect-ratio:1;height:auto;bottom:auto;width:min(38vw,460px)}
+@media (max-width:860px){.idv-diamond .sh-photo{width:min(60vw,260px);height:min(60vw,260px)}}
+.idv-venn .sh-photo{width:min(40vw,480px);--m:radial-gradient(circle at 34% 50%,#000 33%,#0000 33.5%),radial-gradient(circle at 66% 50%,#000 33%,#0000 33.5%);}
+.idv-venn .sh-photo img{-webkit-mask:var(--m);mask:var(--m);border-radius:0}
+.idv-octagon .sh-photo{clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);border-radius:0}
+.idv-slats .sh-photo{width:min(46vw,560px)}
+.idv-slats .sh-photo img{-webkit-mask:linear-gradient(100deg,#000 0 46%,#0000 46% 54%,#000 54%);mask:linear-gradient(100deg,#000 0 46%,#0000 46% 54%,#000 54%);border-radius:0}
+.idv-tiles .sh-photo{width:min(44vw,540px)}
+.idv-tiles .sh-photo img{-webkit-mask:linear-gradient(90deg,#000 calc(100% - 6px),#0000 0) 0 0/calc(100% / 4) 100%,linear-gradient(0deg,#000 calc(100% - 6px),#0000 0) 0 0/100% calc(100% / 3);mask:linear-gradient(90deg,#000 calc(100% - 6px),#0000 0) 0 0/calc(100% / 4) 100%,linear-gradient(0deg,#000 calc(100% - 6px),#0000 0) 0 0/100% calc(100% / 3);-webkit-mask-composite:source-in;mask-composite:intersect}
+
+/* ---------- light heroes (sand with ink type) ---------- */
+:is(.idv-pill,.idv-zigzag,.idv-blob) .sh{background:var(--sand);color:var(--text)}
+:is(.idv-pill,.idv-zigzag,.idv-blob) .sh-tint{background:none}
+:is(.idv-pill,.idv-zigzag,.idv-blob) .sh .eyebrow{color:var(--blue-ink)}
+:is(.idv-pill,.idv-zigzag,.idv-blob) .sh h1{text-shadow:none}
+:is(.idv-pill,.idv-zigzag,.idv-blob) .sh-lede{color:var(--text-muted)}
+:is(.idv-pill,.idv-zigzag,.idv-blob) .sh .vis-quick a{background:var(--surface,#fff);border-color:var(--line-strong);color:var(--text);-webkit-backdrop-filter:none;backdrop-filter:none}
+:is(.idv-pill,.idv-zigzag,.idv-blob) .sh .vis-quick a:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.idv-pill,.idv-blob{--idv-pat:radial-gradient(var(--line) 1.3px,transparent 1.5px);--idv-pat-size:26px 26px}
+.idv-pill .sh,.idv-blob .sh{background:var(--sand)}
+.idv-blob .sh-photo{box-shadow:18px 18px 0 var(--gold)}
+
+/* ---------- edge-shaped heroes: the photo stays full bleed, the bottom (or side) edge is the shape ---------- */
+.idv-slash .sh{clip-path:polygon(0 0,100% 0,100% 84%,0 100%);padding-bottom:128px}
+.idv-slash .sh-tint::after,.idv-slash .sh-tint{--idv-pat:repeating-linear-gradient(115deg,#ffffff0c 0 2px,transparent 2px 22px)}
+.idv-reverse .sh{clip-path:polygon(0 0,100% 0,100% 100%,0 86%);padding-bottom:128px}
+.idv-chevron .sh{clip-path:polygon(0 0,100% 0,100% 88%,50% 100%,0 88%);padding-bottom:120px}
+.idv-notch .sh{clip-path:polygon(0 0,100% 0,100% 100%,62% 100%,62% 93%,38% 93%,38% 100%,0 100%);padding-bottom:116px}
+.idv-stairs .sh{clip-path:polygon(0 0,100% 0,100% 62%,75% 62%,75% 77%,50% 77%,50% 92%,25% 92%,25% 100%,0 100%);padding-bottom:110px}
+.idv-stairs:is(.sx-research-initiatives) .sh{clip-path:polygon(0 0,100% 0,100% 100%,75% 100%,75% 92%,50% 92%,50% 80%,25% 80%,25% 66%,0 66%)}
+.idv-wave .sh{-webkit-mask:radial-gradient(120px 28px at 50% 100%,#000 98%,#0000) 0 100%/240px 56px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 28px) no-repeat;mask:radial-gradient(120px 28px at 50% 100%,#000 98%,#0000) 0 100%/240px 56px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 28px) no-repeat;padding-bottom:116px}
+.idv-arcade .sh{-webkit-mask:radial-gradient(circle 54px at 50% 0,#000 98%,#0000) 0 100%/108px 54px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 53px) no-repeat;mask:radial-gradient(circle 54px at 50% 0,#000 98%,#0000) 0 100%/108px 54px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 53px) no-repeat;padding-bottom:140px}
+.idv-ticket .sh{-webkit-mask:radial-gradient(circle 11px at 50% 100%,#0000 98%,#000) 0 100%/42px 22px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 21px) no-repeat;mask:radial-gradient(circle 11px at 50% 100%,#0000 98%,#000) 0 100%/42px 22px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 21px) no-repeat}
+.idv-ticket{--idv-pat:radial-gradient(circle,#f2c84b 3px,transparent 3.5px);--idv-pat-size:44px 44px;--idv-pat-o:.2}
+.idv-zigzag .sh{-webkit-mask:linear-gradient(135deg,#0000 12px,#000 0) 0 100%/24px 24px repeat-x,linear-gradient(225deg,#0000 12px,#000 0) 12px 100%/24px 24px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 22px) no-repeat;mask:linear-gradient(135deg,#0000 12px,#000 0) 0 100%/24px 24px repeat-x,linear-gradient(225deg,#0000 12px,#000 0) 12px 100%/24px 24px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 22px) no-repeat}
+.idv-zigzag .sh-photo{inset:auto;right:max(6vw,calc((100vw - 1200px) / 2));top:calc(var(--nav-h,78px) + 30px);bottom:64px;width:min(32vw,400px);z-index:1;rotate:3deg;border:10px solid var(--surface,#fff);box-shadow:0 20px 40px #04122c33;transform:none}
+.idv-zigzag .sh-photo::before{content:'';position:absolute;left:50%;top:-22px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:var(--blue);box-shadow:0 4px 8px #0004;z-index:2}
+.idv-zigzag .sh h1{max-width:12ch}
+.idv-zigzag .sh-copy>:not(h1){max-width:min(100%,52vw)}
+@media (max-width:860px){.idv-zigzag .sh{padding-top:calc(var(--nav-h,78px) + 250px)}.idv-zigzag .sh-photo{top:calc(var(--nav-h,78px) + 16px);bottom:auto;left:7vw;right:auto;width:min(66vw,280px);height:210px}.idv-zigzag .sh-copy>:not(h1){max-width:100%}}
+.idv-chamfer .sh{clip-path:polygon(0 0,100% 0,100% 82%,88% 100%,0 100%);padding-bottom:112px}
+.idv-chamfer:is(.sx-about-offices) .sh{clip-path:polygon(0 0,100% 0,100% 100%,12% 100%,0 82%)}
+.idv-arrow .sh{clip-path:polygon(0 0,93% 0,100% 50%,93% 100%,0 100%)}
+.idv-arrow .sh-copy{padding-right:4vw}
+@media (max-width:700px){.idv-arrow .sh{clip-path:polygon(0 0,100% 0,100% 94%,50% 100%,0 94%)}}
+.idv-dome .sh{border-radius:0 0 50% 50% / 0 0 110px 110px;padding-bottom:128px}
+.idv-bubble .sh{margin:calc(var(--nav-h,78px) * -1 + 10px) max(10px,2vw) 0;border-radius:80px 80px 80px 14px;min-height:min(62svh,600px);padding-bottom:96px}
+.idv-bubble .sh + .svc-wrap{margin-top:-30px}
+.idv-card .sh{margin:calc(var(--nav-h,78px) * -1 + 12px) max(10px,2.4vw) 0;border-radius:26px;min-height:min(56svh,520px);padding-bottom:84px;outline:1px solid #ffffff2a;outline-offset:-10px}
+.idv-card .sh-tint{--idv-pat:repeating-linear-gradient(0deg,#ffffff0d 0 1px,transparent 1px 4px)}
+.idv-card .sh + .svc-wrap{margin-top:-26px}
+.idv-bubbles .sh-tint{--idv-pat:radial-gradient(circle at 12% 30%,#ffffff1c 0 34px,transparent 35px),radial-gradient(circle at 82% 18%,#f2c84b30 0 54px,transparent 55px),radial-gradient(circle at 70% 80%,#ffffff17 0 80px,transparent 81px),radial-gradient(circle at 38% 90%,#ffffff12 0 22px,transparent 23px)}
+.idv-omr .sh-tint{--idv-pat:radial-gradient(circle,transparent 5px,#ffffff30 5.5px 6.5px,transparent 7px);--idv-pat-size:30px 30px;--idv-pat-o:.7}
+.idv-grid .sh-tint{--idv-pat:linear-gradient(#ffffff17 1px,transparent 1px),linear-gradient(90deg,#ffffff17 1px,transparent 1px);--idv-pat-size:44px 44px}
+.idv-ledger .sh-tint{--idv-pat:repeating-linear-gradient(0deg,#ffffff14 0 1px,transparent 1px 30px),linear-gradient(90deg,transparent 7vw,#f2c84b66 7vw calc(7vw + 2px),transparent calc(7vw + 2px))}
+.idv-rays .sh-tint{--idv-pat:repeating-conic-gradient(from 0deg at 78% 55%,#f2c84b1f 0 4deg,transparent 4deg 12deg);--idv-pat-o:1}
+.idv-film .sh{border-block:0}
+.idv-film .sh::before,.idv-film .sh::after{content:'';position:absolute;left:0;right:0;height:26px;z-index:3;background:radial-gradient(circle,var(--paper) 0 5px,transparent 5.5px) 0 0/34px 26px repeat-x,#0a0b0a}
+.idv-film .sh::before{top:0}
+.idv-film .sh::after{bottom:0}
+.idv-film .sh-photo img{filter:sepia(.7) contrast(1.05) saturate(.85)}
+.idv-ghost .sh-photo img{filter:grayscale(1) contrast(1.1)}
+.idv-ghost .sh::before{content:'SRMIST';position:absolute;right:-1vw;top:50%;translate:0 -50%;z-index:1;font-family:var(--display);font-size:clamp(7rem,24vw,22rem);line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px #ffffff40;pointer-events:none}
+.idv-ghost .sh{border-left:12px solid var(--gold)}
+.idv-sun .sh-tint{--idv-pat:radial-gradient(circle at 50% 108%,#f2c84bcc 0 14%,#f2c84b55 14.5% 30%,transparent 55%)}
+
+/* ---------- photo treatments ---------- */
+.idv-arch .sh-photo img,.idv-students .sh-photo img{filter:saturate(1.1)}
+.idv-duo .sh-photo img{filter:grayscale(1) contrast(1.15) brightness(.9)}
+.idv-duo .sh-photo::after{content:'';position:absolute;inset:0;background:var(--blue);mix-blend-mode:multiply;opacity:.55}
+.idv-warm .sh-photo img{filter:sepia(.35) saturate(1.25)}
+
+/* ---------- the CinematicHero pages ---------- */
+.idv-spine .ch{background:var(--ink)}
+.idv-spine .ch-photo{inset:auto;z-index:1;right:-8vw;bottom:-12vw;width:min(62vw,720px);aspect-ratio:1;border-radius:50%;transform:scale(calc(1 + var(--ch-p,0) * .08));box-shadow:0 0 0 18px #ffffff10,0 0 0 19px #ffffff4a,0 0 0 60px #ffffff08}
+.idv-spine .ch-photo img{border-radius:50%;object-position:var(--ch-crop,50% 50%)}
+.idv-spine .ch-tint{background:linear-gradient(120deg,color-mix(in srgb,var(--ch-accent) 40%,transparent),transparent 60%);--idv-pat:repeating-linear-gradient(90deg,#ffffff00 0 44px,#ffffff0d 44px 46px,#ffffff00 46px 62px,#f2c84b14 62px 64px)}
+.idv-spine .ch-copy{max-width:min(100%,58vw)}
+.idv-spine .ch h1{font-size:clamp(2.8rem,7vw,7rem)}
+@media (max-width:760px){.idv-spine .ch-photo{width:92vw;right:-30vw;bottom:-30vw;opacity:.55}.idv-spine .ch-copy{max-width:100%}}
+.idv-quarter .ch{background:var(--ink)}
+.idv-quarter .ch-photo{inset:0 0 0 38%;border-radius:100vw 0 0 0;overflow:hidden;transform:none}
+.idv-quarter .ch-photo img{transform:scale(calc(1.02 + var(--ch-p,0) * .08))}
+.idv-quarter .ch-tint{background:linear-gradient(90deg,var(--ink) 38%,transparent 60%),linear-gradient(to top,#0b0c0acc,transparent 40%);--idv-pat:radial-gradient(#ffffff26 1.5px,transparent 1.7px);--idv-pat-size:26px 26px}
+@media (max-width:760px){.idv-quarter .ch-photo{inset:0 0 40% 0;border-radius:0 0 50% 50% / 0 0 80px 80px}.idv-quarter .ch-tint{background:linear-gradient(to top,var(--ink) 40%,transparent 75%)}}
+.idv-diag .ch{background:var(--ink)}
+.idv-diag .ch-photo{clip-path:polygon(40% 0,100% 0,100% 100%,18% 100%)}
+.idv-diag .ch-tint{background:linear-gradient(to top,#0b0c0acc,transparent 40%)}
+.idv-diag .ch-copy{max-width:min(100%,50vw)}
+@media (max-width:760px){.idv-diag .ch-photo{clip-path:polygon(0 0,100% 0,100% 62%,0 80%)}.idv-diag .ch-copy{max-width:100%}}
+
+/* ---------- body: heading marks, card shapes, photo wipes, scroll effects ---------- */
+.svc[class*='idv-'] .vis-block>h2::before,.interior[class*='idv-'] section h2.idv-h::before{content:'';display:inline-block;width:.46em;height:.46em;margin-right:.4em;vertical-align:.1em;background:var(--idv-c,var(--blue));clip-path:var(--idv-mark,circle(50%))}
+.svc[class*='idv-'] :is(.svc-card,.hs-card,.lib-card,.vis-places li,.st-card,.vis-hotel){border-radius:var(--idv-r,18px)}
+
+.idv-arch,.idv-students{--idv-mark:inset(0 round 999px 999px 0 0);--idv-r:40px 40px 10px 10px;--idv-anim:idv-wipe-up}
+.idv-hex,.idv-innovation{--idv-mark:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);--idv-r:0 26px 0 26px;--idv-anim:idv-wipe-circle}
+.idv-pill{--idv-mark:inset(0 round 999px);--idv-r:28px;--idv-anim:idv-wipe-circle}
+.idv-circle{--idv-mark:circle(50%);--idv-r:30px;--idv-anim:idv-wipe-circle}
+.idv-blob{--idv-mark:inset(0 round 60% 40% 55% 45%);--idv-r:34px 12px 34px 12px;--idv-anim:idv-wipe-circle}
+.idv-diamond{--idv-mark:polygon(50% 0,100% 50%,50% 100%,0 50%);--idv-r:6px 30px 6px 30px;--idv-anim:idv-wipe-diag}
+.idv-venn{--idv-mark:circle(50%);--idv-r:24px;--idv-anim:idv-wipe-circle}
+.idv-octagon{--idv-mark:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);--idv-r:0;--idv-anim:idv-wipe-diag}
+.idv-slats,.idv-compare{--idv-mark:polygon(0 0,45% 0,35% 100%,0 100%);--idv-r:4px;--idv-anim:idv-wipe-diag}
+.idv-tiles{--idv-mark:polygon(0 0,45% 0,45% 45%,0 45%,0 55%,45% 55%,45% 100%,55% 100%,55% 0,100% 0,100% 100%,55% 100%);--idv-r:0;--idv-anim:idv-wipe-left}
+.idv-slash,.idv-reverse{--idv-mark:polygon(0 100%,100% 0,100% 100%);--idv-r:4px 28px 4px 28px;--idv-anim:idv-wipe-diag}
+.idv-chevron{--idv-mark:polygon(0 0,100% 0,100% 55%,50% 100%,0 55%);--idv-r:22px;--idv-anim:idv-wipe-up}
+.idv-notch{--idv-mark:polygon(0 0,100% 0,100% 100%,65% 100%,65% 70%,35% 70%,35% 100%,0 100%);--idv-r:0;--idv-anim:idv-wipe-left}
+.idv-stairs{--idv-mark:polygon(0 100%,0 66%,34% 66%,34% 33%,67% 33%,67% 0,100% 0,100% 100%);--idv-r:0 18px 0 18px;--idv-anim:idv-wipe-left}
+.idv-wave{--idv-mark:inset(0 round 50% 0 50% 0);--idv-r:26px;--idv-anim:idv-wipe-up}
+.idv-arcade{--idv-mark:inset(0 round 999px 999px 0 0);--idv-r:32px 32px 8px 8px;--idv-anim:idv-wipe-up}
+.idv-ticket{--idv-mark:circle(50%);--idv-r:14px;--idv-anim:idv-wipe-left}
+.idv-zigzag{--idv-mark:polygon(0 100%,25% 0,50% 100%,75% 0,100% 100%);--idv-r:6px;--idv-anim:idv-wipe-left}
+.idv-chamfer{--idv-mark:polygon(0 0,100% 0,100% 60%,60% 100%,0 100%);--idv-r:0;--idv-anim:idv-wipe-left}
+.idv-arrow{--idv-mark:polygon(0 25%,60% 25%,60% 0,100% 50%,60% 100%,60% 75%,0 75%);--idv-r:10px 40px 10px 40px;--idv-anim:idv-wipe-left}
+.idv-dome{--idv-mark:inset(0 round 999px 999px 0 0);--idv-r:24px 24px 24px 24px;--idv-anim:idv-wipe-up}
+.idv-bubble{--idv-mark:inset(0 round 999px 999px 999px 2px);--idv-r:36px 36px 36px 6px;--idv-anim:idv-wipe-circle}
+.idv-card{--idv-mark:inset(0 round 24%);--idv-r:10px;--idv-anim:idv-wipe-up}
+.idv-bubbles{--idv-mark:circle(50%);--idv-r:36px;--idv-anim:idv-wipe-circle}
+.idv-omr{--idv-mark:circle(50%);--idv-r:16px;--idv-anim:idv-wipe-circle}
+.idv-grid{--idv-mark:polygon(0 0,100% 0,100% 100%,0 100%,0 0,12% 12%,12% 88%,88% 88%,88% 12%,12% 12%);--idv-r:2px;--idv-anim:idv-wipe-left}
+.idv-ledger{--idv-mark:inset(0 0 40% 0);--idv-r:3px;--idv-anim:idv-wipe-left}
+.idv-rays{--idv-mark:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);--idv-r:26px 6px 26px 6px;--idv-c:var(--gold);--idv-anim:idv-wipe-circle}
+.idv-film{--idv-mark:inset(0 round 2px);--idv-r:3px;--idv-anim:idv-wipe-left}
+.idv-ghost{--idv-mark:inset(0 38% 0 0);--idv-r:0;--idv-anim:idv-wipe-left}
+.idv-sun{--idv-mark:circle(50%);--idv-r:30px;--idv-c:var(--gold);--idv-anim:idv-wipe-up}
+.idv-spine,.idv-library{--idv-mark:inset(0 60% 0 0);--idv-r:8px 22px 22px 8px;--idv-anim:idv-wipe-left}
+.idv-quarter{--idv-mark:inset(0 0 0 0 round 100% 0 0 0);--idv-r:48px 8px 8px 8px;--idv-anim:idv-wipe-circle}
+.idv-diag{--idv-mark:polygon(40% 0,100% 0,60% 100%,0 100%);--idv-r:0 24px 0 24px;--idv-anim:idv-wipe-diag}
+
+@keyframes idv-wipe-up{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+@keyframes idv-wipe-left{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+@keyframes idv-wipe-circle{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(78% at 50% 50%)}}
+@keyframes idv-wipe-diag{from{clip-path:polygon(0 0,0 0,0 100%,0 100%)}to{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}
+@keyframes idv-spin{from{rotate:-140deg;scale:.2}to{rotate:0deg;scale:1}}
+
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    /* photos inside page bands uncover themselves in the page's own way as they scroll in */
+    .svc[class*='idv-'] .vis-block img:not(.fx-chap-fig img,.fx-index-fig img,.fx-panels img),.interior[class*='idv-'] .vis-block img{animation:var(--idv-anim,idv-wipe-up) linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+    /* each section heading's mark spins into place */
+    .svc[class*='idv-'] .vis-block>h2::before{animation:idv-spin linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+  }
+}
+body.motion-paused [class*='idv-'] .vis-block img,body.motion-paused [class*='idv-'] .vis-block>h2::before{animation:none!important}
+
+/* ---------- hand-picked variants that need more than a shape ---------- */
+/* Events: a ticker of months under the hero */
+.idv-tiles .sh::after{content:'JAN · FEB · MAR · APR · MAY · JUN · JUL · AUG · SEP · OCT · NOV · DEC · JAN · FEB · MAR · APR · MAY · JUN · JUL · AUG · SEP · OCT · NOV · DEC ·';position:absolute;left:0;bottom:0;z-index:1;width:max-content;padding:10px 0;font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--gold);white-space:nowrap;animation:idv-ticker 40s linear infinite;pointer-events:none}
+@keyframes idv-ticker{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.idv-tiles .sh::after{animation:none}}
+body.motion-paused .idv-tiles .sh::after{animation:none}
+/* Key dates: a calendar grid that tapers away */
+.idv-notch .sh-tint{--idv-pat:linear-gradient(#ffffff1a 1px,transparent 1px),linear-gradient(90deg,#ffffff1a 1px,transparent 1px);--idv-pat-size:56px 56px}
+.idv-notch .sh-tint::after{-webkit-mask-image:linear-gradient(to left,#000,transparent 70%);mask-image:linear-gradient(to left,#000,transparent 70%)}
+/* Visitors / Campus walk: dotted route */
+.idv-wave .sh-tint{--idv-pat:radial-gradient(circle,#ffffff55 1.8px,transparent 2.2px);--idv-pat-size:18px 18px}
+.idv-wave .sh-tint::after{-webkit-mask-image:linear-gradient(105deg,transparent 40%,#000 55%,transparent 72%);mask-image:linear-gradient(105deg,transparent 40%,#000 55%,transparent 72%)}
+/* Compare: a shared hard shadow so the two halves read as two sheets */
+.idv-slats .sh-photo{filter:drop-shadow(14px 14px 0 #0003)}
+/* Recruiters / Placements: a hard offset shadow instead of a soft one */
+.idv-chamfer .svc-card,.idv-chamfer .st-card,.idv-chamfer .lib-card{box-shadow:6px 6px 0 var(--gold);border-color:var(--ink)}
+.idv-chamfer .svc-card:hover,.idv-chamfer .st-card:hover{box-shadow:10px 10px 0 var(--gold)}
+
+/* ---------- motion off ---------- */
+@media (prefers-reduced-motion:reduce){
+  .idv-pill .sh-photo,.idv-zigzag .sh-photo{transition:none}
+}
+.idv-tiles .sh-copy>:not(h1),.idv-slats .sh-copy>:not(h1){max-width:min(100%,40vw)}
+.idv-tiles .sh::after{bottom:52px}
+@media (max-width:860px){.idv-tiles .sh-copy>:not(h1),.idv-slats .sh-copy>:not(h1){max-width:100%}}
+
+/* ---------- signature effects: one per page family, all CSS, all off under reduced motion / the site's pause switch ---------- */
+.idv-slash .svc-card,.idv-slash .hs-card{position:relative;overflow:hidden}
+.idv-slash .hs-card::after,.idv-chamfer .st-card::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,#ffffff55 50%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+.idv-pill .sh-photo::before{border-style:dashed}
+.idv-announce-note,.idv-zigzag .pt-card,.idv-zigzag .vis-block li{transition:transform .5s var(--ease)}
+.idv-zigzag .vis-block li:nth-child(odd){rotate:-.5deg}
+.idv-zigzag .vis-block li:nth-child(even){rotate:.5deg}
+.idv-zigzag .vis-block li:hover{rotate:0deg}
+.idv-spine .lib-card{transform-origin:left center;transition:transform .6s var(--ease),box-shadow .5s}
+.idv-spine .lib-card:hover{transform:perspective(900px) rotateY(-9deg) translateY(-4px);box-shadow:-14px 12px 28px #04122c2e}
+.idv-tiles .ev-date,.idv-tiles time{transition:transform .6s var(--ease)}
+.idv-slats .sh-photo img{transition:clip-path .8s var(--ease),transform .8s var(--ease)}
+@media (prefers-reduced-motion:no-preference){
+  body:not(.motion-paused) .idv-arch .sh-photo{animation:idv-float 7s ease-in-out infinite}
+  body:not(.motion-paused) .idv-pill .sh-photo::before{animation:idv-dash 40s linear infinite}
+  body:not(.motion-paused) :is(.idv-hex,.idv-omr,.idv-grid,.idv-wave,.idv-ticket,.idv-notch,.idv-spine,.idv-quarter) :is(.sh-tint,.ch-tint)::after{animation:idv-drift 30s linear infinite}
+  body:not(.motion-paused) .idv-rays .sh-tint::after{animation:idv-turn 90s linear infinite;transform-origin:78% 55%;inset:-60%}
+  body:not(.motion-paused) .idv-card .sh-tint::after{animation:idv-scan 6s linear infinite}
+  body:not(.motion-paused) .idv-film .sh-photo img{animation:idv-flicker 5s steps(1) infinite}
+  body:not(.motion-paused) .idv-sun .sh-tint::after{animation:idv-rise 2.4s var(--ease) both}
+  body:not(.motion-paused) .idv-ghost .sh::before{animation:idv-slide 1.6s var(--ease) both}
+  body:not(.motion-paused) .idv-bubble .sh::after{content:'';position:absolute;left:34px;bottom:-1px;width:22px;height:22px;background:var(--gold);clip-path:polygon(0 0,100% 0,0 100%);animation:idv-bob 2.6s ease-in-out infinite;z-index:3}
+  .idv-slash .hs-card:hover::after,.idv-chamfer .st-card:hover::after{transform:translateX(120%);transition:transform .9s var(--ease)}
+  .idv-slats .sh:hover .sh-photo img{transform:scale(1.04)}
+  .idv-tiles .vis-block :is(li,article):hover time,.idv-tiles .vis-block :is(li,article):hover .ev-date{transform:rotateX(360deg)}
+}
+@keyframes idv-float{50%{transform:translate3d(0,-10px,0)}}
+@keyframes idv-dash{to{rotate:360deg}}
+@keyframes idv-drift{to{background-position:var(--idv-pat-size,60px) 0}}
+@keyframes idv-turn{to{rotate:360deg}}
+@keyframes idv-scan{from{background-position:0 0}to{background-position:0 40px}}
+@keyframes idv-flicker{0%,93%,100%{filter:sepia(.7) contrast(1.05) saturate(.85)}95%{filter:sepia(.85) contrast(1.2) brightness(1.12)}}
+@keyframes idv-rise{from{transform:translateY(40%);opacity:0}to{transform:none;opacity:1}}
+@keyframes idv-slide{from{transform:translateX(12%);opacity:0}to{transform:none;opacity:1}}
+@keyframes idv-bob{50%{transform:translateY(7px)}}

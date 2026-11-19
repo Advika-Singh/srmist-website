@@ -32,7 +32,7 @@ export default function Placements() {
   return (
     <>
       <SiteHeader />
-      <main className="interior pl" id="main" tabIndex={-1}>
+      <main className="interior pl idv-diag" id="main" tabIndex={-1}>
         <CinematicHero hero={hero} accent={kit.accent} crop={kit.crop} />
 
         <CountBand items={pages.placements.stats} tone="blue" label="Placement figures" />

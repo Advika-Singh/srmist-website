@@ -9,7 +9,7 @@ export default function AlumniChapters() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-diamond" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Alumni" title="Stay part of SRM, wherever you are." lede="Chapters in cities across India, an official alumni portal, and a directorate whose job is to keep graduates and the university connected." img="/srmist/students.webp" pos="50% 40%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#about">What the directorate does</a>

@@ -9,6 +9,24 @@ import { labelFor } from '../lib/seo.js'
 import '../services.css'
 import '../styles/sections.css'
 
+// Each section's own hero shape, pattern and photo treatment (see styles/identity.css).
+const IDV = {
+  '/colleges': 'idv-arcade',
+  '/research/centres': 'idv-grid idv-duo',
+  '/research/initiatives': 'idv-stairs',
+  '/research/partners': 'idv-venn',
+  '/campus-life/student-life': 'idv-diamond idv-warm',
+  '/campus-life/living': 'idv-sun idv-dome',
+  '/campus-life/wellbeing': 'idv-blob',
+  '/international/global': 'idv-circle',
+  '/international/pathways': 'idv-arrow',
+  '/about/history': 'idv-film',
+  '/about/leadership': 'idv-ghost',
+  '/about/recognition': 'idv-rays idv-octagon',
+  '/about/offices': 'idv-ledger idv-chamfer',
+  '/contact': 'idv-chevron',
+}
+
 /** One page of the redesigned official sections. The page's content and the effect for each group come from data/sections.js. */
 export default function Section({ path }) {
   const page = SECTION_BY_PATH[path]
@@ -25,7 +43,7 @@ export default function Section({ path }) {
   return (
     <>
       <SiteHeader />
-      <main className={`interior svc sx-page sx-${page.path.replace(/\W+/g, '-').replace(/^-|-$/g, '')}`} id="main" tabIndex={-1}>
+      <main className={`interior svc sx-page sx-${page.path.replace(/\W+/g, '-').replace(/^-|-$/g, '')} ${IDV[page.path] ?? ''}`} id="main" tabIndex={-1}>
         <SvcHero eyebrow={page.eyebrow} title={page.h1} lede={page.lede} img={page.img} pos={page.pos}>
           <nav className="vis-quick" aria-label="On this page">
             {page.groups.map((g) => (

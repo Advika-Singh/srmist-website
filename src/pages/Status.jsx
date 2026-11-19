@@ -70,7 +70,7 @@ export default function Status() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-card" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Service status" title="Is it down, or is it just you?" lede="Live checks of the portals students use most. We ask each one from our server every minute, so you can tell an outage from a bad connection before you spend an hour refreshing." img="/srmist/tech-park.webp" pos="50% 40%" />
 
         <section className="svc-wrap" aria-labelledby="svc-banner">
