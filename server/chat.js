@@ -6,7 +6,10 @@ import { MENUS } from '../src/data/nav.js'
 import { EVENTS } from '../src/data/events.js'
 import { MIN_AGGREGATE, PHASES } from '../src/data/srmjeee.js'
 import { formatRange, upcoming } from '../src/lib/events.js'
+import { LIMIT_MESSAGE, createBudget } from './budget.js'
 import { sameOrigin } from './security.js'
+
+const budget = createBudget(process.env)
 
 const API = 'https://generativelanguage.googleapis.com/v1beta/models'
 const MODELS = process.env.GEMINI_MODEL
@@ -157,7 +160,7 @@ const DEADLINE_MS = 26_000
 async function callGemini(model, key, contents, withThinking, lang, signal) {
   const generationConfig = {
     temperature: 0.4,
-    maxOutputTokens: 1024,
+    maxOutputTokens: 600,
     responseMimeType: 'application/json',
     responseSchema: SCHEMA,
   }
@@ -190,7 +193,8 @@ async function askModel(model, key, contents, lang, signal) {
       .filter((l) => l && ALLOWED.has(l.href))
       .slice(0, 3)
       .map((l) => ({ label: String(l.label || ALLOWED.get(l.href)).slice(0, 60), reason: String(l.reason || '').slice(0, 60), href: l.href }))
-    return { answer: String(out.answer || '').trim() || 'Sorry, I could not find an answer to that.', links }
+    const tokens = Number(data?.usageMetadata?.totalTokenCount) || 0
+    return { answer: String(out.answer || '').trim() || 'Sorry, I could not find an answer to that.', links, tokens }
   }
   throw Object.assign(new Error('Bad request'), { status: 400 })
 }
@@ -234,6 +238,10 @@ export async function handleChat(req, res, env = process.env) {
   const forwarded = env.TRUST_PROXY === '1' ? String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() : ''
   if (limited(forwarded || req.socket?.remoteAddress || 'local')) return send(res, 429, { error: 'Too many questions — please wait a moment.' })
 
+  const who = forwarded || req.socket?.remoteAddress || 'local'
+  const gate = budget.check(who)
+  if (!gate.ok) return send(res, gate.status, { error: LIMIT_MESSAGE[gate.reason] })
+
   let messages
   let lang = 'en'
   try {
@@ -256,8 +264,11 @@ export async function handleChat(req, res, env = process.env) {
   if (!contents.length || contents[contents.length - 1].role !== 'user') return send(res, 400, { error: 'No question provided.' })
 
   try {
-    return send(res, 200, await answerWithFallback(contents, key, lang))
+    const { tokens, ...reply } = await answerWithFallback(contents, key, lang)
+    budget.record(who, tokens)
+    return send(res, 200, reply)
   } catch (e) {
+    budget.record(who, 0) // a failed attempt still counts as a question, so a broken upstream cannot be hammered for free
     return send(res, 502, { error: e?.status === 429 ? 'SRM Guide is getting a lot of questions — try again in a moment.' : 'SRM Guide is unavailable right now. Please try again.' })
   }
 }
