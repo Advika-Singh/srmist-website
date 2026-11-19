@@ -8,6 +8,7 @@ import './tailwind.css'
 import './theme.css'
 import './redesign.css'
 import './styles/shell.css'
+import './styles/identity.css'
 
 createRoot(document.getElementById('root')).render(
   <LangProvider>

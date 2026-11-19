@@ -62,7 +62,7 @@ export default function Library() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-spine" id="main" tabIndex={-1}>
         <CinematicHero hero={pages.library.hero} accent={kitFor('library').accent} crop={kitFor('library').crop} />
         <section className="svc-hero lib-bar">
           <p>Opening hours, the librarian, how to reach the team and what is inside. Searching the catalogue, journals and your account happens on the library’s own site.</p>

@@ -22,7 +22,7 @@ export default function Innovation() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-hex" id="main" tabIndex={-1}>
         <SvcHero
           eyebrow="Student innovation"
           title="Things SRM students have built."

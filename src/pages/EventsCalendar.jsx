@@ -51,7 +51,7 @@ export default function EventsCalendar() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc ev-page" id="main" tabIndex={-1}>
+      <main className="interior svc ev-page idv-tiles" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Events calendar" title="What is on at SRMIST, month by month." lede="Conferences, workshops, programmes and festivals from the official events page, with a calendar file for each one." img="/srmist/campus-panorama.webp" pos="50% 50%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#calendar">The calendar</a>

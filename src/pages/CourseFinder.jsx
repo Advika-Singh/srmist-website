@@ -131,7 +131,7 @@ export default function CourseFinder() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-bubbles idv-dome" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Course finder" title="Not sure what to study? Start here." lede="Answer five quick questions about what you enjoy and where you want to go. We will suggest the fields of study at SRMIST worth looking at first." img="/srmist/labs.webp" pos="50% 35%" />
 
         <section className="svc-wrap cf-wrap" ref={top} aria-live="polite">

@@ -141,7 +141,7 @@ export default function Support() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-bubble" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Issues &amp; feedback" title="Tell us what is wrong. Follow it until it is fixed." lede="Every report gets a reference number. Keep it, and you can check where your issue stands any time, without logging in." img="/srmist/admission-india.webp" pos="50% 35%" />
 
         <section className="svc-wrap svc-support">

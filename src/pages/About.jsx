@@ -233,7 +233,7 @@ export default function About() {
   return (
     <>
       <SiteHeader />
-      <main className="interior ab" id="main" tabIndex={-1}>
+      <main className="interior ab idv-quarter" id="main" tabIndex={-1}>
         <CinematicHero hero={HERO} accent="#3b82f6" crop="50% 38%" />
 
         <section className="ab-nums" aria-label="SRMIST at a glance">

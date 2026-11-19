@@ -9,7 +9,7 @@ export default function Parents() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
+      <main className="interior svc idv-pill" id="main" tabIndex={-1}>
         <SvcHero eyebrow="Parents" title="Everything a parent looks for, in one place." lede="The parent portal, fees and loans, safety, hostels and ways to stay in touch, with each link going to the official page." img="/srmist/admission-india.webp" pos="50% 40%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#portal">Parent portal</a>
