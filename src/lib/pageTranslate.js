@@ -203,12 +203,16 @@ async function flush() {
 function queueScan(node) {
   scanQueue.add(node)
   if (scanRaf) return
-  scanRaf = requestAnimationFrame(() => {
+  const run = () => {
+    if (!scanRaf) return
     scanRaf = 0
     const nodes = [...scanQueue]
     scanQueue = new Set()
     for (const n of nodes) if (n.isConnected) scan(n)
-  })
+  }
+  scanRaf = requestAnimationFrame(run)
+  // a tab in the background never gets animation frames, so a timer makes sure the page is still translated
+  setTimeout(run, 200)
 }
 
 function observe() {
@@ -263,10 +267,22 @@ export function setPageLanguage(next) {
     return
   }
   loadCache(next)
+  // ready-made translations for the menus and our own pages (scripts/build-translations.mjs): used at once, no API wait
   failedAt.clear()
-  observe()
-  queueScan(document.body)
-  translateTitle()
+  const start = () => {
+    if (lang !== next) return
+    observe()
+    queueScan(document.body)
+    translateTitle()
+  }
+  // the page is scanned only after the ready-made translations are in the cache, so they are used first and the API only
+  // gets what they do not cover
+  import(`../data/translations-extra-${next}.json`)
+    .then((m) => {
+      for (const [en, tr] of Object.entries(m.default)) if (!cache.has(en)) cache.set(en, tr)
+    })
+    .catch(() => {})
+    .then(start)
   if (!titleWatcher) {
     // the document title changes on every page; keep it in step
     titleWatcher = new MutationObserver(() => lang !== 'en' && translateTitle())
