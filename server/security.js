@@ -7,12 +7,12 @@
 // (animation delays). That cannot execute code.
 export const CSP = [
   "default-src 'self'",
-  "script-src 'self' https://challenges.cloudflare.com",
-  "frame-src https://challenges.cloudflare.com",
-  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' https://challenges.cloudflare.com https://accounts.google.com/gsi/client",
+  "frame-src https://challenges.cloudflare.com https://accounts.google.com/gsi/",
+  "style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style",
   "img-src 'self' data: https://images.unsplash.com https://www.srmist.edu.in",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://accounts.google.com/gsi/",
   "media-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",

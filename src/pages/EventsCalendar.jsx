@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { EVENTS, EVENTS_READ_ON, EVENTS_SOURCE } from '../data/events.js'
 import { daysUntil, formatRange, groupByMonth, istToday, monthKey, monthLabel, monthsOf, toCalendarItem, upcoming } from '../lib/events.js'
 import { toIcs } from '../lib/ics.js'
@@ -32,7 +32,16 @@ function When({ e, today }) {
 
 export default function EventsCalendar() {
   const today = useMemo(() => istToday(), [])
-  const all = useMemo(() => upcoming(EVENTS), [])
+  const [staff, setStaff] = useState([])
+  useEffect(() => {
+    let live = true
+    fetch('/api/public/items?type=event')
+      .then((r) => (r.ok ? r.json() : { items: [] }))
+      .then((d) => live && setStaff((d.items || []).map((i) => ({ id: `staff-${i.id}`, title: i.title, start: i.event_date, end: i.event_date, time: `${i.start_time} – ${i.end_time}`, venue: i.venue, href: i.link || '', staff: true }))))
+      .catch(() => {})
+    return () => { live = false }
+  }, [])
+  const all = useMemo(() => upcoming([...EVENTS, ...staff]), [staff])
   const months = useMemo(() => monthsOf(all), [all])
   const [month, setMonth] = useState('all')
   const shown = month === 'all' ? all : all.filter((e) => monthKey(e) === month)
@@ -94,16 +103,20 @@ export default function EventsCalendar() {
                           <p className="ev-meta">
                             {formatRange(e.start, e.end)}
                             {e.time ? ` · ${e.time}` : ''}
+                            {e.venue ? ` · ${e.venue}` : ''}
+                            {e.staff && <span className="ev-when"> Posted by university staff</span>}
                             <When e={e} today={today} />
                           </p>
                           <div className="ev-actions">
                             <button type="button" className="svc-btn" onClick={() => download([e], `${e.id}.ics`)}>
                               Add to calendar<span className="sr-only">: {e.title}</span>
                             </button>
-                            <a className="svc-btn" href={e.href} {...ext}>
-                              Official page<span className="sr-only">: {e.title}</span> <ArrowUR />
-                              <NewTab />
-                            </a>
+                            {e.href && (
+                              <a className="svc-btn" href={e.href} {...ext}>
+                                {e.staff ? 'Registration link' : 'Official page'}<span className="sr-only">: {e.title}</span> <ArrowUR />
+                                <NewTab />
+                              </a>
+                            )}
                           </div>
                         </div>
                       </li>

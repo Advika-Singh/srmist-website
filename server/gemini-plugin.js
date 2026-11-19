@@ -1,6 +1,7 @@
 import { handleChat } from './chat.js'
 import { handleComplaints } from './complaints.js'
 import { handleEnquiry } from './enquiry.js'
+import { portalFromEnv } from './portal/index.js'
 import { handleSearchLog } from './searchlog.js'
 import { applySecurityHeaders } from './security.js'
 import { handleStatus } from './status.js'
@@ -41,6 +42,13 @@ export function geminiProxy(env) {
         res.end(JSON.stringify({ error: 'Something went wrong.' }))
       })
     })
+    // the content portal and its public feed; local http needs non-Secure cookies, and the connect mount strips the prefix, so put it back
+    const portal = (req, res) => {
+      req.url = req.originalUrl || req.url
+      portalFromEnv({ PORTAL_INSECURE_COOKIES: '1', ...process.env, ...env })(req, res)
+    }
+    server.middlewares.use('/api/portal', portal)
+    server.middlewares.use('/api/public', portal)
     server.middlewares.use('/api/status', (req, res) => {
       handleStatus(req, res)
     })

@@ -8,6 +8,7 @@ import { extname, join, resolve, sep } from 'node:path'
 import zlib from 'node:zlib'
 import { fileURLToPath } from 'node:url'
 import { handleChat } from './chat.js'
+import { portalFromEnv } from './portal/index.js'
 import { handleTranslate } from './translate.js'
 import { handleComplaints } from './complaints.js'
 import { handleEnquiry } from './enquiry.js'
@@ -112,6 +113,7 @@ const server = http.createServer((req, res) => {
       res.end('{"error":"Something went wrong."}')
     })
   }
+  if (pathname.startsWith('/api/portal') || pathname.startsWith('/api/public')) return portalFromEnv(process.env)(req, res)
   if (pathname === '/api/status') return handleStatus(req, res)
   if (pathname === '/api/complaints') {
     return handleComplaints(req, res, process.env).catch(() => {

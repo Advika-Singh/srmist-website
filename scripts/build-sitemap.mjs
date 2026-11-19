@@ -3,7 +3,7 @@ import { writeFileSync } from 'node:fs'
 import { SLUGS } from '../src/data/routes.js'
 import { PAGE_DESC, SITE } from '../src/lib/seo.js'
 
-const paths = new Set(['/', ...Object.keys(PAGE_DESC), ...SLUGS.map((s) => `/${s}`), '/apply'])
+const paths = new Set(['/', ...Object.keys(PAGE_DESC).filter((p) => !p.startsWith('/portal')), ...SLUGS.map((s) => `/${s}`), '/apply'])
 const day = new Date().toISOString().slice(0, 10)
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...paths]
   .sort()

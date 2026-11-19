@@ -59,7 +59,7 @@ export function toCalendarItem(e) {
     end: addDays(e.end, 1),
     tentative: false,
     url: e.href,
-    note: `${e.time ? `Time on the official page: ${e.time}. ` : ''}Listed on the official SRMIST events page. Check the event page for changes before you travel: ${e.href}`,
+    note: e.staff ? `Time: ${e.time}. Venue: ${e.venue}. Posted by university staff through the SRMIST staff portal.${e.href ? ` Details: ${e.href}` : ''}` : `${e.time ? `Time on the official page: ${e.time}. ` : ''}Listed on the official SRMIST events page. Check the event page for changes before you travel: ${e.href}`,
   }
 }
 
