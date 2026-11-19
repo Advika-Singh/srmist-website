@@ -11,3 +11,6 @@ reports/lighthouse
 .env*
 
 server/data
+
+.vercel
+.env*
