@@ -155,8 +155,8 @@ const send = (res, status, body) => {
 
 // Gemini is sometimes slow or overloaded (a model can sit for 25 s and then answer 503). Vercel stops this function at 30 s, so
 // each attempt gets a short timeout, and the first two models are asked at once: whichever answers first wins.
-const ATTEMPT_MS = 11_000
-const DEADLINE_MS = 26_000
+const ATTEMPT_MS = 16_000
+const DEADLINE_MS = 27_000
 
 async function callGemini(model, key, contents, withThinking, lang, signal) {
   const generationConfig = {
