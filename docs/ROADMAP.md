@@ -35,7 +35,7 @@ Gaps found in the repo on 2026-11-08: no sitemap, no Open Graph / JSON-LD, no pr
 | Programme compare (up to 3) | **Done** (`/compare`, 2026-11-15) | Only fields already in `data/programmes.js` |
 | Scholarship eligibility checker | Turns the scholarships page into an answer | Rules from the official scholarship pages with links; show "check with the office" for anything unclear |
 | Application tracker | Applicants return to see status | Prototype only until the university provides an API; label it |
-| Events calendar with "add to calendar" (.ics) | **Done for SRMJEEE dates** (`/dates`, 2026-11-15). Campus events still need a sourced list | Real events only (`Event` JSON-LD shares the data) |
+| Events calendar with "add to calendar" (.ics) | **Done** (`/dates` for SRMJEEE, `/events/calendar` for campus events, 2026-11-19). The events list is a snapshot until a feed exists | Real events only (`Event` JSON-LD shares the data) |
 | Virtual campus tour page | Builds on `/day` and the explorer map | Use the official 360 tour link; permission-cleared photos only |
 | Saved shortlist | **Done** for programmes (on `/compare`, 2026-11-15) | localStorage only, mentioned in the privacy notice |
 | Notification centre for deadlines | SRMJEEE dates are already structured in `data/srmjeee.js` | Tentative dates stay labelled tentative |

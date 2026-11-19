@@ -43,6 +43,7 @@ const Recruiters = lazy(() => import('./pages/Recruiters.jsx'))
 const Compare = lazy(() => import('./pages/Compare.jsx'))
 const KeyDates = lazy(() => import('./pages/KeyDates.jsx'))
 const Section = lazy(() => import('./pages/Section.jsx'))
+const EventsCalendar = lazy(() => import('./pages/EventsCalendar.jsx'))
 
 /** Our own pages are navigated in-app; .html pages and external links are left to the browser. */
 // A backslash is refused too: some browsers read "/\host" as "//host", which is how the open-redirect advisory for react-router 6 works.
@@ -54,11 +55,11 @@ function prefetch(href) {
   if (SECTION_PATHS.includes(path)) import('./pages/Section.jsx')
   else if (path.startsWith('/apply')) loadApply()
   else if (path === '/admissions') loadAdmissions()
-  else if (['/status', '/support', '/access-map', '/visitors', '/library', '/hostels', '/students', '/day', '/clubs', '/course-finder', '/staff-finder', '/srmjeee', '/placements', '/innovation', '/ask-a-student', '/privacy', '/terms', '/accessibility', '/campus-walk', '/parents', '/alumni/chapters', '/recruiters', '/compare', '/dates'].includes(path)) import(`./pages/${PAGE_FILE[path]}.jsx`)
+  else if (['/status', '/support', '/access-map', '/visitors', '/library', '/hostels', '/students', '/day', '/clubs', '/course-finder', '/staff-finder', '/srmjeee', '/placements', '/innovation', '/ask-a-student', '/privacy', '/terms', '/accessibility', '/campus-walk', '/parents', '/alumni/chapters', '/recruiters', '/compare', '/dates', '/events/calendar'].includes(path)) import(`./pages/${PAGE_FILE[path]}.jsx`)
   else if (path !== '/') loadInterior()
 }
 
-const PAGE_FILE = { '/status': 'Status', '/support': 'Support', '/access-map': 'AccessMap', '/visitors': 'Visitors', '/library': 'Library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'Day', '/clubs': 'Clubs', '/course-finder': 'CourseFinder', '/staff-finder': 'StaffFinder', '/srmjeee': 'Srmjeee', '/placements': 'Placements', '/innovation': 'Innovation', '/ask-a-student': 'StudentVoices', '/privacy': 'Privacy', '/terms': 'Terms', '/accessibility': 'Accessibility', '/campus-walk': 'CampusWalk', '/parents': 'Parents', '/alumni/chapters': 'AlumniChapters', '/recruiters': 'Recruiters', '/compare': 'Compare', '/dates': 'KeyDates' }
+const PAGE_FILE = { '/status': 'Status', '/support': 'Support', '/access-map': 'AccessMap', '/visitors': 'Visitors', '/library': 'Library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'Day', '/clubs': 'Clubs', '/course-finder': 'CourseFinder', '/staff-finder': 'StaffFinder', '/srmjeee': 'Srmjeee', '/placements': 'Placements', '/innovation': 'Innovation', '/ask-a-student': 'StudentVoices', '/privacy': 'Privacy', '/terms': 'Terms', '/accessibility': 'Accessibility', '/campus-walk': 'CampusWalk', '/parents': 'Parents', '/alumni/chapters': 'AlumniChapters', '/recruiters': 'Recruiters', '/compare': 'Compare', '/dates': 'KeyDates', '/events/calendar': 'EventsCalendar' }
 
 const APPLY_STEPS = ['/apply', '/apply/programme', '/apply/details', '/apply/review']
 
@@ -165,6 +166,7 @@ export default function App() {
           <Route path="/recruiters" element={<Recruiters />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/dates" element={<KeyDates />} />
+          <Route path="/events/calendar" element={<EventsCalendar />} />
           {SECTION_PATHS.map((p) => (
             <Route key={p} path={p} element={<Section path={p} />} />
           ))}

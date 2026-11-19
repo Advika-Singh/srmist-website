@@ -58,7 +58,7 @@ function fold(line) {
 /** A calendar file with one all-day event per item. `stamp` is when the file was made. */
 export function toIcs(items, stamp = new Date()) {
   const dt = `${stamp.toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`
-  const note = `Tentative: SRMIST may change this date. Confirm it on the official page: ${OFFICIAL.dates}`
+  const defaultNote = `Tentative: SRMIST may change this date. Confirm it on the official page: ${OFFICIAL.dates}`
   const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//SRMIST concept redesign//Key dates//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH']
   for (const e of items) {
     lines.push(
@@ -67,9 +67,10 @@ export function toIcs(items, stamp = new Date()) {
       `DTSTAMP:${dt}`,
       `DTSTART;VALUE=DATE:${compact(e.start)}`,
       `DTEND;VALUE=DATE:${compact(e.end)}`,
-      `SUMMARY:${esc(`${e.title} (tentative)`)}`,
-      `DESCRIPTION:${esc(note)}`,
-      `URL:${OFFICIAL.apply}`,
+      // an item may carry its own note and link, and say it is not tentative (events do); the SRMJEEE dates keep the defaults
+      `SUMMARY:${esc(e.tentative === false ? e.title : `${e.title} (tentative)`)}`,
+      `DESCRIPTION:${esc(e.note ?? defaultNote)}`,
+      `URL:${e.url ?? OFFICIAL.apply}`,
       'TRANSP:TRANSPARENT',
       'END:VEVENT',
     )

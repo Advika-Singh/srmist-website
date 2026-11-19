@@ -189,6 +189,7 @@ export const MENUS = [
           ['Anti-Ragging', '/campus-life/wellbeing#ragging'],
           ['Anti-Discrimination', '/campus-life/wellbeing#discrimination'],
           ['Community Centers', '/campus-life/student-life#community'],
+          ['Events calendar', '/events/calendar'],
           ['Milan (annual fest)', '/campus-life/student-life#milan'],
           ['Grievance Redressal', '/campus-life/wellbeing#womens'],
         ],

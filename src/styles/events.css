@@ -1,0 +1,26 @@
+/* Events calendar: a month ribbon and date tiles. Existing tokens only. */
+.ev-ribbon{display:flex;gap:0;overflow-x:auto;margin:20px 0 6px;padding:4px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface,#fff);width:fit-content;max-width:100%;scrollbar-width:thin}
+.ev-ribbon button{flex:none;min-height:var(--tap,44px);padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--text);font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .3s var(--ease),color .3s}
+.ev-ribbon button:hover{background:color-mix(in srgb,var(--gold) 24%,transparent)}
+.ev-ribbon button.is-on{background:var(--blue);color:#fff}
+.ev-count{font-size:14px;color:var(--text-muted);margin:6px 0 4px}
+.ev-empty{padding:22px;border:2px dashed var(--line-strong);border-radius:18px;color:var(--text-muted);max-width:66ch}
+.ev-month{margin-top:30px}
+.ev-month-h{position:sticky;top:calc(var(--nav-h,78px) - 6px);z-index:2;margin:0 0 12px;padding:10px 0;background:linear-gradient(var(--paper),var(--paper) 70%,transparent);font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-ink,var(--blue))}
+.vis-block:nth-child(even) .ev-month-h{background:linear-gradient(var(--sand),var(--sand) 70%,transparent)}
+.ev-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ev-item{display:grid;grid-template-columns:84px minmax(0,1fr);gap:20px;align-items:start;padding:18px 22px 18px 18px;border:1px solid var(--line);border-radius:20px;background:var(--surface,#fff);transition:transform .5s var(--ease),border-color .3s,box-shadow .5s}
+.ev-item:hover,.ev-item:focus-within{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 18px 40px #04122c1f}
+.ev-tile{display:grid;place-items:center;align-content:center;gap:0;height:84px;border-radius:16px;background:var(--blue);color:#fff;text-align:center;transition:transform .6s var(--ease)}
+.ev-item:hover .ev-tile{transform:rotate(-4deg) scale(1.04)}
+.ev-tile b{font-family:var(--display);font-weight:500;font-size:2.3rem;line-height:1;letter-spacing:-.04em;color:var(--gold)}
+.ev-tile span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.ev-body h4{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,1.8vw,1.45rem);letter-spacing:-.02em;line-height:1.2}
+.ev-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:6px 0 12px;color:var(--text-muted);font-size:14px}
+.ev-when{display:inline-block;padding:2px 10px;border-radius:999px;background:var(--gold);color:#171814;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.ev-when--now{animation:ev-pulse 2.4s ease-in-out infinite}
+@keyframes ev-pulse{50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--gold) 30%,transparent)}}
+.ev-actions{display:flex;flex-wrap:wrap;gap:8px}
+.ev-actions .svc-btn svg{width:12px;height:12px}
+@media (max-width:560px){.ev-item{grid-template-columns:1fr;gap:12px}.ev-tile{height:64px;grid-auto-flow:column;gap:10px;justify-content:start;padding:0 18px;width:fit-content}.ev-tile b{font-size:1.8rem}}
+@media (prefers-reduced-motion:reduce){.ev-item,.ev-tile{transition:none}.ev-when--now{animation:none}}
