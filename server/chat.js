@@ -8,6 +8,7 @@ import { MIN_AGGREGATE, PHASES } from '../src/data/srmjeee.js'
 import { formatRange, upcoming } from '../src/lib/events.js'
 import { LIMIT_MESSAGE, createBudget } from './budget.js'
 import { sameOrigin } from './security.js'
+import { turnstileEnabled, verifyTurnstile } from './turnstile.js'
 
 const budget = createBudget({ env: process.env, name: 'chat', defaults: { perIp: 60, global: 3000, tokens: 1_500_000 } })
 
@@ -244,6 +245,7 @@ export async function handleChat(req, res, env = process.env) {
 
   let messages
   let lang = 'en'
+  let captcha = ''
   try {
     // On Vercel the body arrives already parsed (req.body); elsewhere we read the stream ourselves.
     const raw = req.body !== undefined ? (typeof req.body === 'string' ? req.body : JSON.stringify(req.body)) : await readBody(req)
@@ -251,10 +253,16 @@ export async function handleChat(req, res, env = process.env) {
     const parsed = JSON.parse(raw)
     messages = parsed.messages
     if (parsed.lang === 'ta' || parsed.lang === 'hi') lang = parsed.lang
+    captcha = typeof parsed.turnstile === 'string' ? parsed.turnstile : ''
   } catch (e) {
     return send(res, e.status || 400, { error: 'Invalid request.' })
   }
   if (!Array.isArray(messages) || messages.length === 0) return send(res, 400, { error: 'No question provided.' })
+
+  if (turnstileEnabled(env)) {
+    const human = await verifyTurnstile(captcha, who, env)
+    if (!human.ok) return send(res, 403, { error: 'Please complete the security check and try again.', captcha: true })
+  }
 
   // Keep the last few turns; cap each message so nobody can burn the quota with one giant prompt.
   const contents = messages

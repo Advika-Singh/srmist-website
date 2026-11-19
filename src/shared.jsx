@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ADMIT, AUX, CAMPUSES, MENUS, SRMJEEE_LINK, STRIP } from './data/nav.js'
 import { useLang } from './i18n.jsx'
+import { captchaSiteKey, getCaptchaToken } from './lib/captcha.js'
 import Preferences from './ui/Preferences.jsx'
 import { ChatCards, cardsFor } from './ui/chatCards.jsx'
 import { openSearch } from './ui/SmartSearch.jsx'
@@ -221,10 +222,11 @@ export const answerFor = (q) => REPLIES.find((r) => r.match.test(q)) || FALLBACK
 /* ---------- "DAAS" assistant (Gemini, via the /api/chat proxy) ---------- */
 /** Sends the conversation to our server, which holds the API key and talks to Gemini. */
 export async function askGuide(messages) {
+  const turnstile = captchaSiteKey() ? await getCaptchaToken() : undefined // one-time token from Cloudflare Turnstile, when keys are set
   const r = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ messages: messages.map(({ role, text }) => ({ role, text })), lang: document.documentElement.getAttribute('lang') || 'en' }),
+    body: JSON.stringify({ messages: messages.map(({ role, text }) => ({ role, text })), lang: document.documentElement.getAttribute('lang') || 'en', turnstile }),
   })
   const data = await r.json().catch(() => ({}))
   if (!r.ok) throw new Error(data.error || 'SRM Guide is unavailable right now.')
