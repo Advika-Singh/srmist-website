@@ -50,7 +50,7 @@ const BASE = [
   { type: 'page', title: 'Alumni chapters', hint: 'Meetups across India and the alumni portal', href: '/alumni/chapters', words: 'alumni chapters meetup portal network reunion' },
   { type: 'page', title: 'Hire from SRMIST', hint: 'Campus recruitment and the Career Centre', href: '/recruiters', words: 'recruiters recruit hire hiring employers companies campus placement industry' },
   { type: 'page', title: 'Alumni', href: '/alumni', hint: 'Lifelong community', words: 'alumni alumnus graduates network' },
-  { type: 'page', title: 'News & events', href: '/events', hint: 'TECHNOBLIZZ 2026 · Alumni Day', words: 'news events technoblizz fest convocation' },
+  { type: 'page', title: 'News & events', href: '/events', hint: 'Events, news and announcements', words: 'news events technoblizz fest convocation' },
   { type: 'page', title: 'Faculty & staff gateway', href: '/teach.html', hint: 'Resources for teaching staff', words: 'faculty staff teacher professor employee teach' },
   { type: 'page', title: 'SRMJEEE 2027', hint: 'Dates, eligibility check and how to register for the B.Tech entrance exam', href: '/srmjeee', words: 'srmjeee srmjee jee engineering entrance exam btech registration register apply dates deadline eligibility cbt phase' },
   { type: 'page', title: 'Staff finder', href: '/staff-finder', hint: 'Search every faculty and staff profile, with photos', words: 'staff finder directory contact person' },

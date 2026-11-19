@@ -57,7 +57,7 @@ const disciplines = [
 ]
 
 // Figures below come from srmist.edu.in (home page, accreditations page and the
-// NIRF 2025 announcement), checked on 2026-11-05.
+// NIRF 2025 tab; placements and research counters re-read on the official pages), checked on 2026-11-19.
 const globalStats = [
   ['200+', 'Students sponsored abroad every year'],
   ['35+', 'Foreign universities'],
@@ -81,10 +81,12 @@ const groupInstitutions = [
   ['SRM University Sikkim', 'https://srmus.ac.in/'],
 ]
 
+// [date shown, title, link, last day (ISO)]. Dates are from the official events page; an event drops off once its last day has passed (India time).
+const IST_TODAY = new Date(Date.now() + 5.5 * 3_600_000).toISOString().slice(0, 10)
 const upcomingEvents = [
-  ['12–13 Nov', 'TECHNOBLIZZ 2026', LINK.technoblizz],
-  ['19 Dec', 'Alumni Day 2026', LINK.alumniDay],
-]
+  ['12–13 Nov', 'TECHNOBLIZZ 2026', LINK.technoblizz, '2026-11-13'],
+  ['19 Dec', 'Alumni Day 2026', LINK.alumniDay, '2026-12-19'],
+].filter(([, , , end]) => end >= IST_TODAY)
 
 const destinations = [
   [LINK.programmes, IMG.classroom, 'Students working at computers in an SRMIST lab', 'Find your course', 'Programme Finder'],
@@ -548,13 +550,13 @@ export default function Home() {
             </p>
             <div className="mini-stats">
               <span>
-                <b>920+</b>Patents
+                <b>1,100+</b>Patents
               </span>
               <span>
-                <b>47K+</b>Publications
+                <b>58K+</b>Publications
               </span>
               <span>
-                <b>₹250 Cr+</b>Funding
+                <b>₹294 Cr+</b>Funding
               </span>
             </div>
             <a href={LINK.research} {...ex(LINK.research)} className="button">

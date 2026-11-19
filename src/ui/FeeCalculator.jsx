@@ -123,7 +123,7 @@ export default function FeeCalculator({ initialProgramme = 'engineering', compac
             <div className="fc-roi">
               <span>Return on investment</span>
               <p>
-                At the 2023–24 average package of <b>{inr(AVERAGE_CTC)}</b> a year, the whole degree equals{' '}
+                At the 2025 batch average package of <b>{inr(AVERAGE_CTC)}</b> a year, the whole degree equals{' '}
                 <b>{est.payback.toFixed(1)} years</b> of average starting salary.
               </p>
             </div>

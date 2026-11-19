@@ -39,7 +39,7 @@ const ROWS = [
   {
     word: 'Lead',
     title: 'Lead what comes next.',
-    text: '980+ companies visited in 2023–24 with a highest package of 52 LPA, and research that has produced 920+ patents and 47,000+ publications.',
+    text: '10,190+ offers for the 2025 batch with a highest package of 61 LPA, and research that has produced 1,100+ patents and 58,000+ publications.',
     href: LINK.placements,
     cta: 'See the outcomes',
     tiles: [

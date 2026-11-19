@@ -24,7 +24,7 @@ export const HOSTELS = [
 
 export const MESS_PER_YEAR = 60000
 export const ONE_TIME_FIRST_YEAR = 25000 // admission, caution deposit, uniform and ID
-export const AVERAGE_CTC = 719000 // 7.19 LPA, placements 2023–24 (srmist.edu.in)
+export const AVERAGE_CTC = 650000 // 6.5 LPA, placements 2025 batch as on 12 June 2026 (srmist.edu.in)
 
 export const SCHOLARSHIPS = [
   { id: 0, label: 'None' },

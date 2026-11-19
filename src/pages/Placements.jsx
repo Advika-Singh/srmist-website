@@ -37,7 +37,7 @@ export default function Placements() {
 
         <CountBand items={pages.placements.stats} tone="blue" label="Placement figures" />
         <p className="pl-note">
-          Headline figures as SRMIST has published them. The live statistics for each batch are on the{' '}
+          Headline figures for the 2025 batch, as on 12 June 2026, as SRMIST has published them. The live statistics for each batch are on the{' '}
           <a href={OFFICIAL.stats} {...ext}>
             official placement statistics page<span className="sr-only"> (opens in a new tab)</span>
           </a>

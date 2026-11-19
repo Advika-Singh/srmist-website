@@ -1,6 +1,6 @@
 // Placements content. Facts come from SRMIST's own Career Centre pages (https://www.srmist.edu.in/career-centre/ and
-// https://www.srmist.edu.in/placements/…), read 2026-11-06. The headline figures (recruiters, offers, CTC) are the ones already
-// published in this site's data files; SRMIST's page shows newer, live-updating counters (2025 batch), so the page links there.
+// https://www.srmist.edu.in/placements/…), re-read 2026-11-19. The headline figures (roles, offers, CTC) are the 2025 batch
+// as on 12 June 2026, which SRMIST updates by batch, so the page also links to the live statistics.
 
 export const OFFICIAL = {
   centre: 'https://www.srmist.edu.in/career-centre/',
