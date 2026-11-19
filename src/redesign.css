@@ -707,3 +707,8 @@ html:not([lang='en']) .fx-roll b{font-size:clamp(1.6rem,3.8vw,3rem)}
 html:not([lang='en']) :is(.snav a,.snav button,.svc-btn,.button,.es-btn,.fx-link){line-height:1.35}
 html:not([lang='en']) :is(.svc-btn,.es-btn,.button){white-space:normal;text-align:center}
 html:not([lang='en']) :is(p,li,dd,td,a,button,span){overflow-wrap:break-word}
+/* Tamil and Hindi labels are wider: tighten the top strip so its three groups never overlap */
+html:not([lang='en']) .snav-strip{gap:12px}
+html:not([lang='en']) .snav-strip-left,html:not([lang='en']) .snav-strip-right{flex:none}
+html:not([lang='en']) .snav-strip-links{min-width:0;gap:clamp(8px,1.1vw,18px)}
+@media (max-width:1600px){html:not([lang='en']) .snav-strip,html:not([lang='en']) .snav-strip-links a,html:not([lang='en']) .snav-campuses>button{font-size:11px}html:not([lang='en']) .snav-strip-links{gap:8px}}
