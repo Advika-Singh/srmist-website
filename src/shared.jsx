@@ -520,7 +520,7 @@ function NavLink({ href, children, ...rest }) {
  * large dropdowns. `overlay` sits on top of the home-page hero; `solid` is for inner pages.
  */
 export function MainNav({ variant = 'solid', hidden = false, light = false }) {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   const { t } = useLang()
   const strip = STRIP.map(([l, h]) => [t(l), h, l])
   const aux = AUX.map(([l, h]) => [t(l), h])
@@ -541,10 +541,19 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
     closeTimer.current = setTimeout(() => setOpen(null), 140)
   }
 
-  useEffect(() => {
+  // Close every menu. The link that was clicked keeps keyboard focus, and `:focus-within` would keep its dropdown showing
+  // (most visibly when the next page reuses this header, or the link points at the page you are already on), so let go of it.
+  const closeMenus = () => {
+    clearTimeout(closeTimer.current)
     setOpen(null)
     setMobile(false)
-  }, [pathname])
+    const a = document.activeElement
+    if (a?.closest?.('.snav-mega, .snav-drop, .snav-mobile')) a.blur()
+  }
+
+  useEffect(() => {
+    closeMenus()
+  }, [pathname, hash]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const onKey = (e) => {
@@ -575,7 +584,13 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
 
   return (
     <>
-      <header className={`snav snav--${variant} ${hidden ? 'is-hidden' : ''}`}>
+      <header
+        className={`snav snav--${variant} ${hidden ? 'is-hidden' : ''}`}
+        onClick={(e) => {
+          // choosing a page from any dropdown or the phone menu closes the menu, even when the page does not change
+          if (e.target.closest?.('.snav-mega a, .snav-drop a, .snav-mobile a')) closeMenus()
+        }}
+      >
         {/* 1 · utility strip */}
         <div className="snav-strip">
           <div className="snav-strip-left">
