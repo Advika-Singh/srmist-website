@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
 import { DEPARTMENTS, FACULTIES } from '../../data/departments.js'
+import { EVENTS } from '../../data/events.js'
+import { formatRange, photoFor, upcoming as upcomingEvents } from '../../lib/events.js'
 import { NIRF_RANKS, PLACEMENT_STATS, RANK_STATS } from '../../data/rankings.js'
 import { ABROAD, EXAMS, FEES } from '../../data/students.js'
-import { LINK } from '../../shared.jsx'
 import { useMotionOk } from '../../lib/useScrollProgress.js'
 import AlphaRail from './AlphaRail.jsx'
 import { CountBand, Marquee } from './Bands.jsx'
@@ -31,11 +32,6 @@ const IRIS_PHOTOS = [
   { src: '/srmist/campus-lakeview.webp', pos: '50% 55%' },
   { src: '/srmist/students.webp', pos: '50% 40%' },
   { src: '/srmist/sports.webp', pos: '50% 40%' },
-]
-
-const upcoming = () => [
-  ['12–13 Nov', 'TECHNOBLIZZ 2026', LINK.technoblizz],
-  ['19 Dec', 'Alumni Day 2026', LINK.alumniDay],
 ]
 
 const rankingStages = () => [
@@ -101,10 +97,11 @@ export default function Moments({ slug, page, kit }) {
           return <HorizontalRail key={key} heading="Go beyond SRM" items={items} />
         }
         if (m.source === 'events') {
+          // the next events from the official list (data/events.js), then two cards that point at what the list cannot hold
           const items = [
-            ...upcoming().map(([date, title, href]) => ({ meta: date, title, href, cta: 'Details' })),
-            ...blocks[1].items.map((t) => ({ meta: 'Student-led', title: t, placeholder: 'Dates and details to be added' })),
-            ...blocks[0].items.filter((t) => t !== 'Upcoming events').map((t) => ({ meta: 'On campus', title: t, placeholder: 'Schedule to be added' })),
+            ...upcomingEvents(EVENTS).slice(0, 8).map((e, i) => ({ meta: formatRange(e.start, e.end), title: e.title, href: e.href, cta: 'Event page', ...photoFor(e, i) })),
+            { meta: 'Student-led', title: 'Milan', text: 'The national-level cultural festival; the 2026 edition is the 18th. Dates are on the official page.', href: 'https://www.srmist.edu.in/events/milan-26/', cta: 'Milan page', img: '/srmist/admission-india.webp', pos: '50% 35%' },
+            { meta: 'Every date', title: 'The full calendar', text: 'All upcoming events by month, each with a calendar file.', href: '/events/calendar', cta: 'Open the calendar', img: '/srmist/campus-panorama.webp', pos: '50% 50%' },
           ]
           return <HorizontalRail key={key} heading="Coming up" items={items} />
         }

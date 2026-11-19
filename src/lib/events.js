@@ -62,3 +62,41 @@ export function toCalendarItem(e) {
     note: `${e.time ? `Time on the official page: ${e.time}. ` : ''}Listed on the official SRMIST events page. Check the event page for changes before you travel: ${e.href}`,
   }
 }
+
+// Representative campus photos for the events rail. The university publishes no photo for these events, so each one gets a
+// photo of the SRMIST campus that fits its subject (the page says so); nothing here claims to show the event itself.
+const P = {
+  tech: ['/srmist/tech-park.webp', '40% 50%'],
+  lab: ['/srmist/labs.webp', '50% 40%'],
+  research: ['/srmist/research.webp', '50% 40%'],
+  people: ['/srmist/admission-india.webp', '50% 35%'],
+  students: ['/srmist/students.webp', '50% 35%'],
+  main: ['/srmist/campus-main-building.webp', '50% 50%'],
+  pano: ['/srmist/campus-panorama.webp', '50% 50%'],
+  lake: ['/srmist/campus-lakeview.webp', '50% 60%'],
+  library: ['/srmist/library.webp', '50% 50%'],
+}
+// each subject has a few photos; `index` (the card's place in the row) rotates through them so neighbours differ
+const SETS = {
+  people: ['people', 'students'],
+  lab: ['lab', 'research', 'library'],
+  tech: ['tech', 'students', 'pano', 'main'],
+  main: ['main', 'pano', 'lake'],
+  other: ['lake', 'library', 'students', 'main'],
+}
+
+/** { img, pos } for an event, chosen from its title and rotated by its place in the row. */
+export function photoFor(e, index = 0) {
+  const t = e.title.toLowerCase()
+  const set = /alumni/.test(t)
+    ? SETS.people
+    : /drosophila|karyotyp|water|energy|environment|chemical|summer school|molecule/.test(t)
+      ? SETS.lab
+      : /robot|ros 2|hackathon|cyber|programming|network|data science|computational|electrical|technoblizz|ai-|artificial/.test(t)
+        ? SETS.tech
+        : /conference|sustainable|higher education|winter school/.test(t)
+          ? SETS.main
+          : SETS.other
+  const [img, pos] = P[set[index % set.length]]
+  return { img, pos }
+}

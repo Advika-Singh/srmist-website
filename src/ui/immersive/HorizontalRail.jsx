@@ -34,6 +34,7 @@ export default function HorizontalRail({ heading, items }) {
     root,
     (p) => {
       if (track.current) track.current.style.transform = `translate3d(${-p * travel.current}px,0,0)`
+      root.current?.style.setProperty('--rp', p.toFixed(3)) // photos drift against the row, a slow parallax (see .rl-photo)
     },
     motionOk,
   )
@@ -50,16 +51,23 @@ export default function HorizontalRail({ heading, items }) {
   }
 
   const cards = items.map((it, i) => (
-    <li key={it.title + i} className="rl-card">
-      {it.meta && <span className="rl-meta">{it.meta}</span>}
-      <h3>{it.title}</h3>
-      {it.text && <p>{it.text}</p>}
-      {it.placeholder && <p className="hs-missing">[{it.placeholder}]</p>}
-      {it.href && (
-        <a className="rl-link" href={it.href} {...(/^https?:/.test(it.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
-          {it.cta ?? 'Open'} <Arrow />
-        </a>
+    <li key={it.title + i} className={`rl-card ${it.img ? 'rl-card--photo' : ''}`} style={{ '--i': i }}>
+      {it.img && (
+        <div className="rl-photo" aria-hidden="true">
+          <img src={it.img} alt="" loading="eager" decoding="async" style={{ objectPosition: it.pos || '50% 50%' }} />
+        </div>
       )}
+      <div className="rl-body">
+        {it.meta && <span className="rl-meta">{it.meta}</span>}
+        <h3>{it.title}</h3>
+        {it.text && <p>{it.text}</p>}
+        {it.placeholder && <p className="hs-missing">[{it.placeholder}]</p>}
+        {it.href && (
+          <a className="rl-link" href={it.href} {...(/^https?:/.test(it.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+            {it.cta ?? 'Open'} <Arrow />
+          </a>
+        )}
+      </div>
     </li>
   ))
 

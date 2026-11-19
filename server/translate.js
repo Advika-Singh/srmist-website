@@ -6,7 +6,7 @@ import { sameOrigin } from './security.js'
 import { clean, makeLimiter, readJson, send } from './util.js'
 
 const API = 'https://generativelanguage.googleapis.com/v1beta/models'
-const MODELS = process.env.GEMINI_MODEL ? [process.env.GEMINI_MODEL] : ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-flash-latest']
+const MODELS = process.env.GEMINI_MODEL ? [process.env.GEMINI_MODEL] : ['gemini-3.5-flash-lite', 'gemini-flash-latest', 'gemini-3.5-flash']
 
 export const TARGETS = { ta: 'Tamil', hi: 'Hindi' }
 export const MAX_ITEMS = 60
@@ -41,7 +41,7 @@ async function callGemini(model, key, language, texts, withThinking) {
       contents: [{ role: 'user', parts: [{ text: JSON.stringify(texts) }] }],
       generationConfig,
     }),
-    signal: AbortSignal.timeout(28_000),
+    signal: AbortSignal.timeout(14_000), // a busy model must not eat the whole 30 s the host allows
   })
 }
 

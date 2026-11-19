@@ -67,3 +67,11 @@ test('a calendar entry ends the day after the last day and carries its own link 
   assert.ok(!ics.includes('applications.srmist.edu.in'))
   for (const line of toIcs([item]).split('\r\n')) assert.ok(new TextEncoder().encode(line).length <= 75)
 })
+
+test('every event gets a campus photo that exists, and neighbouring cards in the rail differ', async () => {
+  const { photoFor } = await import('../src/lib/events.js')
+  const { existsSync } = await import('node:fs')
+  const row = upcoming(EVENTS, new Date('2026-11-19T12:00:00+05:30')).slice(0, 8).map((e, i) => photoFor(e, i))
+  for (const p of row) assert.ok(existsSync(new URL(`../public${p.img}`, import.meta.url)), p.img)
+  for (let i = 1; i < row.length; i++) assert.notEqual(row[i].img, row[i - 1].img, `cards ${i - 1} and ${i} share a photo`)
+})
