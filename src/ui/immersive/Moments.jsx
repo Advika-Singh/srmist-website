@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { DEPARTMENTS, FACULTIES } from '../../data/departments.js'
 import { EVENTS } from '../../data/events.js'
-import { formatRange, photoFor, upcoming as upcomingEvents } from '../../lib/events.js'
+import { daysUntil, formatRange, istToday, monthLabel, photoFor, upcoming as upcomingEvents } from '../../lib/events.js'
 import { NIRF_RANKS, PLACEMENT_STATS, RANK_STATS } from '../../data/rankings.js'
 import { ABROAD, EXAMS, FEES } from '../../data/students.js'
 import { useMotionOk } from '../../lib/useScrollProgress.js'
@@ -9,6 +9,7 @@ import AlphaRail from './AlphaRail.jsx'
 import { CountBand, Marquee } from './Bands.jsx'
 import FacilityCollage from './FacilityCollage.jsx'
 import IrisStory from './IrisStory.jsx'
+import EventStage from './EventStage.jsx'
 import HorizontalRail from './HorizontalRail.jsx'
 import PhotoCorridor from './PhotoCorridor.jsx'
 import Stepper from './Stepper.jsx'
@@ -98,12 +99,27 @@ export default function Moments({ slug, page, kit }) {
         }
         if (m.source === 'events') {
           // the next events from the official list (data/events.js), then two cards that point at what the list cannot hold
+          const today = istToday()
           const items = [
-            ...upcomingEvents(EVENTS).slice(0, 8).map((e, i) => ({ meta: formatRange(e.start, e.end), title: e.title, href: e.href, cta: 'Event page', ...photoFor(e, i) })),
-            { meta: 'Student-led', title: 'Milan', text: 'The national-level cultural festival; the 2026 edition is the 18th. Dates are on the official page.', href: 'https://www.srmist.edu.in/events/milan-26/', cta: 'Milan page', img: '/srmist/admission-india.webp', pos: '50% 35%' },
-            { meta: 'Every date', title: 'The full calendar', text: 'All upcoming events by month, each with a calendar file.', href: '/events/calendar', cta: 'Open the calendar', img: '/srmist/campus-panorama.webp', pos: '50% 50%' },
+            ...upcomingEvents(EVENTS).slice(0, 8).map((e, i) => {
+              const d = daysUntil(e.start, today)
+              return {
+                id: e.id,
+                big: String(Number(e.start.slice(8))),
+                small: monthLabel(e.start.slice(0, 7)).slice(0, 3),
+                range: `${formatRange(e.start, e.end)}${e.time ? ` · ${e.time}` : ''}`,
+                when: d <= 0 ? 'Happening now' : d === 1 ? 'Tomorrow' : d <= 14 ? `In ${d} days` : null,
+                title: e.title,
+                href: e.href,
+                cta: 'Event page',
+                event: e,
+                ...photoFor(e, i),
+              }
+            }),
+            { id: 'milan', big: '18th', small: 'Milan', range: 'Student-led · national cultural festival', title: 'Milan', text: 'The 2026 edition is the 18th. Its dates are on the official page.', href: 'https://www.srmist.edu.in/events/milan-26/', cta: 'Milan page', img: '/srmist/admission-india.webp', pos: '50% 35%' },
+            { id: 'all', big: 'All', small: 'dates', range: 'Every upcoming event', title: 'The full calendar', text: 'Browse by month and add any event to your calendar.', href: '/events/calendar', cta: 'Open the calendar', img: '/srmist/campus-panorama.webp', pos: '50% 50%' },
           ]
-          return <HorizontalRail key={key} heading="Coming up" items={items} />
+          return <EventStage key={key} heading="Coming up" items={items} />
         }
         const items = blocks.flatMap((b) => b.items.map((t) => ({ meta: b.h3, title: t, text: b.p, ...(t === 'Alumni portal' ? { href: 'https://alumni.srmist.edu.in/', cta: 'Open the portal' } : {}) })))
         return <HorizontalRail key={key} heading="Stay part of SRM" items={items} />
