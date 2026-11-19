@@ -142,6 +142,7 @@ function Ident({ onDone }) {
     if (!m) return
     const srm = m.querySelector('.ident-srm')
     const ist = m.querySelector('.ident-ist')
+    const shift = m.querySelector('.ident-shift')
     const target = document.querySelector('.opening-brand h1')
     const vh = window.innerHeight
     const vw = window.innerWidth
@@ -165,9 +166,12 @@ function Ident({ onDone }) {
     const moves = [
       { el: srm, filter: 'srm', delay: 150, ms: 1150, ease: easeOutCubic, from: [0, -0.16 * vh], to: [0, 0], fade: true },
       { el: ist, filter: 'ist', delay: 1450, ms: 1050, ease: easeOutCubic, from: [0.55 * vw, 0], to: [0, 0], fade: true },
+      // SRM first stands on the exact centre of the page; as IST arrives it slides left by half of IST's width, so the whole word ends up centred
+      { el: shift, filter: 'shift', delay: 1450, ms: 1050, ease: easeOutCubic, from: [0, 0], to: [0, 0], fromFn: () => ist.offsetWidth / 2 },
       { el: m, filter: 'mark', delay: 3000, ms: 1300, ease: easeInOutCubic, from: [0, 0], to: [0, 0], scale: [1, 1], prepare: prepareLanding, last_: true },
     ]
     moves.forEach((mv) => {
+      if (mv.fromFn) mv.from = [mv.fromFn(), 0]
       mv.el.style.willChange = 'transform, filter, opacity'
       mv.el.style.transform = `translate(${mv.from[0]}px, ${mv.from[1]}px)`
       if (mv.fade) mv.el.style.opacity = '0'
@@ -182,6 +186,11 @@ function Ident({ onDone }) {
       for (const mv of moves) {
         const p = Math.min(1, Math.max(0, (t - mv.delay) / mv.ms))
         if (p < 1) live = true
+        if (mv.fromFn) {
+          // measured every frame: the web font may arrive after the first frame and change IST's width
+          mv.from = [mv.fromFn(), 0]
+          if (t < mv.delay) mv.el.style.transform = `translate(${mv.from[0]}px, 0px)`
+        }
         if (t < mv.delay) continue
         if (mv.prepare && !mv.ready) {
           mv.ready = true
@@ -215,7 +224,7 @@ function Ident({ onDone }) {
   return (
     <div className="srm-ident" aria-label="SRMIST">
       <svg width="0" height="0" aria-hidden="true" focusable="false" style={{ position: 'absolute' }}>
-        {['srm', 'ist', 'mark'].map((k) => (
+        {['srm', 'ist', 'shift', 'mark'].map((k) => (
           <filter key={k} id={`mb-${k}`} x="-30%" y="-60%" width="160%" height="220%" colorInterpolationFilters="sRGB">
             <feGaussianBlur ref={blurNode(k)} stdDeviation="0 0" />
           </filter>
@@ -223,10 +232,12 @@ function Ident({ onDone }) {
       </svg>
       <div className="ident-ambient" aria-hidden="true" />
       <div className="ident-mark" aria-hidden="true" ref={mark}>
-        <div className="ident-srm">
-          <span>S</span>
-          <span>R</span>
-          <span>M</span>
+        <div className="ident-shift">
+          <div className="ident-srm">
+            <span>S</span>
+            <span>R</span>
+            <span>M</span>
+          </div>
         </div>
         <b className="ident-ist">IST</b>
         <i className="ident-line" />
