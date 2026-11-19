@@ -1,0 +1,113 @@
+/* About SRMIST: cinematic hero, numbers band, the year-by-year timeline over era photos, vision and mission,
+   the founder, the campuses corridor, recognition. Dark bands use fixed night colours so they read the same in both themes. */
+.ab{--night:#070d18}
+.ab section{position:relative}
+.ab-head{max-width:1100px;margin:0 auto clamp(28px,4vw,56px)}
+.ab-head h2{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.03em;margin:10px 0 0;max-width:18ch}
+.ab-head p{margin:14px 0 0;color:var(--text-muted);max-width:56ch}
+.ab-note{max-width:1100px;margin:clamp(28px,4vw,48px) auto 0;font-size:13px;line-height:1.55;color:var(--text-muted)}
+.ab-note a{text-decoration:underline;text-underline-offset:3px}
+
+/* numbers */
+.ab-nums{background:var(--blue);color:#fff;padding:clamp(36px,5vw,64px) 6vw}
+.ab-nums dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(24px,3.4vw,52px);max-width:1280px;margin:0 auto}
+@media (min-width:1000px){.ab-nums dl{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.ab-nums dl>div{border-top:2px solid var(--gold);padding-top:14px}
+.ab-nums dt{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,3.8vw,3.4rem);line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.ab-nums dd{margin:10px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#ffffffd9}
+
+/* timeline, over a photo that changes with the era */
+.ab-tl{background:var(--night);color:#fff;padding:clamp(64px,10vw,140px) 6vw clamp(56px,8vw,100px);overflow:clip}
+.ab-tl-bg{position:sticky;top:0;height:100vh;margin:0 -6vw -100vh;z-index:0;overflow:hidden;pointer-events:none}
+.ab-tl-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);filter:saturate(.85);transition:opacity 1.2s var(--ease),transform 6s var(--ease)}
+.ab-tl-bg img.on{opacity:.55;transform:none}
+.ab-tl-bg i{position:absolute;inset:0;background:linear-gradient(180deg,#070d18 0%,#070d18b8 35%,#070d18cc 70%,#070d18 100%)}
+.ab-tl>:not(.ab-tl-bg){position:relative;z-index:1}
+.ab-tl .ab-head h2{color:#fff}
+.ab-tl .ab-head p,.ab-tl .ab-note{color:#ffffffbf}
+.ab-tl .eyebrow{color:var(--gold)}
+.ab-tl-grid{display:grid;grid-template-columns:1fr;gap:0;max-width:1280px;margin:0 auto}
+.ab-tl-year{position:sticky;top:76px;z-index:3;display:flex;align-items:baseline;gap:14px;padding:10px 0;background:var(--night)}
+.ab-tl-num{font-family:var(--display);font-weight:500;font-size:2.6rem;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #fff;transition:color .5s var(--ease)}
+.ab-tl-num.is-key{color:var(--gold);-webkit-text-stroke:0}
+.ab-tl-year small{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#ffffffbf}
+.ab-tl-list{position:relative;list-style:none;margin:0;padding:0 0 0 34px}
+.ab-tl-list::before,.ab-tl-list::after{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:#ffffff33}
+.ab-tl-list::after{background:var(--gold);transform-origin:top;transform:scaleY(var(--fill,0))}
+.ab-era{position:relative;padding:48px 0 8px}
+.ab-era span{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.ab-era span::before{content:"";width:36px;height:2px;background:var(--gold)}
+.ab-item{position:relative;padding:10px 0}
+.ab-item::before{content:"";position:absolute;left:-34px;top:30px;width:14px;height:14px;border-radius:50%;background:var(--night);border:2px solid #fff}
+.ab-item.is-key::before{background:var(--gold);border-color:var(--gold);width:18px;height:18px;left:-36px;top:28px}
+.ab-item>div{padding:16px 20px;border-radius:12px;background:#070d18a6;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid #ffffff1f}
+.ab-item b{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.1em;color:var(--gold)}
+.ab-item em{display:inline-block;margin-left:10px;padding:3px 10px;background:var(--gold);color:#171814;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ab-item p{margin:8px 0 0;max-width:54ch;font-size:1.05rem;line-height:1.55;color:#ffffffeb}
+.ab-item.is-key p{font-family:var(--display);color:#fff;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.25;letter-spacing:-.01em}
+@media (min-width:900px){
+  .ab-tl-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:6vw}
+  .ab-tl-year{top:20vh;flex-direction:column;align-items:flex-start;gap:12px;align-self:start;background:none;padding:0}
+  .ab-tl-num{font-size:clamp(6rem,15vw,13rem);-webkit-text-stroke-width:2px}
+  .ab-tl-year small{font-size:12px;max-width:26ch;line-height:1.5}
+}
+
+/* vision, mission, values */
+.ab-stand{color:#fff;padding:clamp(64px,10vw,140px) 6vw;background:linear-gradient(180deg,#070d18f2,#06366fe6),url('/srmist/students.webp') 50% 40%/cover,#06366f}
+.ab-stand-in{max-width:1180px;margin:0 auto}
+.ab-stand .eyebrow{color:var(--gold)}
+.ab-label{margin:clamp(36px,5vw,64px) 0 14px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.ab-stand blockquote{margin:0}
+.ab-stand blockquote p{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,3.6vw,3rem);line-height:1.22;letter-spacing:-.02em;max-width:36ch}
+.ab-mission{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(16px,2vw,28px)}
+.ab-mission li{padding:22px;border:1px solid #ffffff2e;border-radius:var(--radius,12px);background:#ffffff10;line-height:1.5}
+.ab-mission li span{display:block;font-family:var(--mono);font-size:12px;color:var(--gold);margin-bottom:12px}
+.ab-mission b{font-family:var(--display);font-weight:500;font-size:1.5rem;display:block;margin-bottom:8px}
+.ab-mission em{font-style:normal;color:#ffffffd9}
+.ab-values{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+.ab-values li{padding:12px 20px;border:1px solid var(--gold);border-radius:999px;font-weight:500}
+
+/* founder */
+.ab-founder{display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,72px);align-items:center;padding:clamp(64px,9vw,130px) 6vw;color:#fff;background:linear-gradient(135deg,#06366f,#084b9b)}
+.ab-founder-ph{position:relative;margin:0 14px 14px 0;aspect-ratio:3/2;max-width:640px;width:100%}
+.ab-founder-ph::after{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--gold);z-index:0;pointer-events:none}
+.ab-founder-ph img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%;box-shadow:0 30px 80px #0007}
+.ab-founder-ph.is-missing{display:flex;align-items:center;justify-content:center;background:#ffffff14}
+.ab-founder-ph.is-missing span{position:relative;z-index:1;font-family:var(--display);font-size:clamp(4rem,12vw,9rem);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px var(--gold)}
+.ab-founder-copy .eyebrow{color:var(--gold)}
+.ab-founder-copy h2{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,6vw,5rem);line-height:1;letter-spacing:-.03em;margin:12px 0 18px}
+.ab-founder-copy p{max-width:50ch;line-height:1.6;color:#ffffffe6;margin:0 0 14px}
+.ab-founder-copy .text-link{color:#fff}
+@media (min-width:900px){.ab-founder{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}}
+
+/* the plain list used instead of the corridor on small screens and under reduced motion */
+.ab-places{background:var(--paper);padding:clamp(64px,10vw,140px) 6vw}
+.ab-places-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(28px,3vw,48px);max-width:1100px;margin:0 auto}
+@media (min-width:900px){.ab-places-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ab-place{border-top:2px solid var(--gold);padding-top:16px}
+.ab-place>span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.ab-place ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}
+.ab-place li{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.1;letter-spacing:-.02em}
+
+/* faculties */
+.ab-fac{background:var(--paper);padding:clamp(56px,8vw,110px) 6vw 0;position:relative;z-index:2}
+.ab-chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;max-width:1100px;margin:0 auto;padding:0}
+.ab-chips li{padding:9px 18px;border:1px solid var(--line-strong);border-radius:999px;font-weight:500;background:var(--white)}
+
+/* recognition */
+.ab-rec{background:var(--paper);padding:clamp(56px,8vw,110px) 6vw}
+.ab-rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(16px,2vw,28px);max-width:1100px;margin:0 auto}
+.ab-rec-card{padding:clamp(22px,3vw,36px);background:var(--white);border:1px solid var(--line);border-radius:var(--radius,12px)}
+.ab-rec-card b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(3.4rem,7vw,6rem);line-height:1;letter-spacing:-.04em;color:var(--blue-ink)}
+.ab-rec-card>span{display:block;margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.ab-rec-card p{margin:14px 0 18px;color:var(--text-muted);line-height:1.55}
+
+/* next */
+.ab-next{background:var(--sand);padding:clamp(56px,8vw,100px) 6vw}
+.ab-next h2{max-width:1100px;margin:0 auto 24px;font-family:var(--display);font-weight:500;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.03em}
+.ab-next ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:1100px;margin:0 auto;padding:0}
+.ab-next ul a{position:relative;display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 44px 18px 18px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius,12px);transition:transform .35s var(--ease),border-color .3s}
+.ab-next ul a:hover{transform:translateY(-3px);border-color:var(--blue-ink)}
+.ab-next ul a b{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.15}
+.ab-next ul a span{color:var(--text-muted);font-size:.95rem}
+.ab-next ul a svg{position:absolute;right:16px;top:20px;width:18px;height:18px;color:var(--blue-ink)}

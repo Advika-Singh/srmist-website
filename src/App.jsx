@@ -44,6 +44,7 @@ const Compare = lazy(() => import('./pages/Compare.jsx'))
 const KeyDates = lazy(() => import('./pages/KeyDates.jsx'))
 const Section = lazy(() => import('./pages/Section.jsx'))
 const EventsCalendar = lazy(() => import('./pages/EventsCalendar.jsx'))
+const About = lazy(() => import('./pages/About.jsx'))
 
 /** Our own pages are navigated in-app; .html pages and external links are left to the browser. */
 // A backslash is refused too: some browsers read "/\host" as "//host", which is how the open-redirect advisory for react-router 6 works.
@@ -171,7 +172,8 @@ export default function App() {
             <Route key={p} path={p} element={<Section path={p} />} />
           ))}
           <Route path="/placements" element={<Placements />} />
-          {SLUGS.filter((slug) => !['admissions', 'library', 'placements'].includes(slug)).map((slug) => (
+          <Route path="/about" element={<About />} />
+          {SLUGS.filter((slug) => !['admissions', 'library', 'placements', 'about'].includes(slug)).map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<Interior slug={slug} />} />
           ))}
           {APPLY_STEPS.map((p) => (

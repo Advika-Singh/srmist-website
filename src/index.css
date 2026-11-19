@@ -982,3 +982,7 @@ body.ident-on .opening-brand h1{visibility:hidden}
 
 /* corridor exit: dark -> blue -> next section colour, with a gold rule drawing across at the join */
 .tn-stage{background:color-mix(in srgb,var(--tn-endc,var(--tn-edge,var(--blue))) calc(var(--tn-out,0) * 100%),color-mix(in srgb,var(--ink) calc(var(--tn-dark,0) * 100%),var(--tn-edge,var(--blue))))}
+
+/* corridor hand-over: the next section rises over the tail of the pinned scene, so there is never an empty screen between them */
+.tn{margin-bottom:-45svh}
+.tn+*{position:relative;z-index:2}

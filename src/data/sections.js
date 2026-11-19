@@ -523,7 +523,7 @@ export const SECTION_PAGES = {
         intro: `As listed on the official contact page on ${READ_ON}. Check it before you rely on a number.`,
         items: [
           { id: 'address', label: 'Address', value: 'SRM Nagar, Kattankulathur – 603 203, Chengalpattu District, Tamil Nadu' },
-          { id: 'main', label: 'Main numbers', value: '+91-44-27417000', alt: '+91-44-27417777', tel: true },
+          { id: 'main', label: 'University enquiries', value: '+91-44-27417000', alt: '+91-44-27417777', tel: true },
           { id: 'eat', label: 'Admissions information centre: Engineering, Agriculture and Architecture', value: '+91 70 2645 2645', tel: true },
           { id: 'other', label: 'Admissions information centre: Liberal Arts and Business Studies, Law, Management, Medical and Allied Health Sciences, Hotel Management', value: '+91 70 2647 2647', tel: true },
         ],
