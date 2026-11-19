@@ -5,7 +5,11 @@
 import { sameOrigin } from './security.js'
 import { clean, makeLimiter, readJson, send } from './util.js'
 
+import { LIMIT_MESSAGE, createBudget } from './budget.js'
+
 const API = 'https://generativelanguage.googleapis.com/v1beta/models'
+// one request carries up to 60 strings, so the daily numbers are lower than the assistant's per-question ones
+const budget = createBudget({ env: process.env, name: 'translate', defaults: { perIp: 300, global: 15000, tokens: 1e12 } })
 const MODELS = process.env.GEMINI_MODEL ? [process.env.GEMINI_MODEL] : ['gemini-3.5-flash-lite', 'gemini-flash-latest', 'gemini-3.5-flash']
 
 export const TARGETS = { ta: 'Tamil', hi: 'Hindi' }
@@ -95,6 +99,8 @@ export async function handleTranslate(req, res, env = process.env) {
   if (!key) return send(res, 503, { error: 'Translation is not configured.' })
   const ip = (env.TRUST_PROXY === '1' && String(req.headers['x-forwarded-for'] || '').split(',')[0].trim()) || req.socket?.remoteAddress || 'local'
   if (limited(ip)) return send(res, 429, { error: 'Too many requests.' })
+  const gate = await budget.check(ip)
+  if (!gate.ok) return send(res, gate.status, { error: LIMIT_MESSAGE[gate.reason] })
 
   let body
   try {
@@ -117,6 +123,7 @@ export async function handleTranslate(req, res, env = process.env) {
   })
   if (missing.length) {
     const unique = [...new Set(missing.map((i) => texts[i]))]
+    await budget.record(ip) // only requests that need Gemini count; answers from the server's cache are free
     const got = await translateBatch(key, lang, unique)
     if (!got) return send(res, 502, { error: 'Translation is unavailable right now.' })
     const map = new Map(unique.map((t, i) => [t, got[i]]))

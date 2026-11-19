@@ -19,7 +19,7 @@ A React single-page site built into plain files (HTML, JS, CSS, images) plus six
 **Recommended and low-risk: Decap CMS (free, Git-based).** It adds an `/admin` page where staff log in (GitHub or university single sign-on), edit forms, and press Publish; the change is saved as a commit and the site rebuilds in about a minute. Nothing in the site's design changes. Effort: 1 to 2 days, because the content is already structured (one form per file: events, news, colleges, menus, stats). Alternatives if the university wants a hosted editor: Sanity or Strapi (more setup, more cost). Rules to keep in the forms: every figure has a "source link" and "date checked" field, as the site already does.
 
 ## 4. Backend and settings (all server-side, none in the browser)
-`GEMINI_API_KEY` (assistant and translation), `ENQUIRY_WEBHOOK_URL` (where enquiries go; until set the form says it was not delivered), optional `GEMINI_MODEL`, `TRUST_PROXY=1` behind Vercel, `CHAT_DAILY_PER_IP`, `CHAT_DAILY_GLOBAL`, `CHAT_DAILY_TOKENS`. The support tracker and its reference numbers are a prototype with no link to SRMIST systems. No personal data is stored by the site; enquiry data goes only to the webhook.
+`GEMINI_API_KEY` (assistant and translation), `ENQUIRY_WEBHOOK_URL` (where enquiries go; until set the form says it was not delivered), optional `GEMINI_MODEL`, `TRUST_PROXY=1` behind Vercel, `CHAT_DAILY_PER_IP`, `CHAT_DAILY_GLOBAL`, `CHAT_DAILY_TOKENS`, `TRANSLATE_DAILY_PER_IP`, `TRANSLATE_DAILY_GLOBAL`, and for shared counters `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`. The support tracker and its reference numbers are a prototype with no link to SRMIST systems. No personal data is stored by the site; enquiry data goes only to the webhook.
 
 ## 5. Assistant (DAAS) abuse and cost controls
 | Layer | Where | Limit |
@@ -32,11 +32,13 @@ A React single-page site built into plain files (HTML, JS, CSS, images) plus six
 | **Daily tokens** | `server/budget.js` | **1,500,000 tokens**, counted from Gemini's own usage report (`CHAT_DAILY_TOKENS`) |
 | Cost per answer | `chat.js` | answers capped at 600 tokens, 25-second ceiling, fast models first |
 | What it may say | `chat.js` | only the fact list and page list in the prompt; links outside the page list are dropped; unknown details get "ask admissions" |
+| Translator | `translate.js` | 300 requests a day per visitor and 15,000 for the site (only requests that need Gemini count) |
+| Shared counters | `server/budget.js` | with the two Upstash settings every server instance counts together and restarts lose nothing; without them counters are per process |
 | When a limit is hit | `budget.js` | a polite message with the admissions phone number; Gemini is not called |
 | Key safety | server only | never sent to the browser; CSP, HSTS and frame blocking on every page |
 Failed attempts count as questions, so a broken or blocked upstream cannot be hammered for free. Tests: `tests/budget.test.js`, `tests/chat.test.js`.
 
-**Known limits (say these plainly):** counters live in server memory, so on serverless hosting each instance counts separately and a restart resets them; visitors are told apart by IP, so many students behind one college network share a limit; there is no CAPTCHA and no email check yet; the translation endpoint has only the per-minute limit. **Next steps, in order:** (1) move counters to Vercel KV or Upstash Redis (about half a day); (2) Cloudflare Turnstile on the chat box and forms (free, an hour); (3) email one-time code after 3 messages (plan in `docs/superpowers/plans/`); (4) rotate the Gemini key and set a spend alert in Google AI Studio; (5) copy the daily budget to `/api/translate`.
+**Known limits (say these plainly):** the shared counters are built and tested against a fake Upstash, but are switched on only once an Upstash database exists and its two settings are added (until then counters are per server instance); visitors are told apart by IP, so many students behind one college network share a limit; there is no CAPTCHA and no email check yet. **Still needs an account or key from the owner, in order:** (1) create a free Upstash Redis database and add its two settings in Vercel (10 minutes); (2) Cloudflare Turnstile keys for the chat box and forms (free); (3) a mail provider key for the email one-time code (plan in `docs/superpowers/plans/`); (4) rotate the Gemini key and set a spend alert in Google AI Studio; (5) a GitHub login set-up for the CMS (section 3).
 
 ## 6. Short answers for questions
 - **"After how many tokens does it stop?"** Per answer: 600 output tokens. Per day for the whole site: 1.5 million tokens, then it pauses until midnight India time. Per visitor: 60 questions a day, 20 a minute.

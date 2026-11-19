@@ -9,7 +9,7 @@ import { formatRange, upcoming } from '../src/lib/events.js'
 import { LIMIT_MESSAGE, createBudget } from './budget.js'
 import { sameOrigin } from './security.js'
 
-const budget = createBudget(process.env)
+const budget = createBudget({ env: process.env, name: 'chat', defaults: { perIp: 60, global: 3000, tokens: 1_500_000 } })
 
 const API = 'https://generativelanguage.googleapis.com/v1beta/models'
 const MODELS = process.env.GEMINI_MODEL
@@ -239,7 +239,7 @@ export async function handleChat(req, res, env = process.env) {
   if (limited(forwarded || req.socket?.remoteAddress || 'local')) return send(res, 429, { error: 'Too many questions — please wait a moment.' })
 
   const who = forwarded || req.socket?.remoteAddress || 'local'
-  const gate = budget.check(who)
+  const gate = await budget.check(who)
   if (!gate.ok) return send(res, gate.status, { error: LIMIT_MESSAGE[gate.reason] })
 
   let messages
@@ -265,10 +265,10 @@ export async function handleChat(req, res, env = process.env) {
 
   try {
     const { tokens, ...reply } = await answerWithFallback(contents, key, lang)
-    budget.record(who, tokens)
+    await budget.record(who, tokens)
     return send(res, 200, reply)
   } catch (e) {
-    budget.record(who, 0) // a failed attempt still counts as a question, so a broken upstream cannot be hammered for free
+    await budget.record(who, 0) // a failed attempt still counts as a question, so a broken upstream cannot be hammered for free
     return send(res, 502, { error: e?.status === 429 ? 'SRM Guide is getting a lot of questions — try again in a moment.' : 'SRM Guide is unavailable right now. Please try again.' })
   }
 }
