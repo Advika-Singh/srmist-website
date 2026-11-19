@@ -222,7 +222,8 @@ export const answerFor = (q) => REPLIES.find((r) => r.match.test(q)) || FALLBACK
 /* ---------- "DAAS" assistant (Gemini, via the /api/chat proxy) ---------- */
 /** Sends the conversation to our server, which holds the API key and talks to Gemini. */
 export async function askGuide(messages) {
-  const turnstile = captchaSiteKey() ? await getCaptchaToken() : undefined // one-time token from Cloudflare Turnstile, when keys are set
+  // one-time token from Cloudflare Turnstile, when keys are set; if the widget is slow or blocked, ask anyway after 8 s (the server decides)
+  const turnstile = captchaSiteKey() ? await Promise.race([getCaptchaToken().catch(() => undefined), new Promise((r) => setTimeout(() => r(undefined), 8000))]) : undefined
   const r = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },

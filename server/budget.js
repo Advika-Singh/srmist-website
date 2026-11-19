@@ -110,6 +110,14 @@ export function createBudget({ env = {}, name = 'chat', defaults = {}, store = s
         /* a counter outage must not break the answer that was already produced */
       }
     },
+    /** Questions this visitor has asked today (0 if the store cannot be read). */
+    async count(ip) {
+      try {
+        return (await store.get([keys(ip).ip]))[0]
+      } catch {
+        return 0
+      }
+    },
     async usage() {
       const k = keys('-')
       const [, total, tokens] = await store.get([k.ip, k.total, k.tokens])

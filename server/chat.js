@@ -260,8 +260,13 @@ export async function handleChat(req, res, env = process.env) {
   if (!Array.isArray(messages) || messages.length === 0) return send(res, 400, { error: 'No question provided.' })
 
   if (turnstileEnabled(env)) {
-    const human = await verifyTurnstile(captcha, who, env)
-    if (!human.ok) return send(res, 403, { error: 'Please complete the security check and try again.', captcha: true })
+    const soft = env.TURNSTILE_MODE !== 'strict'
+    const missing = !captcha
+    // soft mode: no token yet (widget slow, blocked or unsupported) still gets a few questions a day, then the check is required
+    if (!(soft && missing && (await budget.count(who)) < (Number(env.TURNSTILE_FREE_QUESTIONS) || 5))) {
+      const human = await verifyTurnstile(captcha, who, env)
+      if (!human.ok) return send(res, 403, { error: 'Please complete the security check and try again.', captcha: true })
+    }
   }
 
   // Keep the last few turns; cap each message so nobody can burn the quota with one giant prompt.

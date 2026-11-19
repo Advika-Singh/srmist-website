@@ -35,3 +35,13 @@ test('if Cloudflare cannot be reached the check fails closed', async () => {
   }
   assert.deepEqual(await verifyTurnstile('a-long-enough-token', 'x', env, down), { ok: false, reason: 'unavailable' })
 })
+
+test('soft mode: a missing token gets a few free questions, a wrong token never does', async () => {
+  const { createBudget, memoryStore } = await import('../server/budget.js')
+  const b = createBudget({ env: {}, store: memoryStore() })
+  assert.equal(await b.count('a'), 0)
+  await b.record('a')
+  await b.record('a')
+  assert.equal(await b.count('a'), 2)
+  assert.deepEqual(await verifyTurnstile('a-long-enough-token', 'x', env, reply(false)), { ok: false, reason: 'rejected' })
+})
