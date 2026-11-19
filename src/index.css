@@ -975,3 +975,10 @@ body.ident-on .opening-brand h1{visibility:hidden}
 .rank-cell::after{background:var(--gold)}
 @media (max-width:900px){.rankings{padding:48px 20px}}
 
+
+/* gold line under the splash word: draws out from the centre once SRMIST is in, fades as the word lands on the hero */
+.ident-line{position:absolute;left:0;right:0;bottom:-.1em;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:50% 50%;animation:ident-line .9s cubic-bezier(.65,0,.25,1) 1.9s forwards,ident-gone .3s ease-in 2.9s forwards}
+@keyframes ident-line{to{transform:scaleX(1)}}
+
+/* corridor exit: dark -> blue -> next section colour, with a gold rule drawing across at the join */
+.tn-stage{background:color-mix(in srgb,var(--tn-endc,var(--tn-edge,var(--blue))) calc(var(--tn-out,0) * 100%),color-mix(in srgb,var(--ink) calc(var(--tn-dark,0) * 100%),var(--tn-edge,var(--blue))))}

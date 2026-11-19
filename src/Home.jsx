@@ -229,6 +229,7 @@ function Ident({ onDone }) {
           <span>M</span>
         </div>
         <b className="ident-ist">IST</b>
+        <i className="ident-line" />
       </div>
       <p>Learn · Leap · Lead</p>
       <button onClick={onDone}>Skip intro</button>
@@ -524,12 +525,12 @@ export default function Home() {
           <div className="words-band" data-sx aria-hidden="true">
             <div className="wb-row wb-a">
               {[...marqueeWords, ...marqueeWords, ...marqueeWords].map((w, i) => (
-                <span key={i}>{w}</span>
+                <span key={i} className={w === 'Question' || w === 'Discover' ? 'is-gold' : undefined}>{w}</span>
               ))}
             </div>
             <div className="wb-row wb-b">
               {[...marqueeWords, ...marqueeWords, ...marqueeWords].reverse().map((w, i) => (
-                <span key={i}>{w}</span>
+                <span key={i} className={w === 'Question' || w === 'Discover' ? 'is-gold' : undefined}>{w}</span>
               ))}
             </div>
           </div>

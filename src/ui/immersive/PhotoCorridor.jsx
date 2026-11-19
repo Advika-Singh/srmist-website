@@ -72,9 +72,11 @@ export default function PhotoCorridor({ stages, photos, startBg = 'var(--blue)',
     })
     const s = stage.current
     if (s) {
-      s.style.setProperty('--tn-dark', (smooth(0, 0.1, current) * (1 - smooth(0.88, 1, current))).toFixed(3))
-      s.style.setProperty('--tn-edge', current < 0.5 ? startBg : endBg)
-      s.style.setProperty('--tn-fade', (1 - smooth(0.9, 1, current)).toFixed(3))
+      // the way out is dark -> the site's blue -> the next section's colour, with a gold rule drawing across at the join
+      s.style.setProperty('--tn-dark', (smooth(0, 0.1, current) * (1 - smooth(0.76, 0.9, current))).toFixed(3))
+      s.style.setProperty('--tn-edge', current < 0.5 ? startBg : 'var(--blue)')
+      s.style.setProperty('--tn-out', smooth(0.88, 1, current).toFixed(3))
+      s.style.setProperty('--tn-fade', (1 - smooth(0.78, 0.9, current)).toFixed(3))
     }
     const a = Math.min(stages.length - 1, Math.floor(current * stages.length * 0.999))
     if (a !== lastActive.current) {
@@ -85,7 +87,7 @@ export default function PhotoCorridor({ stages, photos, startBg = 'var(--blue)',
 
   return (
     <section ref={root} className="tn" aria-labelledby={`${uid}-h`} style={{ ...style, '--tn-start': startBg, '--tn-end': endBg }}>
-      <div ref={stage} className="tn-stage" style={{ '--tn-dark': 0, '--tn-fade': 1 }}>
+      <div ref={stage} className="tn-stage" style={{ '--tn-dark': 0, '--tn-fade': 1, '--tn-out': 0, '--tn-endc': endBg }}>
         <div className="tn-world" style={{ perspective: `${PERSPECTIVE}px` }} aria-hidden="true">
           {layout.map((p, i) => (
             <figure key={i} ref={(n) => (panels.current[i] = n)} className="tn-panel" style={{ width: p.w, height: p.h }}>
