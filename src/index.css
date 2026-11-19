@@ -719,7 +719,7 @@ to{opacity:.38}
 
 /* people who ask for less motion get none, and everyone can pause it */
 @media (prefers-reduced-motion:reduce){.idea-marquee>div,.doodle,.srm-ident,.apply-orbit{animation:none!important}.srm-ident{display:none}}
-body.motion-paused *,body.motion-paused *::before,body.motion-paused *::after{animation-play-state:paused!important;transition-duration:.01ms!important}
+body.motion-paused *,body.motion-paused *::before,body.motion-paused *::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 body.motion-paused .idea-marquee>div{animation:none!important}
 
 /* ---- smooth page transitions (View Transitions API) ---- */

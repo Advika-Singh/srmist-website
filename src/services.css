@@ -214,6 +214,7 @@
 .st-card-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:6px}
 .st-card-links .svc-btn svg,.st-card .svc-btn svg{width:12px;height:12px}
 .st-cards--own .st-card{border-style:dashed}
+@media (min-width:1000px){.st-cards>.st-card:last-child:nth-child(3n+1){grid-column:1/-1;flex-direction:row;align-items:center;gap:24px}.st-cards>.st-card:last-child:nth-child(3n+1)>:last-child{margin-left:auto}}
 .st-links{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:8px;margin:0;padding:0}
 .st-links a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:var(--tap);padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff);font-size:14px;font-weight:600;text-decoration:none;transition:border-color .25s,background .25s,transform .3s var(--ease)}
 .st-links a:hover{border-color:var(--blue);color:var(--blue-ink,var(--blue));transform:translateX(3px)}
@@ -235,6 +236,7 @@
 
 /* parents, alumni and recruiters pages */
 .cm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:20px}
+@media (min-width:900px){.cm-grid:has(>li:nth-child(5):last-child),.cm-grid:has(>li:nth-child(6):last-child),.cm-grid:has(>li:nth-child(9):last-child){grid-template-columns:repeat(3,1fr)}}
 .cm-card{position:relative;display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 44px 18px 18px;background:var(--white);border:1px solid var(--line)}
 .cm-card b{font-family:var(--display);font-weight:500;font-size:1.2rem;line-height:1.15}
 .cm-card span{color:var(--text-muted);font-size:.95rem}

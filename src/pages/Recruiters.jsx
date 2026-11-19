@@ -40,8 +40,8 @@ export default function Recruiters() {
           <div className="vis-block" id="numbers">
             <h2>The numbers</h2>
             <dl className="cm-stats">
-              {NUMBERS.map(([k, v]) => (
-                <div key={v}>
+              {NUMBERS.map(([v, k]) => (
+                <div key={k}>
                   <dt>
                     <CountUp value={v} />
                   </dt>
