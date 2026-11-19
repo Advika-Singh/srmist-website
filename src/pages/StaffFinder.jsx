@@ -194,7 +194,7 @@ export default function StaffFinder() {
           eyebrow="Staff finder"
           title="Find anyone at SRMIST."
           lede={data ? `${data.people.length.toLocaleString('en-IN')} faculty and staff profiles from the official SRMIST staff finder. Search by name or research area, or narrow by campus, college, department, type and role.` : 'Faculty and staff profiles from the official SRMIST staff finder.'}
-          img="/srmist/campus-main-building.jpg"
+          img="/srmist/campus-main-building.webp"
           pos="50% 60%"
         />
         <section className="svc-wrap sf-wrap" ref={top}>

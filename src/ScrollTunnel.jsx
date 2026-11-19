@@ -34,15 +34,15 @@ const STAGES = [
 ]
 
 const PHOTOS = [
-  '/srmist/campus-main-building.jpg',
-  '/srmist/students.jpg',
-  '/srmist/tech-park.jpg',
-  '/srmist/labs.jpg',
+  '/srmist/campus-main-building.webp',
+  '/srmist/students.webp',
+  '/srmist/tech-park.webp',
+  '/srmist/labs.webp',
   '/srmist/hero.webp',
-  '/srmist/sports.jpg',
-  '/srmist/library.jpg',
-  '/srmist/admission-india.jpg',
-  '/srmist/research.jpg',
+  '/srmist/sports.webp',
+  '/srmist/library.webp',
+  '/srmist/admission-india.webp',
+  '/srmist/research.webp',
 ]
 
 export default function ScrollTunnel({ style, startBg = 'var(--blue)', endBg = 'var(--blue)' }) {

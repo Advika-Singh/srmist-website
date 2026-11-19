@@ -4,7 +4,7 @@
       "eyebrow": "About SRMIST",
       "h1": "Four decades of learning without limits.",
       "p": "What began in 1985 has grown into a multidisciplinary university connected to communities, industries and ideas around the world.",
-      "img": "/srmist/campus-main-building.jpg",
+      "img": "/srmist/campus-main-building.webp",
       "alt": "The SRMIST main academic building",
       "caption": "SRMIST · Chennai"
     },
@@ -18,12 +18,12 @@
         "NAAC grade"
       ],
       [
-        "200+",
-        "Global partners"
+        "50,000+",
+        "Students"
       ],
       [
-        "80+",
-        "Countries represented"
+        "250+",
+        "Acres, green campus"
       ]
     ],
     "intro": {
@@ -82,26 +82,26 @@
       "eyebrow": "Academics at SRMIST",
       "h1": "Study what matters. Build what comes next.",
       "p": "Flexible, future-facing programmes connect deep disciplinary learning with the freedom to explore across fields.",
-      "img": "/srmist/students.jpg",
+      "img": "/srmist/students.webp",
       "alt": "Students working at computers in an SRMIST lab",
       "caption": "SRMIST · Chennai"
     },
     "stats": [
       [
-        "8",
-        "Academic faculties"
+        "9",
+        "Colleges"
+      ],
+      [
+        "111+",
+        "Departments"
       ],
       [
         "300+",
-        "Programmes"
+        "Programs"
       ],
       [
-        "6",
-        "Campuses"
-      ],
-      [
-        "1",
-        "Connected community"
+        "3,200+",
+        "Academicians"
       ]
     ],
     "intro": {
@@ -160,7 +160,7 @@
       "eyebrow": "Admissions 2026",
       "h1": "There is more than one way to begin.",
       "p": "Find the route that fits your goals. We will guide you from programme discovery through application and arrival.",
-      "img": "/srmist/admission-india.jpg",
+      "img": "/srmist/admission-india.webp",
       "alt": "SRMIST students outside the main building",
       "caption": "SRMIST · Chennai"
     },
@@ -170,12 +170,12 @@
         "Typical application"
       ],
       [
-        "100+",
-        "Scholarship categories"
+        "₹30 Cr+",
+        "Scholarships every year"
       ],
       [
-        "80+",
-        "Countries represented"
+        "6,000+",
+        "Annual intake"
       ],
       [
         "6",
@@ -238,7 +238,7 @@
       "eyebrow": "Research & innovation",
       "h1": "Big questions belong to everyone.",
       "p": "Researchers from technology, health, science and society work across boundaries to turn new knowledge into public value.",
-      "img": "/srmist/labs.jpg",
+      "img": "/srmist/labs.webp",
       "alt": "Researchers with laboratory equipment at SRMIST",
       "caption": "SRMIST · Chennai"
     },
@@ -256,8 +256,8 @@
         "External funding"
       ],
       [
-        "60+",
-        "Centres & labs"
+        "33K+",
+        "Scopus-indexed papers"
       ]
     ],
     "intro": {
@@ -300,7 +300,7 @@
       }
     ],
     "split": {
-      "img": "/srmist/tech-park.jpg",
+      "img": "/srmist/tech-park.webp",
       "alt": "The SRM Tech Park building",
       "eyebrow": "Connected by purpose",
       "h2": "Learning extends beyond every classroom.",
@@ -316,7 +316,7 @@
       "eyebrow": "Life at SRMIST",
       "h1": "A campus with room for every version of you.",
       "p": "Live, play, create and find your people in a community where the day rarely ends with the timetable.",
-      "img": "/srmist/sports.jpg",
+      "img": "/srmist/sports.webp",
       "alt": "An SRMIST sports team on the ground",
       "caption": "SRMIST · Chennai"
     },
@@ -326,16 +326,16 @@
         "Students"
       ],
       [
-        "40+",
-        "Clubs & teams"
+        "15",
+        "Student clubs"
       ],
       [
-        "15+",
-        "Sports facilities"
+        "250+",
+        "Acres, green campus"
       ],
       [
-        "24/7",
-        "Campus support"
+        "90.4",
+        "MHz community radio"
       ]
     ],
     "intro": {
@@ -394,18 +394,18 @@
       "eyebrow": "Programme finder",
       "h1": "Find the course that fits your curiosity.",
       "p": "Explore undergraduate, postgraduate and doctoral study across technology, health, business, law, science and the humanities.",
-      "img": "/srmist/students.jpg",
+      "img": "/srmist/students.webp",
       "alt": "Students working at computers in an SRMIST lab",
       "caption": "SRMIST · Chennai"
     },
     "stats": [
       [
         "300+",
-        "Programmes"
+        "Programs"
       ],
       [
-        "8",
-        "Academic faculties"
+        "9",
+        "Colleges"
       ],
       [
         "3",
@@ -472,26 +472,26 @@
       "eyebrow": "International at SRMIST",
       "h1": "Bring your world. Discover another.",
       "p": "Study in Chennai as part of a community shaped by students and university partners from around the globe.",
-      "img": "/srmist/admission-india.jpg",
+      "img": "/srmist/admission-india.webp",
       "alt": "International and Indian students together on the SRMIST campus",
       "caption": "SRMIST · Chennai"
     },
     "stats": [
       [
-        "80+",
-        "Countries represented"
+        "950+",
+        "International admissions"
       ],
       [
-        "200+",
-        "Global partners"
+        "95+",
+        "Nationalities on campus"
       ],
       [
-        "35+",
-        "Study abroad destinations"
+        "150+",
+        "MoUs with institutions worldwide"
       ],
       [
-        "1",
-        "Global community"
+        "60:40",
+        "Indian to global faculty (planned)"
       ]
     ],
     "intro": {
@@ -550,7 +550,7 @@
       "eyebrow": "Careers & placements",
       "h1": "Turn what you know into where you go.",
       "p": "Career preparation starts early, combining skills, experience, mentoring and access to an extensive recruiter network.",
-      "img": "/srmist/admission-india.jpg",
+      "img": "/srmist/admission-india.webp",
       "alt": "SRMIST students on campus",
       "caption": "SRMIST · Chennai"
     },
@@ -628,7 +628,7 @@
       "eyebrow": "Rankings & accreditation",
       "h1": "Measured by standards. Defined by impact.",
       "p": "Independent rankings and accreditation recognise the scale, quality and consistency of SRMIST education and research.",
-      "img": "/srmist/campus-main-building.jpg",
+      "img": "/srmist/campus-main-building.webp",
       "alt": "The SRMIST main academic building",
       "caption": "SRMIST · Chennai"
     },
@@ -706,26 +706,26 @@
       "eyebrow": "Scholarships & aid",
       "h1": "Talent should decide how far you go.",
       "p": "Merit, achievement and need-based support help ambitious students access the opportunities available at SRMIST.",
-      "img": "/srmist/admission-india.jpg",
+      "img": "/srmist/admission-india.webp",
       "alt": "SRMIST students on campus",
       "caption": "SRMIST · Chennai"
     },
     "stats": [
       [
-        "100+",
-        "Award categories"
+        "₹30 Cr+",
+        "Scholarships every year"
       ],
       [
-        "₹48 Cr+",
-        "Annual support"
+        "6,000+",
+        "Annual intake"
       ],
       [
-        "4",
+        "3",
         "Support pathways"
       ],
       [
-        "Every year",
-        "New awards"
+        "A++",
+        "NAAC grade"
       ]
     ],
     "intro": {
@@ -784,26 +784,26 @@
       "eyebrow": "News & events",
       "h1": "The university is always in motion.",
       "p": "Lectures, festivals, competitions, discoveries and community milestones bring the SRMIST calendar to life.",
-      "img": "/srmist/sports.jpg",
+      "img": "/srmist/sports.webp",
       "alt": "SRMIST students at a sports event",
       "caption": "SRMIST · Chennai"
     },
     "stats": [
       [
-        "365",
-        "Days of activity"
+        "18th",
+        "Edition of Milan"
       ],
       [
-        "40+",
-        "Student communities"
+        "15",
+        "Student clubs"
       ],
       [
-        "6",
-        "Campus calendars"
+        "90.4",
+        "MHz community radio"
       ],
       [
-        "1",
-        "Shared culture"
+        "50K+",
+        "Students"
       ]
     ],
     "intro": {
@@ -862,15 +862,11 @@
       "eyebrow": "University library",
       "h1": "A place to read deeply and think widely.",
       "p": "Discover print collections, digital resources, research support and calm spaces designed for focused study.",
-      "img": "/srmist/library.jpg",
+      "img": "/srmist/library.webp",
       "alt": "Entrance gates of the SRMIST library",
       "caption": "SRMIST · Chennai"
     },
     "stats": [
-      [
-        "24/7",
-        "Digital access"
-      ],
       [
         "Print",
         "Core collections"
@@ -880,8 +876,12 @@
         "Journals & databases"
       ],
       [
-        "6",
-        "Campus networks"
+        "33K+",
+        "Scopus-indexed papers"
+      ],
+      [
+        "50K+",
+        "Students"
       ]
     ],
     "intro": {
@@ -940,26 +940,26 @@
       "eyebrow": "Departments A–Z",
       "h1": "Every discipline. One connected university.",
       "p": "Move across SRMIST’s academic landscape and find departments, people and programmes by area of interest.",
-      "img": "/srmist/tech-park.jpg",
+      "img": "/srmist/tech-park.webp",
       "alt": "The SRM Tech Park building",
       "caption": "SRMIST · Chennai"
     },
     "stats": [
       [
-        "8",
-        "Academic faculties"
+        "111+",
+        "Departments"
       ],
       [
         "300+",
-        "Programmes"
+        "Programs"
       ],
       [
         "A–Z",
         "Department directory"
       ],
       [
-        "6",
-        "Campus choices"
+        "9",
+        "Colleges"
       ]
     ],
     "intro": {
@@ -1018,7 +1018,7 @@
       "eyebrow": "Examinations",
       "h1": "Everything you need, when it matters.",
       "p": "A clearer route to examination schedules, hall information, academic rules, results and student support.",
-      "img": "/srmist/students.jpg",
+      "img": "/srmist/students.webp",
       "alt": "Students working at computers in an SRMIST lab",
       "caption": "SRMIST · Chennai"
     },
@@ -1096,7 +1096,7 @@
       "eyebrow": "SRMIST alumni",
       "h1": "The campus stays with you.",
       "p": "A global community of graduates continues to share experience, open doors and shape the university’s next chapter.",
-      "img": "/srmist/admission-india.jpg",
+      "img": "/srmist/admission-india.webp",
       "alt": "SRMIST students on campus",
       "caption": "SRMIST · Chennai"
     },

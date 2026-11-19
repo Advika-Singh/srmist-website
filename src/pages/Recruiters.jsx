@@ -12,7 +12,7 @@ export default function Recruiters() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Recruiters" title="Hire from SRMIST." lede="How campus recruitment works, who has recruited, and who to write to at the Career Centre." img="/srmist/tech-park.jpg" pos="50% 45%">
+        <SvcHero eyebrow="Recruiters" title="Hire from SRMIST." lede="How campus recruitment works, who has recruited, and who to write to at the Career Centre." img="/srmist/tech-park.webp" pos="50% 45%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#how">How it works</a>
             <a href="#numbers">The numbers</a>

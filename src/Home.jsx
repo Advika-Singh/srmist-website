@@ -22,9 +22,9 @@ let introPlayed = false
 const HERO_CYCLE = [
   [IMG.campus, 'frame-low-right'],
   [IMG.campusAlt, 'frame-center'],
-  ['/srmist/tech-park.jpg', 'frame-low-right'],
-  ['/srmist/campus-panorama.jpg', 'frame-center'],
-  ['/srmist/campus-lakeview.jpg', 'frame-low-right'],
+  ['/srmist/tech-park.webp', 'frame-low-right'],
+  ['/srmist/campus-panorama.webp', 'frame-center'],
+  ['/srmist/campus-lakeview.webp', 'frame-low-right'],
 ]
 
 // Everything SRMIST teaches, shown around the wordmark so a visitor sees the breadth at a glance.

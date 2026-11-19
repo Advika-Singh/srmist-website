@@ -3,7 +3,7 @@ import SvcHero from './SvcHero.jsx'
 import '../services.css'
 
 /** Shared layout for the plain-language policy pages: a hero, then titled sections of term/definition rows. */
-export default function LegalPage({ eyebrow, title, lede, img = '/srmist/library.jpg', sections, note, children }) {
+export default function LegalPage({ eyebrow, title, lede, img = '/srmist/library.webp', sections, note, children }) {
   return (
     <>
       <SiteHeader />

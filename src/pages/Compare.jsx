@@ -99,7 +99,7 @@ export default function Compare() {
     <>
       <SiteHeader />
       <main className="interior svc cp-page" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Compare programmes" title="Put fields of study side by side." lede="Choose up to three fields and see their levels, typical length, example programmes and entrance exam in one table, then save the ones you like." img="/srmist/students.jpg" pos="50% 35%">
+        <SvcHero eyebrow="Compare programmes" title="Put fields of study side by side." lede="Choose up to three fields and see their levels, typical length, example programmes and entrance exam in one table, then save the ones you like." img="/srmist/students.webp" pos="50% 35%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#choose">Choose fields</a>
             <a href="#table">Comparison</a>

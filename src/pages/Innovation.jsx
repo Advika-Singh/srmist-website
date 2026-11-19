@@ -27,7 +27,7 @@ export default function Innovation() {
           eyebrow="Student innovation"
           title="Things SRM students have built."
           lede="Satellites, apps and ideas from across the university, each linked to the page where it was reported. A small start, and it grows as more stories are sourced."
-          img="/srmist/research.jpg"
+          img="/srmist/research.webp"
           pos="50% 40%"
         />
         <section className="svc-wrap in-wrap">

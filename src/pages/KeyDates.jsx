@@ -33,7 +33,7 @@ export default function KeyDates() {
     <>
       <SiteHeader />
       <main className="interior svc cp-page" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Key dates" title="Never miss an admission date." lede="The SRMJEEE 2027 application deadlines and exam days in one list, with a calendar file you can add to your phone." img="/srmist/campus-lakeview.jpg" pos="50% 50%">
+        <SvcHero eyebrow="Key dates" title="Never miss an admission date." lede="The SRMJEEE 2027 application deadlines and exam days in one list, with a calendar file you can add to your phone." img="/srmist/campus-lakeview.webp" pos="50% 50%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#dates">The dates</a>
             <a href="#calendar">Add to my calendar</a>

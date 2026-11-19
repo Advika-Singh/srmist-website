@@ -1,0 +1,232 @@
+/* Section pages (colleges, research, campus life, international, about, contact). One visual treatment per section family.
+   Only existing tokens: Playfair headings, Roboto Mono labels, blue / sand / paper / ink bands, gold accents, --ease motion. */
+
+.sx-page{--fx-lift:0 22px 48px #04122c26}
+.fx-num{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--blue-ink,var(--blue))}
+.fx-meta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.sx-page h3{font-family:var(--display);font-weight:500;letter-spacing:-.025em;line-height:1.1}
+.sx-page .vis-block > h2 + p{margin-bottom:6px}
+.sx-page.svc a.fx-link:not(.button):not(.svc-btn){display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:4px;color:var(--blue-ink,var(--blue))}
+.sx-page.svc a.fx-link svg{width:13px;height:13px;flex:none}
+.fx-count{font-size:14px;color:var(--text-muted);min-height:1.5em;margin:6px 0 0}
+
+/* ---- Colleges: photo panels that open like a fan ---- */
+.fx-panels{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+.fx-panels>li{position:relative;isolation:isolate;overflow:hidden;min-height:300px;border-radius:20px;background:var(--blue-dark);color:#fff;display:flex}
+.fx-panels img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.06);transition:transform 1.4s var(--ease),filter .6s}
+.fx-panels>li::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,#04122cf0 0%,#04122c99 55%,#04122c40 100%);transition:background .6s}
+.fx-panel-in{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;width:100%;padding:24px}
+.fx-panel-h{margin:0}
+.fx-panel-h button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;min-height:44px;font-family:var(--display);font-size:clamp(1.35rem,2.4vw,2.1rem);font-weight:500;letter-spacing:-.03em;line-height:1.08;color:#fff}
+.fx-panel-h button:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:4px}
+.fx-panels .fx-num{color:var(--gold)}
+.fx-panel-more{display:grid;gap:10px;max-width:46ch}
+.fx-panel-more p{color:#ffffffe6;line-height:1.5;margin:0}
+.sx-page.svc .fx-panel-more a.fx-link:not(.button):not(.svc-btn){color:#fff}
+@media (min-width:900px){
+  .fx-panels{display:flex;gap:10px;height:min(580px,74vh);min-height:460px}
+  .fx-panels>li{flex:1 1 0;min-height:0;transition:flex-grow .8s var(--ease)}
+  .fx-panels>li.is-open{flex-grow:6}
+  .fx-panels>li:not(.is-open)::after{background:linear-gradient(to top,#04122cf5,#04122cb8)}
+  .fx-panels>li.is-open img{transform:scale(1)}
+  .fx-panel-in{padding:26px 22px}
+  .fx-panels>li:not(.is-open) .fx-panel-more{visibility:hidden;height:0;opacity:0}
+  .fx-panels>li:not(.is-open) .fx-panel-h button{writing-mode:vertical-rl;transform:rotate(180deg);font-size:1.25rem;white-space:nowrap}
+  .fx-panels>li:not(.is-open) .fx-num{writing-mode:horizontal-tb}
+  .fx-panels>li.is-open .fx-panel-more{opacity:1;transition:opacity .6s .3s var(--ease)}
+}
+
+/* ---- Research centres: cards lit by the pointer ---- */
+.fx-spot{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
+.fx-spot>li{--mx:50%;--my:0%;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--surface,#fff);transition:border-color .3s,transform .5s var(--ease)}
+.fx-spot>li>*{position:relative}
+.fx-spot>li::before{content:'';position:absolute;inset:0;background:radial-gradient(280px circle at var(--mx) var(--my),color-mix(in srgb,var(--gold) 42%,transparent),transparent 70%);opacity:0;transition:opacity .35s;pointer-events:none}
+.fx-spot>li::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;opacity:0;transition:opacity .35s;pointer-events:none;mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000,transparent 75%);-webkit-mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000,transparent 75%)}
+.fx-spot>li:hover,.fx-spot>li:focus-within{border-color:var(--blue);transform:translateY(-3px)}
+.fx-spot>li:hover::before,.fx-spot>li:focus-within::before,.fx-spot>li:hover::after,.fx-spot>li:focus-within::after{opacity:1}
+.fx-spot h3{font-size:clamp(1.3rem,2vw,1.7rem)}
+.fx-spot p{color:var(--text-muted);flex:1;margin:0}
+
+/* ---- Research index: a list with a photo that follows you down the list ---- */
+.fx-index{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(22px,4vw,60px);align-items:start;margin-top:22px}
+.fx-index-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.sx-page.svc a.fx-index-row:not(.button):not(.svc-btn){display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;min-height:68px;padding:16px 8px;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .45s var(--ease),background .3s}
+.fx-index-list li.is-on a.fx-index-row,.fx-index-row:focus-visible{padding-left:24px;background:color-mix(in srgb,var(--gold) 16%,transparent)}
+.fx-index-body b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,1.9vw,1.55rem);letter-spacing:-.02em;line-height:1.15}
+.fx-index-body span{display:block;margin-top:2px;color:var(--text-muted);font-size:14px;line-height:1.45}
+.fx-index-row svg{width:18px;height:18px;transition:transform .4s var(--ease)}
+li.is-on .fx-index-row svg{transform:translate(3px,-3px)}
+.fx-index-fig{position:sticky;top:calc(var(--nav-h,78px) + 24px);margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:22px;background:var(--blue-dark);box-shadow:var(--fx-lift)}
+.fx-index-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.1);transition:opacity .6s var(--ease),transform 1.2s var(--ease)}
+.fx-index-fig img.is-on{opacity:1;transform:none}
+@media (max-width:860px){.fx-index{grid-template-columns:1fr}.fx-index-fig{display:none}}
+
+/* ---- Research partners: photo cards that tilt and catch the light ---- */
+.fx-tilt{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:24px}
+.fx-tilt>li{perspective:900px}
+.fx-tilt-wrap{height:100%;border-radius:22px}
+.fx-tilt-card{position:relative;isolation:isolate;display:flex;align-items:flex-end;height:100%;min-height:360px;overflow:hidden;border-radius:22px;background:var(--blue-dark);color:#fff;box-shadow:var(--fx-lift)}
+.fx-tilt-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.fx-tilt-card::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,#04122cf2 0%,#04122c99 50%,#04122c30 100%)}
+.fx-tilt-in{display:grid;gap:8px;padding:24px;transform:translateZ(36px)}
+.fx-tilt-in h3{font-size:clamp(1.4rem,2.2vw,1.9rem)}
+.fx-tilt-in p{color:#ffffffe6;margin:0;line-height:1.5}
+.sx-page.svc .fx-tilt-in a.fx-link:not(.button):not(.svc-btn){color:#fff}
+
+/* ---- Student life: sliced photos that straighten and take on colour ---- */
+.fx-tiles{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:22px 18px}
+.sx-page.svc a.fx-tile-a:not(.button):not(.svc-btn){position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--blue-dark);color:#fff;text-decoration:none;clip-path:polygon(0 0,100% 0,100% 90%,0 100%);transition:clip-path .8s var(--ease)}
+.fx-tile--1 a.fx-tile-a{clip-path:polygon(0 0,100% 0,100% 100%,0 90%)}
+.fx-tile--2 a.fx-tile-a{clip-path:polygon(0 7%,100% 0,100% 93%,0 100%)}
+.sx-page.svc a.fx-tile-a:hover,.sx-page.svc a.fx-tile-a:focus-visible{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.sx-page.svc a.fx-tile-a:focus-visible{outline:3px solid var(--gold);outline-offset:-8px}
+.fx-tile-a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);transform:scale(1.04);transition:filter .8s var(--ease),transform 1.4s var(--ease)}
+.fx-tile-a:hover img,.fx-tile-a:focus-visible img{filter:none;transform:scale(1.1)}
+.fx-tile-cap{position:absolute;inset:auto 0 0 0;display:grid;gap:6px;padding:48px 20px 26px;background:linear-gradient(to top,#04122cf2,#04122c99 60%,transparent)}
+.fx-tile-cap b{font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2vw,1.75rem);letter-spacing:-.025em;line-height:1.1}
+.fx-tile-cap span{font-size:14px;line-height:1.45;color:#ffffffe6;max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .5s}
+.fx-tile-a:hover .fx-tile-cap span,.fx-tile-a:focus-visible .fx-tile-cap span{max-height:9em;opacity:1}
+.fx-tile-cap em{font-style:normal;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+@media (hover:none){.fx-tile-a img{filter:none}.fx-tile-cap span{max-height:none;opacity:1}}
+
+/* ---- Living on campus: a sticky photo that changes with each chapter ---- */
+.fx-chap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);margin-top:22px}
+.fx-chap-fig{position:sticky;top:calc(var(--nav-h,78px) + 24px);align-self:start;height:min(72vh,580px);margin:0;overflow:hidden;border-radius:24px;background:var(--blue-dark);box-shadow:var(--fx-lift)}
+.fx-chap-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;clip-path:inset(0 0 100% 0);transition:opacity .5s,clip-path 1s var(--ease)}
+.fx-chap-fig img.is-on{opacity:1;clip-path:inset(0)}
+.fx-chap-fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 22px 20px;background:linear-gradient(to top,#04122ce6,transparent);color:#fff;font-family:var(--display);font-size:1.5rem;letter-spacing:-.02em}
+.fx-chap-list{list-style:none;margin:0;padding:0}
+.fx-chap-list>li{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:64vh;padding:20px 0 20px 26px;border-left:3px solid var(--line);transition:border-color .5s,padding-left .6s var(--ease)}
+.fx-chap-list>li.is-on{border-left-color:var(--gold);padding-left:34px}
+.fx-chap-list>li>img{display:none}
+.fx-chap-list h3{font-size:clamp(1.7rem,3vw,2.6rem)}
+.fx-chap-list p{margin:0;color:var(--text-muted);max-width:44ch;line-height:1.55;font-size:1.05rem}
+@media (max-width:860px){
+  .fx-chap{grid-template-columns:1fr}
+  .fx-chap-fig{display:none}
+  .fx-chap-list>li{min-height:0;padding:22px 0;border-left:0;border-top:1px solid var(--line)}
+  .fx-chap-list>li.is-on{padding-left:0}
+  .fx-chap-list>li>img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px}
+}
+
+/* ---- Support: a filter and calm cards with a slow ripple ---- */
+.fx-chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}
+.fx-chips button{min-height:var(--tap,44px);padding:0 18px;border:1px solid var(--line-strong);border-radius:var(--radius-pill,999px);background:var(--surface,#fff);color:var(--text);font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.fx-chips button:hover{border-color:var(--blue)}
+.fx-chips button.is-on{background:var(--blue);border-color:var(--blue);color:#fff}
+.fx-help-list{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px}
+.fx-help-list>li{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:26px;border:1px solid var(--line);border-radius:24px;background:var(--surface,#fff)}
+.fx-help-list h3{font-size:clamp(1.25rem,2vw,1.6rem)}
+.fx-help-list p{margin:0;color:var(--text-muted);flex:1;line-height:1.55}
+.fx-proto{font-size:13px;color:var(--text-muted)}
+.fx-ripple,.fx-ripple::after{position:absolute;right:-34px;top:-34px;z-index:-1;width:120px;height:120px;border-radius:50%;border:1.5px solid var(--blue);opacity:0;animation:fx-ripple 6s ease-out infinite}
+.fx-ripple::after{content:'';right:auto;top:auto;left:-1.5px;top:-1.5px;animation-delay:3s}
+@keyframes fx-ripple{0%{transform:scale(.5);opacity:.45}100%{transform:scale(2.3);opacity:0}}
+
+/* ---- Global SRM: passport stamps that thump into place ---- */
+.fx-stamps{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:30px 26px}
+.fx-stamp{display:flex;flex-direction:column;align-items:flex-start;gap:8px;height:100%;padding:28px 26px 22px;border:2px dashed var(--line-strong);border-radius:14px;background:var(--surface,#fff);transform:rotate(-1.1deg);transition:transform .6s var(--ease),border-color .3s}
+.fx-stamps>li:nth-child(2n) .fx-stamp{transform:rotate(1deg)}
+.fx-stamps>li:nth-child(3n) .fx-stamp{transform:rotate(-.3deg)}
+.fx-stamp:hover{transform:rotate(0) translateY(-4px);border-color:var(--blue)}
+.fx-seal{display:inline-grid;place-items:center;min-width:92px;height:92px;padding:0 12px;border:3px double var(--blue-ink,var(--blue));border-radius:50%;color:var(--blue-ink,var(--blue));font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.2;transform:rotate(-9deg)}
+.motion-reveal.motion-in .fx-seal{animation:fx-thump .8s var(--reveal-delay,0s) var(--ease) both}
+@keyframes fx-thump{0%{transform:scale(2.2) rotate(-26deg);opacity:0}60%{transform:scale(.94) rotate(-9deg);opacity:1}100%{transform:rotate(-9deg)}}
+.fx-stamp h3{font-size:clamp(1.3rem,2vw,1.7rem)}
+.fx-stamp p{margin:0;color:var(--text-muted);flex:1;line-height:1.55}
+
+/* ---- Pathways: a route with a drawn line and numbered stops ---- */
+.fx-journey{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:0;position:relative}
+.fx-journey::before{content:'';position:absolute;left:27px;top:12px;bottom:12px;width:0;border-left:3px dotted var(--line-strong)}
+.fx-journey>li{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:22px;padding:0 0 34px}
+.fx-journey>li>*:not(.fx-stop):not(.fx-lane){grid-column:2}
+.fx-lane{grid-column:1/-1;margin:6px 0 16px 78px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-ink,var(--blue))}
+.fx-stop{grid-column:1;grid-row:span 3;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--display);font-size:1.5rem;position:relative;z-index:1;box-shadow:0 0 0 6px var(--paper)}
+.vis-block:nth-child(even) .fx-stop{box-shadow:0 0 0 6px var(--sand)}
+.fx-journey>li.is-in .fx-stop{background:var(--gold);color:#171814}
+.fx-journey h3{font-size:clamp(1.35rem,2.2vw,1.9rem);margin-top:4px}
+.fx-journey p{margin:6px 0 0;color:var(--text-muted);max-width:60ch;line-height:1.55}
+.fx-journey .fx-link{justify-self:start}
+@media (min-width:980px){
+  .fx-journey{grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 18px}
+  .fx-journey::before{display:none}
+  .fx-journey>li{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:0}
+  .fx-journey>li::before{content:'';position:absolute;left:56px;right:-18px;top:27px;border-top:3px dotted var(--line-strong)}
+  .fx-journey>li:nth-child(4)::before,.fx-journey>li:last-child::before{display:none}
+  .fx-lane{margin:0 0 4px}
+  .fx-stop{grid-row:auto}
+}
+
+/* ---- History: a film strip of outlined years you scroll sideways ---- */
+.fx-tl-bar{display:flex;gap:10px;margin:18px 0 14px}
+.fx-tl-bar .svc-btn span{font-size:18px;line-height:1}
+.fx-tl-scroll{overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:max(6vw,0px);padding:8px 0 22px;margin-inline:calc(-1 * max(6vw,0px));padding-inline:max(6vw,0px);scrollbar-width:thin}
+.fx-tl-scroll:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.fx-tl{list-style:none;margin:0;padding:0;display:flex;gap:0;width:max-content;position:relative}
+.fx-tl::before{content:'';position:absolute;left:0;right:0;top:calc(1.35em + 4rem);border-top:2px solid var(--line-strong)}
+.fx-tl>li{position:relative;flex:none;width:min(78vw,300px);padding:0 28px 0 0;scroll-snap-align:start}
+.fx-tl>li::before{content:'';position:absolute;left:0;top:calc(1.35em + 4rem - 6px);width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--paper)}
+.vis-block:nth-child(even) .fx-tl>li::before{box-shadow:0 0 0 3px var(--sand)}
+.fx-era{display:block;height:1.35em;margin-bottom:6px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-ink,var(--blue));white-space:nowrap}
+.fx-tl>li:not(.is-era)::after{content:'';display:block;height:calc(1.35em + 6px);order:-1}
+.fx-tl>li:not(.is-era){padding-top:calc(1.35em + 6px)}
+.fx-year{display:block;margin-bottom:34px;font-family:var(--display);font-weight:500;font-size:clamp(3.6rem,8vw,5.6rem);line-height:1;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px var(--blue-ink,var(--blue));transition:color .5s}
+.fx-tl>li:hover .fx-year{color:var(--gold);-webkit-text-stroke-color:var(--blue-ink,var(--blue))}
+.fx-tl p{margin:0;color:var(--text-muted);line-height:1.55;font-size:.98rem}
+
+/* ---- Leadership: a roll of names in large type ---- */
+.fx-roll-wrap{display:grid;gap:22px;justify-items:start;margin-top:10px}
+.fx-roll{list-style:none;margin:0;padding:0;width:100%;border-top:1px solid var(--line)}
+.fx-roll>li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:6px 28px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line);position:relative}
+.fx-roll>li::after{content:'';position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--gold);transition:width .8s var(--ease)}
+.fx-roll>li:hover::after{width:100%}
+.fx-role{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.fx-roll b{font-family:var(--display);font-weight:500;font-size:clamp(1.9rem,4.6vw,3.6rem);letter-spacing:-.04em;line-height:1.02}
+.fx-roll-note{grid-column:2;color:var(--text-muted)}
+@media (max-width:720px){.fx-roll>li{grid-template-columns:1fr}.fx-roll-note{grid-column:1}}
+
+/* ---- Recognition: foil cards with a light that follows the pointer ---- */
+.fx-foil{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
+.fx-foil>li{--fx:50%;--fy:0%;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:28px;border-radius:24px;color:#fff;background:linear-gradient(160deg,var(--blue-dark),#04122c)}
+.fx-foil>li>*{position:relative;z-index:1}
+.fx-foil>li::before{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(420px circle at var(--fx) var(--fy),#f2c84b66,#7aa7ff33 38%,transparent 70%);mix-blend-mode:screen;transition:opacity .4s}
+.fx-foil>li::after{content:'';position:absolute;inset:-40%;z-index:0;background:conic-gradient(from 210deg at var(--fx) var(--fy),#ffffff00,#ffffff22,#ffffff00 25%,#f2c84b1a 50%,#ffffff00 75%);animation:fx-foil 14s linear infinite}
+@keyframes fx-foil{to{transform:rotate(1turn)}}
+.fx-big{font-family:var(--display);font-weight:500;font-size:clamp(2.6rem,6vw,4.4rem);line-height:.95;letter-spacing:-.05em;color:var(--gold)}
+.fx-foil h3{font-size:clamp(1.3rem,2vw,1.7rem)}
+.fx-foil p{margin:0;color:#ffffffe0;line-height:1.55}
+.fx-rows{list-style:none;margin:6px 0;padding:0;display:grid;gap:8px;width:100%}
+.fx-rows li{display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:14px;border-bottom:1px solid #ffffff2e;padding-bottom:7px}
+.fx-rows b{font-family:var(--mono);font-weight:500;color:var(--gold);white-space:nowrap}
+.fx-stars{display:inline-flex;gap:4px}
+.fx-stars i{width:11px;height:11px;border-radius:50%;border:1.5px solid #ffffffb3}
+.fx-stars i.is-on{background:var(--gold);border-color:var(--gold)}
+.sx-page.svc .fx-foil a.fx-link:not(.button):not(.svc-btn){color:#fff}
+
+/* ---- Offices: file folders with tabs ---- */
+.fx-folders{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:34px 22px}
+.fx-folders>li{position:relative;padding-top:30px}
+.fx-tab{position:absolute;left:18px;top:0;z-index:1;padding:6px 18px 8px;border-radius:12px 12px 0 0;background:var(--gold);color:#171814;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.fx-folder-body{display:flex;flex-direction:column;align-items:flex-start;gap:8px;height:100%;padding:24px 22px 18px;border:1px solid var(--line);border-radius:0 18px 18px 18px;background:var(--surface,#fff);transform-origin:left bottom;transition:transform .55s var(--ease),box-shadow .5s,border-color .3s}
+.fx-folders>li:hover .fx-folder-body,.fx-folders>li:focus-within .fx-folder-body{transform:rotate(-1.4deg) translateY(-4px);box-shadow:var(--fx-lift);border-color:var(--blue)}
+.fx-folder-body h3{font-size:clamp(1.2rem,1.8vw,1.5rem)}
+.fx-folder-body p{margin:0;color:var(--text-muted);flex:1;line-height:1.55}
+
+/* ---- Contact ---- */
+.fx-contact{display:grid;gap:14px;justify-items:start;margin-top:14px}
+.fx-contact dl{display:grid;gap:12px;width:100%;margin:0}
+.fx-contact dl>div{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:8px 28px;align-items:center;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:var(--surface,#fff)}
+.fx-contact dt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);line-height:1.5}
+.fx-contact dd{margin:0;display:grid;gap:8px;font-family:var(--display);font-size:clamp(1.25rem,2.6vw,1.9rem);letter-spacing:-.02em}
+.fx-num-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.fx-num-row a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px;color:var(--blue-ink,var(--blue))}
+.fx-num-row .svc-btn{min-height:40px;font-family:var(--sans);font-size:13px;letter-spacing:0}
+@media (max-width:720px){.fx-contact dl>div{grid-template-columns:1fr}}
+
+/* ---- motion off: nothing moves, everything stays readable ---- */
+@media (prefers-reduced-motion:reduce){
+  .fx-panels img,.fx-panels>li,.fx-index-fig img,.fx-chap-fig img,.fx-tile-a,.fx-tile-a img,.fx-stamp,.fx-folder-body,.fx-roll>li::after,.fx-spot>li{transition:none}
+  .fx-ripple,.fx-ripple::after,.fx-foil>li::after,.motion-reveal.motion-in .fx-seal{animation:none}
+  .fx-seal{opacity:1}
+}
+body.motion-paused .fx-ripple,body.motion-paused .fx-ripple::after,body.motion-paused .fx-foil>li::after{animation:none}

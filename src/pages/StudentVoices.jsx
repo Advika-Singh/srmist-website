@@ -20,7 +20,7 @@ export default function StudentVoices() {
           eyebrow="Ask a current student"
           title="Honest answers, from people who are here."
           lede="Short answers about placements, hostel life, workload and clubs, tagged by department. An answer is shown only when the student agreed to it or when it comes from a public SRMIST page that we link to."
-          img="/srmist/students.jpg"
+          img="/srmist/students.webp"
           pos="50% 35%"
         />
         <section className="svc-wrap sv-wrap">

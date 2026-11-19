@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import { flushSync } from 'react-dom'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Home from './Home.jsx'
-import { SLUGS } from './data/routes.js'
+import { SECTION_PATHS, SLUGS } from './data/routes.js'
 import { AdmissionsFab, Assistant, CursorLight, prefersReducedMotion } from './shared.jsx'
 import SmartSearch from './ui/SmartSearch.jsx'
 import { startPageFx } from './lib/pageFx.js'
@@ -42,14 +42,17 @@ const AlumniChapters = lazy(() => import('./pages/AlumniChapters.jsx'))
 const Recruiters = lazy(() => import('./pages/Recruiters.jsx'))
 const Compare = lazy(() => import('./pages/Compare.jsx'))
 const KeyDates = lazy(() => import('./pages/KeyDates.jsx'))
+const Section = lazy(() => import('./pages/Section.jsx'))
 
 /** Our own pages are navigated in-app; .html pages and external links are left to the browser. */
-const isAppLink = (href) => !!href && href.startsWith('/') && !href.startsWith('//') && !/\.html([?#]|$)/.test(href)
+// A backslash is refused too: some browsers read "/\host" as "//host", which is how the open-redirect advisory for react-router 6 works.
+const isAppLink = (href) => !!href && href.startsWith('/') && !href.startsWith('//') && !href.includes('\\') && !/\.html([?#]|$)/.test(href)
 
 /** Start fetching a page's code as soon as someone points at its link, so the transition never waits. */
 function prefetch(href) {
   const path = href.split(/[?#]/)[0]
-  if (path.startsWith('/apply')) loadApply()
+  if (SECTION_PATHS.includes(path)) import('./pages/Section.jsx')
+  else if (path.startsWith('/apply')) loadApply()
   else if (path === '/admissions') loadAdmissions()
   else if (['/status', '/support', '/access-map', '/visitors', '/library', '/hostels', '/students', '/day', '/clubs', '/course-finder', '/staff-finder', '/srmjeee', '/placements', '/innovation', '/ask-a-student', '/privacy', '/terms', '/accessibility', '/campus-walk', '/parents', '/alumni/chapters', '/recruiters', '/compare', '/dates'].includes(path)) import(`./pages/${PAGE_FILE[path]}.jsx`)
   else if (path !== '/') loadInterior()
@@ -162,6 +165,9 @@ export default function App() {
           <Route path="/recruiters" element={<Recruiters />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/dates" element={<KeyDates />} />
+          {SECTION_PATHS.map((p) => (
+            <Route key={p} path={p} element={<Section path={p} />} />
+          ))}
           <Route path="/placements" element={<Placements />} />
           {SLUGS.filter((slug) => !['admissions', 'library', 'placements'].includes(slug)).map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<Interior slug={slug} />} />

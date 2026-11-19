@@ -57,7 +57,7 @@ export default function CampusWalk() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Visit · Kattankulathur campus" title="Walk the campus before you arrive." lede="Five stops, about an hour of an ordinary day, with real walking distances. Use it to picture where things are, then take the official 360° tour for the views." img="/srmist/campus-lakeview.jpg" pos="50% 55%">
+        <SvcHero eyebrow="Visit · Kattankulathur campus" title="Walk the campus before you arrive." lede="Five stops, about an hour of an ordinary day, with real walking distances. Use it to picture where things are, then take the official 360° tour for the views." img="/srmist/campus-lakeview.webp" pos="50% 55%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#walk">The walk</a>
             <a href="#tour">360° tour</a>

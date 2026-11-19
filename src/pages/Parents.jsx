@@ -10,7 +10,7 @@ export default function Parents() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Parents" title="Everything a parent looks for, in one place." lede="The parent portal, fees and loans, safety, hostels and ways to stay in touch, with each link going to the official page." img="/srmist/admission-india.jpg" pos="50% 40%">
+        <SvcHero eyebrow="Parents" title="Everything a parent looks for, in one place." lede="The parent portal, fees and loans, safety, hostels and ways to stay in touch, with each link going to the official page." img="/srmist/admission-india.webp" pos="50% 40%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#portal">Parent portal</a>
             {p.groups.map((g) => (

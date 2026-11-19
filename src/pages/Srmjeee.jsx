@@ -73,7 +73,7 @@ export default function Srmjeee() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="SRMJEEE 2027" title="Your route into B.Tech starts here." lede="Everything about the SRM Joint Engineering Entrance Examination in one place: dates, who can apply, the steps, and a straight line to the official application." img="/srmist/campus-main-building.jpg" pos="50% 55%">
+        <SvcHero eyebrow="SRMJEEE 2027" title="Your route into B.Tech starts here." lede="Everything about the SRM Joint Engineering Entrance Examination in one place: dates, who can apply, the steps, and a straight line to the official application." img="/srmist/campus-main-building.webp" pos="50% 55%">
           <div className="sj-hero-cta">
             <a className="button" href={OFFICIAL.apply} {...ext}>
               Register on the official portal <Out />

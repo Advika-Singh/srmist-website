@@ -7,8 +7,8 @@ export const MOMENTS = ['story', 'rail', 'corridor', 'facilities', 'iris', 'coun
 /** Moments that pin the page while you scroll (kept to three per page). */
 export const PINNED = ['story', 'rail', 'corridor']
 
-const PHOTOS_LAB = ['/srmist/labs.jpg', '/srmist/research.jpg', '/srmist/tech-park.jpg', '/srmist/campus-main-building.jpg', '/srmist/library.jpg']
-const PHOTOS_CAMPUS = ['/srmist/sports.jpg', '/srmist/students.jpg', '/srmist/campus-main-building.jpg', '/srmist/tech-park.jpg', '/srmist/hero.webp', '/srmist/admission-india.jpg', '/srmist/library.jpg']
+const PHOTOS_LAB = ['/srmist/labs.webp', '/srmist/research.webp', '/srmist/tech-park.webp', '/srmist/campus-main-building.webp', '/srmist/library.webp']
+const PHOTOS_CAMPUS = ['/srmist/sports.webp', '/srmist/students.webp', '/srmist/campus-main-building.webp', '/srmist/tech-park.webp', '/srmist/hero.webp', '/srmist/admission-india.webp', '/srmist/library.webp']
 
 export const KITS = {
   academics: { accent: '#0ea5e9', crop: '50% 35%', moments: [{ type: 'countband', source: 'stats' }] },

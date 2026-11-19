@@ -26,7 +26,7 @@ Gaps found in the repo on 2026-11-08: no sitemap, no Open Graph / JSON-LD, no pr
 | Prerender or SSR for key pages | **Head tags done** (2026-11-15): `scripts/prerender-head.mjs` gives every route its own title, description and share tags at build time. Check on the next deploy. Page content is still rendered in the browser; `/404` still returns 200 |
 | Privacy-friendly analytics | Pluggable sink behind `window.__srmAnalytics`; consent-gated if anything sets cookies |
 | PWA | **Manifest done** (2026-11-15). Still needed: PNG icons, offline page |
-| Images | AVIF/WebP `<picture>` for `public/srmist/*` as planned in `docs/REDESIGN.md` |
+| Images | **WebP done** (2026-11-19). AVIF and responsive widths are still open |
 | Web Vitals budget | Lighthouse scripts exist in `reports/`; set pass thresholds in CI |
 
 ## Phase 3: New student-facing features (not on the official site)

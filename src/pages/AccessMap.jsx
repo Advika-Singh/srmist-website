@@ -16,7 +16,7 @@ export default function AccessMap() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Accessible campus" title="Step-free routes, ramps and lifts." lede="A map layer for people who use wheelchairs, walkers, prams or simply cannot manage stairs. It shows what is known today, and where nobody has checked yet." img="/srmist/campus-main-building.jpg" pos="50% 55%" />
+        <SvcHero eyebrow="Accessible campus" title="Step-free routes, ramps and lifts." lede="A map layer for people who use wheelchairs, walkers, prams or simply cannot manage stairs. It shows what is known today, and where nobody has checked yet." img="/srmist/campus-main-building.webp" pos="50% 55%" />
 
         <section className="svc-wrap">
           <div className="map-layout">

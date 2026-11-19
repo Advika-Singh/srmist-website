@@ -11,15 +11,15 @@ import { Arrow } from '../../shared.jsx'
  * The caller decides when to use it (motion allowed) and what to show otherwise.
  */
 const ASPECT = {
-  '/srmist/campus-main-building.jpg': 1.5,
-  '/srmist/students.jpg': 1.6,
-  '/srmist/tech-park.jpg': 0.8,
-  '/srmist/labs.jpg': 1.5,
+  '/srmist/campus-main-building.webp': 1.5,
+  '/srmist/students.webp': 1.6,
+  '/srmist/tech-park.webp': 0.8,
+  '/srmist/labs.webp': 1.5,
   '/srmist/hero.webp': 1.78,
-  '/srmist/sports.jpg': 1.5,
-  '/srmist/library.jpg': 2.2,
-  '/srmist/admission-india.jpg': 1.5,
-  '/srmist/research.jpg': 1.5,
+  '/srmist/sports.webp': 1.5,
+  '/srmist/library.webp': 2.2,
+  '/srmist/admission-india.webp': 1.5,
+  '/srmist/research.webp': 1.5,
 }
 
 const COUNT = 30

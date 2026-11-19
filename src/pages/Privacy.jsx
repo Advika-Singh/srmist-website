@@ -57,7 +57,7 @@ export default function Privacy() {
           eyebrow="Privacy and cookies"
           title="What we do with your data."
           lede="In plain words: what this site collects, what stays in your browser, who sees it, and how to ask us to change or delete it."
-          img="/srmist/library.jpg"
+          img="/srmist/library.webp"
           pos="50% 50%"
         />
         <section className="svc-wrap vis-grid">

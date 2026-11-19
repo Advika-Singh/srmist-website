@@ -54,7 +54,7 @@ function cacheControl(url, ext) {
   return 'public, max-age=2592000' // fonts, logos, favicon: 30 days
 }
 
-function serveFile(req, res, file, urlPath) {
+function serveFile(req, res, file, urlPath, status = 200) {
   const ext = extname(file)
   const stat = statSync(file)
   const f = load(file, ext, stat)
@@ -68,12 +68,12 @@ function serveFile(req, res, file, urlPath) {
   res.setHeader('ETag', f.etag)
   res.setHeader('Vary', 'Accept-Encoding')
   if (encoding) res.setHeader('Content-Encoding', encoding)
-  if (req.headers['if-none-match'] === f.etag) {
+  if (status === 200 && req.headers['if-none-match'] === f.etag) {
     res.statusCode = 304
     return res.end()
   }
   res.setHeader('Content-Length', body.length)
-  res.statusCode = 200
+  res.statusCode = status
   res.end(req.method === 'HEAD' ? undefined : body)
 }
 
@@ -142,7 +142,8 @@ const server = http.createServer((req, res) => {
   // (the build also writes a copy per page with that page's own head tags; use it when it exists)
   const own = resolve(DIST, '.' + pathname, 'index.html')
   if (!extname(pathname) && own.startsWith(DIST + sep) && existsSync(own)) return serveFile(req, res, own, '/index.html')
-  if (!extname(pathname)) return serveFile(req, res, join(DIST, 'index.html'), '/index.html')
+  // an address that is not a page: the same 404 page the app shows, with a real 404 status so search engines drop it
+  if (!extname(pathname)) return serveFile(req, res, existsSync(join(DIST, '404.html')) ? join(DIST, '404.html') : join(DIST, 'index.html'), '/404.html', 404)
 
   res.statusCode = 404
   res.setHeader('Content-Type', 'text/plain; charset=utf-8')

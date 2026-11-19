@@ -100,7 +100,7 @@ export default function Hostels() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Hostels · Kattankulathur campus" title="A home on campus." lede="Every hostel block in one place: what it is like inside, how far it is from the places you will use most, what the mess serves, and who to call." img="/srmist/campus-panorama.jpg" pos="50% 50%">
+        <SvcHero eyebrow="Hostels · Kattankulathur campus" title="A home on campus." lede="Every hostel block in one place: what it is like inside, how far it is from the places you will use most, what the mess serves, and who to call." img="/srmist/campus-panorama.webp" pos="50% 50%">
   <nav className="vis-quick" aria-label="On this page">
               <a href="#hostel-list">All hostels</a>
               <a href="#rooms">Room types &amp; floor plans</a>

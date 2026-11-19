@@ -33,7 +33,7 @@ export default function Visitors() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Visitors &amp; parents" title="Coming to campus? Start here." lede="Where things are, where to stay and where to eat, so a first visit to the Kattankulathur campus is easy." img="/srmist/campus-lakeview.jpg" pos="50% 55%">
+        <SvcHero eyebrow="Visitors &amp; parents" title="Coming to campus? Start here." lede="Where things are, where to stay and where to eat, so a first visit to the Kattankulathur campus is easy." img="/srmist/campus-lakeview.webp" pos="50% 55%">
   <nav className="vis-quick" aria-label="On this page">
               <a href="#layout">Campus layout</a>
               <a href="/campus-walk">Walk the campus</a>

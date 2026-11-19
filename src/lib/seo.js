@@ -8,7 +8,7 @@ export const OFFICIAL_SITE = 'https://www.srmist.edu.in/'
 export const HOME_TITLE = 'SRMIST — Learn. Leap. Lead.'
 
 // Tab titles for pages that are not in the route table (data/routes.js).
-export const PAGE_TITLE = { '/status': 'Service status', '/support': 'Report or track an issue', '/access-map': 'Accessible campus map', '/visitors': 'Visit the campus', '/library': 'University library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'A day at SRM', '/clubs': 'Clubs', '/course-finder': 'Course finder', '/staff-finder': 'Staff finder', '/srmjeee': 'SRMJEEE 2027', '/innovation': 'Student innovation', '/ask-a-student': 'Ask a current student', '/privacy': 'Privacy and cookies', '/terms': 'Terms of use', '/accessibility': 'Accessibility', '/campus-walk': 'Walk the campus', '/parents': 'Parents', '/alumni/chapters': 'Alumni chapters', '/recruiters': 'Recruiters', '/compare': 'Compare programmes', '/dates': 'Key dates' }
+export const PAGE_TITLE = { '/status': 'Service status', '/support': 'Report or track an issue', '/access-map': 'Accessible campus map', '/visitors': 'Visit the campus', '/library': 'University library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'A day at SRM', '/clubs': 'Clubs', '/course-finder': 'Course finder', '/staff-finder': 'Staff finder', '/srmjeee': 'SRMJEEE 2027', '/innovation': 'Student innovation', '/ask-a-student': 'Ask a current student', '/privacy': 'Privacy and cookies', '/terms': 'Terms of use', '/accessibility': 'Accessibility', '/campus-walk': 'Walk the campus', '/parents': 'Parents', '/alumni/chapters': 'Alumni chapters', '/recruiters': 'Recruiters', '/compare': 'Compare programmes', '/dates': 'Key dates', '/colleges': 'Colleges and schools', '/research/centres': 'Research centres', '/research/initiatives': 'Research output and funding', '/research/partners': 'Research partners and innovation', '/campus-life/student-life': 'Student life', '/campus-life/living': 'Living on campus', '/campus-life/wellbeing': 'Support, safety and inclusion', '/international/global': 'Global SRM', '/international/pathways': 'Study abroad and international admissions', '/about/history': 'History', '/about/leadership': 'Leadership and governance', '/about/recognition': 'Recognition', '/about/offices': 'Offices and directorates', '/contact': 'Contact' }
 
 // The main-menu labels (the same as NAV in shared.jsx), which win over the route table's longer names.
 const MENU_LABEL = { '/academics': 'Academics', '/research': 'Research', '/campus-life': 'Campus life', '/about': 'About' }
@@ -54,6 +54,20 @@ export const PAGE_DESC = {
   '/support': 'Report a problem and follow it with a reference number. A prototype tracker, not connected to SRMIST systems.',
   '/students': 'For current students: portals, fees, exams, academic calendars and student life, with links to the official pages.',
   '/day': 'Follow a student across the Kattankulathur campus from morning to night, on a map built from OpenStreetMap paths.',
+  '/colleges': 'The colleges and health-science schools of SRMIST, each with a short description and a link to its official page.',
+  '/research/centres': 'Research wings and shared facilities at SRMIST, such as nanotechnology, high performance computing and the central instrumentation facility.',
+  '/research/initiatives': 'An index of SRMIST research output: publications, patents, projects, Ph.D awards, funding calls, regulations and research events.',
+  '/research/partners': 'How SRMIST research connects outward: collaborations, industry connect, incubation, entrepreneurship and the FAB LAB.',
+  '/campus-life/student-life': 'Arts and culture, sports, NCC, NSS, Tamil Perayam, the Milan festival and community service at SRMIST.',
+  '/campus-life/living': 'Transport, facilities, safety, religious life, diversity and the Muthucharam community radio at SRMIST.',
+  '/campus-life/wellbeing': 'Counselling, anti-ragging, anti-discrimination, the women’s grievance committee and the Equal Opportunity Cell at SRMIST.',
+  '/international/global': 'SRMIST’s International Advisory Board, global university partnerships, visiting foreign faculty and international alumni network.',
+  '/international/pathways': 'Semester abroad, twinning, dual degrees and global immersion for SRMIST students, and admissions for international applicants.',
+  '/about/history': 'The history of SRM from the first school in 1969 to the 2018 college of agriculture, drawn from the university’s own timeline.',
+  '/about/leadership': 'SRMIST’s apex leadership, the governing bodies and links to the administrative and academic heads.',
+  '/about/recognition': 'SRMIST’s NAAC A++ accreditation, QS I-GAUGE ratings, THE Impact Rankings and awards, each with its year and source.',
+  '/about/offices': 'The offices of SRMIST: IQAC, ITKM, online and distance education, communications and alumni affairs.',
+  '/contact': 'How to reach SRMIST: the Kattankulathur address, main phone numbers and the admissions information centre numbers.',
   '/compare': 'Compare up to three fields of study side by side: levels, typical length, example programmes and entrance exam.',
   '/dates': 'SRMJEEE 2027 application deadlines and exam days in one list, with a calendar file to add them to your phone.',
   '/privacy': 'What this site collects, what stays in your browser, and how to ask us to change or delete data.',

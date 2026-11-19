@@ -185,7 +185,7 @@ export default function Library() {
           </div>
 
           <figure>
-            <Photo src="/srmist/library.jpg" alt="Entrance gates of the SRMIST library" sizes="(max-width: 900px) 100vw, 1100px" widths={[600, 900, 1200]} size={[1200, 700]} />
+            <Photo src="/srmist/library.webp" alt="Entrance gates of the SRMIST library" sizes="(max-width: 900px) 100vw, 1100px" widths={[600, 900, 1200]} size={[1200, 700]} />
           </figure>
         </section>
       </main>

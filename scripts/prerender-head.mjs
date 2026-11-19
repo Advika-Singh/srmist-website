@@ -32,7 +32,9 @@ export function headFor(base, path) {
 }
 
 const base = readFileSync(new URL('index.html', DIST), 'utf8')
-const paths = new Set(['/', ...Object.keys(PAGE_DESC), ...Object.keys(PAGE_TITLE), ...SLUGS.map((s) => `/${s}`), '/apply'])
+// every address the app answers; vercel.json no longer rewrites unknown addresses to the app, so each one needs its own file
+export const APPLY_STEPS = ['/apply', '/apply/programme', '/apply/details', '/apply/review']
+const paths = new Set(['/', ...Object.keys(PAGE_DESC), ...Object.keys(PAGE_TITLE), ...SLUGS.map((s) => `/${s}`), ...APPLY_STEPS])
 for (const path of paths) {
   const html = headFor(base, path)
   if (path === '/') {
@@ -43,4 +45,15 @@ for (const path of paths) {
   mkdirSync(dir, { recursive: true })
   writeFileSync(new URL('index.html', dir), html)
 }
+// The app's own 404 page, served for any other address with a real 404 status (dist/404.html is what Vercel uses).
+const cut = (html, open, close) => {
+  const a = html.indexOf(open)
+  const b = a < 0 ? -1 : html.indexOf(close, a)
+  return b < 0 ? html : html.slice(0, a) + html.slice(b + close.length)
+}
+let missing = headFor(base, '/')
+missing = cut(missing, '<link rel="canonical"', '/>') // a page that does not exist has no canonical address
+missing = cut(missing, '<script type="application/ld+json"', '</script>')
+missing = swap(missing, /<\/head>/, '  <meta name="robots" content="noindex" />\n  </head>', 'closing head tag')
+writeFileSync(new URL('404.html', DIST), missing)
 console.log(`prerender: ${paths.size} pages given their own head tags`)

@@ -17,20 +17,20 @@ import StickyStory from './StickyStory.jsx'
 
 // Real SRMIST photos from /public/srmist, cropped per facility. Swap a src when a better photo of that exact place is added.
 const FACILITIES = [
-  { src: '/srmist/labs.jpg', pos: '50% 35%', ratio: 1.54, name: 'Research laboratories', kicker: 'Laboratories', text: 'Hands-on instrument labs where students and researchers work side by side.' },
-  { src: '/srmist/research.jpg', pos: '50% 40%', ratio: 1.5, name: 'Research centres', kicker: 'Research centres', text: 'Shared infrastructure for nanotechnology, medical research and high-performance computing.' },
-  { src: '/srmist/tech-park.jpg', pos: '50% 50%', ratio: 1.25, name: 'SRM Tech Park', kicker: 'Tech Park', text: 'Industry, startups and student teams under one roof.' },
-  { src: '/srmist/campus-main-building.jpg', pos: '50% 60%', ratio: 1.5, name: 'Innovation and incubation', kicker: 'Innovation', text: 'Mentors, makerspaces and incubation for university ideas.' },
-  { src: '/srmist/library.jpg', pos: '50% 50%', ratio: 2.2, name: 'Central library', kicker: 'Library', text: 'Reading rooms, collections and digital resources open to every student.' },
-  { src: '/srmist/students.jpg', pos: '50% 40%', ratio: 1.6, name: 'Learning together', kicker: 'Students', text: 'Classrooms, studios and project spaces built for collaboration.' },
-  { src: '/srmist/sports.jpg', pos: '50% 40%', ratio: 1.5, name: 'Sports and fitness', kicker: 'Sports', text: 'Grounds and courts for teams, training and play.' },
-  { src: '/srmist/campus-lakeview.jpg', pos: '50% 50%', ratio: 1.5, name: 'The campus itself', kicker: 'Campus', text: 'Green, walkable and open from the lakeside to the main building.' },
+  { src: '/srmist/labs.webp', pos: '50% 35%', ratio: 1.54, name: 'Research laboratories', kicker: 'Laboratories', text: 'Hands-on instrument labs where students and researchers work side by side.' },
+  { src: '/srmist/research.webp', pos: '50% 40%', ratio: 1.5, name: 'Research centres', kicker: 'Research centres', text: 'Shared infrastructure for nanotechnology, medical research and high-performance computing.' },
+  { src: '/srmist/tech-park.webp', pos: '50% 50%', ratio: 1.25, name: 'SRM Tech Park', kicker: 'Tech Park', text: 'Industry, startups and student teams under one roof.' },
+  { src: '/srmist/campus-main-building.webp', pos: '50% 60%', ratio: 1.5, name: 'Innovation and incubation', kicker: 'Innovation', text: 'Mentors, makerspaces and incubation for university ideas.' },
+  { src: '/srmist/library.webp', pos: '50% 50%', ratio: 2.2, name: 'Central library', kicker: 'Library', text: 'Reading rooms, collections and digital resources open to every student.' },
+  { src: '/srmist/students.webp', pos: '50% 40%', ratio: 1.6, name: 'Learning together', kicker: 'Students', text: 'Classrooms, studios and project spaces built for collaboration.' },
+  { src: '/srmist/sports.webp', pos: '50% 40%', ratio: 1.5, name: 'Sports and fitness', kicker: 'Sports', text: 'Grounds and courts for teams, training and play.' },
+  { src: '/srmist/campus-lakeview.webp', pos: '50% 50%', ratio: 1.5, name: 'The campus itself', kicker: 'Campus', text: 'Green, walkable and open from the lakeside to the main building.' },
 ]
 
 const IRIS_PHOTOS = [
-  { src: '/srmist/campus-lakeview.jpg', pos: '50% 55%' },
-  { src: '/srmist/students.jpg', pos: '50% 40%' },
-  { src: '/srmist/sports.jpg', pos: '50% 40%' },
+  { src: '/srmist/campus-lakeview.webp', pos: '50% 55%' },
+  { src: '/srmist/students.webp', pos: '50% 40%' },
+  { src: '/srmist/sports.webp', pos: '50% 40%' },
 ]
 
 const upcoming = () => [

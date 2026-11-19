@@ -2,12 +2,12 @@ import Tilt from 'react-parallax-tilt'
 
 // SRMIST's own photographs, saved in /public/srmist.
 const CARDS = [
-  { title: 'Campus', imageUrl: '/srmist/campus-lakeview.jpg', alt: 'The SRMIST campus seen across the lake at dusk' },
-  { title: 'Tech Park', imageUrl: '/srmist/tech-park.jpg', alt: 'The SRM Tech Park building' },
-  { title: 'Labs', imageUrl: '/srmist/labs.jpg', alt: 'Researchers with laboratory equipment at SRMIST' },
-  { title: 'Library', imageUrl: '/srmist/library.jpg', alt: 'Entrance gates of the SRMIST library' },
-  { title: 'Student life', imageUrl: '/srmist/admission-india.jpg', alt: 'SRMIST students outside the main building' },
-  { title: 'Sports', imageUrl: '/srmist/sports.jpg', alt: 'An SRMIST sports team on the ground' },
+  { title: 'Campus', imageUrl: '/srmist/campus-lakeview.webp', alt: 'The SRMIST campus seen across the lake at dusk' },
+  { title: 'Tech Park', imageUrl: '/srmist/tech-park.webp', alt: 'The SRM Tech Park building' },
+  { title: 'Labs', imageUrl: '/srmist/labs.webp', alt: 'Researchers with laboratory equipment at SRMIST' },
+  { title: 'Library', imageUrl: '/srmist/library.webp', alt: 'Entrance gates of the SRMIST library' },
+  { title: 'Student life', imageUrl: '/srmist/admission-india.webp', alt: 'SRMIST students outside the main building' },
+  { title: 'Sports', imageUrl: '/srmist/sports.webp', alt: 'An SRMIST sports team on the ground' },
 ]
 
 export default function TiltGrid({ items = CARDS }) {

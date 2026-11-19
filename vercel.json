@@ -8,9 +8,6 @@
     "api/translate.js": { "maxDuration": 30 },
     "api/status.js": { "maxDuration": 15 }
   },
-  "rewrites": [
-    { "source": "/((?!api/|assets/|fonts/|brand/|.*\\.).*)", "destination": "/index.html" }
-  ],
   "headers": [
     {
       "source": "/(.*)",

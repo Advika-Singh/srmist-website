@@ -15,13 +15,13 @@ const img = (id, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=88`
 
 export const IMG = {
-  walking: '/srmist/sports.jpg',
+  walking: '/srmist/sports.webp',
   campus: '/srmist/hero.webp',
-  campusAlt: '/srmist/campus-main-building.jpg',
-  classroom: '/srmist/students.jpg',
-  collab: '/srmist/admission-india.jpg',
-  lab: '/srmist/labs.jpg',
-  urban: '/srmist/tech-park.jpg',
+  campusAlt: '/srmist/campus-main-building.webp',
+  classroom: '/srmist/students.webp',
+  collab: '/srmist/admission-india.webp',
+  lab: '/srmist/labs.webp',
+  urban: '/srmist/tech-park.webp',
 }
 
 /* ---------- responsive images ---------- */

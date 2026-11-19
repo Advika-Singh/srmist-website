@@ -486,12 +486,13 @@ html.sx::after{content:"";position:fixed;left:0;top:0;height:3px;width:100%;z-in
 .wb-row{display:flex;gap:4vw;width:max-content;font-family:var(--display);font-weight:500;font-size:clamp(4rem,12.5vw,12rem);line-height:1.02;letter-spacing:-.05em;white-space:nowrap;translate:-12vw 0}
 .wb-row span{color:transparent;-webkit-text-stroke:2px var(--ink)}
 .wb-row span:nth-child(3n+1){color:var(--ink);-webkit-text-stroke:0}
-.wb-row span:nth-child(3n+2){color:var(--gold);-webkit-text-stroke:0}
+.wb-row span:nth-child(3n+2){color:#a87800;-webkit-text-stroke:0}
 .wb-b{translate:-30vw 0}
 html.sx .wb-a{translate:calc(var(--sp,.5) * -46vw) 0}
 html.sx .wb-b{translate:calc(-46vw + var(--sp,.5) * 46vw) 0}
 html[data-theme='dark'] .wb-row span{-webkit-text-stroke-color:#ffffffd9}
 html[data-theme='dark'] .wb-row span:nth-child(3n+1){color:#fff}
+html[data-theme='dark'] .wb-row span:nth-child(3n+2){color:var(--gold)}
 
 /* field cards rise in a staggered wave as the list scrolls up (individual transform properties, so the hover lift still works) */
 html.sx .discipline-list a.field-card{--t:clamp(0, calc(var(--sp, .6) * 2.7 - var(--i, 1) * .17 + .12), 1);animation:none;translate:0 calc((1 - var(--t)) * 90px);scale:calc(.92 + .08 * var(--t));opacity:calc(.1 + .9 * var(--t))}
