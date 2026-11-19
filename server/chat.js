@@ -281,6 +281,7 @@ export async function handleChat(req, res, env = process.env) {
     await budget.record(who, tokens)
     return send(res, 200, reply)
   } catch (e) {
+    console.error('chat upstream failed', e?.status, String(e?.message || e).replace(/key=[^&s]+/g, 'key=…').slice(0, 300))
     await budget.record(who, 0) // a failed attempt still counts as a question, so a broken upstream cannot be hammered for free
     return send(res, 502, { error: e?.status === 429 ? 'SRM Guide is getting a lot of questions — try again in a moment.' : 'SRM Guide is unavailable right now. Please try again.' })
   }
