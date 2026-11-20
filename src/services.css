@@ -242,8 +242,8 @@
 .cm-card span{color:var(--text-muted);font-size:.95rem}
 .cm-card svg{position:absolute;right:16px;top:18px;width:18px;height:18px;color:var(--blue-ink,var(--blue))}
 .cm-list{display:grid;gap:0;margin-top:18px;max-width:var(--measure,68ch)}
-.cm-list li{padding:12px 0;border-top:1px solid var(--line)}
-.cm-list a{text-decoration:underline;text-underline-offset:3px;color:var(--blue-ink,var(--blue))}
+.cm-list li{padding:0;border-top:1px solid var(--line)}
+.cm-list a{display:inline-block;min-height:var(--tap,44px);line-height:1.4;padding:10px 0;text-decoration:underline;text-underline-offset:3px;color:var(--blue-ink,var(--blue))}
 .cm-steps{display:grid;gap:14px;margin-top:18px;max-width:var(--measure,68ch)}
 .cm-steps li{display:flex;gap:14px;align-items:flex-start}
 .cm-steps li>span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:50%;background:var(--gold);color:#171814;font-weight:700}
