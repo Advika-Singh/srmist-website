@@ -177,6 +177,7 @@ export default function App() {
           <Route path="/portal/mine" element={<PortalApp view="mine" />} />
           <Route path="/portal/approvals" element={<PortalApp view="approvals" />} />
           <Route path="/portal/logs" element={<PortalApp view="logs" />} />
+          <Route path="/portal/content" element={<PortalApp view="content" />} />
           {SECTION_PATHS.map((p) => (
             <Route key={p} path={p} element={<Section path={p} />} />
           ))}

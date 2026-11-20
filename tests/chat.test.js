@@ -58,3 +58,77 @@ test('when every model fails the error says whether it was rate limiting', async
   fakeFetch(async () => status(503))
   await assert.rejects(answerWithFallback(contents, 'k', 'en', ['a', 'b', 'c']), (e) => e.status === 503)
 })
+
+// --- reading the key and telling failures apart (server/geminiKey.js) ---
+const { classifyUpstream, cleanKey, safeDetail } = await import('../server/geminiKey.js')
+
+test('a pasted key is cleaned: spaces, quotes, newlines and a Bearer prefix go', () => {
+  assert.equal(cleanKey('  AQ.Abc-123_xyz\r\n'), 'AQ.Abc-123_xyz')
+  assert.equal(cleanKey('"AQ.Abc-123_xyz"'), 'AQ.Abc-123_xyz')
+  assert.equal(cleanKey("'AIzaSyExample'"), 'AIzaSyExample')
+  assert.equal(cleanKey('Bearer AIzaSyExample'), 'AIzaSyExample')
+  assert.equal(cleanKey(undefined), '')
+  assert.equal(cleanKey('   '), '')
+})
+
+test('a failed Gemini call is classified as a key problem, a quota problem or just down', () => {
+  assert.equal(classifyUpstream({ status: 403, detail: '' }), 'key')
+  assert.equal(classifyUpstream({ status: 400, detail: 'INVALID_ARGUMENT API key not valid. Please pass a valid API key.' }), 'key')
+  assert.equal(classifyUpstream({ status: 400, detail: 'API_KEY_INVALID' }), 'key')
+  assert.equal(classifyUpstream({ status: 429, detail: '' }), 'quota')
+  assert.equal(classifyUpstream({ status: 400, detail: 'RESOURCE_EXHAUSTED' }), 'quota')
+  assert.equal(classifyUpstream({ status: 504, detail: '' }), 'down')
+  assert.equal(classifyUpstream({ status: 400, detail: 'INVALID_ARGUMENT thinkingLevel unsupported' }), 'down')
+  assert.equal(classifyUpstream(undefined), 'down')
+})
+
+test('the error text kept for the log never contains the key', () => {
+  const body = JSON.stringify({ error: { status: 'INVALID_ARGUMENT', message: 'API key not valid: SECRET-KEY-123' } })
+  const out = safeDetail(body, 'SECRET-KEY-123')
+  assert.ok(!out.includes('SECRET-KEY-123'))
+  assert.match(out, /API key not valid/)
+  assert.equal(safeDetail('<html>boom</html>', 'k').startsWith('<html>'), true)
+})
+
+test('a bad key answers the visitor kindly and says so in the log, not "a lot of questions"', async () => {
+  const prev = globalThis.fetch
+  globalThis.fetch = async () => new Response(JSON.stringify({ error: { status: 'INVALID_ARGUMENT', message: 'API key not valid. Please pass a valid API key.' } }), { status: 400 })
+  try {
+    await assert.rejects(() => answerWithFallback(contents, 'bad', 'en', ['m1']), (e) => classifyUpstream(e) === 'key')
+  } finally {
+    globalThis.fetch = prev
+  }
+})
+
+// --- the answer cache (server/answerCache.js) ---
+const { createAnswerCache } = await import('../server/answerCache.js')
+const one = (text) => [{ role: 'user', parts: [{ text }] }]
+
+test('the same single question, written differently, hits the same cache entry', () => {
+  const c = createAnswerCache()
+  const k = c.keyFor(one('What is the NAAC grade?'), 'en')
+  assert.equal(k, c.keyFor(one('  what IS the naac   grade '), 'en'))
+  c.set(k, { answer: 'A++', links: [] })
+  assert.deepEqual(c.get(c.keyFor(one('what is the NAAC grade'), 'en')), { answer: 'A++', links: [] })
+})
+
+test('a follow-up, an empty question and another language are never mixed up', () => {
+  const c = createAnswerCache()
+  assert.equal(c.keyFor([...one('hi there'), { role: 'model', parts: [{ text: 'hello' }] }, ...one('and fees?')], 'en'), null)
+  assert.equal(c.keyFor(one('  '), 'en'), null)
+  assert.notEqual(c.keyFor(one('fees'), 'en'), c.keyFor(one('fees'), 'ta'))
+})
+
+test('entries expire, and the oldest are dropped when full', () => {
+  let t = 0
+  const c = createAnswerCache({ max: 2, ttlMs: 1000, now: () => t })
+  c.set('a', { answer: '1' }); c.set('b', { answer: '2' }); c.set('c', { answer: '3' })
+  assert.equal(c.get('a'), null) // pushed out
+  assert.equal(c.get('c').answer, '3')
+  t = 5000
+  assert.equal(c.get('c'), null) // expired
+  assert.equal(c.get('b'), null) // expired too
+  c.set('', { answer: 'x' })
+  c.set('z', {}) // no answer text, nothing worth remembering
+  assert.equal(c.size, 0)
+})

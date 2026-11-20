@@ -24,7 +24,7 @@
 .in-card p{margin:0;font-size:15px;line-height:1.55;color:var(--text-muted)}
 .in-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .in-tags li{padding:3px 10px;border:1px solid var(--line-strong);border-radius:999px;font-size:12px;color:var(--ink)}
-.in-src{display:inline-flex;align-items:center;gap:6px;align-self:start;min-height:36px;margin-top:auto;font-size:13.5px;font-weight:600;color:var(--blue-ink,var(--blue));text-decoration:underline;text-underline-offset:3px}
+.in-src{display:inline-flex;align-items:center;gap:6px;align-self:start;min-height:var(--tap,44px);margin-top:auto;font-size:13.5px;font-weight:600;color:var(--blue-ink,var(--blue));text-decoration:underline;text-underline-offset:3px}
 .in-src svg{width:12px;height:12px}
 @media (prefers-reduced-motion:reduce){.in-card,.in-vis svg{transition:none}.in-card:hover{transform:none}.in-card:hover .in-vis svg{transform:none}}
 .in-empty{padding:30px 0;color:var(--text-muted)}

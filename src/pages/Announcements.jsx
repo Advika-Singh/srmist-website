@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useContentList, useSnippet } from '../lib/cms.js'
 import { niceDate } from '../lib/portalApi.js'
 import { Footer, SiteHeader } from '../shared.jsx'
 import Hero from '../ui/Hero.jsx'
@@ -9,6 +10,8 @@ import '../styles/portal.css'
 export default function Announcements() {
   const [items, setItems] = useState(null)
   const [failed, setFailed] = useState(false)
+  const news = useContentList('news', 10) // edited in the staff portal under Site content
+  const lede = useSnippet('announcements.intro', 'Posted by faculty and staff, checked by an approver before they appear here.')
   useEffect(() => {
     let live = true
     fetch('/api/public/items?type=announcement')
@@ -22,7 +25,7 @@ export default function Announcements() {
     <>
       <SiteHeader />
       <main className="interior svc pt-page idv-zigzag" id="main" tabIndex={-1}>
-        <Hero layout="band" eyebrow="Announcements" title="Notices from across the university." lede="Posted by faculty and staff, checked by an approver before they appear here." img="/srmist/campus-lakeview.webp" pos="50% 50%" />
+        <Hero layout="band" eyebrow="Announcements" title="Notices from across the university." lede={lede} img="/srmist/campus-lakeview.webp" pos="50% 50%" />
         <div className="pt-wrap">
           {!items && !failed && <p className="pt-notice pt-notice--info" role="status">Loading announcements…</p>}
           {failed && <p className="pt-notice pt-notice--error" role="alert">Announcements could not be loaded right now. Please try again in a moment.</p>}
@@ -37,6 +40,23 @@ export default function Announcements() {
               </li>
             ))}
           </ul>
+          {news && news.length > 0 && (
+            <section aria-labelledby="cms-news">
+              <h2 id="cms-news" className="pt-h3">News</h2>
+              <ul className="pt-cards">
+                {news.map((n) => (
+                  <li key={n.slug} className="pt-card">
+                    {n.image && <img src={n.image} alt={n.image_alt || ''} loading="lazy" width="640" height="360" style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius)' }} />}
+                    <h3 className="pt-h3">{n.title}</h3>
+                    <p className="pt-meta">{niceDate(n.date)}</p>
+                    <p className="pt-body">{n.summary}</p>
+                    {n.body && <p className="pt-body" style={{ whiteSpace: 'pre-line' }}>{n.body}</p>}
+                    {n.link && <p className="pt-meta"><a href={n.link} target="_blank" rel="noopener noreferrer">Read more<span className="sr-only"> about {n.title} (opens in a new tab)</span></a></p>}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </main>
       <Footer />

@@ -1,6 +1,8 @@
 // An in-memory copy of the portal's database layer, with the same methods as repo-sql.js. Used by the tests and by
 // `DEMO_MEMORY=1` local runs. Nothing here persists.
 
+import { cmsMemory } from '../cms/repo-memory.js'
+
 export function memoryRepo(clock = () => new Date()) {
   const users = []
   const sessions = new Map()
@@ -17,6 +19,7 @@ export function memoryRepo(clock = () => new Date()) {
 
   return {
     _raw: { users, items, logs },
+    ...cmsMemory({ users, clock }), // the headless CMS shares these users
 
     async upsertUser({ email, name, role }) {
       let u = users.find((x) => x.email === email)

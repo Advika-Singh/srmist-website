@@ -12,6 +12,11 @@ import { turnstileEnabled, verifyTurnstile } from './turnstile.js'
 
 const budget = createBudget({ env: process.env, name: 'chat', defaults: { perIp: 60, global: 3000, tokens: 1_500_000 } })
 
+import { createAnswerCache } from './answerCache.js'
+import { classifyUpstream, cleanKey, safeDetail } from './geminiKey.js'
+
+const answers = createAnswerCache()
+
 const API = 'https://generativelanguage.googleapis.com/v1beta/models'
 const MODELS = process.env.GEMINI_MODEL
   ? [process.env.GEMINI_MODEL]
@@ -179,7 +184,7 @@ async function askModel(model, key, contents, lang, signal) {
   for (const withThinking of [true, false]) {
     const r = await callGemini(model, key, contents, withThinking, lang, signal)
     if (r.status === 400 && withThinking) continue // this model may not accept thinkingLevel: ask again without it
-    if (!r.ok) throw Object.assign(new Error('Gemini error'), { status: r.status })
+    if (!r.ok) throw Object.assign(new Error('Gemini error'), { status: r.status, detail: safeDetail(await r.text().catch(() => ''), key) })
     const data = await r.json()
     const parts = data?.candidates?.[0]?.content?.parts || []
     const text = [...parts].reverse().find((p) => typeof p.text === 'string')?.text
@@ -205,8 +210,10 @@ export async function answerWithFallback(contents, key, lang, models = MODELS) {
   const all = new AbortController()
   const deadline = AbortSignal.any([all.signal, AbortSignal.timeout(DEADLINE_MS)])
   let status = 502
+  let detail = ''
   const note = (e) => {
     status = e?.status === 429 || status === 429 ? 429 : (e?.status ?? 504)
+    detail = e?.detail || detail
     throw e
   }
   try {
@@ -220,12 +227,13 @@ export async function answerWithFallback(contents, key, lang, models = MODELS) {
         note2(e)
       }
     }
-    throw Object.assign(new Error('All models failed'), { status })
+    throw Object.assign(new Error('All models failed'), { status, detail })
   } finally {
     all.abort() // stop whichever request lost the race
   }
   function note2(e) {
     status = e?.status === 429 || status === 429 ? 429 : (e?.status ?? 504)
+    detail = e?.detail || detail
   }
 }
 
@@ -234,7 +242,7 @@ export async function handleChat(req, res, env = process.env) {
   // Only our own pages may call this endpoint, and only with JSON.
   if (!sameOrigin(req)) return send(res, 403, { error: 'Forbidden.' })
   if (!String(req.headers['content-type'] || '').toLowerCase().startsWith('application/json')) return send(res, 415, { error: 'Send JSON.' })
-  const key = env.GEMINI_API_KEY
+  const key = cleanKey(env.GEMINI_API_KEY)
   if (!key) return send(res, 503, { error: 'The assistant is not configured yet (missing GEMINI_API_KEY).' })
   const forwarded = env.TRUST_PROXY === '1' ? String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() : ''
   if (limited(forwarded || req.socket?.remoteAddress || 'local')) return send(res, 429, { error: 'Too many questions — please wait a moment.' })
@@ -276,13 +284,24 @@ export async function handleChat(req, res, env = process.env) {
     .map((m) => ({ role: m.role === 'bot' ? 'model' : 'user', parts: [{ text: m.text.trim().slice(0, 800) }] }))
   if (!contents.length || contents[contents.length - 1].role !== 'user') return send(res, 400, { error: 'No question provided.' })
 
+  // the same question asked on its own is answered from memory (docs: one Gemini call for many visitors, so the free quota lasts)
+  const cacheKey = answers.keyFor(contents, lang)
+  const remembered = answers.get(cacheKey)
+  if (remembered) {
+    await budget.record(who, 0)
+    return send(res, 200, remembered)
+  }
   try {
     const { tokens, ...reply } = await answerWithFallback(contents, key, lang)
     await budget.record(who, tokens)
+    answers.set(cacheKey, reply)
     return send(res, 200, reply)
   } catch (e) {
-    console.error('chat upstream failed', e?.status, String(e?.message || e).replace(/key=[^&s]+/g, 'key=…').slice(0, 300))
+    const kind = classifyUpstream(e)
+    // the log line says which of the three it is, so the owner knows whether to replace the key, wait for quota, or just retry
+    console.error('chat upstream failed', kind, e?.status, e?.detail || String(e?.message || e).replace(/key=[^&s]+/g, 'key=…').slice(0, 240))
     await budget.record(who, 0) // a failed attempt still counts as a question, so a broken upstream cannot be hammered for free
-    return send(res, 502, { error: e?.status === 429 ? 'SRM Guide is getting a lot of questions — try again in a moment.' : 'SRM Guide is unavailable right now. Please try again.' })
+    if (kind === 'key') return send(res, 503, { error: 'SRM Guide is not set up correctly right now. Please use the admissions phone number or the search for the moment.' })
+    return send(res, 502, { error: kind === 'quota' ? 'SRM Guide is getting a lot of questions — try again in a moment.' : 'SRM Guide is unavailable right now. Please try again.' })
   }
 }

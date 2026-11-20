@@ -63,4 +63,25 @@ export async function seed(repo, now = new Date()) {
   const w1 = await submit('priya.raman@srmist.edu.in', ann('Tutorial on Friday moved', 'The Friday tutorial is moved to Saturday morning.'))
   const out = await repo.setStatus(w1.id, { status: 'withdrawn' })
   await repo.addLog(logRow('withdrawn', out, who('priya.raman@srmist.edu.in')))
+
+  // headless CMS: one live piece of site text, one story waiting for review, one draft. No made-up news goes live.
+  if (repo.cmsCreate) {
+    const cms = async (email, type, slug, data) => {
+      if (await repo.cmsSlugTaken(type, slug)) return null // the seed can be run again
+      const it = await repo.cmsCreate({ type, slug, data, authorId: who(email).id })
+      await repo.cmsAddEvent({ item_id: it.id, item_type: type, slug, action: 'created', version: 1, actor_id: who(email).id, actor_name: who(email).name, actor_email: email, snapshot: data })
+      return it
+    }
+    const intro = await cms('priya.raman@srmist.edu.in', 'snippet', 'announcements.intro', { key: 'announcements.intro', text: 'Notices and news from across the university, checked by an approver before they appear here.' })
+    if (intro) {
+      await repo.cmsSetStatus(intro.id, { status: 'published', reviewerId: who('arun.kumar@srmist.edu.in').id, liveData: intro.data, publishedAt: now.toISOString() })
+      await repo.cmsAddEvent({ item_id: intro.id, item_type: 'snippet', slug: intro.slug, action: 'published', version: 1, actor_id: who('arun.kumar@srmist.edu.in').id, actor_name: 'Dr. Arun Kumar', actor_email: 'arun.kumar@srmist.edu.in', snapshot: intro.data })
+    }
+    const story = await cms('karthik.subramanian@srmist.edu.in', 'news', 'demo-story-waiting-for-review', { title: 'Demo story waiting for review', summary: 'A sample story so approvers can try publishing and sending back.', date: day(0, now) })
+    if (story) {
+      await repo.cmsSetStatus(story.id, { status: 'pending' })
+      await repo.cmsAddEvent({ item_id: story.id, item_type: 'news', slug: story.slug, action: 'submitted', version: 1, actor_id: who('karthik.subramanian@srmist.edu.in').id, actor_name: 'Karthik Subramanian', actor_email: 'karthik.subramanian@srmist.edu.in', snapshot: story.data })
+    }
+    await cms('meena.iyer@srmist.edu.in', 'faq', 'demo-draft-question', { question: 'Demo draft question for the editor?', answer: 'A sample draft answer that is still being written and is not public.', topic: 'other' })
+  }
 }

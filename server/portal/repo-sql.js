@@ -1,6 +1,7 @@
 // The portal's database layer on Neon Postgres. Every query uses numbered parameters ($1, $2 ...): no value is ever pasted into SQL text.
 // Neon's free plan sleeps after 5 minutes idle, so the first query can take a couple of seconds; `run` retries once on a connection error.
 import { neon } from '@neondatabase/serverless'
+import { cmsSql } from '../cms/repo-sql.js'
 
 const ITEM_SELECT = `
   SELECT i.*, to_char(i.event_date,'YYYY-MM-DD') AS event_date, to_char(i.expires_at,'YYYY-MM-DD') AS expires_at,
@@ -25,6 +26,7 @@ export function sqlRepo(url = process.env.DATABASE_URL) {
   const one = async (text, params) => (await run(text, params))[0] ?? null
 
   return {
+    ...cmsSql({ run, one }), // the headless CMS uses the same connection and retry
     async upsertUser({ email, name, role }) {
       return one(
         `INSERT INTO portal_users (email, name, role, last_login) VALUES ($1,$2,$3, now())

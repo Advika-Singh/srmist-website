@@ -2,6 +2,7 @@
 // and the dev server. Every protected route starts with the same gate: a valid session, then (for changes) CSRF, then the role.
 import { csrfOk, clearCookie, hash, newToken, readCookie, SESSION_DAYS, sessionCookie, verifyGoogleIdToken } from './auth.js'
 import { approverSet, cleanReason, csvCell, srmistEmail, validateItem } from './validate.js'
+import { createCms } from '../cms/routes.js'
 
 const json = (res, status, body, headers = {}) => {
   res.statusCode = status
@@ -68,6 +69,8 @@ export function createPortal({ repo, env = process.env, fetchImpl = fetch, clock
     return true
   }
 
+  const cms = createCms({ repo, json, readJson, limit, clock })
+
   async function handle(req, res) {
     const url = new URL(req.url, 'http://x')
     const path = url.pathname.replace(/\/+$/, '')
@@ -86,6 +89,9 @@ export function createPortal({ repo, env = process.env, fetchImpl = fetch, clock
       res.setHeader('content-type', 'application/json; charset=utf-8')
       return res.end(JSON.stringify({ items: rows.map(publicView) }))
     }
+
+    // ---------- public: live, published content (news, FAQ, site text) ----------
+    if (path === '/api/public/content' || path.startsWith('/api/public/content/')) return cms.publicRoute(req, res, path, url)
 
     if (!path.startsWith('/api/portal')) return json(res, 404, { error: 'Not found.' })
     const route = path.slice('/api/portal'.length) || '/'
@@ -139,6 +145,9 @@ export function createPortal({ repo, env = process.env, fetchImpl = fetch, clock
       res.setHeader('set-cookie', clearCookie({ secure }))
       return json(res, 200, { ok: true })
     }
+
+    // ---------- headless CMS (same people, same roles, same gate) ----------
+    if (route === '/content' || route.startsWith('/content/')) return cms.portalRoute({ req, res, route, method, user, isApprover })
 
     // ---------- submissions (teachers and approvers) ----------
     if (route === '/items' && method === 'POST') {

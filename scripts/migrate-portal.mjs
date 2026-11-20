@@ -1,6 +1,6 @@
 // Creates the portal's tables in the Neon database. Reads DATABASE_URL from the environment or from .env.local / .env.
 // Run:  node scripts/migrate-portal.mjs      (safe to run again: every statement is IF NOT EXISTS / OR REPLACE)
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { neon } from '@neondatabase/serverless'
 
 function loadEnv() {
@@ -38,11 +38,14 @@ export function statements(sqlText) {
 }
 
 const sql = neon(url)
-const file = new URL('../db/migrations/001_portal.sql', import.meta.url)
-const list = statements(readFileSync(file, 'utf8'))
+const dir = new URL('../db/migrations/', import.meta.url)
 let n = 0
-for (const stmt of list) {
-  await sql.query(stmt)
-  n++
+for (const name of readdirSync(dir).filter((f) => /^\d+_.+\.sql$/.test(f)).sort()) {
+  const list = statements(readFileSync(new URL(name, dir), 'utf8'))
+  for (const stmt of list) {
+    await sql.query(stmt)
+    n++
+  }
+  console.log(`  ${name}: ${list.length} statements`)
 }
-console.log(`migration applied: ${n} statements`)
+console.log(`migrations applied: ${n} statements`)

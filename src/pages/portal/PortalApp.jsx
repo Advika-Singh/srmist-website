@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { api, istDateTime, niceDate, setCsrf } from '../../lib/portalApi.js'
 import { Footer, SiteHeader } from '../../shared.jsx'
+import ContentPanel from './ContentPanel.jsx'
 import ItemForm, { toForm } from './ItemForm.jsx'
 import '../../services.css'
 import '../../styles/portal.css'
@@ -357,7 +358,7 @@ export default function PortalApp({ view = 'submit' }) {
   if (view === 'login') current = 'submit'
   if ((view === 'approvals' || view === 'logs') && !isApprover) current = 'denied'
 
-  const tabs = [['submit', '/portal', 'New submission'], ['mine', '/portal/mine', 'My submissions'], ...(isApprover ? [['approvals', '/portal/approvals', 'Approvals'], ['logs', '/portal/logs', 'Logs']] : [])]
+  const tabs = [['submit', '/portal', 'New submission'], ['mine', '/portal/mine', 'My submissions'], ['content', '/portal/content', 'Site content'], ...(isApprover ? [['approvals', '/portal/approvals', 'Approvals'], ['logs', '/portal/logs', 'Logs']] : [])]
 
   return (
     <>
@@ -385,6 +386,7 @@ export default function PortalApp({ view = 'submit' }) {
               {current === 'mine' && <Mine />}
               {current === 'approvals' && <Approvals me={me} />}
               {current === 'logs' && <Logs />}
+              {current === 'content' && <ContentPanel me={me} isApprover={isApprover} />}
               {current === 'denied' && <Notice kind="error">This area is for approvers only.</Notice>}
             </>
           )}

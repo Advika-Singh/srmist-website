@@ -2,6 +2,7 @@
 // The browser sends the visible English text of a page in small batches; Gemini returns Tamil or Hindi.
 // The key stays here (GEMINI_API_KEY), results are cached in memory, and each browser also caches what it has seen.
 
+import { cleanKey } from './geminiKey.js'
 import { sameOrigin } from './security.js'
 import { clean, makeLimiter, readJson, send } from './util.js'
 
@@ -95,7 +96,7 @@ async function translateOnce(key, lang, texts) {
 export async function handleTranslate(req, res, env = process.env) {
   if (req.method !== 'POST') return send(res, 405, { error: 'Use POST.' })
   if (!sameOrigin(req)) return send(res, 403, { error: 'Forbidden.' })
-  const key = env.GEMINI_API_KEY
+  const key = cleanKey(env.GEMINI_API_KEY)
   if (!key) return send(res, 503, { error: 'Translation is not configured.' })
   const ip = (env.TRUST_PROXY === '1' && String(req.headers['x-forwarded-for'] || '').split(',')[0].trim()) || req.socket?.remoteAddress || 'local'
   if (limited(ip)) return send(res, 429, { error: 'Too many requests.' })
