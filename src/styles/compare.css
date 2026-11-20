@@ -5,7 +5,7 @@
 .cp-chips button.is-on{background:var(--blue);border-color:var(--blue);color:#fff}
 .cp-chips button:disabled{opacity:.5;cursor:not-allowed}
 .cp-empty{padding:22px;border:2px dashed var(--line-strong);border-radius:var(--radius,18px);color:var(--text-muted);max-width:66ch}
-.cp-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--surface,#fff)}
+.cp-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface,#fff)}
 .cp-scroll:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .cp-table{width:100%;min-width:calc(150px + var(--cp-n,1) * 210px);border-collapse:collapse;table-layout:fixed}
 .cp-table th,.cp-table td{padding:16px 18px;text-align:left;vertical-align:top;border-top:1px solid var(--line);line-height:1.5}
@@ -23,13 +23,13 @@
 .cp-actions button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#171814}
 .cp-status{font-size:14px;color:var(--text-muted)}
 .cp-saved{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.cp-saved li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface,#fff)}
+.cp-saved li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:16px 20px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface,#fff)}
 .cp-saved b{display:block;font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.15}
 .cp-saved span{color:var(--text-muted);font-size:14px}
 
 /* key dates */
 .dt-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.dt-item{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) auto;gap:8px 22px;align-items:center;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--surface,#fff)}
+.dt-item{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) auto;gap:8px 22px;align-items:center;padding:18px 22px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface,#fff)}
 .dt-item.is-next{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
 .dt-item.is-past{opacity:.62}
 .dt-when{font-family:var(--display);font-weight:500;font-size:clamp(1.25rem,2.2vw,1.7rem);letter-spacing:-.02em;line-height:1.1}

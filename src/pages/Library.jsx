@@ -3,7 +3,7 @@ import pages from '../data/pages.json'
 import { kitFor } from '../data/page-kits.js'
 import { ArrowUR, Footer, Photo, SiteHeader } from '../shared.jsx'
 import '../styles/immersive.css'
-import CinematicHero from '../ui/immersive/CinematicHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 // Everything below comes from the library's own site, https://library.srmist.edu.in (read 2026-11-06).
@@ -63,7 +63,7 @@ export default function Library() {
     <>
       <SiteHeader />
       <main className="interior svc idv-spine" id="main" tabIndex={-1}>
-        <CinematicHero hero={pages.library.hero} accent={kitFor('library').accent} crop={kitFor('library').crop} />
+        <Hero layout="photo" eyebrow={pages.library.hero.eyebrow} title={pages.library.hero.h1} lede={pages.library.hero.p} img={pages.library.hero.img} alt={pages.library.hero.alt} accent={kitFor('library').accent} pos={kitFor('library').crop} />
         <section className="svc-hero lib-bar">
           <p>Opening hours, the librarian, how to reach the team and what is inside. Searching the catalogue, journals and your account happens on the library’s own site.</p>
           <div className="svc-row">

@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 const CATEGORIES = [
@@ -142,7 +142,7 @@ export default function Support() {
     <>
       <SiteHeader />
       <main className="interior svc idv-bubble" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Issues &amp; feedback" title="Tell us what is wrong. Follow it until it is fixed." lede="Every report gets a reference number. Keep it, and you can check where your issue stands any time, without logging in." img="/srmist/admission-india.webp" pos="50% 35%" />
+        <Hero layout="band" eyebrow="Issues &amp; feedback" title="Tell us what is wrong. Follow it until it is fixed." lede="Every report gets a reference number. Keep it, and you can check where your issue stands any time, without logging in." img="/srmist/admission-india.webp" pos="50% 35%" />
 
         <section className="svc-wrap svc-support">
           <div>

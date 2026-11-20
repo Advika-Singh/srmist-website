@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { CLUBS, DSA, GROUPS } from '../data/clubs.js'
 import { Arrow, ArrowUR, Footer, Reveal, SiteHeader } from '../shared.jsx'
 import CountUp from '../ui/CountUp.jsx'
+import { Marquee } from '../ui/immersive/Bands.jsx'
+import '../styles/immersive.css'
 import '../styles/clubs.css'
 
 const ext = { target: '_blank', rel: 'noopener noreferrer' }
@@ -178,6 +180,8 @@ export default function Clubs() {
             ))}
           </ul>
         </section>
+
+        <Marquee words={DSA.events.map(([name]) => name)} caption="Festivals and events run by students and the Directorate of Student Affairs" />
 
         <section className="cl-join" aria-labelledby="join-h">
           <Reveal>

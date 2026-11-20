@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { READ_ON, SECTION_PAGES } from '../data/sections.js'
 import { Arrow, Footer, Reveal, SiteHeader } from '../shared.jsx'
 import CountUp from '../ui/CountUp.jsx'
-import CinematicHero from '../ui/immersive/CinematicHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../styles/immersive.css'
 import '../styles/about.css'
 
@@ -234,7 +234,7 @@ export default function About() {
     <>
       <SiteHeader />
       <main className="interior ab idv-quarter" id="main" tabIndex={-1}>
-        <CinematicHero hero={HERO} accent="#3b82f6" crop="50% 38%" />
+        <Hero layout="photo" eyebrow={HERO.eyebrow} title={HERO.h1} lede={HERO.p} img={HERO.img} alt={HERO.alt} accent="#3b82f6" pos="50% 38%" />
 
         <section className="ab-nums" aria-label="SRMIST at a glance">
           <dl>

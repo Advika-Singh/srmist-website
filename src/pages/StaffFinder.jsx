@@ -3,7 +3,7 @@ import { ArrowUR, Footer, SiteHeader } from '../shared.jsx'
 import { istNow, makeWeek, statusAt } from '../lib/availability.js'
 import StaffIcon from '../ui/StaffIcon.jsx'
 import StaffTimetable from '../ui/StaffTimetable.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../styles/staff.css'
 
 // Staff come from the official SRMIST staff finder (https://www.srmist.edu.in/staff-finder/), collected by
@@ -189,8 +189,8 @@ export default function StaffFinder() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero
+      <main className="interior svc idv-grid" id="main" tabIndex={-1}>
+        <Hero layout="band"
           eyebrow="Staff finder"
           title="Find anyone at SRMIST."
           lede={data ? `${data.people.length.toLocaleString('en-IN')} faculty and staff profiles from the official SRMIST staff finder. Search by name or research area, or narrow by campus, college, department, type and role.` : 'Faculty and staff profiles from the official SRMIST staff finder.'}

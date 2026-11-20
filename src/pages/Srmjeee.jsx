@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { FACTS, NOTES, OFFICIAL, OTHER_EXAMS, PHASES, STEPS, THIRD_SUBJECT } from '../data/srmjeee.js'
 import { checkEligibility, nextDeadline } from '../lib/srmjeee.js'
 import { Arrow, ArrowUR, Footer, Reveal, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../styles/srmjeee.css'
 
 const ext = { target: '_blank', rel: 'noopener noreferrer' }
@@ -73,7 +73,7 @@ export default function Srmjeee() {
     <>
       <SiteHeader />
       <main className="interior svc idv-reverse idv-omr" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="SRMJEEE 2027" title="Your route into B.Tech starts here." lede="Everything about the SRM Joint Engineering Entrance Examination in one place: dates, who can apply, the steps, and a straight line to the official application." img="/srmist/campus-main-building.webp" pos="50% 55%">
+        <Hero layout="band" eyebrow="SRMJEEE 2027" title="Your route into B.Tech starts here." lede="Everything about the SRM Joint Engineering Entrance Examination in one place: dates, who can apply, the steps, and a straight line to the official application." img="/srmist/campus-main-building.webp" pos="50% 55%">
           <div className="sj-hero-cta">
             <a className="button" href={OFFICIAL.apply} {...ext}>
               Register on the official portal <Out />
@@ -82,7 +82,7 @@ export default function Srmjeee() {
               Check my eligibility
             </a>
           </div>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="dates">

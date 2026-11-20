@@ -3,7 +3,7 @@ import { EVENTS, EVENTS_READ_ON, EVENTS_SOURCE } from '../data/events.js'
 import { daysUntil, formatRange, groupByMonth, istToday, monthKey, monthLabel, monthsOf, toCalendarItem, upcoming } from '../lib/events.js'
 import { toIcs } from '../lib/ics.js'
 import { Arrow, ArrowUR, Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 import '../styles/events.css'
 
@@ -52,12 +52,12 @@ export default function EventsCalendar() {
     <>
       <SiteHeader />
       <main className="interior svc ev-page idv-tiles" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Events calendar" title="What is on at SRMIST, month by month." lede="Conferences, workshops, programmes and festivals from the official events page, with a calendar file for each one." img="/srmist/campus-panorama.webp" pos="50% 50%">
+        <Hero layout="band" eyebrow="Events calendar" title="What is on at SRMIST, month by month." lede="Conferences, workshops, programmes and festivals from the official events page, with a calendar file for each one." img="/srmist/campus-panorama.webp" pos="50% 50%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#calendar">The calendar</a>
             <a href="#notes">About these dates</a>
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="calendar">

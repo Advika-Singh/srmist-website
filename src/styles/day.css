@@ -45,7 +45,7 @@
 .day-clockbox b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(3rem,7vw,7rem);line-height:.9;letter-spacing:-.04em;font-variant-numeric:lining-nums tabular-nums}
 .day-clockbox span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ffffffcc}
 .day-cards{display:grid;align-self:flex-start;margin-top:auto;margin-bottom:18px}
-.day-card{grid-area:1/1;max-width:430px;padding:20px 24px;border-radius:18px;background:#0b0c0acf;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid #ffffff26;opacity:0;filter:blur(8px);transform:translateY(20px);transition:opacity .55s var(--ease),filter .55s var(--ease),transform .7s var(--ease)}
+.day-card{grid-area:1/1;max-width:430px;padding:20px 24px;border-radius:var(--r-lg);background:#0b0c0acf;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid #ffffff26;opacity:0;filter:blur(8px);transform:translateY(20px);transition:opacity .55s var(--ease),filter .55s var(--ease),transform .7s var(--ease)}
 .day-card.is-on{opacity:1;filter:none;transform:none}
 .day-step{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .day-card h3{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.05;letter-spacing:-.03em;margin:6px 0 8px}
@@ -53,10 +53,10 @@
 .day-foot{display:grid;gap:10px}
 .day-walk{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#ffffffd9}
 .day-walk b{font-variant-numeric:lining-nums tabular-nums;color:#fff}
-.day-walk i{flex:1;height:3px;border-radius:2px;background:#ffffff33;overflow:hidden}
+.day-walk i{flex:1;height:3px;border-radius:var(--r-sm);background:#ffffff33;overflow:hidden}
 .day-walk u{display:block;height:100%;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;text-decoration:none}
 .day-steps{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0;pointer-events:auto}
-.day-steps button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-height:var(--tap);padding:6px 14px;border:1px solid #ffffff40;border-radius:12px;background:#0b0c0a99;color:#fff;font:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:background .25s,border-color .25s,transform .3s var(--ease)}
+.day-steps button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-height:var(--tap);padding:6px 14px;border:1px solid #ffffff40;border-radius:var(--r-md);background:#0b0c0a99;color:#fff;font:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:background .25s,border-color .25s,transform .3s var(--ease)}
 .day-steps button span{font-size:12px;color:var(--gold);font-variant-numeric:lining-nums tabular-nums}
 .day-steps button:hover{border-color:var(--gold);transform:translateY(-2px)}
 .day-steps button.is-on{background:var(--gold);border-color:var(--gold);color:#171814}
@@ -69,12 +69,12 @@
 .day-flat .eyebrow{color:var(--blue-ink,var(--blue))}
 .day-flat h1,.day-flat h2{font-family:var(--display);font-weight:500;font-size:clamp(2rem,6vw,4rem);letter-spacing:-.04em;line-height:1;margin:8px 0 24px;max-width:16ch}
 .day-flat h1 em,.day-flat h2 em{color:var(--blue-ink,var(--blue))}
-.day-flat-map svg{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
+.day-flat-map svg{display:block;width:100%;height:auto;border-radius:var(--r-md);border:1px solid var(--line)}
 .day-flat .d-route{filter:none;stroke:#e0572f}
 .d-pin-ring--flat{fill:#fff;stroke:#171814;stroke-width:1.4;opacity:1}
 .d-pin-num{fill:#171814;font-weight:700}
 .day-flat-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;list-style:none;margin:24px 0 0;padding:0}
-.day-flat-list li{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--surface,#fff)}
+.day-flat-list li{padding:18px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface,#fff)}
 .day-flat-list .day-step{color:var(--blue-ink,var(--blue))}
 .day-flat-list h3{font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.1;margin:4px 0 6px}
 .day-flat-list p{color:var(--text-muted);font-size:14px}

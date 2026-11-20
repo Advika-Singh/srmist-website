@@ -21,9 +21,9 @@ test('every kit has a moment, a hex accent and a crop', () => {
   }
 })
 
-test('no two pages share an accent colour', () => {
+test('every page uses the one brand accent (docs/DESIGN-RULES.md)', () => {
   const accents = Object.values(KITS).map((k) => k.accent.toLowerCase())
-  assert.equal(new Set(accents).size, accents.length)
+  assert.equal(new Set(accents).size, 1)
 })
 
 test('no page pins more than three moments, so scroll length stays within the cap', () => {

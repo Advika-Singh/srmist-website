@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { TOPICS, VOICES, filterVoices } from '../data/student-voices.js'
 import { ArrowUR, Footer, Reveal, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../styles/voices.css'
 
 const ASK = '/support?category=Question%20for%20a%20current%20student'
@@ -15,8 +15,8 @@ export default function StudentVoices() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero
+      <main className="interior svc idv-bubbles" id="main" tabIndex={-1}>
+        <Hero layout="band"
           eyebrow="Ask a current student"
           title="Honest answers, from people who are here."
           lede="Short answers about placements, hostel life, workload and clubs, tagged by department. An answer is shown only when the student agreed to it or when it comes from a public SRMIST page that we link to."

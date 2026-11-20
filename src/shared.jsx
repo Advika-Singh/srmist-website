@@ -509,10 +509,16 @@ const SearchIcon = () => (
   </svg>
 )
 
-function NavLink({ href, children, ...rest }) {
+// A link to one of our own pages (a path, not an address on srmist.edu.in or another site) gets `is-ours`, which the menus draw in bold,
+// so anyone looking at the navigation can see at a glance which pages this redesign has rebuilt.
+// (the standalone .html pages are older, separate pages, so they are not counted)
+const isOurs = (href) => typeof href === 'string' && href.startsWith('/') && !href.startsWith('//') && !/\.html([?#]|$)/.test(href)
+
+function NavLink({ href, children, className, ...rest }) {
   const { pathname } = useLocation()
+  const cls = [className, isOurs(href) ? 'is-ours' : ''].filter(Boolean).join(' ') || undefined
   return (
-    <a href={href} {...ex(href)} aria-current={href === pathname ? 'page' : undefined} {...rest}>
+    <a href={href} {...ex(href)} aria-current={href === pathname ? 'page' : undefined} className={cls} {...rest}>
       {children}
     </a>
   )
@@ -677,6 +683,9 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
                     <div className="snav-lead">
                       <span className="eyebrow">{m.label}</span>
                       <p>{m.blurb}</p>
+                      <small className="snav-legend">
+                        <b>Bold</b> links are pages this redesign has rebuilt.
+                      </small>
                       <NavLink href={m.to} className="snav-lead-link">
                         Explore {m.label.toLowerCase()} <Arrow />
                       </NavLink>
@@ -738,6 +747,9 @@ export function MainNav({ variant = 'solid', hidden = false, light = false }) {
                 {m.label} <Chevron />
               </button>
               <div className="snav-mobile-links">
+                <small className="snav-legend">
+                  <b>Bold</b> links are pages this redesign has rebuilt.
+                </small>
                 <NavLink href={m.to}>Explore {m.label.toLowerCase()}</NavLink>
                 {m.cols.map((c) => (
                   <div key={c.title}>

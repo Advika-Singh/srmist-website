@@ -1,7 +1,7 @@
 import pages from '../data/pages.json'
 import { kitFor } from '../data/page-kits.js'
 import '../styles/immersive.css'
-import CinematicHero from '../ui/immersive/CinematicHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import Moments from '../ui/immersive/Moments.jsx'
 import { PROGRAMMES, applyHref } from '../data/programmes.js'
 import { Arrow, Footer, Photo, Reveal, SiteHeader, ex } from '../shared.jsx'
@@ -23,6 +23,9 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
  * card grid of topics, and a split feature. Programme pages add the programme table, which turns
  * into stacked cards on phones (no sideways scrolling). Admissions has its own screen (pages/Admissions.jsx).
  */
+// the hero look of each immersive page (see styles/identity.css); Academics, Programmes, Campus life, Scholarships and Examinations keep the plain full-bleed photo; the spine look is the Library's alone
+const LOOK = { international: 'idv-quarter', alumni: 'idv-quarter', departments: 'idv-quarter', research: 'idv-diag', rankings: 'idv-diag', events: 'idv-diag' }
+
 export default function Interior({ slug }) {
   const page = pages[slug]
   const { hero, stats, intro, blocks, split } = page
@@ -44,9 +47,9 @@ export default function Interior({ slug }) {
   return (
     <>
       <SiteHeader />
-      <main className="interior" id="main" tabIndex={-1}>
+      <main className={`interior ${LOOK[slug] ?? ''}`} id="main" tabIndex={-1}>
         {kit ? (
-          <CinematicHero hero={hero} accent={kit.accent} crop={kit.crop} />
+          <Hero layout="photo" eyebrow={hero.eyebrow} title={hero.h1} lede={hero.p} img={hero.img} alt={hero.alt} accent={kit.accent} pos={kit.crop} />
         ) : (
         <section className="page-hero">
           <Reveal className="page-title">

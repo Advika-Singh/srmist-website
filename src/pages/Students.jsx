@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ABROAD, ACADEMIC_LINKS, CALENDARS, CAREER, EXAMS, FEES, LIFE, OWN_TOOLS, TOOLS } from '../data/students.js'
 import { ArrowUR, Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 const ext = { target: '_blank', rel: 'noopener noreferrer' }
@@ -36,7 +36,7 @@ export default function Students() {
     <>
       <SiteHeader />
       <main className="interior svc idv-arch" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Students" title="Everything you need, in one place." lede="Portals, fees, exams, academic calendars and student life: every link goes to the official SRMIST page, organised so you can find it in a few seconds." img="/srmist/students.webp" pos="50% 35%">
+        <Hero layout="band" eyebrow="Students" title="Everything you need, in one place." lede="Portals, fees, exams, academic calendars and student life: every link goes to the official SRMIST page, organised so you can find it in a few seconds." img="/srmist/students.webp" pos="50% 35%">
   <nav className="vis-quick" aria-label="On this page">
               <a href="#portals">Portals &amp; tools</a>
               <a href="#fees">Fees &amp; loans</a>
@@ -44,7 +44,7 @@ export default function Students() {
               <a href="#calendars">Academic calendars</a>
               <a href="#more">Careers, abroad &amp; campus life</a>
             </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="portals">

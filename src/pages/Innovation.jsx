@@ -3,7 +3,7 @@ import { DEPARTMENTS } from '../data/departments.js'
 import { KIND_LABEL, KINDS, STORIES } from '../data/innovation.js'
 import { Footer, SiteHeader } from '../shared.jsx'
 import StoryCard from '../ui/StoryCard.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../styles/innovation.css'
 
 const slugOf = (href) => href.replace(/\/$/, '').split('/').pop()
@@ -23,7 +23,7 @@ export default function Innovation() {
     <>
       <SiteHeader />
       <main className="interior svc idv-hex" id="main" tabIndex={-1}>
-        <SvcHero
+        <Hero layout="band"
           eyebrow="Student innovation"
           title="Things SRM students have built."
           lede="Satellites, apps and ideas from across the university, each linked to the page where it was reported. A small start, and it grows as more stories are sourced."

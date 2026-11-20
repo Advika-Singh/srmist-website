@@ -2,7 +2,7 @@ import { CONTACT, NUMBERS, OFFICIAL, RECRUITERS as NAMES, STORIES } from '../dat
 import { RECRUITERS } from '../data/community.js'
 import { Arrow, Footer, SiteHeader } from '../shared.jsx'
 import LinkCards from '../ui/LinkCards.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import CountUp from '../ui/CountUp.jsx'
 import '../services.css'
 
@@ -12,14 +12,14 @@ export default function Recruiters() {
     <>
       <SiteHeader />
       <main className="interior svc idv-chamfer idv-grid" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Recruiters" title="Hire from SRMIST." lede="How campus recruitment works, who has recruited, and who to write to at the Career Centre." img="/srmist/tech-park.webp" pos="50% 45%">
+        <Hero layout="band" eyebrow="Recruiters" title="Hire from SRMIST." lede="How campus recruitment works, who has recruited, and who to write to at the Career Centre." img="/srmist/tech-park.webp" pos="50% 45%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#how">How it works</a>
             <a href="#numbers">The numbers</a>
             <a href="#who">Who recruits</a>
             <a href="#contact">Contact</a>
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="how">

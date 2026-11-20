@@ -6,7 +6,7 @@
 .in-filter button.is-on{background:var(--blue);border-color:var(--blue);color:#fff}
 .in-filter .in-clear{border-color:var(--gold)}
 .in-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
-.in-card{position:relative;display:flex;flex-direction:column;overflow:hidden;padding:0;border:1px solid var(--line);border-radius:20px;background:var(--surface,#fff);color:var(--ink);transition:transform .5s var(--ease),border-color .3s,box-shadow .5s}
+.in-card{position:relative;display:flex;flex-direction:column;overflow:hidden;padding:0;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface,#fff);color:var(--ink);transition:transform .5s var(--ease),border-color .3s,box-shadow .5s}
 .in-card:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 26px 54px #084b9b2b}
 .in-vis{position:relative;height:132px;overflow:hidden;background:linear-gradient(135deg,#0a4fa8 0%,#0b2a5c 100%)}
 .in-vis svg{position:absolute;right:18px;bottom:-14px;width:112px;height:112px;fill:none;stroke:#ffffff;stroke-opacity:.9;stroke-width:.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .6s var(--ease)}

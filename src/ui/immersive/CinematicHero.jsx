@@ -6,7 +6,7 @@ import { Photo } from '../../shared.jsx'
  * Full-bleed inner-page hero: the page's photo cropped its own way, tinted with the page accent, a slow push-in as you
  * scroll past, and a title that rises word by word like the home page wordmark.
  */
-export default function CinematicHero({ hero, accent, crop }) {
+export default function CinematicHero({ hero, accent, crop, children }) {
   const root = useRef(null)
   const { lang } = useLang()
 
@@ -49,6 +49,7 @@ export default function CinematicHero({ hero, accent, crop }) {
           ))}
         </h1>
         <p className="ch-lede">{hero.p}</p>
+        {children}
       </div>
       <span className="ch-cue" aria-hidden="true">
         Scroll

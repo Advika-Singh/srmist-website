@@ -1,4 +1,5 @@
-/* Page identities: every interior page gets its own shape language, pattern, photo treatment, heading mark and scroll effect.
+/* Page identities (docs/DESIGN-RULES.md): a curated menu of hero looks; each page picks one and a look may be shared by a few pages. What is locked on every page: heading size, accent, button, radii, type.
+   Each look has its own shape language, pattern, photo treatment, heading mark and scroll effect.
    A page opts in with a class on <main> (.idv-name). Tokens only: blue / blue-dark / gold / sand / paper / ink, Playfair + Roboto Mono.
    Hero = the shared .sh (SvcHero) or .ch (CinematicHero). Written mobile-first; nothing here hides text or moves it off-screen. */
 
@@ -14,7 +15,7 @@
 :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-tint{background:none}
 :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-photo{z-index:1;inset:auto;top:calc(var(--nav-h,78px) + 34px);bottom:64px;right:max(6vw,calc((100vw - 1200px) / 2));width:min(36vw,430px);transform:translate3d(0,calc(var(--sh-p) * 46px),0)}
 :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-photo img{border-radius:inherit;clip-path:inherit;mask:inherit;-webkit-mask:inherit}
-:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh h1{font-size:clamp(2.5rem,5.8vw,5.4rem);max-width:11ch}
+:is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh h1{max-width:11ch}
 :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh-copy>:not(h1){max-width:min(100%,48vw)}
 @media (max-width:860px){
   :is(.idv-arch,.idv-hex,.idv-pill,.idv-circle,.idv-blob,.idv-diamond,.idv-venn,.idv-octagon,.idv-slats,.idv-tiles) .sh{padding-top:calc(var(--nav-h,78px) + min(46vw,200px) + 28px)}
@@ -61,11 +62,8 @@
 .idv-reverse .sh{clip-path:polygon(0 0,100% 0,100% 100%,0 86%);padding-bottom:128px}
 .idv-chevron .sh{clip-path:polygon(0 0,100% 0,100% 88%,50% 100%,0 88%);padding-bottom:120px}
 .idv-notch .sh{clip-path:polygon(0 0,100% 0,100% 100%,62% 100%,62% 93%,38% 93%,38% 100%,0 100%);padding-bottom:116px}
-.idv-stairs .sh{clip-path:polygon(0 0,100% 0,100% 62%,75% 62%,75% 77%,50% 77%,50% 92%,25% 92%,25% 100%,0 100%);padding-bottom:110px}
-.idv-stairs:is(.sx-research-initiatives) .sh{clip-path:polygon(0 0,100% 0,100% 100%,75% 100%,75% 92%,50% 92%,50% 80%,25% 80%,25% 66%,0 66%)}
-.idv-wave .sh{-webkit-mask:radial-gradient(120px 28px at 50% 100%,#000 98%,#0000) 0 100%/240px 56px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 28px) no-repeat;mask:radial-gradient(120px 28px at 50% 100%,#000 98%,#0000) 0 100%/240px 56px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 28px) no-repeat;padding-bottom:116px}
-.idv-arcade .sh{-webkit-mask:radial-gradient(circle 54px at 50% 0,#000 98%,#0000) 0 100%/108px 54px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 53px) no-repeat;mask:radial-gradient(circle 54px at 50% 0,#000 98%,#0000) 0 100%/108px 54px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 53px) no-repeat;padding-bottom:140px}
-.idv-ticket .sh{-webkit-mask:radial-gradient(circle 11px at 50% 100%,#0000 98%,#000) 0 100%/42px 22px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 21px) no-repeat;mask:radial-gradient(circle 11px at 50% 100%,#0000 98%,#000) 0 100%/42px 22px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 21px) no-repeat}
+/* stairs: the steps are cut in pixels from the bottom edge, and the padding under the text is larger than the deepest step, so no text is ever clipped */
+.idv-stairs .sh{clip-path:polygon(0 0,100% 0,100% 100%,75% 100%,75% calc(100% - 46px),50% calc(100% - 46px),50% calc(100% - 92px),25% calc(100% - 92px),25% calc(100% - 140px),0 calc(100% - 140px));padding-bottom:176px}
 .idv-ticket{--idv-pat:radial-gradient(circle,#f2c84b 3px,transparent 3.5px);--idv-pat-size:44px 44px;--idv-pat-o:.2}
 .idv-zigzag .sh{-webkit-mask:linear-gradient(135deg,#0000 12px,#000 0) 0 100%/24px 24px repeat-x,linear-gradient(225deg,#0000 12px,#000 0) 12px 100%/24px 24px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 22px) no-repeat;mask:linear-gradient(135deg,#0000 12px,#000 0) 0 100%/24px 24px repeat-x,linear-gradient(225deg,#0000 12px,#000 0) 12px 100%/24px 24px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 22px) no-repeat}
 .idv-zigzag .sh-photo{inset:auto;right:max(6vw,calc((100vw - 1200px) / 2));top:calc(var(--nav-h,78px) + 30px);bottom:64px;width:min(32vw,400px);z-index:1;rotate:3deg;border:10px solid var(--surface,#fff);box-shadow:0 20px 40px #04122c33;transform:none}
@@ -78,7 +76,6 @@
 .idv-arrow .sh{clip-path:polygon(0 0,93% 0,100% 50%,93% 100%,0 100%)}
 .idv-arrow .sh-copy{padding-right:4vw}
 @media (max-width:700px){.idv-arrow .sh{clip-path:polygon(0 0,100% 0,100% 94%,50% 100%,0 94%)}}
-.idv-dome .sh{border-radius:0 0 50% 50% / 0 0 110px 110px;padding-bottom:128px}
 .idv-bubble .sh{margin:calc(var(--nav-h,78px) * -1 + 10px) max(10px,2vw) 0;border-radius:80px 80px 80px 14px;min-height:min(62svh,600px);padding-bottom:96px}
 .idv-bubble .sh + .svc-wrap{margin-top:-30px}
 .idv-card .sh{margin:calc(var(--nav-h,78px) * -1 + 12px) max(10px,2.4vw) 0;border-radius:26px;min-height:min(56svh,520px);padding-bottom:84px;outline:1px solid #ffffff2a;outline-offset:-10px}
@@ -111,13 +108,12 @@
 .idv-spine .ch-photo img{border-radius:50%;object-position:var(--ch-crop,50% 50%)}
 .idv-spine .ch-tint{background:linear-gradient(120deg,color-mix(in srgb,var(--ch-accent) 40%,transparent),transparent 60%);--idv-pat:repeating-linear-gradient(90deg,#ffffff00 0 44px,#ffffff0d 44px 46px,#ffffff00 46px 62px,#f2c84b14 62px 64px)}
 .idv-spine .ch-copy{max-width:min(100%,58vw)}
-.idv-spine .ch h1{font-size:clamp(2.8rem,7vw,7rem)}
 @media (max-width:760px){.idv-spine .ch-photo{width:92vw;right:-30vw;bottom:-30vw;opacity:.55}.idv-spine .ch-copy{max-width:100%}}
 .idv-quarter .ch{background:var(--ink)}
 .idv-quarter .ch-photo{inset:0 0 0 38%;border-radius:100vw 0 0 0;overflow:hidden;transform:none}
 .idv-quarter .ch-photo img{transform:scale(calc(1.02 + var(--ch-p,0) * .08))}
 .idv-quarter .ch-tint{background:linear-gradient(90deg,var(--ink) 38%,transparent 60%),linear-gradient(to top,#0b0c0acc,transparent 40%);--idv-pat:radial-gradient(#ffffff26 1.5px,transparent 1.7px);--idv-pat-size:26px 26px}
-@media (max-width:760px){.idv-quarter .ch-photo{inset:0 0 40% 0;border-radius:0 0 50% 50% / 0 0 80px 80px}.idv-quarter .ch-tint{background:linear-gradient(to top,var(--ink) 40%,transparent 75%)}}
+@media (max-width:760px){.idv-quarter .ch-photo{inset:0 0 40% 0}.idv-quarter .ch-tint{background:linear-gradient(to top,var(--ink) 40%,transparent 75%)}}
 .idv-diag .ch{background:var(--ink)}
 .idv-diag .ch-photo{clip-path:polygon(40% 0,100% 0,100% 100%,18% 100%)}
 .idv-diag .ch-tint{background:linear-gradient(to top,#0b0c0acc,transparent 40%)}

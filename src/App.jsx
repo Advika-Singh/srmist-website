@@ -45,6 +45,7 @@ const KeyDates = lazy(() => import('./pages/KeyDates.jsx'))
 const Section = lazy(() => import('./pages/Section.jsx'))
 const EventsCalendar = lazy(() => import('./pages/EventsCalendar.jsx'))
 const About = lazy(() => import('./pages/About.jsx'))
+const StyleGuide = lazy(() => import('./pages/StyleGuide.jsx'))
 const Announcements = lazy(() => import('./pages/Announcements.jsx'))
 const PortalApp = lazy(() => import('./pages/portal/PortalApp.jsx'))
 
@@ -181,6 +182,7 @@ export default function App() {
           ))}
           <Route path="/placements" element={<Placements />} />
           <Route path="/about" element={<About />} />
+          <Route path="/style-guide" element={<StyleGuide />} />
           {SLUGS.filter((slug) => !['admissions', 'library', 'placements', 'about'].includes(slug)).map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<Interior slug={slug} />} />
           ))}

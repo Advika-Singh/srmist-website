@@ -3,7 +3,7 @@ import { OFFICIAL } from '../data/srmjeee.js'
 import { keyDates, toIcs, upcoming } from '../lib/ics.js'
 import { nextDeadline } from '../lib/srmjeee.js'
 import { Arrow, Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 import '../styles/srmjeee.css'
 import '../styles/compare.css'
@@ -33,13 +33,13 @@ export default function KeyDates() {
     <>
       <SiteHeader />
       <main className="interior svc cp-page idv-notch" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Key dates" title="Never miss an admission date." lede="The SRMJEEE 2027 application deadlines and exam days in one list, with a calendar file you can add to your phone." img="/srmist/campus-lakeview.webp" pos="50% 50%">
+        <Hero layout="band" eyebrow="Key dates" title="Never miss an admission date." lede="The SRMJEEE 2027 application deadlines and exam days in one list, with a calendar file you can add to your phone." img="/srmist/campus-lakeview.webp" pos="50% 50%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#dates">The dates</a>
             <a href="#calendar">Add to my calendar</a>
             <a href="#more">Other exams</a>
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="dates">

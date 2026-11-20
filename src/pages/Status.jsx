@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { ArrowUR, Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 const STATE = {
@@ -71,7 +71,7 @@ export default function Status() {
     <>
       <SiteHeader />
       <main className="interior svc idv-card" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Service status" title="Is it down, or is it just you?" lede="Live checks of the portals students use most. We ask each one from our server every minute, so you can tell an outage from a bad connection before you spend an hour refreshing." img="/srmist/tech-park.webp" pos="50% 40%" />
+        <Hero layout="band" eyebrow="Service status" title="Is it down, or is it just you?" lede="Live checks of the portals students use most. We ask each one from our server every minute, so you can tell an outage from a bad connection before you spend an hour refreshing." img="/srmist/tech-park.webp" pos="50% 40%" />
 
         <section className="svc-wrap" aria-labelledby="svc-banner">
           <div className={`svc-banner svc-banner--${data?.overall ?? 'wait'}`} role="status" aria-live="polite">

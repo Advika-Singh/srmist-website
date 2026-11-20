@@ -1,7 +1,7 @@
 import { PARENTS } from '../data/community.js'
 import { Arrow, Footer, SiteHeader } from '../shared.jsx'
 import LinkCards from '../ui/LinkCards.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 export default function Parents() {
@@ -10,7 +10,7 @@ export default function Parents() {
     <>
       <SiteHeader />
       <main className="interior svc idv-pill" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Parents" title="Everything a parent looks for, in one place." lede="The parent portal, fees and loans, safety, hostels and ways to stay in touch, with each link going to the official page." img="/srmist/admission-india.webp" pos="50% 40%">
+        <Hero layout="band" eyebrow="Parents" title="Everything a parent looks for, in one place." lede="The parent portal, fees and loans, safety, hostels and ways to stay in touch, with each link going to the official page." img="/srmist/admission-india.webp" pos="50% 40%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#portal">Parent portal</a>
             {p.groups.map((g) => (
@@ -19,7 +19,7 @@ export default function Parents() {
               </a>
             ))}
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="portal">

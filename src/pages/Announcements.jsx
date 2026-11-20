@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { niceDate } from '../lib/portalApi.js'
 import { Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 import '../styles/portal.css'
 
@@ -22,7 +22,7 @@ export default function Announcements() {
     <>
       <SiteHeader />
       <main className="interior svc pt-page idv-zigzag" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Announcements" title="Notices from across the university." lede="Posted by faculty and staff, checked by an approver before they appear here." img="/srmist/campus-lakeview.webp" pos="50% 50%" />
+        <Hero layout="band" eyebrow="Announcements" title="Notices from across the university." lede="Posted by faculty and staff, checked by an approver before they appear here." img="/srmist/campus-lakeview.webp" pos="50% 50%" />
         <div className="pt-wrap">
           {!items && !failed && <p className="pt-notice pt-notice--info" role="status">Loading announcements…</p>}
           {failed && <p className="pt-notice pt-notice--error" role="alert">Announcements could not be loaded right now. Please try again in a moment.</p>}

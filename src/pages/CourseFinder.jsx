@@ -3,7 +3,7 @@ import { QUESTIONS } from '../data/finder-questions.js'
 import { applyHref } from '../data/programmes.js'
 import { recommend, unanswered } from '../lib/courseFinder.js'
 import { Arrow, ArrowUR, Footer, LINK, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../styles/finder.css'
 
 const Check = () => (
@@ -132,7 +132,7 @@ export default function CourseFinder() {
     <>
       <SiteHeader />
       <main className="interior svc idv-bubbles idv-dome" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Course finder" title="Not sure what to study? Start here." lede="Answer five quick questions about what you enjoy and where you want to go. We will suggest the fields of study at SRMIST worth looking at first." img="/srmist/labs.webp" pos="50% 35%" />
+        <Hero layout="band" eyebrow="Course finder" title="Not sure what to study? Start here." lede="Answer five quick questions about what you enjoy and where you want to go. We will suggest the fields of study at SRMIST worth looking at first." img="/srmist/labs.webp" pos="50% 35%" />
 
         <section className="svc-wrap cf-wrap" ref={top} aria-live="polite">
           {!done ? (

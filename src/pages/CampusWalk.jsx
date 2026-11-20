@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import day from '../data/campus-day.json'
 import { Arrow, Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 const TOUR = 'https://webstor.srmist.edu.in/web_assets/srmist-virtual-tour-vo/index.htm'
@@ -57,13 +57,13 @@ export default function CampusWalk() {
     <>
       <SiteHeader />
       <main className="interior svc idv-ticket" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Visit · Kattankulathur campus" title="Walk the campus before you arrive." lede="Five stops, about an hour of an ordinary day, with real walking distances. Use it to picture where things are, then take the official 360° tour for the views." img="/srmist/campus-lakeview.webp" pos="50% 55%">
+        <Hero layout="band" eyebrow="Visit · Kattankulathur campus" title="Walk the campus before you arrive." lede="Five stops, about an hour of an ordinary day, with real walking distances. Use it to picture where things are, then take the official 360° tour for the views." img="/srmist/campus-lakeview.webp" pos="50% 55%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#walk">The walk</a>
             <a href="#tour">360° tour</a>
             <a href="/access-map">Accessible map</a>
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="walk">

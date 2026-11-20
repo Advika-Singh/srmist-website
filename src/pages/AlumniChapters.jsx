@@ -1,7 +1,7 @@
 import { ALUMNI } from '../data/community.js'
 import { Arrow, Footer, SiteHeader } from '../shared.jsx'
 import LinkCards from '../ui/LinkCards.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 export default function AlumniChapters() {
@@ -10,13 +10,13 @@ export default function AlumniChapters() {
     <>
       <SiteHeader />
       <main className="interior svc idv-diamond" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Alumni" title="Stay part of SRM, wherever you are." lede="Chapters in cities across India, an official alumni portal, and a directorate whose job is to keep graduates and the university connected." img="/srmist/students.webp" pos="50% 40%">
+        <Hero layout="band" eyebrow="Alumni" title="Stay part of SRM, wherever you are." lede="Chapters in cities across India, an official alumni portal, and a directorate whose job is to keep graduates and the university connected." img="/srmist/students.webp" pos="50% 40%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#about">What the directorate does</a>
             <a href="#chapters">Chapter meetups</a>
             <a href="#connect">Connect</a>
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="about">

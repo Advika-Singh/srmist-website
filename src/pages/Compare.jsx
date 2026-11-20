@@ -4,7 +4,7 @@ import { PROGRAMMES, programmeById } from '../data/programmes.js'
 import { OFFICIAL } from '../data/srmjeee.js'
 import { MAX_COMPARE, clearShortlist, columns, idsFromQuery, queryFor, readShortlist, toggleId, toggleShortlist } from '../lib/compare.js'
 import { Arrow, Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 import '../styles/compare.css'
 
@@ -99,13 +99,13 @@ export default function Compare() {
     <>
       <SiteHeader />
       <main className="interior svc cp-page idv-slats" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Compare programmes" title="Put fields of study side by side." lede="Choose up to three fields and see their levels, typical length, example programmes and entrance exam in one table, then save the ones you like." img="/srmist/students.webp" pos="50% 35%">
+        <Hero layout="band" eyebrow="Compare programmes" title="Put fields of study side by side." lede="Choose up to three fields and see their levels, typical length, example programmes and entrance exam in one table, then save the ones you like." img="/srmist/students.webp" pos="50% 35%">
           <nav className="vis-quick" aria-label="On this page">
             <a href="#choose">Choose fields</a>
             <a href="#table">Comparison</a>
             <a href="#shortlist">My shortlist</a>
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="choose">

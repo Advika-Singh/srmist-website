@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AMENITIES_NOTE, COMMON_AMENITIES, DIRECTOR, EATERIES, GROUPS, HOSTELS, MESS_FACTS, MESS_TIMINGS, OFFICIAL, TARGETS, phoneHref } from '../data/hostels.js'
 import { ArrowUR, Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 const GROUP_LABEL = { men: 'Men', women: 'Women', international: 'International' }
@@ -100,7 +100,7 @@ export default function Hostels() {
     <>
       <SiteHeader />
       <main className="interior svc idv-slash" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Hostels · Kattankulathur campus" title="A home on campus." lede="Every hostel block in one place: what it is like inside, how far it is from the places you will use most, what the mess serves, and who to call." img="/srmist/campus-panorama.webp" pos="50% 50%">
+        <Hero layout="band" eyebrow="Hostels · Kattankulathur campus" title="A home on campus." lede="Every hostel block in one place: what it is like inside, how far it is from the places you will use most, what the mess serves, and who to call." img="/srmist/campus-panorama.webp" pos="50% 50%">
   <nav className="vis-quick" aria-label="On this page">
               <a href="#hostel-list">All hostels</a>
               <a href="#rooms">Room types &amp; floor plans</a>
@@ -108,7 +108,7 @@ export default function Hostels() {
               <a href="#mess">Mess</a>
               <a href="#contacts">Contacts</a>
             </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           <div className="vis-block" id="hostel-list">

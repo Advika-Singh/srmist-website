@@ -7,7 +7,7 @@ import '../styles/immersive.css'
 import '../styles/placements.css'
 import CountUp from '../ui/CountUp.jsx'
 import { CountBand } from '../ui/immersive/Bands.jsx'
-import CinematicHero from '../ui/immersive/CinematicHero.jsx'
+import Hero from '../ui/Hero.jsx'
 
 const ext = { target: '_blank', rel: 'noopener noreferrer' }
 const Out = () => (
@@ -33,7 +33,7 @@ export default function Placements() {
     <>
       <SiteHeader />
       <main className="interior pl idv-diag" id="main" tabIndex={-1}>
-        <CinematicHero hero={hero} accent={kit.accent} crop={kit.crop} />
+        <Hero layout="photo" eyebrow={hero.eyebrow} title={hero.h1} lede={hero.p} img={hero.img} alt={hero.alt} accent={kit.accent} pos={kit.crop} />
 
         <CountBand items={pages.placements.stats} tone="blue" label="Placement figures" />
         <p className="pl-note">

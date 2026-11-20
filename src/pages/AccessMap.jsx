@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import CampusMap, { NAMED_BUILDINGS } from '../ui/CampusMap.jsx'
 import '../services.css'
 
@@ -15,8 +15,8 @@ export default function AccessMap() {
   return (
     <>
       <SiteHeader />
-      <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero eyebrow="Accessible campus" title="Step-free routes, ramps and lifts." lede="A map layer for people who use wheelchairs, walkers, prams or simply cannot manage stairs. It shows what is known today, and where nobody has checked yet." img="/srmist/campus-main-building.webp" pos="50% 55%" />
+      <main className="interior svc idv-ghost" id="main" tabIndex={-1}>
+        <Hero layout="band" eyebrow="Accessible campus" title="Step-free routes, ramps and lifts." lede="A map layer for people who use wheelchairs, walkers, prams or simply cannot manage stairs. It shows what is known today, and where nobody has checked yet." img="/srmist/campus-main-building.webp" pos="50% 55%" />
 
         <section className="svc-wrap">
           <div className="map-layout">

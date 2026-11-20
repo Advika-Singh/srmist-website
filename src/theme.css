@@ -19,6 +19,14 @@
   --blue-ink: var(--blue); /* the blue to use for TEXT: the same in light, lighter in dark */
   --blue-dark: #06366f;
   --gold: #f2c84b;
+  /* hero (docs/DESIGN-RULES.md): one heading scale and two minimum heights for every page */
+  --hero-h1: clamp(2.6rem, 6.6vw, 5.6rem);
+  --hero-min-m: min(66svh, 640px);
+  --hero-min-l: 92svh;
+  /* corner radii (docs/DESIGN-RULES.md): three sizes, plus the pill for chips and filters */
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-lg: 24px;
   --lime: #d8f14c;
   --lavender: #dcd5ff;
 

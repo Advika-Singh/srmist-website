@@ -4,12 +4,12 @@ import { READ_ON, SECTION_BY_PATH } from '../data/sections.js'
 import { Footer, SiteHeader } from '../shared.jsx'
 import { FX } from '../ui/fx.jsx'
 import LinkCards from '../ui/LinkCards.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import { labelFor } from '../lib/seo.js'
 import '../services.css'
 import '../styles/sections.css'
 
-// Each section's own hero shape, pattern and photo treatment (see styles/identity.css).
+// Each section's own hero look, picked from the menu in styles/identity.css (docs/DESIGN-RULES.md).
 const IDV = {
   '/colleges': 'idv-arcade',
   '/research/centres': 'idv-grid idv-duo',
@@ -44,7 +44,7 @@ export default function Section({ path }) {
     <>
       <SiteHeader />
       <main className={`interior svc sx-page sx-${page.path.replace(/\W+/g, '-').replace(/^-|-$/g, '')} ${IDV[page.path] ?? ''}`} id="main" tabIndex={-1}>
-        <SvcHero eyebrow={page.eyebrow} title={page.h1} lede={page.lede} img={page.img} pos={page.pos}>
+        <Hero layout="band" eyebrow={page.eyebrow} title={page.h1} lede={page.lede} img={page.img} pos={page.pos}>
           <nav className="vis-quick" aria-label="On this page">
             {page.groups.map((g) => (
               <a key={g.id} href={`#${g.id}`}>
@@ -52,7 +52,7 @@ export default function Section({ path }) {
               </a>
             ))}
           </nav>
-        </SvcHero>
+        </Hero>
 
         <section className="svc-wrap vis-grid">
           {page.groups.map((g) => {

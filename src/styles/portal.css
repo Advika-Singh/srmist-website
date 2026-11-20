@@ -26,7 +26,7 @@
 .pt-form { display: grid; gap: var(--s-4); background: var(--surface, #fff); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s-4) }
 .pt-field { display: grid; gap: 6px; min-width: 0 }
 .pt-field label, .pt-type legend { font-weight: 600; font-size: 15px }
-.pt-field input, .pt-field textarea, .pt-field select { width: 100%; min-height: var(--tap); padding: 10px 12px; font: inherit; font-size: 16px; color: var(--text); background: var(--paper); border: 1px solid var(--line-strong); border-radius: 10px }
+.pt-field input, .pt-field textarea, .pt-field select { width: 100%; min-height: var(--tap); padding: 10px 12px; font: inherit; font-size: 16px; color: var(--text); background: var(--paper); border: 1px solid var(--line-strong); border-radius:var(--r-md) }
 .pt-field textarea { resize: vertical; min-height: 120px }
 .pt-field small { color: var(--text-muted); font-size: var(--fs-small) }
 .pt-field.has-error input, .pt-field.has-error textarea { border-color: var(--danger); border-width: 2px }
@@ -49,7 +49,7 @@
 .pt-badge--approved { color: var(--success) }
 .pt-badge--rejected { color: var(--danger) }
 .pt-badge--withdrawn { color: var(--text-muted) }
-.pt-reason { margin: var(--s-2) 0; padding: var(--s-3); border-left: 4px solid var(--danger); background: var(--paper); border-radius: 6px; font-size: 15px }
+.pt-reason { margin: var(--s-2) 0; padding: var(--s-3); border-left: 4px solid var(--danger); background: var(--paper); border-radius:var(--r-sm); font-size: 15px }
 
 .pt-filters { display: grid; gap: var(--s-3); grid-template-columns: 1fr 1fr; background: var(--surface, #fff); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s-4); margin: var(--s-3) 0 }
 .pt-filters .pt-actions, .pt-filters .pt-field:nth-child(n+5) { grid-column: 1 / -1 }

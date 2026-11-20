@@ -1,5 +1,5 @@
 import { Footer, SiteHeader } from '../shared.jsx'
-import SvcHero from '../ui/SvcHero.jsx'
+import Hero from '../ui/Hero.jsx'
 import '../services.css'
 
 // Plain-language notice. It describes what THIS concept site does today (read from the code), nothing more.
@@ -53,7 +53,7 @@ export default function Privacy() {
     <>
       <SiteHeader />
       <main className="interior svc" id="main" tabIndex={-1}>
-        <SvcHero
+        <Hero layout="band"
           eyebrow="Privacy and cookies"
           title="What we do with your data."
           lede="In plain words: what this site collects, what stays in your browser, who sees it, and how to ask us to change or delete it."

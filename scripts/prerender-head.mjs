@@ -37,7 +37,7 @@ export const APPLY_STEPS = ['/apply', '/apply/programme', '/apply/details', '/ap
 const paths = new Set(['/', ...Object.keys(PAGE_DESC), ...Object.keys(PAGE_TITLE), ...SLUGS.map((s) => `/${s}`), ...APPLY_STEPS])
 for (const path of paths) {
   let html = headFor(base, path)
-  if (path.startsWith('/portal')) html = html.replace('</head>', '  <meta name="robots" content="noindex,nofollow" />\n  </head>') // staff pages stay out of search
+  if (path.startsWith('/portal') || path === '/style-guide') html = html.replace('</head>', '  <meta name="robots" content="noindex,nofollow" />\n  </head>') // staff pages stay out of search
   if (path === '/') {
     writeFileSync(new URL('index.html', DIST), html)
     continue
