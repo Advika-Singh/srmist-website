@@ -77,6 +77,7 @@ export const PAGE_DESC = {
   '/portal/approvals': 'Approvers review pending announcements and events, then approve or reject each with a reason.',
   '/portal/logs': 'The permanent record of every portal action: who posted, who approved or rejected, and when.',
   '/portal/content': 'Write and review the news, FAQ answers and site text that appear on the public site, with an approver publishing each change.',
+  '/site-map': 'Every page of the SRMIST site in one list, grouped by menu, section and detail pages, with links to the official site marked.',
   '/announcements': 'Announcements posted by university staff and approved before they appear.',
   '/dates': 'SRMJEEE 2027 application deadlines and exam days in one list, with a calendar file to add them to your phone.',
   '/privacy': 'What this site collects, what stays in your browser, and how to ask us to change or delete data.',

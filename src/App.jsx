@@ -47,6 +47,7 @@ const EventsCalendar = lazy(() => import('./pages/EventsCalendar.jsx'))
 const About = lazy(() => import('./pages/About.jsx'))
 const StyleGuide = lazy(() => import('./pages/StyleGuide.jsx'))
 const Announcements = lazy(() => import('./pages/Announcements.jsx'))
+const SiteMap = lazy(() => import('./pages/SiteMap.jsx'))
 const PortalApp = lazy(() => import('./pages/portal/PortalApp.jsx'))
 
 /** Our own pages are navigated in-app; .html pages and external links are left to the browser. */
@@ -59,11 +60,11 @@ function prefetch(href) {
   if (SECTION_PATHS.includes(path)) import('./pages/Section.jsx')
   else if (path.startsWith('/apply')) loadApply()
   else if (path === '/admissions') loadAdmissions()
-  else if (['/status', '/support', '/access-map', '/visitors', '/library', '/hostels', '/students', '/day', '/clubs', '/course-finder', '/staff-finder', '/srmjeee', '/placements', '/innovation', '/ask-a-student', '/privacy', '/terms', '/accessibility', '/campus-walk', '/parents', '/alumni/chapters', '/recruiters', '/compare', '/dates', '/events/calendar', '/announcements'].includes(path)) import(`./pages/${PAGE_FILE[path]}.jsx`)
+  else if (['/status', '/support', '/access-map', '/visitors', '/library', '/hostels', '/students', '/day', '/clubs', '/course-finder', '/staff-finder', '/srmjeee', '/placements', '/innovation', '/ask-a-student', '/privacy', '/terms', '/accessibility', '/campus-walk', '/parents', '/alumni/chapters', '/recruiters', '/compare', '/dates', '/events/calendar', '/announcements', '/site-map'].includes(path)) import(`./pages/${PAGE_FILE[path]}.jsx`)
   else if (path !== '/') loadInterior()
 }
 
-const PAGE_FILE = { '/status': 'Status', '/support': 'Support', '/access-map': 'AccessMap', '/visitors': 'Visitors', '/library': 'Library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'Day', '/clubs': 'Clubs', '/course-finder': 'CourseFinder', '/staff-finder': 'StaffFinder', '/srmjeee': 'Srmjeee', '/placements': 'Placements', '/innovation': 'Innovation', '/ask-a-student': 'StudentVoices', '/privacy': 'Privacy', '/terms': 'Terms', '/accessibility': 'Accessibility', '/campus-walk': 'CampusWalk', '/parents': 'Parents', '/alumni/chapters': 'AlumniChapters', '/recruiters': 'Recruiters', '/compare': 'Compare', '/dates': 'KeyDates', '/events/calendar': 'EventsCalendar', '/announcements': 'Announcements' }
+const PAGE_FILE = { '/status': 'Status', '/support': 'Support', '/access-map': 'AccessMap', '/visitors': 'Visitors', '/library': 'Library', '/hostels': 'Hostels', '/students': 'Students', '/day': 'Day', '/clubs': 'Clubs', '/course-finder': 'CourseFinder', '/staff-finder': 'StaffFinder', '/srmjeee': 'Srmjeee', '/placements': 'Placements', '/innovation': 'Innovation', '/ask-a-student': 'StudentVoices', '/privacy': 'Privacy', '/terms': 'Terms', '/accessibility': 'Accessibility', '/campus-walk': 'CampusWalk', '/parents': 'Parents', '/alumni/chapters': 'AlumniChapters', '/recruiters': 'Recruiters', '/compare': 'Compare', '/dates': 'KeyDates', '/events/calendar': 'EventsCalendar', '/announcements': 'Announcements', '/site-map': 'SiteMap' }
 
 const APPLY_STEPS = ['/apply', '/apply/programme', '/apply/details', '/apply/review']
 
@@ -172,6 +173,7 @@ export default function App() {
           <Route path="/dates" element={<KeyDates />} />
           <Route path="/events/calendar" element={<EventsCalendar />} />
           <Route path="/announcements" element={<Announcements />} />
+          <Route path="/site-map" element={<SiteMap />} />
           <Route path="/portal" element={<PortalApp view="submit" />} />
           <Route path="/portal/login" element={<PortalApp view="login" />} />
           <Route path="/portal/mine" element={<PortalApp view="mine" />} />
